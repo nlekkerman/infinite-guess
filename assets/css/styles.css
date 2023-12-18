@@ -56,12 +56,13 @@ button {
     background-color: #f4f5f0;
 }
 #color-scoreboard-div {
-    border: 1px solid #ccc;
+  
     display: flex;
     justify-content: center;
     margin-left: 50px;
     align-items: center;
-    perspective: 1000px;
+    
+
 }
 
 #score-screen-number-div {
@@ -75,6 +76,7 @@ button {
     border-radius: 50%;
 }
 #answer-text {
+    border: 1px solid #ccc;
     padding: 5px;
     background-color: rgb(2, 158, 2);
     color: white;
@@ -290,8 +292,8 @@ button {
     align-items: center;
     align-self: center;
     padding: 20px 10px;
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
     border: 3px solid gold;
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0 8px 16px rgba(237, 232, 232, 0.5);
