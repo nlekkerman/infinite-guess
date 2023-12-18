@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const startChallengeButton = document.getElementById('challenge-action-button')
     const declineChallengeButton = document.getElementById('decline-button')
     const acceptChallengeButton = document.getElementById('accept-button')
+    const closeDoubleItScreen = document.getElementById('challenge-button-close')
+
 
     const optOneBck = document.getElementById('option-one-background')
     const optTwoBck = document.getElementById('option-two-background')
@@ -192,6 +194,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //BUTTONS
 
+    closeDoubleItScreen.addEventListener('click', function () {
+        const iconOne = document.getElementById('icon-one')
+        iconOne.style.display = 'block'; // Make the timer visible
+        const iconTwo = document.getElementById('icon-two')
+        iconTwo.style.display = 'block'; // Make the timer visible
+        playBackgroundMusic();
+        stopBreak();
+        const challengeCloseScreen = document.getElementById('challenge-score-display');
+        challengeCloseScreen.style.display = 'none';
+        const challengeAcceptScreen = document.getElementById('challenge');
+        challengeAcceptScreen.style.display = 'none'; // Make the timer visible
+        resetStylesForCHallenge();
+
+    });  
+    function resetStylesForCHallenge() {
+        // Assign the numbers to HTML elements
+        let number1 = document.getElementById('option-one-number')
+        let number2 = document.getElementById('option-two-number')
+        let screenMessage = document.getElementById('final-chalange-score')
+        let backgroundOne = document.getElementById("option-one-background");
+        let backgroundTwo = document.getElementById("option-two-background");
+
+        backgroundOne.style.backgroundColor = 'white';
+        backgroundTwo.style.backgroundColor = 'white';
+
+        number1.style.display = 'none'
+        number2.style.display = 'none'
+
+    }
     declineChallengeButton.addEventListener('click', function () {
         console.log(" button clicked");
         const challengeScreen = document.getElementById('confirmation-section');
@@ -848,7 +879,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const anwerText = document.getElementById('answer-text');
         const challengeScoreScreen = document.getElementById('challenge-score-display');
         const bonusScreen = document.getElementById('bonus-screen-section');
-        const turboExitScreen = document.getElementById('instruction-section');
+        const turboExitScreen = document.getElementById('exit-turbo-section');
         const scoreBoardBackground = document.getElementById('score-board-div');
     
         themeLinks.forEach(link => link.classList.remove('active'));
