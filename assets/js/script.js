@@ -67,15 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Audio controls
 
-     // Function to play the background music
-     function playBackgroundMusic() {
+    // Function to play the background music
+    function playBackgroundMusic() {
 
         if (isMusicOn) {
             backgroundMusic.play();
         }
     }
 
-    
+
     function pauseBackgroundMusic() {
         if (backgroundMusic) {
             backgroundMusic.pause();
@@ -101,7 +101,16 @@ document.addEventListener('DOMContentLoaded', function () {
             buttonClickSound.play();
         }
 
+    } 
+    function playbonusMusic() {
+        if (isSoundOn) {
+            bonusGameMusic.play();
+        }
+
     }
+    let consecutiveCorrectAnswers = 0;
+
+    isBonus = false;
 
 
     // Initial setup: Generate a random number when the page loads
@@ -161,22 +170,88 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return isCorrect;
     }
-    // Update higher/lower title and guessing number when minus button is clicked
+    // Example: Update higher/lower title and guessing number when minus button is clicked
     minusButton.addEventListener('click', function () {
+        startShaking();
 
         playButtonClickSound();
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'minus');
 
         if (isCorrect) {
-            playRightAnswerSound();
+            console.log(isMusicOn + " correct  minus button")
+
+            // Increment the score if the guess is correct
             let currentScore = parseInt(scoreText.textContent, 10);
-            scoreText.textContent = Math.max(0, currentScore + 1);
+
+            if (consecutiveCorrectAnswers === 5) {
+                // Make the bonus screen section visible
+                isBonus = true;
+                pauseBackgroundMusic();
+                document.getElementById('bonus-screen-section').style.display = 'block';
+                resetConsecutiveCorrectAnswers();
+
+            } else {
+                consecutiveCorrectAnswers++;;
+            }
+
+
+
+
+            console.log(consecutiveCorrectAnswers + " Minus correct answer")
+
+            if (isBonus) {
+                resetConsecutiveCorrectAnswers();
+
+                playButtonClickSound();
+                scoreText.textContent = Math.max(0, currentScore + 2);
+            } else {
+                if (currentScore > 0) {
+                    console.log(consecutiveCorrectAnswers + " MINUS BIGGER THAN 0  ")
+
+                    openChallenge();
+
+                } else {
+
+
+                }
+
+                scoreText.textContent = Math.max(0, currentScore + 1);
+            }
+
+            playRightAnswerSound();
+
+
+
 
         } else {
-playWrongAnswerSound();
+            resetConsecutiveCorrectAnswers();
+
+
+
+            console.log(isMusicOn + " wronbg MINUs button")
+
+            // Decrement the score if the guess is wrong
             let currentScore = parseInt(scoreText.textContent, 10);
-            scoreText.textContent = Math.max(0, currentScore - 1);
+
+            if (!isBonus && currentScore <= 0) {
+                resetConsecutiveCorrectAnswers();
+                openChallenge();
+
+            }
+
+
+            if (isBonus) {
+
+                resetConsecutiveCorrectAnswers();
+
+                scoreText.textContent = Math.max(0, currentScore - 2);
+            } else {
+                scoreText.textContent = Math.max(0, currentScore - 1);
+            }
+
+            playWrongAnswerSound();
+
         }
         currentGuess = newGuess;
         guessingNumberDiv.textContent = currentGuess;
@@ -186,26 +261,145 @@ playWrongAnswerSound();
 
     // Example: Update higher/lower title and guessing number when plus button is clicked
     plusButton.addEventListener('click', function () {
-playButtonClickSound();
+        console.log(isMusicOn + " button")
+        startShaking();
+        playButtonClickSound();
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'plus');
         if (isCorrect) {
+            console.log(isMusicOn + " correct button")
+
+            // Increment the score if the guess is correct
+            let currentScore = parseInt(scoreText.textContent, 10);
+
+            if (consecutiveCorrectAnswers === 5) {
+                // Make the bonus screen section visible
+                isBonus = true;
+                pauseBackgroundMusic();
+                document.getElementById('bonus-screen-section').style.display = 'block';
+                resetConsecutiveCorrectAnswers();
+
+            } else {
+
+            }
+
+
+            consecutiveCorrectAnswers++;;
+
+            if (isBonus) {
+                resetConsecutiveCorrectAnswers();
+
+                scoreText.textContent = Math.max(0, currentScore + 2);
+            } else {
+
+                let currentScore = parseInt(scoreText.textContent, 10);
+
+                if (currentScore > 0) {
+                    console.log(consecutiveCorrectAnswers + " NOW TEST IF BONUS  ")
+
+                    openChallenge();
+
+                } else {
+                    console.log(consecutiveCorrectAnswers + " OPEN CHALLANE IS SMALLER  ")
+
+                }
+
+                scoreText.textContent = Math.max(0, currentScore + 1);
+            }
+
             playRightAnswerSound();
-            let currentScore = parseInt(scoreText.textContent, 10);
-            scoreText.textContent = Math.max(0, currentScore + 1);
+
+
+
+            if (consecutiveCorrectAnswers === 5) {
+                // Make the bonus screen section visible
+                isBonus = true;
+                pauseBackgroundMusic();
+                playbonusMusic();
+                document.getElementById('bonus-screen-section').style.display = 'block';
+                resetConsecutiveCorrectAnswers();
+
+            } else {
+
+            }
+
         } else {
-            playWrongAnswerSound();
+            resetConsecutiveCorrectAnswers();
+
+
+            // Decrement the score if the guess is wrong
             let currentScore = parseInt(scoreText.textContent, 10);
-            scoreText.textContent = Math.max(0, currentScore - 1);
+            console.log(isMusicOn + " plus Wrong button")
+
+
+
+            if (currentScore < 0) {
+
+                currentScore = 0;
+            }
+
+            if (isBonus) {
+                if (currentScore <= 0) {
+
+                    currentScore = 0;
+                }
+                resetConsecutiveCorrectAnswers();
+
+                scoreText.textContent = Math.max(0, currentScore - 2);
+            } else {
+                if (currentScore <= 0) {
+
+                    currentScore = 0;
+                }
+                scoreText.textContent = Math.max(0, currentScore - 1);
+                resetConsecutiveCorrectAnswers();
+            }
+
+            playWrongAnswerSound();
         }
-
-
         currentGuess = newGuess;
         guessingNumberDiv.textContent = currentGuess;
         updateStyles(); // Apply styles after updating the number and score
 
     });
+  
+    function openChallenge() {
 
+        let randomOne = Math.floor(Math.random() * 7) + 1;
+        let randomTwo = Math.floor(Math.random() * 7) + 1;
+
+        if (randomOne === randomTwo) {
+            const challengeScreen = document.getElementById('challenge-screen-section');
+            const offerDisplay = document.getElementById('current-score-offer');
+            const doubleOfferDisplay = document.getElementById('double-score-offer');
+            offerNumber = parseInt(scoreText.textContent, 10);
+            playbonusMusic();
+            pauseBackgroundMusic();
+
+            //playbonusMusic();
+            if (offerDisplay) {
+                offerNumber = offerNumber + 1
+
+
+                offerDisplay.innerHTML = offerNumber;
+            } else {
+
+            }
+
+            if (doubleOfferDisplay) {
+                doubleOfferDisplay.innerHTML = offerNumber * 2;
+
+
+            } else {
+
+            }
+
+            challengeScreen.style.display = 'block';
+
+
+        }
+
+    }
 
     // Function to update the style of the guessing number and score text
     function updateStyles() {
@@ -245,6 +439,21 @@ playButtonClickSound();
         console.log(currentNumber + " CURRENT NUMBERERRRRRRRRRR")
         // Now, currentNumber is different from the previous one
         return currentNumber;
+    }
+
+    function startShaking() {
+        let element = document.getElementById('color-scoreboard-div');
+        element.classList.add('shaking');
+
+        // Remove the shaking class after the animation completes
+        setTimeout(function () {
+            element.classList.remove('shaking');
+        }, 500); // Adjust the time to match the animation duration
+
+    }
+    // Reset the counter when needed (e.g., after showing the bonus screen)
+    function resetConsecutiveCorrectAnswers() {
+        consecutiveCorrectAnswers = 0;
     }
 
 });
