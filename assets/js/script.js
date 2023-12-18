@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const minusButton = document.getElementById('minus-button');
     const answerText = document.getElementById('color-scoreboard-div');
     const scoreText = document.getElementById('score-screen-number-div');
+    const startChallengeButton = document.getElementById('challenge-action-button')
+
 
     const buttonClickSound = document.getElementById('button-click-sound');
     const rightAnswerSound = document.getElementById('right-answer-sound');
@@ -113,6 +115,14 @@ document.addEventListener('DOMContentLoaded', function () {
     isBonus = false;
 
 
+    startChallengeButton.addEventListener('click', function () {
+        const challengeSection = document.getElementById('challenge-screen-section');
+        const confirmationScreen = document.getElementById('confirmation-section');
+        challengeSection.style.display = 'none';
+        confirmationScreen.style.display = 'block';
+      
+        playButtonClickSound();
+    });
     // Initial setup: Generate a random number when the page loads
     let currentGuess = generateRandomNumber();
     guessingNumberDiv.textContent = currentGuess;

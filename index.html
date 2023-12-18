@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Participate in a numeric guessing game. Predict whether the next number in the sequence is higher or lower within the range of 0 to 100.">
+    <meta name="description"
+        content="Participate in a numeric guessing game. Predict whether the next number in the sequence is higher or lower within the range of 0 to 100.">
 
-    <meta name="keywords" content="Game, Guess, Challenge, Number, Mystery, Challenge, Higher, Lower, Fun, Play, Strategy, Test, Master, Mind, Accuracy, Difficulty, Riddle, Estimation, Instinct">
+    <meta name="keywords"
+        content="Game, Guess, Challenge, Number, Mystery, Challenge, Higher, Lower, Fun, Play, Strategy, Test, Master, Mind, Accuracy, Difficulty, Riddle, Estimation, Instinct">
     <meta name="author" content="Nikola Simic">
 
     <!-- Add CSS stylesheet link -->
@@ -14,6 +16,7 @@
 
     <!-- Add any additional meta tags or scripts here -->
 </head>
+
 <body>
 
     <audio id="right-answer-sound" src="assets/audio/correct.mp3"></audio>
@@ -31,7 +34,7 @@
         Your browser does not support the audio element.
     </audio>
 
-  
+
     <audio id="background-music-1" loop>
         <source src="assets/audio/nice-touch.wav" type="audio/mp3">
         Your browser does not support the audio element.
@@ -49,6 +52,48 @@
                 <p class="score-text">0</p>
             </div>
         </section>
+
+        <!-- challenge accept section-->
+        <section id="challenge-screen-section">
+            <div id="flex-challange-container">
+                <div id="title-challange-container">
+
+                    <h2 class="challange-title-class"> WELCOME TO CHALLANGE</h2>
+                </div>
+
+                <div id="double-or-nothing">
+                    <p></p>
+                    <h3 id="double-it-title">DOUBLE OR NOTHING!</h3>
+                    <!-- Button to start bonus game -->
+                    <div class="button-container">
+                        <button id="challenge-action-button">Start Challenge</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+        
+        <section id="confirmation-section">
+            <h2>CONFIRM/DECLINE</h2>
+
+            <div id="confirmation-contianer-div">
+
+                <p>Are you ready to risk everything?</p>
+
+                <div id="challange-offer-container">
+                    <p>You can double your current score <a id="current-score-offer"> </a> to <a
+                            id="double-score-offer"></a> or you can get back to 0</p>
+                </div>
+                <div class="button-container">
+                    <button id="accept-button">Accept</button>
+                    <button id="decline-button">Decline</button>
+                </div>
+            </div>
+
+        </section>
+
         <section id="sound-control" class="dropdown">
             <button id="settings" class="dropbtn"><i class="fas fa-cog"></i></button>
             <div class="dropdown-content">
@@ -112,9 +157,9 @@
         <!-- Add footer content, links, or other information here -->
     </footer>
 
-     <!-- Add script link -->
-     <script src="assets/js/script.js"></script>
-     
+    <!-- Add script link -->
+    <script src="assets/js/script.js"></script>
+
     <!-- Font Awesome Script -->
     <script src="https://kit.fontawesome.com/3b20d96fa9.js" crossorigin="anonymous"></script>
 </body>
