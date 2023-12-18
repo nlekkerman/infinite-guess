@@ -568,6 +568,37 @@ footer p {
     text-align: center;
     color: #f9f9f9;
 }
+
+
+#exit-turbo-section div h5 {
+    padding: 10px;
+    background-color: rgba(95, 34, 1, 0.9);
+    border-radius: 15px;
+    border: 2px solid white;
+    font-size: 1rem;
+
+}
+
+#exit-turbo-section div h2 {
+    padding: 30px;
+    border: 2px solid white;
+    border-radius: 25px;
+    background-color: rgba(95, 34, 1, 0.9);
+
+
+}
+
+.turbo-score-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+
+}
+
 /*animations*/
 @keyframes moveAnimation{
 

@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const acceptChallengeButton = document.getElementById('accept-button')
     const closeDoubleItScreen = document.getElementById('challenge-button-close')
 
+    const startBonusGameButton = document.getElementById('action-button');
+    const exitTurboButton = document.getElementById('exit-turbo-btn');
 
     const optOneBck = document.getElementById('option-one-background')
     const optTwoBck = document.getElementById('option-two-background')
@@ -192,7 +194,81 @@ document.addEventListener('DOMContentLoaded', function () {
     isBonus = false;
 
     //BUTTONS
+    startBonusGameButton.addEventListener('click', function () {
+        isBonus = true;
+        console.log(isBonus);
+        document.getElementById('bonus-screen-section').style.display = 'none';        // Store the initial value of the score
+        initialScore = parseInt(scoreText.textContent, 10);
+        playButtonClickSound();
+        playChaseMusic();
 
+        function countdownTimer(seconds) {
+            const timerElement = document.getElementById('timer');
+            timerElement.style.backgroundColor = 'white'
+            higherLowerTitle.innerHTML = "TURBO BONUS"
+            function updateDisplay() {
+                timerElement.style.display = 'block'; // Make the timer visible
+                timerElement.innerHTML = `Time: ${seconds} sec`;
+
+
+                // Example action: log a message to the console
+                console.log(`Performing action at ${seconds} seconds remaining`);
+            }
+
+            function count() {
+                updateDisplay();
+                if (seconds > 0) {
+                    // Check if it's the last 5 seconds
+                    if (seconds <= 9) {
+                        playAlarm();
+                        blinkRedBackground(); // Call the blink function
+                    }
+                    seconds--;
+                    setTimeout(count, 1000); // Call count() again after 1000 milliseconds (1 second)
+                } else {
+                    timerElement.innerHTML = "Time's up!";
+                    higherLowerTitle.innerHTML = "Higher or Lower"
+                    document.getElementById('exit-turbo-section').style.display = 'block';
+                  
+                    finalScore = parseInt(scoreText.textContent, 10);
+                    pauseAlarm();
+                    stopChaseMusic();
+                    playbonusMusic();
+                    let scoreDifference = finalScore - initialScore;
+
+
+
+
+
+                    // numberElement.style.backgroundColor = rgba(245, 245, 245, 0.8);
+
+                    // Set scoreDifference as inner HTML for the element with ID "turbo-score"
+                    let turboScoreElement = document.getElementById('turbo-score');
+                    if (turboScoreElement) {
+                        turboScoreElement.innerHTML = scoreDifference;
+                    } else {
+                        console.error('Element with ID "turbo-score" not found.');
+                    }
+                    console.log(finalScore + " final score")
+                    console.log(scoreDifference + " difference score")
+
+                    isBonus = false;
+
+                    console.log(isBonus + "game over");
+
+                    // Additional actions to be performed when the timer reaches zero
+                }
+
+
+            }
+
+            count(); // Start the countdown
+        }
+
+        // Set the countdown time (60 seconds in this case)
+        countdownTimer(20);
+
+    });
     closeDoubleItScreen.addEventListener('click', function () {
         const iconOne = document.getElementById('icon-one')
         iconOne.style.display = 'block'; // Make the timer visible
@@ -222,6 +298,18 @@ document.addEventListener('DOMContentLoaded', function () {
         number2.style.display = 'none'
 
     }
+    exitTurboButton.addEventListener('click', function () {
+        console.log(" button clicked");
+        const instruction = document.getElementById('instruction-section');
+        instruction.style.display = 'none'; // Make the timer visible
+        const timerElement = document.getElementById('timer');
+        timerElement.style.backgroundColor = 'white';
+        timerElement.style.display = 'none';
+
+        playBackgroundMusic();
+        playButtonClickSound();
+
+    });
     declineChallengeButton.addEventListener('click', function () {
         console.log(" button clicked");
         const challengeScreen = document.getElementById('confirmation-section');
@@ -299,6 +387,7 @@ document.addEventListener('DOMContentLoaded', function () {
             answerText.style.fontWeight = "700"
             answerText.style.fontSize = "1.5rem"
             answerText.style.fontFamily = "Acme";
+            displayRandomMessage('encouraging')
 
 
             isCorrect = true;
@@ -310,6 +399,7 @@ document.addEventListener('DOMContentLoaded', function () {
             answerText.style.fontWeight = "700"
             answerText.style.fontSize = "1.5rem"
             answerText.style.fontFamily = "Acme";
+            displayRandomMessage('discouraging')
 
 
             isCorrect = false;
@@ -681,21 +771,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function displayRandomMessage(messageType) {
         const encouragingMessages = [
-            "Great job! You're doing fantastic!",
-            "Keep it up! You're on the right track.",
-            "Awesome! You're getting better.",
-            "You're doing well! Keep pushing.",
-            "Fantastic! You're making progress."
+            "Brilliant! ",
+            "Outstanding work! You're unstoppable.",
+            "Fantastic effort! You're excelling.",
+            "Superb!",
+            "Well done!",
+            "Impressive! You're making it look easy.",
+            "Exceptional! ",
+            "Incredible!",
+            "Remarkable! You're a true star."
         ];
 
         const discouragingMessages = [
-            "Hmm, not bad. You're doing okay.",
-            "Keep trying! You'll get there.",
-            "It's okay, everyone has tough moments.",
-            "Don't give up! You can do it.",
-            "You'll improve with practice. Keep going."
+            "Oops, that didn't go as planned. ",
+            "It happens to the best of us.",
+            "Struggling a bit? ",
+            "It's a tough one.",
+            "Hmm, not the result you hoped for.",
+            "Challenges make us stronger.",
+            "Don't be discouraged!",
+            "Facing hurdles? ",
+            "Tough break.",
+           
         ];
-
+        
         const messagesArray = (messageType === 'encouraging') ? encouragingMessages : discouragingMessages;
 
         const randomIndex = Math.floor(Math.random() * messagesArray.length);
@@ -1088,3 +1187,15 @@ function applyTheme(selectedThemeId) {
     }
 }
 
+
+function blinkRedBackground() {
+    let timerElement = document.getElementById('timer');
+    let numberElement = document.getElementById('guessing-number-div');
+
+    timerElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? '' : 'red';
+    timerElement.style.color = (timerElement.style.backgroundColor === 'red') ? 'black' : 'white';
+    numberElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? '' : 'red';
+
+    // Play the warning sound
+    //warningSound.play();
+}
