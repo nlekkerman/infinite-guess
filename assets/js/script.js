@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const musicControlButton = document.getElementById('music-on-off');
 
     const backgroundMusic = document.getElementById('background-music-1');
+    const bonusGameMusic = document.getElementById('bonus-game-music');
+    const chaseGameMusic = document.getElementById('chase-game-music');
+    const tenseGameMusic = document.getElementById('tense-game-music');
+    const breaksMusic = document.getElementById('break-music');
 
     const higherLowerTitle = document.getElementById('higher-lower-title-id');
     const guessingNumberDiv = document.getElementById('guessing-number-div');
@@ -17,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const startChallengeButton = document.getElementById('challenge-action-button')
     const declineChallengeButton = document.getElementById('decline-button')
     const acceptChallengeButton = document.getElementById('accept-button')
+
+    const optOneBck = document.getElementById('option-one-background')
+    const optTwoBck = document.getElementById('option-two-background')
 
     const buttonClickSound = document.getElementById('button-click-sound');
     const rightAnswerSound = document.getElementById('right-answer-sound');
@@ -68,12 +75,67 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('isMusicOn', JSON.stringify(isMusicOn))
     });
 
+    let isMusicPlaying = false;
+
+    function playChaseMusic() {
+        if (isMusicOn && !isMusicPlaying) {
+            chaseGameMusic.play();
+            isMusicPlaying = true;
+        }
+    }
+
+    function playTenseMusic() {
+        if (isMusicOn && !isMusicPlaying) {
+            tenseGameMusic.play();
+            isMusicPlaying = true;
+        }
+    }
+
+    function stopChaseMusic() {
+        if (isMusicOn) {
+            chaseGameMusic.pause();
+            chaseGameMusic.currentTime = 0; // Reset the playback position to the beginning
+            isMusicPlaying = false;
+        }
+    }
     // Function to play the background music
     function playBackgroundMusic() {
 
         if (isMusicOn) {
             backgroundMusic.play();
         }
+    }
+
+    // Function to play the alarm sound every second
+    function playAlarm() {
+        const audio = document.getElementById("alarmAudio");
+        if (isSoundOn) {
+            audio.play();
+        }
+
+    }
+    function pauseAlarm() {
+        const audio = document.getElementById("alarmAudio");
+
+        audio.pause();
+
+
+    }
+
+
+    function playCorrectCheer() {
+        const audio = document.getElementById("correct");
+        if (isSoundOn) {
+            audio.play();
+        }
+
+    }
+    function playWronHmmm() {
+        const audio = document.getElementById("wrong");
+        if (isSoundOn) {
+            audio.play();
+        }
+
     }
 
 
@@ -109,6 +171,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
     }
+    
+    function stopTenseMusic() {
+        if (isMusicOn) {
+            tenseGameMusic.pause();
+            tenseGameMusic.currentTime = 0; // Reset the playback position to the beginning
+            isMusicPlaying = false;
+        }
+    }
+
+    function stopBreak() {
+        if (isMusicOn) {
+            breaksMusic.pause();
+
+        }
+    }
     let consecutiveCorrectAnswers = 0;
 
     isBonus = false;
@@ -120,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const challengeScreen = document.getElementById('confirmation-section');
         playBackgroundMusic();
         playButtonClickSound();
-       // stopBreak();
+        stopBreak();
 
         challengeScreen.style.display = 'none'; // Make the timer visible
 
@@ -130,15 +207,15 @@ document.addEventListener('DOMContentLoaded', function () {
         stopSwitching = false; // Reset the flag
         // Start switching colors every half second
 
-        //stopBreak();
-       // intervalId = setInterval(switchColors, 500);
+        stopBreak();
+       intervalId = setInterval(switchColors, 500);
       
         const challengeAcceptScreen = document.getElementById('challenge');
         challengeAcceptScreen.style.display = 'block'; // Make the timer visible
         const confirmationScreen = document.getElementById('confirmation-section');
         confirmationScreen.style.display = 'none';
         playButtonClickSound();
-      // playTenseMusic();
+       playTenseMusic();
 
     });
 
@@ -400,7 +477,200 @@ document.addEventListener('DOMContentLoaded', function () {
         updateStyles(); // Apply styles after updating the number and score
 
     });
-  
+    let intervalId; // Declare intervalId in the outer scope
+
+    optOneBck.addEventListener('click', function () {
+
+
+
+        stopSwitching = true; // Set the flag to stop switching
+        clearInterval(intervalId); // Stop the blinking
+        const iconTwo = document.getElementById('icon-two')
+        iconTwo.style.display = 'none'; // Make the timer visible
+        const iconOne = document.getElementById('icon-one')
+        iconOne.style.display = 'none'; // Make the timer visible
+
+        const challengeAcceptScreen = document.getElementById('challenge-score-display');
+        challengeAcceptScreen.style.opacity = 0;
+        challengeAcceptScreen.style.display = 'block'; // Make the timer visible
+
+       stopTenseMusic();
+
+        generateAndCompareNumbers();
+        setTimeout(function () {
+            challengeAcceptScreen.style.transition = 'opacity 1s';
+            challengeAcceptScreen.style.opacity = 1;
+
+
+
+        }, 700); // Delay for 2 seconds
+
+
+    });
+
+
+    optTwoBck.addEventListener('click', function () {
+
+
+        stopSwitching = true; // Set the flag to stop switching
+     clearInterval(intervalId); // Stop the blinking
+        const iconOne = document.getElementById('icon-one')
+        iconOne.style.display = 'none'; // Make the timer visible
+        const iconTwo = document.getElementById('icon-two')
+        iconTwo.style.display = 'none'; // Make the timer visible
+
+        const challengeAcceptScreen = document.getElementById('challenge-score-display');
+        challengeAcceptScreen.style.opacity = 0;
+
+
+        challengeAcceptScreen.style.display = 'block'; // Make the timer visible
+      stopTenseMusic();
+        generateAndCompareNumbersForTwo();
+        setTimeout(function () {
+
+            challengeAcceptScreen.style.transition = 'opacity 1s';
+            challengeAcceptScreen.style.opacity = 1;
+        }, 700); // Delay for 2 seconds
+
+
+    });
+
+    function generateAndCompareNumbersForTwo() {
+        // Generate random numbers between 1 and 100
+        let randomNumber1 = Math.floor(Math.random() * 100) + 1;
+        let randomNumber2 = Math.floor(Math.random() * 100) + 1;
+
+
+
+        // Assign the numbers to HTML elements
+        let number1 = document.getElementById('option-one-number')
+        let number2 = document.getElementById('option-two-number')
+        let screenMessage = document.getElementById('final-chalange-score')
+
+        number2.innerText = randomNumber2;
+        number1.innerText = randomNumber1;
+
+        number1.style.display = 'block'
+        number2.style.display = 'block'
+
+        let backgroundOne = document.getElementById("option-one-background");
+        let backgroundTwo = document.getElementById("option-two-background");
+        let initialScore = parseInt(scoreText.textContent, 10);
+
+
+        if (randomNumber1 < randomNumber2) {
+            playCorrectCheer();
+
+            displayRandomMessage('encouraging')
+            scoreText.innerText = initialScore * 2
+            screenMessage.style.color = 'white';
+            screenMessage.style.backgroundColor = 'green'
+            backgroundOne.style.backgroundColor = 'red';
+            backgroundTwo.style.backgroundColor = 'green';
+            screenMessage.textContent = 'CORRRREEECT!!!';
+
+
+        } else if (randomNumber2 < randomNumber1) {
+            displayRandomMessage('discouraging')
+            playWronHmmm();
+            scoreText.innerText = initialScore * 0
+            screenMessage.textContent = 'WROOOONG!!!';
+            screenMessage.style.backgroundColor = 'red';
+            screenMessage.style.color = 'white';
+            backgroundOne.style.backgroundColor = 'green';
+            backgroundTwo.style.backgroundColor = 'red';
+
+
+            // Add your logic to give points for correct guess in your game
+        } else {
+
+        }
+
+
+
+        // Return an object containing the generated numbers
+        return { randomNumber1, randomNumber2 };
+    }
+
+    function generateAndCompareNumbers() {
+        // Generate random numbers between 1 and 100
+        let randomNumber1 = Math.floor(Math.random() * 100) + 1;
+        let randomNumber2 = Math.floor(Math.random() * 100) + 1;
+
+        
+
+        // Assign the numbers to HTML elements
+        let number1 = document.getElementById('option-one-number')
+        let number2 = document.getElementById('option-two-number')
+        let screenMessage = document.getElementById('final-chalange-score')
+
+        number2.innerText = randomNumber2;
+        number1.innerText = randomNumber1;
+        number1.style.display = 'block'
+        number2.style.display = 'block'
+        let initialScore = parseInt(scoreText.textContent, 10);
+
+        let backgroundOne = document.getElementById("option-one-background");
+        let backgroundTwo = document.getElementById("option-two-background");
+
+        if (randomNumber1 > randomNumber2) {
+            playCorrectCheer();
+        
+            displayRandomMessage('encouraging')
+            scoreText.innerText = initialScore * 2
+            screenMessage.textContent = 'CORRRREEECT!!!';
+            screenMessage.style.backgroundColor = 'green';
+            screenMessage.style.color = 'white';
+            backgroundOne.style.backgroundColor = 'green'; 
+           
+          
+            backgroundTwo.style.backgroundColor = 'red';
+
+        } else if (randomNumber1 < randomNumber2) {
+            scoreText.innerText = initialScore * 0
+            playWronHmmm();
+        
+            screenMessage.style.backgroundColor = 'red';
+            screenMessage.style.color = 'white';
+            backgroundOne.style.backgroundColor = 'red';
+            backgroundTwo.style.backgroundColor = 'green';
+            screenMessage.textContent = 'WROOOONG!!!';
+
+        } else {
+
+        }
+
+
+
+        // Return an object containing the generated numbers
+        return { randomNumber1, randomNumber2 };
+    }
+
+    
+function displayRandomMessage(messageType) {
+    const encouragingMessages = [
+        "Great job! You're doing fantastic!",
+        "Keep it up! You're on the right track.",
+        "Awesome! You're getting better.",
+        "You're doing well! Keep pushing.",
+        "Fantastic! You're making progress."
+    ];
+
+    const discouragingMessages = [
+        "Hmm, not bad. You're doing okay.",
+        "Keep trying! You'll get there.",
+        "It's okay, everyone has tough moments.",
+        "Don't give up! You can do it.",
+        "You'll improve with practice. Keep going."
+    ];
+
+    const messagesArray = (messageType === 'encouraging') ? encouragingMessages : discouragingMessages;
+
+    const randomIndex = Math.floor(Math.random() * messagesArray.length);
+    const randomMessage = messagesArray[randomIndex];
+
+    document.getElementById('higher-lower-title-id').innerText = randomMessage;
+}
     function openChallenge() {
 
         let randomOne = Math.floor(Math.random() * 7) + 1;
@@ -414,7 +684,7 @@ document.addEventListener('DOMContentLoaded', function () {
             playbonusMusic();
             pauseBackgroundMusic();
 
-            //playbonusMusic();
+            playbonusMusic();
             if (offerDisplay) {
                 offerNumber = offerNumber + 1
 
@@ -438,6 +708,39 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
     }
+// Function to toggle between red and original color
+let switchDirection = true; // true for left, false for right
+let stopSwitching = false; // Flag to stop switching colors
+
+// Function to switch background colors between left and right
+function switchColors() {
+    if (stopSwitching) {
+        return; // Stop switching if the flag is true
+    }
+
+    const optionOneBackground = document.getElementById("option-one-background");
+    const optionTwoBackground = document.getElementById("option-two-background");
+    const iconOne = document.getElementById('icon-one');
+    const iconTwo = document.getElementById('icon-two');
+
+    // Set the background colors based on the switch direction
+    if (switchDirection) {
+        optionOneBackground.style.backgroundColor = "red";
+        optionTwoBackground.style.backgroundColor = "white";
+        iconOne.style.color = "white";
+        iconTwo.style.color = "";
+     
+    } else {
+        optionOneBackground.style.backgroundColor = "white";
+        optionTwoBackground.style.backgroundColor = "red";
+        iconOne.style.color = "";
+        iconTwo.style.color = "white";
+     
+    }
+
+    // Toggle the switch direction
+    switchDirection = !switchDirection;
+}
 
     // Function to update the style of the guessing number and score text
     function updateStyles() {
