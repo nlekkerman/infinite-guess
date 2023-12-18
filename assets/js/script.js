@@ -4,12 +4,105 @@ document.addEventListener('DOMContentLoaded', function () {
     const soundControl = document.getElementById('sound-control');
     const soundControlButton = document.getElementById('sound-on-off');
     const musicControlButton = document.getElementById('music-on-off');
+
+    const backgroundMusic = document.getElementById('background-music-1');
+
     const higherLowerTitle = document.getElementById('higher-lower-title-id');
     const guessingNumberDiv = document.getElementById('guessing-number-div');
     const plusButton = document.getElementById('plus-button');
     const minusButton = document.getElementById('minus-button');
     const answerText = document.getElementById('color-scoreboard-div');
     const scoreText = document.getElementById('score-screen-number-div');
+
+    const buttonClickSound = document.getElementById('button-click-sound');
+    const rightAnswerSound = document.getElementById('right-answer-sound');
+    const wrongAnswerSound = document.getElementById('wrong-answer-sound');
+
+
+
+    soundControl.addEventListener('click', function () {
+        soundControl.classList.toggle('active');
+    });
+    // Example: Toggle sound on/off
+    let isSoundOn = false; // Initial state
+    soundControlButton.addEventListener('click', function () {
+        isSoundOn = !isSoundOn;
+
+        // Update the icon based on the sound state
+        const icon = isSoundOn ? 'fa-volume-up' : 'fa-volume-mute';
+        const color = isSoundOn ? 'green' : 'red';
+        soundControlButton.innerHTML = `<i class="fas ${icon}" style="color: ${color};"></i>`;
+
+        // Toggle play/pause based on the sound state
+        if (isSoundOn) {
+
+            localStorage.setItem('isSoundOn', JSON.stringify(isSoundOn));
+        } else {
+
+            localStorage.setItem('isSoundOn', JSON.stringify(!isSoundOn));
+        }
+    });
+
+    let isMusicOn = false; // Initial state
+    musicControlButton.addEventListener('click', function () {
+        isMusicOn = !isMusicOn;
+
+        // Update the icon based on the sound state
+        const icon = isMusicOn ? 'fa-music' : 'fa-music';
+        const color = isMusicOn ? 'green' : 'red';
+        musicControlButton.innerHTML = `<i class="fas ${icon}" style="color: ${color};"></i>`;
+
+        // Toggle play/pause based on the sound state
+        if (isMusicOn) {
+
+            playBackgroundMusic();
+
+        } else {
+            pauseBackgroundMusic();
+
+        }
+        localStorage.setItem('isMusicOn', JSON.stringify(isMusicOn))
+    });
+
+
+    //Audio controls
+
+     // Function to play the background music
+     function playBackgroundMusic() {
+
+        if (isMusicOn) {
+            backgroundMusic.play();
+        }
+    }
+
+    
+    function pauseBackgroundMusic() {
+        if (backgroundMusic) {
+            backgroundMusic.pause();
+        }
+    }
+    function playRightAnswerSound() {
+        if (isSoundOn) {
+            rightAnswerSound.play();
+        }
+        console.log(isSoundOn)
+
+    }
+
+    function playWrongAnswerSound() {
+
+        if (isSoundOn) {
+            wrongAnswerSound.play();
+        }
+    }
+
+    function playButtonClickSound() {
+        if (isSoundOn) {
+            buttonClickSound.play();
+        }
+
+    }
+
 
     // Initial setup: Generate a random number when the page loads
     let currentGuess = generateRandomNumber();
@@ -71,17 +164,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update higher/lower title and guessing number when minus button is clicked
     minusButton.addEventListener('click', function () {
 
-
-
+        playButtonClickSound();
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'minus');
 
         if (isCorrect) {
+            playRightAnswerSound();
             let currentScore = parseInt(scoreText.textContent, 10);
             scoreText.textContent = Math.max(0, currentScore + 1);
 
         } else {
-
+playWrongAnswerSound();
             let currentScore = parseInt(scoreText.textContent, 10);
             scoreText.textContent = Math.max(0, currentScore - 1);
         }
@@ -93,13 +186,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Example: Update higher/lower title and guessing number when plus button is clicked
     plusButton.addEventListener('click', function () {
-
+playButtonClickSound();
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'plus');
         if (isCorrect) {
+            playRightAnswerSound();
             let currentScore = parseInt(scoreText.textContent, 10);
             scoreText.textContent = Math.max(0, currentScore + 1);
         } else {
+            playWrongAnswerSound();
             let currentScore = parseInt(scoreText.textContent, 10);
             scoreText.textContent = Math.max(0, currentScore - 1);
         }
