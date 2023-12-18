@@ -155,7 +155,12 @@ header {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     color: rgb(244, 244, 244);
 }
+/*FOOTER*/
 
+footer p {
+    display: flex;
+    justify-content: center;
+}
 
 
 
