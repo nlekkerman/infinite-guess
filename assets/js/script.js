@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     exitTurboButton.addEventListener('click', function () {
         console.log(" button clicked");
-        const instruction = document.getElementById('instruction-section');
+        const instruction = document.getElementById('exit-turbo-section');
         instruction.style.display = 'none'; // Make the timer visible
         const timerElement = document.getElementById('timer');
         timerElement.style.backgroundColor = 'white';
@@ -466,16 +466,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-            console.log(isMusicOn + " wronbg MINUs button")
 
             // Decrement the score if the guess is wrong
             let currentScore = parseInt(scoreText.textContent, 10);
 
-            if (!isBonus && currentScore <= 0) {
-                resetConsecutiveCorrectAnswers();
-                openChallenge();
-
-            }
+          
+           
+            
+    
 
 
             if (isBonus) {
@@ -804,8 +802,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function openChallenge() {
 
-        let randomOne = Math.floor(Math.random() * 7) + 1;
-        let randomTwo = Math.floor(Math.random() * 7) + 1;
+        let randomOne = Math.floor(Math.random() * 10) + 1;
+        let randomTwo = Math.floor(Math.random() * 10) + 1;
 
         if (randomOne === randomTwo) {
             const challengeScreen = document.getElementById('challenge-screen-section');
