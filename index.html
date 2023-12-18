@@ -44,7 +44,7 @@
             <h1 class="title">Infinite Guess</h1>
         </header>
         <section id="score-board-div">
-            <div id="logo-div"></div>
+
             <div id="color-scoreboard-div">
                 <p id="answer-text">Let's Go</p>
             </div>
@@ -99,7 +99,7 @@
 
                 <h2 id="challenge-h2">CHOOSE BIGGER</h2>
             </div>
-          
+
             <div id="number-container-challenege">
                 <div id="option-one-background" class="number-container-class">
                     <p id="option-one-number"></p>
@@ -122,28 +122,32 @@
 
         </div>
 
-        <section id="sound-control" class="dropdown">
-            <button id="settings" class="dropbtn"><i class="fas fa-cog"></i></button>
-            <div class="dropdown-content">
-                <p class="s-controi-title">SOUND</p>
-                <div id="sound">
-                    <button id="sound-on-off"><i class="fas fa-volume-mute sound-icon"></i></button>
-                    <button id="music-on-off"><i class="fas fa-music music-icon"></i></button>
-                </div>
-                <div class="dropdown">
-                    <div class="theme-div">
-                        <p class="s-controi-title">THEME</p>
-                        <a href="#" id="theme-default" class="theme-link active" class="theme-default">Default</a>
-                        <a href="#" id="theme-space" class="theme-link active">Space</a>
-                        <a href="#" id="theme-earth" class="theme-link active">Earth</a>
-                        <a href="#" id="theme-midgard" class="theme-link active">Fairy</a>
-                        <!-- Add more options as needed -->
+        <section id="control-container">
+            <div id="logo-div"><button id="exit-game-button" class="exit-game-button">QUIT</button></div>
+            <section id="sound-control" class="dropdown">
+                <button id="settings" class="dropbtn"><i class="fas fa-cog"></i></button>
+                <div class="dropdown-content">
+                    <p class="s-controi-title">SOUND</p>
+                    <div id="sound">
+                        <button id="sound-on-off"><i class="fas fa-volume-mute sound-icon"></i></button>
+                        <button id="music-on-off"><i class="fas fa-music music-icon"></i></button>
                     </div>
+                    <div class="dropdown">
+                        <div class="theme-div">
+                            <p class="s-controi-title">THEME</p>
+                            <a href="#" id="theme-default" class="theme-link active" class="theme-default">Default</a>
+                            <a href="#" id="theme-space" class="theme-link active">Space</a>
+                            <a href="#" id="theme-earth" class="theme-link active">Earth</a>
+                            <a href="#" id="theme-midgard" class="theme-link active">Fairy</a>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+    
                 </div>
-
-            </div>
-
+    
+            </section>
         </section>
+       
         <section id="challenge-screen-section">
             <div id="flex-challange-container">
                 <div id="title-challange-container">
@@ -176,7 +180,7 @@
 
                     <p id="double-it-title">Make correct <br> answers as much you can in 20 sec. </p>
                     <!-- Button to start bonus game -->
-                    
+
                 </div>
                 <div class="button-container">
                     <button id="action-button">Start Bonus Game</button>
@@ -194,7 +198,10 @@
                 <button id="exit-turbo-btn">EXIT</button>
             </div>
         </section>
+
+
         <section id="playground-section">
+
             <div id="timer"></div>
 
             <p id="higher-lower-title-id" class="higher-lower-title">Higher or Lower?</p>
