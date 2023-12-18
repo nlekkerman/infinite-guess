@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const minusButton = document.getElementById('minus-button');
     const answerText = document.getElementById('color-scoreboard-div');
     const scoreText = document.getElementById('score-screen-number-div');
-    const startChallengeButton = document.getElementById('challenge-action-button')
 
+    const startChallengeButton = document.getElementById('challenge-action-button')
+    const declineChallengeButton = document.getElementById('decline-button')
+    const acceptChallengeButton = document.getElementById('accept-button')
 
     const buttonClickSound = document.getElementById('button-click-sound');
     const rightAnswerSound = document.getElementById('right-answer-sound');
@@ -66,9 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('isMusicOn', JSON.stringify(isMusicOn))
     });
 
-
-    //Audio controls
-
     // Function to play the background music
     function playBackgroundMusic() {
 
@@ -113,6 +112,35 @@ document.addEventListener('DOMContentLoaded', function () {
     let consecutiveCorrectAnswers = 0;
 
     isBonus = false;
+
+    //BUTTONS
+
+    declineChallengeButton.addEventListener('click', function () {
+        console.log(" button clicked");
+        const challengeScreen = document.getElementById('confirmation-section');
+        playBackgroundMusic();
+        playButtonClickSound();
+       // stopBreak();
+
+        challengeScreen.style.display = 'none'; // Make the timer visible
+
+    });
+
+    acceptChallengeButton.addEventListener('click', function () {
+        stopSwitching = false; // Reset the flag
+        // Start switching colors every half second
+
+        //stopBreak();
+       // intervalId = setInterval(switchColors, 500);
+      
+        const challengeAcceptScreen = document.getElementById('challenge');
+        challengeAcceptScreen.style.display = 'block'; // Make the timer visible
+        const confirmationScreen = document.getElementById('confirmation-section');
+        confirmationScreen.style.display = 'none';
+        playButtonClickSound();
+      // playTenseMusic();
+
+    });
 
 
     startChallengeButton.addEventListener('click', function () {
