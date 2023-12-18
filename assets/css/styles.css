@@ -33,3 +33,51 @@ header {
     font-family: 'Lilita One', sans-serif;
     font-size: 2.5rem;
 }
+
+/*score board section*/
+#score-board-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    border: 3px solid #ccc;
+    background-color: #f4f5f0;
+}
+#color-scoreboard-div {
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+    align-items: center;
+    perspective: 1000px;
+}
+
+#score-screen-number-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    height: 50px;
+    width: 50px;
+    border: 3px solid gold;
+    background-color: silver;
+    border-radius: 50%;
+}
+#answer-text {
+    padding: 5px;
+    background-color: rgb(2, 158, 2);
+    color: white;
+    font-family: 'Acme', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.score-text {
+    padding: 5px;
+    color: white;
+    font-family: 'Acme', sans-serif;
+    font-weight: 700;
+    padding: 5px;
+    font-size: 1.5rem;
+    transform: translateZ(-100px);
+    transition: transform 0.5s ease-in-out;
+}
