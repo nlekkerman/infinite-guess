@@ -34,6 +34,18 @@ header {
     font-size: 2.5rem;
 }
 
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(0, 15, 54, 0.9);
+    margin: 5px 10px;
+    font-family: 'Oswald';
+    font-weight: 600;
+    border: 2px solid white;
+    border-radius: 25px;
+    cursor: pointer;
+}
 /*score board section*/
 #score-board-div {
     display: flex;
@@ -79,6 +91,82 @@ header {
     font-size: 1.5rem;
     transform: translateZ(-100px);
     transition: transform 0.5s ease-in-out;
+}
+
+/* SOUND CONTROL AND QUIT&SAVE*/
+#sound-control {
+    justify-content: center;
+    align-self: flex-end;
+    margin-top: 5px;
+    display: flex;
+    width: 20%;
+    flex-direction: row;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.dropdown button {
+    color: #3498db;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#sound-control .dropdown-content {
+    display: none;
+    margin-top: 35px;
+    margin-right: 40px;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    background-color: rgba(15, 57, 162, 0.3);
+    padding: 2px;
+    color: white;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.s-controi-title {
+    background-color: rgba(0, 94, 255, 0.9);
+    border: 1px solid gold;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+.theme-div {
+    background-color: rgba(255, 0, 0, 0.4);
+}
+.theme-link.active {
+    background-color: rgba(131, 2, 54, 0.7);
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    border-top-right-radius: 20%;
+    color: white;
+}
+
+#sound {
+    justify-content: center;
+    align-self: center;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+#sound-control .dropdown-content button {
+    display: block;
+    text-align: left;
+}
+#sound-on-off {
+    margin: 5px 0px;
+}
+#sound-on-off i {
+    font-size: 1rem;
+    color: red;
 }
 
 /*PLAYGROUND SECTION*/
