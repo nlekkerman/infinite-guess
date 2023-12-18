@@ -801,7 +801,259 @@ function switchColors() {
 
 
 
+//THEME
 
+// Get all the theme links
+let themeLinks = document.querySelectorAll('.theme-div a');
+document.addEventListener("DOMContentLoaded", function () {
+    // Check if a theme is already selected
+    const savedThemeId = localStorage.getItem('selectedTheme');
+    if (savedThemeId) {
+        applyTheme(savedThemeId);
+    }
+
+    // Add event listeners for theme selection
+    themeLinks.forEach(function (themeLink) {
+        themeLink.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default behavior of the anchor tag
+
+            // Remove 'active' class from all theme links
+            themeLinks.forEach(link => link.classList.remove('active'));
+
+            // Add 'active' class to the clicked theme link
+            themeLink.classList.add('active');
+
+            // Get the selected theme ID
+            const selectedThemeId = event.target.id;
+            localStorage.setItem('selectedTheme', selectedThemeId);
+
+            // Apply the selected theme
+
+            // Apply the selected theme
+            applyTheme(selectedThemeId);
+        });
+    });
+
+    function applyTheme(selectedThemeId) {
+        const contentDiv = document.getElementById("playground-section");
+        const challengeSection = document.getElementById("challenge-screen-section");
+        const confirmationSection = document.getElementById("confirmation-section");
+        const plusBtn = document.getElementById('plus-button');
+        const minusBtn = document.getElementById('minus-button');
+        const challengeButtonbackground = document.getElementById('challenge')
+        const higherLowerTitle = document.getElementById('higher-lower-title-id')
+        const scoreText = document.getElementById('score-screen-number-div');
+        const guessingNumber = document.getElementById('guessing-number-div');
+        const doubleItTitle = document.getElementById('double-it-title');
+        const anwerText = document.getElementById('answer-text');
+        const challengeScoreScreen = document.getElementById('challenge-score-display');
+        const bonusScreen = document.getElementById('bonus-screen-section');
+        const turboExitScreen = document.getElementById('instruction-section');
+        const scoreBoardBackground = document.getElementById('score-board-div');
+    
+        themeLinks.forEach(link => link.classList.remove('active'));
+    
+        // Add 'active' class to the clicked theme link
+        const selectedThemeLink = document.getElementById(selectedThemeId);
+        if (selectedThemeLink) {
+            selectedThemeLink.classList.add('active');
+        }
+    
+        if (selectedThemeId === 'theme-default') {
+    
+            contentDiv.style.backgroundImage = 'url("./assets/images/main-default-background.jpg")';
+            challengeSection.style.backgroundImage = 'url("./assets/images/default-challenge-screen.jpg")';
+            confirmationSection.style.backgroundImage = 'url("./assets/images/conf-sect-bck.jpg")';
+            challengeButtonbackground.style.backgroundImage = 'url("./assets/images/challenge-default.jpg")';
+            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/chall-screen-bck.jpg")';
+            bonusScreen.style.backgroundImage = 'url("./assets/images/bonus-def-bck.jpg")';
+            turboExitScreen.style.backgroundImage = 'url("./assets/images/exit-turbo-instruction-bck.jpg")';
+    
+            scoreBoardBackground.style.backgroundColor = "#f4f5f0"
+    
+    
+            plusBtn.style.backgroundColor = "green"
+            plusBtn.style.opacity = 0.8;
+            plusBtn.style.border = '3px solid white';
+            plusBtn.style.color = "white";
+    
+            minusBtn.style.backgroundColor = "red"
+            minusBtn.style.opacity = 0.8;
+            minusBtn.style.border = '3px solid white';
+            minusBtn.style.color = "white"
+    
+            higherLowerTitle.style.backgroundColor = "red"
+            higherLowerTitle.style.opacity = 0.8;
+            higherLowerTitle.style.color = "white"
+            higherLowerTitle.style.border = '3px solid gold';
+    
+    
+    
+            guessingNumber.style.backgroundColor = "black"
+            guessingNumber.style.opacity = 0.8;
+            guessingNumber.style.color = "white"
+            guessingNumber.style.border = '3px solid yellow';
+    
+            doubleItTitle.style.backgroundColor = "lightblue"
+            guessingNumber.style.opacity = 0.6;
+            doubleItTitle.style.color = "LaserLemon"
+            doubleItTitle.style.border = '3px solid indigo';
+    
+    
+    
+    
+            console.log('Default theme selected');
+        } else if (selectedThemeId === 'theme-space') {
+            contentDiv.style.backgroundImage = 'url("./assets/images/space-playground-bck.jpg")';
+            challengeSection.style.backgroundImage = 'url("./assets/images/challenge-space-bck.jpg")';
+            confirmationSection.style.backgroundImage = 'url("./assets/images/confirm-challenge-space-bck.jpg")';
+            challengeButtonbackground.style.backgroundImage = 'url("./assets/images/bonus-screen-space.jpg")';
+            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/challen-screen-space.jpg")';
+            bonusScreen.style.backgroundImage = 'url("./assets/images/bonus-screen-space.jpg")';
+            turboExitScreen.style.backgroundImage = 'url("./assets/images/exit-turbo-space.jpg")';
+    
+            scoreBoardBackground.style.backgroundColor = "#501682"
+    
+    
+            plusBtn.style.backgroundColor = "black"
+            plusBtn.style.opacity = 0.8;
+            plusBtn.style.border = '3px solid cyan';
+            plusBtn.style.color = "white";
+    
+            minusBtn.style.backgroundColor = "white"
+            minusBtn.style.opacity = 0.8;
+            minusBtn.style.border = '3px solid cyan';
+            minusBtn.style.color = "black"
+    
+            higherLowerTitle.style.backgroundColor = "lightblue"
+            higherLowerTitle.style.opacity = 0.8;
+            higherLowerTitle.style.color = "black"
+            higherLowerTitle.style.border = '3px solid cyan';
+    
+    
+    
+            scoreText.style.backgroundColor = "lightblue"
+            scoreText.style.opacity = 0.8;
+            scoreText.style.color = "purple"
+            scoreText.style.border = '2px solid cyan';
+    
+    
+            guessingNumber.style.backgroundColor = "HotMagenta"
+            guessingNumber.style.opacity = 0.8;
+            guessingNumber.style.color = "white"
+            guessingNumber.style.border = '3px solid cyan';
+    
+            doubleItTitle.style.backgroundColor = "indigo"
+            doubleItTitle.style.color = "LaserLemon"
+            doubleItTitle.style.border = '3px solid indigo';
+    
+    
+    
+    
+            console.log('Space theme selected');
+        } else if (selectedThemeId === 'theme-earth') {
+            contentDiv.style.backgroundImage = 'url("./assets/images/earth-playground.jpg")';
+            challengeSection.style.backgroundImage = 'url("./assets/images/challenge-earth.jpg")';
+            confirmationSection.style.backgroundImage = 'url("./assets/images/confirm-earth.jpg")';
+            bonusScreen.style.backgroundImage = 'url("./assets/images/by-two-bonus.jpg")';
+            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/challenge-back-earth.jpg")';
+            challengeButtonbackground.style.backgroundImage = 'url("./assets/images/double-it-earth.jpg")';
+    
+            scoreBoardBackground.style.backgroundColor = "#067d3a"
+    
+            plusBtn.style.backgroundColor = "#40E0D0"
+            plusBtn.style.opacity = 1;
+            plusBtn.style.color = "black"
+            plusBtn.style.border = '3px solid white';
+    
+            minusBtn.style.backgroundColor = "#FF10F0"
+            minusBtn.style.opacity = 0.8;
+            minusBtn.style.border = '3px solid white';
+            minusBtn.style.color = "black"
+    
+    
+            higherLowerTitle.style.backgroundColor = "black"
+            higherLowerTitle.style.opacity = 0.8;
+            higherLowerTitle.style.color = "white"
+            higherLowerTitle.style.border = '3px solid white';
+    
+    
+    
+            scoreText.style.backgroundColor = "red"
+            scoreText.style.opacity = 0.8;
+            scoreText.style.color = "purple"
+            scoreText.style.border = '2px solid black';
+    
+    
+            guessingNumber.style.backgroundColor = "green"
+            guessingNumber.style.opacity = 0.8;
+            guessingNumber.style.color = "white"
+            guessingNumber.style.border = '3px solid white';
+    
+            doubleItTitle.style.backgroundColor = "indigo"
+            doubleItTitle.style.color = "LaserLemon"
+            doubleItTitle.style.border = '3px solid indigo';
+            console.log('Earth theme selected');
+    
+    
+        } else if (selectedThemeId === 'theme-midgard') {
+            contentDiv.style.backgroundImage = 'url("./assets/images/fairy-background.jpg")';
+            challengeSection.style.backgroundImage = 'url("./assets/images/fairy-chall-bck.jpg")';
+            confirmationSection.style.backgroundImage = 'url("./assets/images/fairy-confirm.jpg")';
+            bonusScreen.style.backgroundImage = 'url("./assets/images/turbo-fairy.jpg")';
+            challengeButtonbackground.style.backgroundImage = 'url("./assets/images/fairy-double-it.jpg")';
+            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/chalenge-score.jpg")';
+            turboExitScreen.style.backgroundImage = 'url("./assets/images/turbo-fairy.jpg")';
+    
+            scoreBoardBackground.style.backgroundColor = "#e30e0e"
+    
+            plusBtn.style.backgroundColor = "#fc03f4"
+            plusBtn.style.color = "black"
+            plusBtn.style.opacity = 0.6;
+            plusBtn.style.border = '3px solid white';
+    
+            minusBtn.style.backgroundColor = "#30fc03"
+            minusBtn.style.opacity = 0.8;
+            minusBtn.style.border = '3px solid white';
+            minusBtn.style.color = "black"
+    
+    
+    
+    
+            higherLowerTitle.style.backgroundColor = "#f4fc03"
+            higherLowerTitle.style.opacity = 0.8;
+            higherLowerTitle.style.color = "black"
+            higherLowerTitle.style.border = '3px solid darkRed';
+    
+    
+    
+            scoreText.style.backgroundColor = "darkRed"
+            scoreText.style.color = "purple"
+            scoreText.style.border = '3px solid cyan';
+    
+    
+            guessingNumber.style.backgroundColor = "#9403fc"
+            guessingNumber.style.opacity = 0.6;
+            guessingNumber.style.color = "white"
+            guessingNumber.style.border = '3px solid white';
+    
+            doubleItTitle.style.backgroundColor = "indigo"
+            doubleItTitle.style.color = "LaserLemon"
+            doubleItTitle.style.opacity = 0.6;
+            doubleItTitle.style.border = '3px solid white';
+    
+            doubleItTitle.style.border = '3px solid indigo';
+    
+    
+            // Code to handle the Midgard theme
+            console.log('Midgard theme selected');
+        } else {
+            // Code for other themes or a default case
+            console.log('Unknown theme selected');
+        }
+    }
+    
+});
 
 
 
