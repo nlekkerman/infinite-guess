@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const answerText = document.getElementById('color-scoreboard-div');
     const scoreText = document.getElementById('score-screen-number-div');
 
+    const exitGameBtn = document.getElementById('exit-game-button');
+    const saveGameSection = document.getElementById('exit-game-screen');
+    const saveGameButton = document.getElementById('save-game-button');
+
+    const exitSaveGameBtn = document.getElementById('exit-save-game-button')
+
     const startChallengeButton = document.getElementById('challenge-action-button')
     const declineChallengeButton = document.getElementById('decline-button')
     const acceptChallengeButton = document.getElementById('accept-button')
@@ -194,6 +200,19 @@ document.addEventListener('DOMContentLoaded', function () {
     isBonus = false;
 
     //BUTTONS
+
+    saveGameButton.addEventListener('click', function () {
+
+        saveGame();
+        // Hide the form after saving
+        scoreText.textContent = '0';
+    });
+    exitSaveGameBtn.addEventListener('click', function () {
+        
+        saveGameSection.style.display = 'none'; // Make the timer visible
+       
+
+    });
     startBonusGameButton.addEventListener('click', function () {
         isBonus = true;
         console.log(isBonus);
@@ -345,6 +364,14 @@ document.addEventListener('DOMContentLoaded', function () {
         confirmationScreen.style.display = 'block';
 
         playButtonClickSound();
+    });
+
+    exitGameBtn.addEventListener('click', function () {
+        
+        saveGameSection.style.display = 'block';
+        displayHighScores();
+getGame();
+
     });
     // Initial setup: Generate a random number when the page loads
     let currentGuess = generateRandomNumber();
@@ -925,7 +952,94 @@ document.addEventListener('DOMContentLoaded', function () {
     function resetConsecutiveCorrectAnswers() {
         consecutiveCorrectAnswers = 0;
     }
+    function getGame() {
+        const scoreForm = document.getElementById("score-form")
  
+         // Retrieve the current score (replace this with your actual scoring logic)
+         const currentScore = parseInt(scoreText.textContent, 10);
+ 
+         // Retrieve high scores from local storage
+         const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+ 
+         // Check if current score is in top 10
+         const isInTop10 = isScoreInTop10(currentScore, highScores);
+            // Display the score form container
+            // scoreFormContainer = document.getElementById('score-form');
+         if (isInTop10) {
+ 
+             scoreForm.style.display = 'block'
+            
+     
+         } else {
+             scoreForm.style.display = 'none'
+             alert("Sorry, your score did not make it to the top 10.");
+         }
+ 
+     }
+  // Your existing isScoreInTop10 function
+  function isScoreInTop10(score, highScores) {
+    return highScores.length < 10 || score > highScores[highScores.length - 1].score;
+}
+  // Function to handle all save game logic
+  function saveGame() {
+    // Retrieve the username input value
+    const usernameInput = document.getElementById('username');
+    const username = usernameInput.value.trim();
+
+    if (username === "") {
+        alert("Please enter a valid username.");
+        return;
+    }
+
+    // Retrieve the current score (replace this with your actual scoring logic)
+    const currentScore = parseInt(scoreText.textContent, 10);
+
+    // Retrieve high scores from local storage
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+    // Check if current score is in top 10
+    const isInTop10 = isScoreInTop10(currentScore, highScores);
+
+    // Display the score form container
+    const scoreFormContainer = document.querySelector('.form-container');
+
+    if (isInTop10) {
+        // Check if the entered name already exists
+        if (highScores.some(item => item.name === username)) {
+            alert("This username already exists. Please choose a different one.");
+            return;
+        }
+
+        if (currentScore <= 0) {
+            alert("Score can't be 0");
+            return;
+        }
+
+        // Add the new score to the high scores list
+        highScores.push({ name: username, score: currentScore });
+
+        // Sort the high scores in descending order
+        highScores.sort((a, b) => b.score - a.score);
+
+        // Keep only the top 10 scores
+        highScores.splice(10);
+
+        // Save the updated high scores to local storage
+        localStorage.setItem('highScores', JSON.stringify(highScores));
+
+        // Display high scores in the list
+        displayHighScores();
+
+        
+    } else {
+        alert("Sorry, your score did not make it to the top 10.");
+    }
+
+    // Clear the username input field
+    usernameInput.value = "";
+}
+
+
 });
 
   
@@ -1185,6 +1299,47 @@ function applyTheme(selectedThemeId) {
     }
 }
 
+function displayHighScores() {
+    const highScoreList = document.getElementById('high-score-list');
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+    // Clear existing list items
+    highScoreList.innerHTML = '';
+
+    // Display high scores in the list
+    highScores.forEach((item, index) => {
+        const li = document.createElement('li');
+        const scoreNumberSpan = document.createElement('span');
+        const playerNameSpan = document.createElement('span');
+
+        scoreNumberSpan.className = 'score-number';
+        playerNameSpan.className = 'player-name';
+
+        scoreNumberSpan.textContent = index + 1 + '.';
+        playerNameSpan.textContent = `${item.name}: ${item.score}`;
+
+        li.appendChild(scoreNumberSpan);
+        li.appendChild(playerNameSpan);
+
+        // Apply different background colors for the first three elements
+        if (index === 0) {
+            li.style.backgroundColor = 'gold';
+            li.style.borderBottom = '1px';
+            li.style.color = 'black';
+        } else if (index === 1) {
+            li.style.backgroundColor = 'silver';
+            li.style.color = 'black';
+        } else if (index === 2) {
+            li.style.backgroundColor = '#cd7f32';
+            li.style.color = 'black';
+        }
+        if (index < 3) {
+            li.style.borderBottom = '2px solid white';
+        }
+
+        highScoreList.appendChild(li);
+    });
+}
 
 function blinkRedBackground() {
     let timerElement = document.getElementById('timer');
