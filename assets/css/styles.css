@@ -729,6 +729,12 @@ h1 {
     display: block;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+#save-game-button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
 #high-score-list {
     list-style: none;
     padding: 0;
@@ -751,6 +757,8 @@ h1 {
     align-items: center;
     width: 100%;
 }
+
+
 /*animations*/
 @keyframes moveAnimation{
 

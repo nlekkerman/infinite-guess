@@ -202,8 +202,9 @@ document.addEventListener('DOMContentLoaded', function () {
     //BUTTONS
 
     saveGameButton.addEventListener('click', function () {
-
+        saveGameSection.style.display = 'none'; // Make the timer visible
         saveGame();
+        resetConsecutiveCorrectAnswers();
         // Hide the form after saving
         scoreText.textContent = '0';
     });
