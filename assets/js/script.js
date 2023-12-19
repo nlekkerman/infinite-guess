@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const saveGameButton = document.getElementById('save-game-button');
 
     const exitSaveGameBtn = document.getElementById('exit-save-game-button')
+    const startGameBtn = document.getElementById('start-game-btn');
 
     const startChallengeButton = document.getElementById('challenge-action-button')
     const declineChallengeButton = document.getElementById('decline-button')
@@ -39,7 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const rightAnswerSound = document.getElementById('right-answer-sound');
     const wrongAnswerSound = document.getElementById('wrong-answer-sound');
 
+    const exitHighDashboard = document.getElementById('exit-welcome-highscore-instruction');
+    const exitRulesDashboard = document.getElementById('exit-welcome-rules-instruction');
 
+    const highScoreDash = document.getElementById('highscore');
+    const rulesDash = document.getElementById('rules');
+
+    const welcomeSection = document.getElementById('welcome-section');
+    
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
     });
@@ -200,6 +208,62 @@ document.addEventListener('DOMContentLoaded', function () {
     isBonus = false;
 
     //BUTTONS
+    highScoreDash.addEventListener('click', function () {
+        const wrapDivRules = document.getElementById('wrap-div-rules');
+        const wrapDivHighscores = document.getElementById('wrap-div-highscores');
+        const hideIcons = document.getElementById('icons-dash-container')
+        wrapDivHighscores.style.display = 'block'
+        hideIcons.style.display = 'none';
+
+        displayHighScoresDashboard();
+    });
+
+    rulesDash.addEventListener('click', function () {
+
+        const wrapDivRules = document.getElementById('wrap-div-rules');
+        const displayCloseButton = document.getElementById('exit-welcome-rules-instruction');
+
+        const hideIcons = document.getElementById('icons-dash-container')
+        const rules = document.getElementById('scrollable-container');
+        rules.style.display = 'block'
+
+        wrapDivRules.style.display = 'block'
+        displayCloseButton.style.display = 'block'
+
+        hideIcons.style.display = 'none';
+
+
+    });
+    startGameBtn.addEventListener('click', function () {
+        welcomeSection.style.display = 'none';
+
+
+        // Add logic to start your game here
+    });
+
+
+  exitHighDashboard.addEventListener('click', function () {
+
+        const wrapDivHighscores = document.getElementById('wrap-div-highscores');
+        const hideIcons = document.getElementById('icons-dash-container')
+
+        hideIcons.style.display = 'block';
+        const exitHigh = document.getElementById('wrap-div-highscores')
+        exitHigh.style.display = 'none';
+
+
+        // Add logic to start your game here
+    });
+
+    exitRulesDashboard.addEventListener('click', function () {
+        const rules = document.getElementById('scrollable-container');
+        const wrapDivRules = document.getElementById('wrap-div-rules');
+        const hideIcons = document.getElementById('icons-dash-container');
+
+        hideIcons.style.display = 'block';
+        rules.style.display = 'block';
+        wrapDivRules.style.display = 'none';
+    });
 
     saveGameButton.addEventListener('click', function () {
         saveGameSection.style.display = 'none'; // Make the timer visible
@@ -1342,6 +1406,52 @@ function displayHighScores() {
     });
 }
 
+
+
+// Your existing displayHighScores function
+function displayHighScoresDashboard() {
+    const highScoreList = document.getElementById('high-score-list-dash');
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+    // Clear existing list items
+    highScoreList.innerHTML = '';
+
+    // Display high scores in the list
+    highScores.forEach((item, index) => {
+        const li = document.createElement('li');
+        const scoreNumberSpan = document.createElement('span');
+        const playerNameSpan = document.createElement('span');
+
+        scoreNumberSpan.className = 'score-number';
+        playerNameSpan.className = 'player-name';
+
+        scoreNumberSpan.textContent = index + 1 + '.';
+        playerNameSpan.textContent = `${item.name}: ${item.score}`;
+
+        li.appendChild(scoreNumberSpan);
+        li.appendChild(playerNameSpan);
+
+        // Apply different background colors for the first three elements
+        if (index === 0) {
+            li.style.backgroundColor = 'gold';
+            li.style.borderBottom = '1px';
+            li.style.color = 'black';
+        } else if (index === 1) {
+            li.style.backgroundColor = 'silver';
+            li.style.color = 'black';
+        } else if (index === 2) {
+            li.style.backgroundColor = '#cd7f32';
+            li.style.color = 'black';
+        }
+        if (index < 3) {
+            li.style.borderBottom = '2px solid white';
+        }
+
+        highScoreList.appendChild(li);
+    });
+}
+
+
 function blinkRedBackground() {
     let timerElement = document.getElementById('timer');
     let numberElement = document.getElementById('guessing-number-div');
@@ -1352,4 +1462,42 @@ function blinkRedBackground() {
 
     // Play the warning sound
     //warningSound.play();
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.ripple-button');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function (event) {
+            createRipple(event, button);
+        });
+    });
+});
+function createRipple(event, button) {
+    // Create a ripple element
+    const ripple = document.createElement('div');
+    ripple.classList.add('ripple');
+
+    // Set the position of the ripple
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = event.clientX - rect.left - size / 2;
+    const y = event.clientY - rect.top - size / 2;
+
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+
+    // Append the ripple to the button
+    button.appendChild(ripple);
+
+    // Apply click/press effects
+    button.style.transform = 'scale(0.95)';
+
+
+    // Remove the ripple element and reset styles after animation completes
+    ripple.addEventListener('animationend', () => {
+        ripple.remove();
+        button.style.transform = '';
+
+    });
 }
