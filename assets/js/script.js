@@ -1317,7 +1317,7 @@ function applyTheme(selectedThemeId) {
         challengeScoreScreen.style.backgroundImage = 'url("./assets/images/chalenge-score.jpg")';
         turboExitScreen.style.backgroundImage = 'url("./assets/images/turbo-fairy.jpg")';
 
-        scoreBoardBackground.style.backgroundColor = "#e30e0e"
+        scoreBoardBackground.style.backgroundColor = ""
 
         plusBtn.style.backgroundColor = "#fc03f4"
         plusBtn.style.color = "black"
