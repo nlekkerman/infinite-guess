@@ -862,11 +862,11 @@ getGame();
     function displayRandomMessage(messageType) {
         const encouragingMessages = [
             "Brilliant! ",
-            "Outstanding work! You're unstoppable.",
-            "Fantastic effort! You're excelling.",
+            "You're unstoppable.",
+            "You're excelling.",
             "Superb!",
             "Well done!",
-            "Impressive! You're making it look easy.",
+            "You're making it look easy.",
             "Exceptional! ",
             "Incredible!",
             "Remarkable! You're a true star."
@@ -1242,7 +1242,7 @@ function applyTheme(selectedThemeId) {
 
 
 
-        scoreText.style.backgroundColor = "lightblue"
+        scoreText.style.backgroundColor = "black"
         scoreText.style.opacity = 0.8;
         scoreText.style.color = "purple"
         scoreText.style.border = '2px solid cyan';

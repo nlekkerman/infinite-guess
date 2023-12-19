@@ -4,7 +4,7 @@
 /*CREDITS
 
 
-
+Video by <a href="https://pixabay.com/users/engin_akyurt-3656355/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=22098">Engin Akyurt</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=22098">Pixabay</a>
 Video by <a href="https://pixabay.com/users/nasa-imagery-10/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=5">NASA-Imagery</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=5">Pixabay</a>
 Video by <a href="https://pixabay.com/users/tommyvideo-3092371/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=6044">Tomislav Jakupec</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=6044">Pixabay</a>
 */
@@ -51,8 +51,7 @@ body {
   
     /* Set your desired maximum width for laptop size */
     margin: 0 auto;
-    /* Center the container on the page */
-    padding: 5px;
+   
     /* Add padding if needed */
     height: 100vh;
     background-color: #fff;
@@ -109,9 +108,10 @@ button {
   }
   
   #video video {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-  }
-
+  }  
 
   #score-board-background {
     position: absolute;
@@ -449,18 +449,18 @@ footer p {
 /* CHallenge screen*/
 
 #challenge-screen-section {
-    flex: 1;
+    background: url('../images/default-challenge-screen.jpg') no-repeat center center/cover;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    max-width: 1028px;
     width: 100%;
     height: 100vh;
-    background: url(../images/default-challenge-screen.jpg) no-repeat center center/cover;
-    display: none;
-    position: absolute;
+  position: absolute;
+    opacity: 1;
     z-index: 1;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    color: #f9f9f9;
-}
+  }
 
 #flex-challange-container {
     display: flex;
@@ -476,75 +476,86 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 150px;
 }
 
 
 #confirmation-section {
-    background: url(../images/conf-sect-bck.jpg) no-repeat center center/cover;
-    flex: 1;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    padding: 20px;
+    background: url('../images/conf-sect-bck.jpg') no-repeat center center/cover;
+    color: white;
     display: none;
-    position: absolute;
-    z-index: 1;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    text-align: center;
+    max-width: 1028px;
+    width: 100%;
+    height: 100vh;
+  position: absolute;
+    opacity: 1;
+    z-index: 1;
 }
 
 #confirmation-contianer-div {
     flex: 1;
     width: 100%;
     height: 100vh;
+ 
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content:center;
     text-align: center;
 }
 
 #confirmation-contianer-div p {
     font-weight: 600;
     font-size: 2rem;
-    margin: 5px;
-    padding: 5px;
+    margin: 20px 10px;
+    color: white;
+    padding: 28px;
     border-radius: 25px;
-    border: 2px solid black;
-    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid white;
+    background-color: rgba(214, 8, 101, 0.3);
     border-radius: 15px;
 }
 
 #confirmation-section h2 {
     background-color: #fff;
-    padding: 20px;
+    padding: 5px;
     border-radius: 25px;
-    border: 2px solid black;
+    color: white;
+    font-size: 1.5rem;
+    border: 2px solid white;
+    text-align: center;
+    margin: 10px 5px;
+    background-color: rgba(214, 8, 101, 0.3);
+
 }
 
 #challenge {
-    flex: 1;
+    background: url('../images/challenge-default.jpg') no-repeat center center/cover;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    max-width: 1028px;
     width: 100%;
     height: 100%;
-    background-color: white;
-    background: url(../images/challenge-default.jpg) no-repeat center center/cover;
-    padding: 20px;
-    display: none;
-    position: absolute;
+    min-height: 100%;
+  position: absolute;
+    opacity: 1;
     z-index: 1;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
 }
 
 #challenge h2 {
     animation: moveAnimationTitle 2s infinite linear alternate;
-    background-color: white;
+    background-color: rgba(237, 3, 3, 0.3);
     padding: 20px;
-    border: 2px solid blue;
+  font-size: 2rem;
+  border-radius: 25px;
+  border:1px solid white;
     z-index: 1;
-    margin: 0;
+    margin: 15px;
+    margin-top: 25px;
+    color: white;
     text-align: center;
 }
 
@@ -589,18 +600,18 @@ footer p {
 }
 
 #challenge-score-display {
-    flex: 1;
-    width: 100%;
-    height: 100%;
-    background: url('../images/chall-screen-bck.jpg') no-repeat center center/cover;
-    color: #fff;
-    padding: 20px;
-    display: none;
-    position: absolute;
-    z-index: 1;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+   background: url('../images/chall-screen-bck.jpg') no-repeat center center/cover;
+   color: white;
+   display: none;
+   align-items: center;
+   justify-content: center;
+   max-width: 1028px;
+   width: 100%;
+   height: 100vh;
+ position: absolute;
+   opacity: 1;
+   z-index: 1;
+    
 }
 
 #score-display-container {
@@ -647,17 +658,18 @@ footer p {
 
 /*Bonus section*/
 #bonus-screen-section {
+    background: url('../images/bonus-def-bck.jpg') no-repeat center center/cover;
     display: none;
     align-items: center;
     justify-content: center;
-    background: url('../images/bonus-def-bck.jpg') no-repeat center center/cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    max-width: 1028px;
+    width: 100%;
+    height: 100vh;
+  position: absolute;
     opacity: 1;
     z-index: 1;
+  
+    
 }
 
 #flex-bonus-container {
@@ -675,17 +687,18 @@ footer p {
 }
 
 #exit-turbo-section {
-    flex: 1;
-    width: 100%;
-    height: 100%;
     background: url('../images/exit-turbo-instruction-bck.jpg') no-repeat center center/cover;
-    z-index: 1;
+    color: white;
     display: none;
-    position: absolute;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    text-align: center;
-    color: #f9f9f9;
+    max-width: 1028px;
+    width: 100%;
+    height: 100vh;
+  position: absolute;
+    opacity: 1;
+    z-index: 1;
+  
 }
 
 
@@ -1074,17 +1087,12 @@ h1 {
 }
 /*footer*/
 footer {
-  margin: 5px;
-    color: #fff; /* Set your desired text color */
- justify-content: center;
+    background-color: #333; /* Set your desired background color */
+    color: white; /* Set your desired text color */
     text-align: center;
-    margin-top: 20px;
-    font-weight: 500;
-    padding: 20PX;
-    font-family: 'Acme';
-    display: flex;
-  }
-
+    padding: 10px;
+    margin: 20px 0px;
+}
 
 /*animations*/
 @keyframes moveAnimation {
@@ -1125,9 +1133,7 @@ footer {
 
     #playground-section #buttons-container-div #plus-button {}
 
-    #score-board-div #color-scoreboard-div {
-        margin-left: 145px;
-    }
+  
 
     #score-board-div #color-scoreboard-div #answer-text {}
 
@@ -1165,6 +1171,47 @@ footer {
         height: 180px;
         width: 180px;
     }
+
+    .number-container-class {
+        width: 150px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        border: 2px solid black;
+        align-items: center;
+        border-radius: 15px;
+        font-size: 2rem;
+    }
+
+    #confirmation-section h2 {
+        background-color: #fff;
+        padding: 33px;
+        border-radius: 25px;
+        color: white;
+        font-size: 2rem;
+        border: 2px solid white;
+        margin: 30px 170px;
+        background-color: rgba(214, 8, 101, 0.3);
+    }
+
+    #confirmation-contianer-div p {
+        font-weight: 600;
+        font-size: 2rem;
+        margin: 10px 91px;
+        color: white;
+        padding: 18px;
+        border-radius: 25px;
+        border: 2px solid white;
+        background-color: rgba(214, 8, 101, 0.3);
+        border-radius: 15px;
+    }
+#icon-one{
+    font-size: 5rem;
+}
+
+#icon-two{
+    font-size: 5rem;
+}
     #playground-section #timer {}
 
     #playground-section .higher-lower-title {}
@@ -1177,9 +1224,7 @@ footer {
 
     #playground-section #buttons-container-div #plus-button {}
 
-    #score-board-div #color-scoreboard-div {
-        margin-left: 325px;
-    }
+ 
 
     #score-board-div #color-scoreboard-div #answer-text {}
 
@@ -1208,9 +1253,24 @@ footer {
         height: 200px;
         font-size: 3rem;
     }
+#icon-one{
+    font-size: 5rem;
+}
 
+#icon-two{
+    font-size: 5rem;
+}
     #playground-section #buttons-container-div {}
-
+    .number-container-class {
+        width: 180px;
+        height: 290px;
+        display: flex;
+        justify-content: center;
+        border: 2px solid black;
+        align-items: center;
+        border-radius: 15px;
+        font-size: 2rem;
+    }
     #playground-section #buttons-container-div #minus-button {
         width: 120px;
         height: 120px;
@@ -1224,9 +1284,6 @@ footer {
         font-size: 3rem;
     }
 
-    #score-board-div #color-scoreboard-div {
-        margin-left: 440px;
-    }
 
     #score-board-div #color-scoreboard-div #answer-text {
 
