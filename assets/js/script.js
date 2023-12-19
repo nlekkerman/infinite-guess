@@ -1205,11 +1205,10 @@ function applyTheme(selectedThemeId) {
         guessingNumber.style.color = "white"
         guessingNumber.style.border = '3px solid yellow';
 
-        doubleItTitle.style.backgroundColor = "lightblue"
-        guessingNumber.style.opacity = 0.6;
-        doubleItTitle.style.color = "LaserLemon"
-        doubleItTitle.style.border = '3px solid indigo';
-
+        doubleItTitle.style.backgroundColor = "black"
+        doubleItTitle.style.color = "white"
+        doubleItTitle.style.opacity = 0.8;
+        doubleItTitle.style.border = '3px solid white';
 
 
 
@@ -1254,9 +1253,11 @@ function applyTheme(selectedThemeId) {
         guessingNumber.style.color = "white"
         guessingNumber.style.border = '3px solid cyan';
 
-        doubleItTitle.style.backgroundColor = "indigo"
-        doubleItTitle.style.color = "LaserLemon"
-        doubleItTitle.style.border = '3px solid indigo';
+        doubleItTitle.style.backgroundColor = "black"
+        doubleItTitle.style.color = "white"
+        doubleItTitle.style.opacity = 0.8;
+        doubleItTitle.style.border = '3px solid white';
+
 
 
 
@@ -1270,7 +1271,7 @@ function applyTheme(selectedThemeId) {
         challengeScoreScreen.style.backgroundImage = 'url("./assets/images/challenge-back-earth.jpg")';
         challengeButtonbackground.style.backgroundImage = 'url("./assets/images/double-it-earth.jpg")';
 
-        scoreBoardBackground.style.backgroundColor = "#067d3a"
+        scoreBoardBackground.style.backgroundColor = "lightblue"
 
         plusBtn.style.backgroundColor = "#40E0D0"
         plusBtn.style.opacity = 1;
@@ -1292,7 +1293,7 @@ function applyTheme(selectedThemeId) {
 
         scoreText.style.backgroundColor = "red"
         scoreText.style.opacity = 0.8;
-        scoreText.style.color = "purple"
+        scoreText.style.color = "white"
         scoreText.style.border = '2px solid black';
 
 
@@ -1301,10 +1302,10 @@ function applyTheme(selectedThemeId) {
         guessingNumber.style.color = "white"
         guessingNumber.style.border = '3px solid white';
 
-        doubleItTitle.style.backgroundColor = "indigo"
-        doubleItTitle.style.color = "LaserLemon"
-        doubleItTitle.style.border = '3px solid indigo';
-        console.log('Earth theme selected');
+        doubleItTitle.style.backgroundColor = "black"
+        doubleItTitle.style.color = "white"
+        doubleItTitle.style.opacity = 0.8;
+        doubleItTitle.style.border = '3px solid white';
 
 
     } else if (selectedThemeId === 'theme-midgard') {
@@ -1348,12 +1349,10 @@ function applyTheme(selectedThemeId) {
         guessingNumber.style.color = "white"
         guessingNumber.style.border = '3px solid white';
 
-        doubleItTitle.style.backgroundColor = "indigo"
-        doubleItTitle.style.color = "LaserLemon"
-        doubleItTitle.style.opacity = 0.6;
+        doubleItTitle.style.backgroundColor = "black"
+        doubleItTitle.style.color = "white"
+        doubleItTitle.style.opacity = 0.8;
         doubleItTitle.style.border = '3px solid white';
-
-        doubleItTitle.style.border = '3px solid indigo';
 
 
         // Code to handle the Midgard theme
@@ -1501,3 +1500,6 @@ function createRipple(event, button) {
 
     });
 }
+
+
+

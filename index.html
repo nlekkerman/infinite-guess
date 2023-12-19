@@ -18,7 +18,7 @@
 </head>
 
 <body>
-
+   
     <audio id="right-answer-sound" src="assets/audio/correct.mp3"></audio>
     <audio id="wrong-answer-sound" src="assets/audio/wrong-sound.wav"></audio>
     <audio id="wrong" src="assets/audio/wrong.wav"></audio>
@@ -40,9 +40,13 @@
         Your browser does not support the audio element.
     </audio>
     <main>
+       
+        <section id="resaponsive-main-container">
         <header>
             <h1 class="title">Infinite Guess</h1>
         </header>
+
+        
         <section id="score-board-div">
 
             <div id="color-scoreboard-div">
@@ -169,7 +173,7 @@
         </div>
 
         <section id="control-container">
-            <div id="logo-div"><button id="exit-game-button" class="exit-game-button">QUIT</button></div>
+            <div id="logo-div"><button id="exit-game-button" class="exit-game-button">SAVE</button></div>
             <section id="sound-control" class="dropdown">
                 <button id="settings" class="dropbtn"><i class="fas fa-cog"></i></button>
                 <div class="dropdown-content">
@@ -273,11 +277,16 @@
             </div>
 
             <div id="buttons-container-div">
+              
                 <button id="minus-button" class="guessing-buttons ripple-button">-</button>
-                <button id="plus-button" class="guessing-buttons ripple-button">+</button>
+                <button id="plus-button" class="guessing-buttons ripple-button" >+</button>
             </div>
         </section>
+
+    </section>
     </main>
+
+
     <footer>
         <p>&copy; 2023 By LEKKERMAN.</p>
         <!-- Add footer content, links, or other information here -->

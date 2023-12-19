@@ -1,5 +1,6 @@
 /*google fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lilita+One&family=Oswald:wght@200;300;400;500;600;700&family=Pirata+One&family=Roboto&family=Rowdies:wght@300;400;700&family=Squada+One&family=Vina+Sans&display=swap');
+
 /* General styles */
 body {
     min-height: 100vh;
@@ -8,18 +9,46 @@ body {
     overflow-x: hidden;
     overflow-y: scroll;
     margin: 0;
+    max-width: 100%;
+    
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 /*main*/
-main {
-    flex: 1;
+
+#main {
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0;
     display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    margin: 0px;
-    padding: 5px;
     flex: 1;
 }
+
+#resaponsive-main-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 1028px;
+    /* Set your desired maximum width for laptop size */
+  
+    /* Set your desired maximum width for laptop size */
+    margin: 0 auto;
+    /* Center the container on the page */
+    padding: 5px;
+    /* Add padding if needed */
+    height: 100vh;
+    background-color: #fff;
+    /* Set your desired background color for the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a box shadow for visual separation */
+}
+
 
 /*HEADER*/
 
@@ -29,7 +58,7 @@ header {
     padding-top: 10px;
 }
 
-.title{
+.title {
     font-family: 'Lilita One', sans-serif;
     font-size: 2.5rem;
 }
@@ -46,6 +75,7 @@ button {
     border-radius: 25px;
     cursor: pointer;
 }
+
 /*score board section*/
 #score-board-div {
     display: flex;
@@ -54,15 +84,16 @@ button {
     padding: 20px 10px;
     border: 3px solid #ccc;
     background-color: #f4f5f0;
+
 }
+
 #color-scoreboard-div {
-  
+
     display: flex;
     justify-content: center;
-    margin-left: 50px;
+    margin-left: 125px;
     align-items: center;
-    
-
+    border: 2px solid #532626;
 }
 
 #score-screen-number-div {
@@ -74,9 +105,11 @@ button {
     border: 3px solid gold;
     background-color: silver;
     border-radius: 50%;
+
+
 }
+
 #answer-text {
-    border: 1px solid #ccc;
     padding: 5px;
     background-color: rgb(2, 158, 2);
     color: white;
@@ -84,11 +117,12 @@ button {
     font-weight: 700;
     font-size: 1.5rem;
 }
+
 .score-text {
     padding: 5px;
     color: white;
     font-family: 'Acme', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     padding: 5px;
     font-size: 1.5rem;
     transform: translateZ(-100px);
@@ -108,6 +142,20 @@ button {
     color: white;
 }
 
+#double-or-nothing {
+    width: 100%;
+    height: 350px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px;
+    margin: 10px;
+    color: white;
+    min-height: 90px;
+    font-weight: 600;
+    font-size: 2rem;
+}
 
 #sound-control .dropdown-content button {
     display: block;
@@ -145,6 +193,7 @@ button {
     font-size: 1rem;
     text-decoration: underline;
 }
+
 #music-on-off i {
 
     font-size: 1rem;
@@ -182,6 +231,7 @@ button {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -275,6 +325,7 @@ button {
     display: flex;
     align-self: center;
 }
+
 .higher-lower-title {
     font-weight: 800;
     font-size: 1.2rem;
@@ -286,6 +337,7 @@ button {
     border: 2px solid gold;
     color: white;
 }
+
 #guessing-number-div {
     display: flex;
     justify-content: center;
@@ -301,7 +353,8 @@ button {
     overflow: hidden;
     animation: moveAnimation 8s infinite linear alternate;
 }
-.guessing-number-text{
+
+.guessing-number-text {
     color: white;
     font-size: 3rem;
     font-weight: 700;
@@ -330,6 +383,7 @@ button {
     color: rgb(244, 244, 244);
     font-size: 1.5rem;
     cursor: pointer;
+
 }
 
 #plus-button {
@@ -403,6 +457,7 @@ footer p {
     justify-content: center;
     text-align: center;
 }
+
 #confirmation-contianer-div {
     flex: 1;
     width: 100%;
@@ -445,6 +500,7 @@ footer p {
     justify-content: center;
     text-align: center;
 }
+
 #challenge h2 {
     animation: moveAnimationTitle 2s infinite linear alternate;
     background-color: white;
@@ -484,10 +540,11 @@ footer p {
     color: white;
     display: none;
 }
+
 #option-two-number {
     display: none;
     padding: 10px;
-   
+
     border-radius: 15px;
     border: 2px solid white;
     font-size: 3rem;
@@ -498,7 +555,7 @@ footer p {
     flex: 1;
     width: 100%;
     height: 100%;
-    background: url(../images/chall-screen-bck.jpg) no-repeat center center/cover;
+    background: url('../images/chall-screen-bck.jpg') no-repeat center center/cover;
     color: #fff;
     padding: 20px;
     display: none;
@@ -518,6 +575,7 @@ footer p {
     text-align: center;
     align-items: center;
 }
+
 #score-display-container h4 {
     padding: 15px;
     font-size: 1rem;
@@ -564,19 +622,22 @@ footer p {
     opacity: 1;
     z-index: 1;
 }
+
 #flex-bonus-container {
     flex: 1;
     width: 100%;
-    height: 100%; /* Use the full viewport height */
+    height: 100%;
+    /* Use the full viewport height */
     display: flex;
     flex-direction: column;
-  justify-content: space-evenly;
-    align-items: center; /* Center items horizontally */
+    justify-content: space-evenly;
+    align-items: center;
+    /* Center items horizontally */
     text-align: center;
 
 }
 
-#exit-turbo-section{
+#exit-turbo-section {
     flex: 1;
     width: 100%;
     height: 100%;
@@ -619,16 +680,18 @@ footer p {
     align-items: center;
 
 }
+
 #title-bonus-container {
-   margin: 25px;
+    margin: 25px;
     font-family: 'Cabin';
     border: 2px solid white;
- 
+
     background-color: rgba(15, 57, 162, 0.5);
     color: white;
     width: 100%;
-  
+
 }
+
 #double-it-title {
     width: 90%;
     padding: 30px 0px;
@@ -638,6 +701,7 @@ footer p {
     border-radius: 25px;
     background-color: rgba(145, 168, 227, 0.5);
 }
+
 #turbo-score {
     display: flex;
     justify-content: center;
@@ -684,6 +748,7 @@ footer p {
     font-size: 16px;
     cursor: pointer;
 }
+
 #exit-game-screen {
     display: none;
     flex-direction: column;
@@ -696,21 +761,25 @@ footer p {
     position: absolute;
     background: url('../images/welcome-bck.jpg') no-repeat center center/cover;
 }
+
 #exit-save-game-button {
     display: block;
     margin: 0 auto;
     margin-top: 10px;
 }
+
 .userename-id {
     font-size: 1rem;
     color: white;
 }
+
 input {
     width: 100%;
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
 }
+
 h1 {
     font-size: 24px;
     color: #333;
@@ -718,8 +787,9 @@ h1 {
     display: flex;
     justify-content: center;
 }
+
 #score-form {
-   
+
     margin: 0 auto;
     padding: 20px;
     border: 2px solid #ccc;
@@ -735,6 +805,7 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
 }
+
 #high-score-list {
     list-style: none;
     padding: 0;
@@ -751,6 +822,7 @@ h1 {
     overflow-y: scroll;
     padding: 10px;
 }
+
 #control-container {
     display: flex;
     justify-content: space-between;
@@ -770,6 +842,7 @@ h1 {
     position: absolute;
     background: url('../images/welcome-bck.jpg') no-repeat center center/cover;
 }
+
 .welcome-container {
     text-align: center;
     display: flex;
@@ -778,12 +851,12 @@ h1 {
     flex-direction: column;
     justify-content: space-evenly;
 }
+
 #welcome-container img {
-    object-fit: contain;
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 20%;
-    border: 4px solid rgba(15, 57, 162, 0.4);
+    object-fit: cover;
+    width: 100%;
+  
+    border: 2px solid rgba(255, 255, 255, 0.9);
 }
 
 #welcome-container h2 {
@@ -802,11 +875,13 @@ h1 {
     box-shadow: 0 0 0 rgba(123, 232, 111, 3px);
     background-color: rgba(1, 15, 52, 0.8);
 }
+
 #icons-dash-container {
     height: 300px;
     margin: 0px;
     text-align: center;
 }
+
 #highscore {
     display: flex;
     flex: 1;
@@ -820,6 +895,7 @@ h1 {
     border: 3px solid white;
     border-radius: 15px;
 }
+
 #rules {
     width: 45%;
     padding-top: 35px;
@@ -833,11 +909,13 @@ h1 {
     border: 3px solid white;
     border-radius: 15px;
 }
+
 #icons-dash-container>div {
     display: inline-block;
 }
+
 .icons {
-   
+
     font-size: 24px;
 }
 
@@ -849,11 +927,11 @@ h1 {
     margin-bottom: 10px;
     display: none;
 }
+
 #welcome-container h4 {
     text-align: center;
     display: flex;
-    box-shadow: 0 0 0 rgba(123, 232, 111, 3px);
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-family: 'Acme';
     background-color: rgba(1, 15, 52, 0.8);
     color: white;
@@ -865,6 +943,17 @@ h1 {
     justify-content: space-evenly;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
+
+#wrap-div-highscores {
+    display: none;
+    color: white;
+    margin: 5px;
+    border-radius: 25px;
+    border: 2px solid white;
+    background-color: rgba(110, 1, 1, 0.7);
+    height: 100%;
+}
+
 #wrap-div-highscores h5 {
     font-size: 2rem;
     color: white;
@@ -887,10 +976,12 @@ h1 {
     /* padding: 5px; */
     color: white;
 }
+
 #exit-welcome-rules-instruction {
     display: none;
     margin: 0 auto;
 }
+
 .score-number {
     margin-right: 10px;
 }
@@ -899,14 +990,51 @@ h1 {
     text-align: center;
     flex-grow: 1;
 }
+
 #highscores-dash {
     max-height: 430px;
     overflow-y: scroll;
     padding: 10px;
 }
 
+.ripple-button {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(237, 21, 21, 0.7);
+    transform: scale(0);
+    animation: ripple-animation 0.3s linear;
+}
+
+.ripple-button:active .ripple {
+    transform: scale(4);
+    opacity: 0;
+}
+
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(1);
+    }
+}
+
+/*exitscreen*/
+
+#high-score-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+
 /*animations*/
-@keyframes moveAnimation{
+@keyframes moveAnimation {
 
     0%,
     100% {
@@ -924,4 +1052,106 @@ h1 {
     75% {
         transform: translate(50px, -30px);
     }
+}
+
+
+/*big phone*/
+
+@media screen and (min-width: 425px) {
+    #playground-section #timer {}
+
+    #playground-section .higher-lower-title {}
+
+    #playground-section #guessing-number-div {}
+
+    #playground-section #buttons-container-div {}
+
+    #playground-section #buttons-container-div #minus-button {}
+
+    #playground-section #buttons-container-div #plus-button {}
+
+    #score-board-div #color-scoreboard-div {
+        margin-left: 145px;
+    }
+
+    #score-board-div #color-scoreboard-div #answer-text {}
+
+    #score-board-div #score-screen-number-div {}
+
+    #score-board-div #score-screen-number-div .score-text {
+      
+    }
+}
+
+/* Tablet layout */
+@media screen and (min-width: 768px) {
+    #playground-section #timer {}
+
+    #playground-section .higher-lower-title {}
+
+    #playground-section #guessing-number-div {}
+
+    #playground-section #buttons-container-div {}
+
+    #playground-section #buttons-container-div #minus-button {}
+
+    #playground-section #buttons-container-div #plus-button {}
+
+    #score-board-div #color-scoreboard-div {
+        margin-left: 325px;
+    }
+
+    #score-board-div #color-scoreboard-div #answer-text {}
+
+    #score-board-div #score-screen-number-div {}
+
+    #score-board-div #score-screen-number-div .score-text {}
+}
+
+/* Laptop layout */
+@media screen and (min-width: 1024px) {
+    #playground-section #timer {}
+
+    #playground-section .higher-lower-title {
+        padding: 5px;
+        margin: 20px;
+        font-size: 2rem;
+    }
+
+    #playground-section #guessing-number-div {
+        width: 200px;
+        height: 200px;
+        font-size: 3rem;
+    }
+
+    #playground-section #buttons-container-div {}
+
+    #playground-section #buttons-container-div #minus-button {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+
+    }
+
+    #playground-section #buttons-container-div #plus-button {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+    }
+
+    #score-board-div #color-scoreboard-div {
+        margin-left: 440px;
+    }
+
+    #score-board-div #color-scoreboard-div #answer-text {
+
+    padding: 20px;
+    }
+
+    #score-board-div #score-screen-number-div {
+        width: 70px;
+        height: 70px;
+    }
+
+    #score-board-div #score-screen-number-div .score-text { }
 }
