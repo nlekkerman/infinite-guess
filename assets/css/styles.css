@@ -1121,27 +1121,11 @@ footer {
 
 
 @media screen and (min-width: 425px) {
-    #playground-section #timer {}
-
-    #playground-section .higher-lower-title {}
-
-    #playground-section #guessing-number-div {}
-
-    #playground-section #buttons-container-div {}
-
-    #playground-section #buttons-container-div #minus-button {}
-
-    #playground-section #buttons-container-div #plus-button {}
+   
 
   
 
-    #score-board-div #color-scoreboard-div #answer-text {}
 
-    #score-board-div #score-screen-number-div {}
-
-    #score-board-div #score-screen-number-div .score-text {
-      
-    }
 }
 
 #background-video {
@@ -1212,25 +1196,7 @@ footer {
 #icon-two{
     font-size: 5rem;
 }
-    #playground-section #timer {}
-
-    #playground-section .higher-lower-title {}
-
-    #playground-section #guessing-number-div {}
-
-    #playground-section #buttons-container-div {}
-
-    #playground-section #buttons-container-div #minus-button {}
-
-    #playground-section #buttons-container-div #plus-button {}
-
- 
-
-    #score-board-div #color-scoreboard-div #answer-text {}
-
-    #score-board-div #score-screen-number-div {}
-
-    #score-board-div #score-screen-number-div .score-text {}
+   
 }
 
 /* Laptop layout */
