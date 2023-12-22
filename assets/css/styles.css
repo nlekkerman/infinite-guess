@@ -942,13 +942,12 @@ h1 {
     padding-top: 35px;
     padding-bottom: 35px;
     width: 45%;
-    background-color: rgb(206, 16, 16);
+    background-color: black;
     color: white;
     flex-direction: column;
     justify-content: space-evenly;
     border: 3px solid white;
     border-radius: 15px;
-    font-size: 1rem;
 }
 
 #rules {
