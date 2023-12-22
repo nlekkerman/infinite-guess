@@ -1582,3 +1582,29 @@ async function saveScore(username) {
 
 
 
+document.addEventListener('DOMContentLoaded', fetchData);
+
+async function fetchData() {
+  try {
+    const response = await fetch('http://localhost:3000/players'); // Replace with your actual server URL
+    const players = await response.json();
+    updatePlayerList(players);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+function updatePlayerList(players) {
+  const listContainer = document.getElementById('high-score-list-dash');
+
+  // Clear existing list items
+  listContainer.innerHTML = '';
+
+  // Create new list items
+  players.forEach(player => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${player.name} - ${player.highScore}`;
+    listContainer.appendChild(listItem);
+  });
+}
+
