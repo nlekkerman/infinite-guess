@@ -7,10 +7,9 @@ const { message } = require('statuses');
 const cors = require('cors');
 
 const app = express()
-// Enable CORS
-app.use(cors());
-app.use(express.json())
 
+app.use(express.json())
+app.use(cors())
 app.get('/', (req, res) => {
 
   res.send('Hello')

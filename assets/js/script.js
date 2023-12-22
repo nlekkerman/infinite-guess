@@ -50,8 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const welcomeSection = document.getElementById('welcome-section');
 
 
-    const usernameInput = document.getElementById('username');
-
+   
     
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
@@ -219,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const hideIcons = document.getElementById('icons-dash-container')
         wrapDivHighscores.style.display = 'block'
         hideIcons.style.display = 'none';
-updateNameList();
+
        
     });
 
@@ -270,16 +269,47 @@ updateNameList();
         wrapDivRules.style.display = 'none';
     });
 
-    saveGameButton.addEventListener('click', function () {
-        saveGameSection.style.display = 'none'; // Make the timer visible
-        const username = usernameInput.value;
-    const score = parseInt(scoreText.innerText); // Assuming the score is a number
+   // Assuming you have input elements with the ids "playerNameInput" and "playerScoreInput"
+const playerNameInput = document.getElementById('username');
+const playerScoreInput = parseInt(scoreText.textContent, 10);
+;
 
-    saveScore(username, score);
-        resetConsecutiveCorrectAnswers();
-        // Hide the form after saving
-        scoreText.textContent = '0';
-    });
+// Event listener for the button click
+saveGameButton.addEventListener('click', async () => {
+  const playerName = playerNameInput.value.trim();
+  const playerScore = parseInt(scoreText.textContent, 10);
+
+  // Check if the inputs are valid
+  if (playerName && !isNaN(playerScore)) {
+    const playerData = {
+      name: playerName,
+      score: playerScore,
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/players', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(playerData),
+      });
+
+      if (response.ok) {
+        console.log('Player data submitted successfully!');
+        // Optionally, update UI or perform other actions upon successful submission.
+      } else {
+        console.error('Failed to submit player data:', response.statusText);
+        // Handle error, update UI, or provide user feedback.
+      }
+    } catch (error) {
+      console.error('Error submitting player data:', error);
+      // Handle error, update UI, or provide user feedback.
+    }
+  } else {
+    console.error('Invalid inputs. Please enter a valid name and score.');
+  }
+    scoreText.textContent = '0';});
     exitSaveGameBtn.addEventListener('click', function () {
         
         saveGameSection.style.display = 'none'; // Make the timer visible
@@ -443,7 +473,7 @@ updateNameList();
         
         saveGameSection.style.display = 'block';
         displayHighScores();
-getGame();
+
 
     });
     // Initial setup: Generate a random number when the page loads
@@ -1025,35 +1055,19 @@ getGame();
     function resetConsecutiveCorrectAnswers() {
         consecutiveCorrectAnswers = 0;
     }
-    function getGame() {
-        const scoreForm = document.getElementById("score-form")
- 
-         // Retrieve the current score (replace this with your actual scoring logic)
-         const currentScore = parseInt(scoreText.textContent, 10);
- 
-         // Retrieve high scores from local storage
-         const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
- 
-         // Check if current score is in top 10
-         const isInTop10 = isScoreInTop10(currentScore, highScores);
-            // Display the score form container
-            // scoreFormContainer = document.getElementById('score-form');
-         if (isInTop10) {
- 
-             scoreForm.style.display = 'block'
-            
-     
-         } else {
-             scoreForm.style.display = 'none'
-             alert("Sorry, your score did not make it to the top 10.");
-         }
- 
-     }
+  
   // Your existing isScoreInTop10 function
   function isScoreInTop10(score, highScores) {
     return highScores.length < 10 || score > highScores[highScores.length - 1].score;
 }
 
+ const serverUrl = 'http://localhost:3000';
+
+  // Attach the onclick event handler to the button
+
+
+  
+  
 /*
   // Function to handle all save game logic
   function saveGame() {
@@ -1116,8 +1130,48 @@ getGame();
 
 */
 
+function saveScoreFromInput(score) {
+    const serverUrl = 'http://localhost:3000';
 
-  
+    const usernameInput = document.getElementById('username');
+    const username = usernameInput.value.trim();
+
+    if (username && score !== undefined) {
+        const playerData = {
+            username: username,
+            scoreText: score, // Use the score value, not the HTML element
+        };
+
+        addPlayer(playerData);
+    } else {
+        console.error('Username and Score are required.');
+    }
+}
+
+async function addPlayer(playerData) {
+    const serverUrl = 'http://localhost:3000';
+
+    try {
+        const response = await fetch(`${serverUrl}/players`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(playerData),
+        });
+
+        if (response.ok) {
+            console.log('Score saved successfully!');
+            // Optionally, you can update the UI or take other actions after successful saving.
+        } else {
+            console.error('Failed to save score:', response.statusText);
+            // Handle error, update UI, or provide user feedback.
+        }
+    } catch (error) {
+        console.error('Error saving score:', error);
+        // Handle error, update UI, or provide user feedback.
+    }
+}
 
 
 });

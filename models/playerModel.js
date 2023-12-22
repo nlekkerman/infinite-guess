@@ -8,7 +8,7 @@ const playerSchema = mongoose.Schema(
         },
         score:{
             type : Number,
-            required : true
+            required : false
         }
 
     },
