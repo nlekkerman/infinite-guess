@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
 
+
     const soundControl = document.getElementById('sound-control');
     const soundControlButton = document.getElementById('sound-on-off');
     const musicControlButton = document.getElementById('music-on-off');
@@ -47,6 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const rulesDash = document.getElementById('rules');
 
     const welcomeSection = document.getElementById('welcome-section');
+
+
+    const usernameInput = document.getElementById('username');
+
     
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
@@ -214,8 +219,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const hideIcons = document.getElementById('icons-dash-container')
         wrapDivHighscores.style.display = 'block'
         hideIcons.style.display = 'none';
-
-        displayHighScoresDashboard();
+updateNameList();
+       
     });
 
     rulesDash.addEventListener('click', function () {
@@ -267,7 +272,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     saveGameButton.addEventListener('click', function () {
         saveGameSection.style.display = 'none'; // Make the timer visible
-        saveGame();
+        const username = usernameInput.value;
+    const score = parseInt(scoreText.innerText); // Assuming the score is a number
+
+    saveScore(username, score);
         resetConsecutiveCorrectAnswers();
         // Hide the form after saving
         scoreText.textContent = '0';
@@ -1045,6 +1053,8 @@ getGame();
   function isScoreInTop10(score, highScores) {
     return highScores.length < 10 || score > highScores[highScores.length - 1].score;
 }
+
+/*
   // Function to handle all save game logic
   function saveGame() {
     // Retrieve the username input value
@@ -1103,6 +1113,11 @@ getGame();
     // Clear the username input field
     usernameInput.value = "";
 }
+
+*/
+
+
+  
 
 
 });
@@ -1406,7 +1421,7 @@ function displayHighScores() {
 }
 
 
-
+/*
 // Your existing displayHighScores function
 function displayHighScoresDashboard() {
     const highScoreList = document.getElementById('high-score-list-dash');
@@ -1448,6 +1463,45 @@ function displayHighScoresDashboard() {
 
         highScoreList.appendChild(li);
     });
+}
+*/
+// Function to fetch and display high scores from the server
+async function displayHighScoresDashboard() {
+    const highScoreList = document.getElementById('high-score-list-dash');
+
+    try {
+        const response = await fetch('http://localhost:3000/highscores');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const highScores = await response.json();
+
+        highScoreList.innerHTML = '';
+
+        highScores.forEach((item, index) => {
+            const li = document.createElement('li');
+            const scoreNumberSpan = document.createElement('span');
+            const playerNameSpan = document.createElement('span');
+
+            scoreNumberSpan.className = 'score-number';
+            playerNameSpan.className = 'player-name';
+
+            scoreNumberSpan.textContent = index + 1 + '.';
+            playerNameSpan.textContent = `${item.username}: ${item.highscore}`; // Assuming the property is 'highscore'
+
+            li.appendChild(scoreNumberSpan);
+            li.appendChild(playerNameSpan);
+
+            if (index < 3) {
+                li.style.borderBottom = '2px solid white';
+            }
+
+            highScoreList.appendChild(li);
+        });
+    } catch (error) {
+        console.error('Error fetching high scores:', error);
+    }
 }
 
 
@@ -1500,6 +1554,31 @@ function createRipple(event, button) {
 
     });
 }
+
+
+async function saveScore(username) {
+    try {
+        const response = await fetch('http://localhost:3000/scores', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username }),
+        });
+
+        if (response.ok) {
+            console.log('Score saved successfully');
+            // Add any additional logic or UI updates here
+        } else {
+            console.error('Failed to save score');
+            // Handle error, show error message, etc.
+        }
+    } catch (error) {
+        console.error('Error saving score:', error);
+        // Handle network error or other issues
+    }
+}
+
 
 
 

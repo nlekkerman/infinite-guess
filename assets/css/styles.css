@@ -1120,13 +1120,7 @@ footer {
 
 
 
-@media screen and (min-width: 425px) {
-   
 
-  
-
-
-}
 
 #background-video {
     position: fixed;
@@ -1201,7 +1195,7 @@ footer {
 
 /* Laptop layout */
 @media screen and (min-width: 1024px) {
-    #playground-section #timer {}
+
 
     #playground-section .higher-lower-title {
         padding: 5px;
@@ -1226,7 +1220,7 @@ footer {
 #icon-two{
     font-size: 5rem;
 }
-    #playground-section #buttons-container-div {}
+   
     .number-container-class {
         width: 180px;
         height: 290px;
@@ -1237,13 +1231,7 @@ footer {
         border-radius: 15px;
         font-size: 2rem;
     }
-    #playground-section #buttons-container-div #minus-button {
-        width: 120px;
-        height: 120px;
-        font-size: 3rem;
-
-    }
-
+  
     #playground-section #buttons-container-div #plus-button {
         width: 120px;
         height: 120px;
@@ -1261,7 +1249,7 @@ footer {
         height: 70px;
     }
 
-    #score-board-div #score-screen-number-div .score-text { }
+ 
 }
 
 
