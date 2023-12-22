@@ -1603,7 +1603,7 @@ function updatePlayerList(players) {
   // Create new list items
   players.forEach(player => {
     const listItem = document.createElement('li');
-    listItem.textContent = `${player.name} - ${player.highScore}`;
+    listItem.textContent = `${player.name} - ${player.score}`;
     listContainer.appendChild(listItem);
   });
 }
