@@ -942,7 +942,7 @@ h1 {
     padding-top: 35px;
     padding-bottom: 35px;
     width: 45%;
-    background-color: black;
+    background-color: rgb(181, 5, 5);
     color: white;
     flex-direction: column;
     justify-content: space-evenly;

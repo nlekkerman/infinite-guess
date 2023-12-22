@@ -313,7 +313,30 @@ saveGameButton.addEventListener('click', async () => {
     exitSaveGameBtn.addEventListener('click', function () {
         
         saveGameSection.style.display = 'none'; // Make the timer visible
-       
+       async function fetchData() {
+  try {
+    const response = await fetch('http://localhost:3000/players'); // Replace with your actual server URL
+    const players = await response.json();
+    updatePlayerList(players);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+function updatePlayerList(players) {
+  const listContainer = document.getElementById('high-score-list-dash');
+
+  // Clear existing list items
+  listContainer.innerHTML = '';
+
+  // Create new list items
+  players.forEach(player => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${player.name} - ${player.score}`;
+    listContainer.appendChild(listItem);
+  });
+}
+
 
     });
     startBonusGameButton.addEventListener('click', function () {
@@ -472,7 +495,7 @@ saveGameButton.addEventListener('click', async () => {
     exitGameBtn.addEventListener('click', function () {
         
         saveGameSection.style.display = 'block';
-        displayHighScores();
+      
 
 
     });
@@ -1173,7 +1196,30 @@ async function addPlayer(playerData) {
     }
 }
 
-
+async function fetchData() {
+    try {
+      const response = await fetch('http://localhost:3000/players'); // Replace with your actual server URL
+      const players = await response.json();
+      updatePlayerListForA(players);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+  
+  function updatePlayerListForA(players) {
+    const listContainer = document.getElementById('high-score-list');
+  
+    // Clear existing list items
+    listContainer.innerHTML = '';
+  
+    // Create new list items
+    players.forEach(player => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${player.name} - ${player.score}`;
+      listContainer.appendChild(listItem);
+    });
+  }
+  
 });
 
   
@@ -1610,30 +1656,6 @@ function createRipple(event, button) {
 }
 
 
-async function saveScore(username) {
-    try {
-        const response = await fetch('http://localhost:3000/scores', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username }),
-        });
-
-        if (response.ok) {
-            console.log('Score saved successfully');
-            // Add any additional logic or UI updates here
-        } else {
-            console.error('Failed to save score');
-            // Handle error, show error message, etc.
-        }
-    } catch (error) {
-        console.error('Error saving score:', error);
-        // Handle network error or other issues
-    }
-}
-
-
 
 
 document.addEventListener('DOMContentLoaded', fetchData);
@@ -1661,4 +1683,5 @@ function updatePlayerList(players) {
     listContainer.appendChild(listItem);
   });
 }
+
 
