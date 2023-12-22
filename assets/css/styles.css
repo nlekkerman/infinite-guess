@@ -947,7 +947,8 @@ h1 {
     flex-direction: column;
     justify-content: space-evenly;
     border: 3px solid white;
-    border-radius: 15px;
+    border-radius: 16px;
+    
 }
 
 #rules {
