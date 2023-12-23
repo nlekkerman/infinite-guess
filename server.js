@@ -42,7 +42,7 @@ app.post('/players', async(req, res) => {
 mongoose.connect('mongodb+srv://nlekkerman:CL6xRz3VCE9ka2P@cluster0.uafawfd.mongodb.net/players?retryWrites=true&w=majority')
   .then(() => {
     console.log('connected tmfk mongoo')
-    app.listen(3000, () => {
+    app.listen(3001, () => {
       console.log('running on 3000');
     })
   }).catch((error) => {
