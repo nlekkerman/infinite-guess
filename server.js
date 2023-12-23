@@ -11,23 +11,25 @@ const app = express()
 
 app.use(express.json())
 app.use(cors())
+
+app.get('/players', async(req, res) => {
+
+  try {
+    const players = await Product.find({})
+    res.status(200).json(players)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  
+  
+  }
+  })
+  
 app.get('/', (req, res) => {
 
   res.send('Hello What is this')
 })
 
 
-app.get('/players', async(req, res) => {
-
-try {
-  const players = await Product.find({})
-  res.status(200).json(players)
-} catch (error) {
-  res.status(500).json({ message: error.message })
-
-
-}
-})
 
 app.post('/players', async(req, res) => {
   try {
