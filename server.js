@@ -11,7 +11,10 @@ const app = express()
 
 app.use(express.json())
 app.use(cors())
+app.get('/', (req, res) => {
 
+  res.send('Hello What is this')
+})
 
 
 app.get('/players', async(req, res) => {
