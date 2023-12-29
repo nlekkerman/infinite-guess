@@ -1070,6 +1070,17 @@ h1 {
     opacity: 0;
 }
 
+.gold {
+    background-color: gold;
+}
+
+.silver {
+    background-color: silver;
+}
+
+.bronze {
+    background-color: #cd7f32; /* Bronze color */
+}
 
 @keyframes ripple-animation {
     to {

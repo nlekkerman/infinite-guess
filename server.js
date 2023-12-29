@@ -19,7 +19,8 @@ app.get('/players', async(req, res) => {
     res.status(200).json(players)
   } catch (error) {
     res.status(500).json({ message: error.message })
-  
+    res.send('Hello What is this')
+
   
   }
   })
@@ -38,6 +39,8 @@ app.post('/players', async(req, res) => {
   } catch (error) {
     console.log(error.message)
     res.status(500).json({ message: error.message })
+    console.log(error + " velika je TESKA")
+
   }
 })
 

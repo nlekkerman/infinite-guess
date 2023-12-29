@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const welcomeSection = document.getElementById('welcome-section');
 
 
-   
-    
+
+
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
     });
@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
         wrapDivHighscores.style.display = 'block'
         hideIcons.style.display = 'none';
 
-       
+
     });
 
     rulesDash.addEventListener('click', function () {
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-  exitHighDashboard.addEventListener('click', function () {
+    exitHighDashboard.addEventListener('click', function () {
 
         const wrapDivHighscores = document.getElementById('wrap-div-highscores');
         const hideIcons = document.getElementById('icons-dash-container')
@@ -269,73 +269,75 @@ document.addEventListener('DOMContentLoaded', function () {
         wrapDivRules.style.display = 'none';
     });
 
-   // Assuming you have input elements with the ids "playerNameInput" and "playerScoreInput"
-const playerNameInput = document.getElementById('username');
-const playerScoreInput = parseInt(scoreText.textContent, 10);
-;
+    // Assuming you have input elements with the ids "playerNameInput" and "playerScoreInput"
+    const playerNameInput = document.getElementById('username');
+    const playerScoreInput = parseInt(scoreText.textContent, 10);
+    ;
 
-// Event listener for the button click
-saveGameButton.addEventListener('click', async () => {
-  const playerName = playerNameInput.value.trim();
-  const playerScore = parseInt(scoreText.textContent, 10);
+    // Event listener for the button click
+    saveGameButton.addEventListener('click', async () => {
+        const playerName = playerNameInput.value.trim();
+        console.log("Username: " + playerName);
+        const playerScore = parseInt(scoreText.textContent, 10);
 
-  // Check if the inputs are valid
-  if (playerName && !isNaN(playerScore)) {
-    const playerData = {
-      name: playerName,
-      score: playerScore,
-    };
+        // Check if the inputs are valid
+        if (playerName && !isNaN(playerScore)) {
+            const playerData = {
+                name: playerName,
+                score: playerScore,
+            };
 
-    try {
-      const response = await fetch('http://localhost:3000/players', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(playerData),
-      });
+            try {
+                const response = await fetch('http://localhost:3003/players', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(playerData),
+                });
 
-      if (response.ok) {
-        console.log('Player data submitted successfully!');
-        // Optionally, update UI or perform other actions upon successful submission.
-      } else {
-        console.error('Failed to submit player data:', response.statusText);
-        // Handle error, update UI, or provide user feedback.
-      }
-    } catch (error) {
-      console.error('Error submitting player data:', error);
-      // Handle error, update UI, or provide user feedback.
-    }
-  } else {
-    console.error('Invalid inputs. Please enter a valid name and score.');
-  }
-    scoreText.textContent = '0';});
+                if (response.ok) {
+                    console.log('Player data submitted successfully!');
+                    // Optionally, update UI or perform other actions upon successful submission.
+                } else {
+                    console.error('Failed to submit player data:', response.statusText);
+                    // Handle error, update UI, or provide user feedback.
+                }
+            } catch (error) {
+                console.error('Error submitting player data:', error);
+                // Handle error, update UI, or provide user feedback.
+            }
+        } else {
+            console.error('Invalid inputs. Please enter a valid name and score.');
+        }
+        scoreText.textContent = '0';
+    });
     exitSaveGameBtn.addEventListener('click', function () {
-        
+
         saveGameSection.style.display = 'none'; // Make the timer visible
-       async function fetchData() {
-  try {
-    const response = await fetch('http://localhost:3000/players'); // Replace with your actual server URL
-    const players = await response.json();
-    updatePlayerList(players);
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-}
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:3003/players'); // Replace with your actual server URL
+                const players = await response.json();
+                updatePlayerList(players);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
 
-function updatePlayerList(players) {
-  const listContainer = document.getElementById('high-score-list-dash');
+        function updatePlayerList(players) {
+            const listContainer = document.getElementById('high-score-list-dash');
 
-  // Clear existing list items
-  listContainer.innerHTML = '';
+            // Clear existing list items
+            listContainer.innerHTML = '';
 
-  // Create new list items
-  players.forEach(player => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${player.name} - ${player.score}`;
-    listContainer.appendChild(listItem);
-  });
-}
+            // Create new list items
+            players.forEach(player => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${player.name} - ${player.score}`;
+                listContainer.appendChild(listItem);
+            });
+        }
 
 
     });
@@ -374,7 +376,7 @@ function updatePlayerList(players) {
                     timerElement.innerHTML = "Time's up!";
                     higherLowerTitle.innerHTML = "Higher or Lower"
                     document.getElementById('exit-turbo-section').style.display = 'block';
-                  
+
                     finalScore = parseInt(scoreText.textContent, 10);
                     pauseAlarm();
                     stopChaseMusic();
@@ -493,9 +495,9 @@ function updatePlayerList(players) {
     });
 
     exitGameBtn.addEventListener('click', function () {
-        
+
         saveGameSection.style.display = 'block';
-      
+        fetchDataForSaveGame();
 
 
     });
@@ -623,10 +625,10 @@ function updatePlayerList(players) {
             // Decrement the score if the guess is wrong
             let currentScore = parseInt(scoreText.textContent, 10);
 
-          
-           
-            
-    
+
+
+
+
 
 
             if (isBonus) {
@@ -943,9 +945,9 @@ function updatePlayerList(players) {
             "Don't be discouraged!",
             "Facing hurdles? ",
             "Tough break.",
-           
+
         ];
-        
+
         const messagesArray = (messageType === 'encouraging') ? encouragingMessages : discouragingMessages;
 
         const randomIndex = Math.floor(Math.random() * messagesArray.length);
@@ -1078,151 +1080,151 @@ function updatePlayerList(players) {
     function resetConsecutiveCorrectAnswers() {
         consecutiveCorrectAnswers = 0;
     }
-  
-  // Your existing isScoreInTop10 function
-  function isScoreInTop10(score, highScores) {
-    return highScores.length < 10 || score > highScores[highScores.length - 1].score;
-}
 
- const serverUrl = 'http://localhost:3000';
-
-  // Attach the onclick event handler to the button
-
-
-  
-  
-/*
-  // Function to handle all save game logic
-  function saveGame() {
-    // Retrieve the username input value
-    const usernameInput = document.getElementById('username');
-    const username = usernameInput.value.trim();
-
-    if (username === "") {
-        alert("Please enter a valid username.");
-        return;
+    // Your existing isScoreInTop10 function
+    function isScoreInTop10(score, highScores) {
+        return highScores.length < 10 || score > highScores[highScores.length - 1].score;
     }
 
-    // Retrieve the current score (replace this with your actual scoring logic)
-    const currentScore = parseInt(scoreText.textContent, 10);
-
-    // Retrieve high scores from local storage
-    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
-    // Check if current score is in top 10
-    const isInTop10 = isScoreInTop10(currentScore, highScores);
-
-    // Display the score form container
-    const scoreFormContainer = document.querySelector('.form-container');
-
-    if (isInTop10) {
-        // Check if the entered name already exists
-        if (highScores.some(item => item.name === username)) {
-            alert("This username already exists. Please choose a different one.");
-            return;
-        }
-
-        if (currentScore <= 0) {
-            alert("Score can't be 0");
-            return;
-        }
-
-        // Add the new score to the high scores list
-        highScores.push({ name: username, score: currentScore });
-
-        // Sort the high scores in descending order
-        highScores.sort((a, b) => b.score - a.score);
-
-        // Keep only the top 10 scores
-        highScores.splice(10);
-
-        // Save the updated high scores to local storage
-        localStorage.setItem('highScores', JSON.stringify(highScores));
-
-        // Display high scores in the list
-        displayHighScores();
-
-        
-    } else {
-        alert("Sorry, your score did not make it to the top 10.");
-    }
-
-    // Clear the username input field
-    usernameInput.value = "";
-}
-
-*/
-
-function saveScoreFromInput(score) {
     const serverUrl = 'http://localhost:3000';
 
-    const usernameInput = document.getElementById('username');
-    const username = usernameInput.value.trim();
+    // Attach the onclick event handler to the button
 
-    if (username && score !== undefined) {
-        const playerData = {
-            username: username,
-            scoreText: score, // Use the score value, not the HTML element
-        };
 
-        addPlayer(playerData);
-    } else {
-        console.error('Username and Score are required.');
-    }
-}
 
-async function addPlayer(playerData) {
-    const serverUrl = 'http://localhost:3000';
 
-    try {
-        const response = await fetch(`${serverUrl}/players`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(playerData),
-        });
-
-        if (response.ok) {
-            console.log('Score saved successfully!');
-            // Optionally, you can update the UI or take other actions after successful saving.
+    /*
+      // Function to handle all save game logic
+      function saveGame() {
+        // Retrieve the username input value
+        const usernameInput = document.getElementById('username');
+        const username = usernameInput.value.trim();
+    
+        if (username === "") {
+            alert("Please enter a valid username.");
+            return;
+        }
+    
+        // Retrieve the current score (replace this with your actual scoring logic)
+        const currentScore = parseInt(scoreText.textContent, 10);
+    
+        // Retrieve high scores from local storage
+        const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    
+        // Check if current score is in top 10
+        const isInTop10 = isScoreInTop10(currentScore, highScores);
+    
+        // Display the score form container
+        const scoreFormContainer = document.querySelector('.form-container');
+    
+        if (isInTop10) {
+            // Check if the entered name already exists
+            if (highScores.some(item => item.name === username)) {
+                alert("This username already exists. Please choose a different one.");
+                return;
+            }
+    
+            if (currentScore <= 0) {
+                alert("Score can't be 0");
+                return;
+            }
+    
+            // Add the new score to the high scores list
+            highScores.push({ name: username, score: currentScore });
+    
+            // Sort the high scores in descending order
+            highScores.sort((a, b) => b.score - a.score);
+    
+            // Keep only the top 10 scores
+            highScores.splice(10);
+    
+            // Save the updated high scores to local storage
+            localStorage.setItem('highScores', JSON.stringify(highScores));
+    
+            // Display high scores in the list
+            displayHighScores();
+    
+            
         } else {
-            console.error('Failed to save score:', response.statusText);
+            alert("Sorry, your score did not make it to the top 10.");
+        }
+    
+        // Clear the username input field
+        usernameInput.value = "";
+    }
+    
+    */
+
+    function saveScoreFromInput(score) {
+        const serverUrl = 'http://localhost:3000';
+
+        const usernameInput = document.getElementById('username');
+        const username = usernameInput.value.trim();
+
+        if (username && score !== undefined) {
+            const playerData = {
+                username: username,
+                scoreText: score, // Use the score value, not the HTML element
+            };
+
+            addPlayer(playerData);
+        } else {
+            console.error('Username and Score are required.');
+        }
+    }
+
+    async function addPlayer(playerData) {
+        const serverUrl = 'http://localhost:3000';
+
+        try {
+            const response = await fetch(`${serverUrl}/players`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(playerData),
+            });
+
+            if (response.ok) {
+                console.log('Score saved successfully!');
+                // Optionally, you can update the UI or take other actions after successful saving.
+            } else {
+                console.error('Failed to save score:', response.statusText);
+                // Handle error, update UI, or provide user feedback.
+            }
+        } catch (error) {
+            console.error('Error saving score:', error);
             // Handle error, update UI, or provide user feedback.
         }
-    } catch (error) {
-        console.error('Error saving score:', error);
-        // Handle error, update UI, or provide user feedback.
     }
-}
 
-async function fetchData() {
-    try {
-      const response = await fetch('http://localhost:3000/players'); // Replace with your actual server URL
-      const players = await response.json();
-      updatePlayerListForA(players);
-    } catch (error) {
-      console.error('Error fetching data:', error);
+    async function fetchData() {
+        try {
+            const response = await fetch('http://localhost:3000/players'); // Replace with your actual server URL
+            const players = await response.json();
+            updatePlayerListForA(players);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     }
-  }
-  
-  function updatePlayerListForA(players) {
-    const listContainer = document.getElementById('high-score-list');
-  
-    // Clear existing list items
-    listContainer.innerHTML = '';
-  
-    // Create new list items
-    players.forEach(player => {
-      const listItem = document.createElement('li');
-      listItem.textContent = `${player.name} - ${player.score}`;
-      listContainer.appendChild(listItem);
-    });
-  }
-  
+
+    function updatePlayerListForA(players) {
+        const listContainer = document.getElementById('high-score-list');
+
+        // Clear existing list items
+        listContainer.innerHTML = '';
+
+        // Create new list items
+        players.forEach(player => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${player.name} - ${player.score}`;
+            listContainer.appendChild(listItem);
+        });
+    }
+
 });
 
-  
+
 //THEME
 
 // Get all the theme links
@@ -1521,51 +1523,7 @@ function displayHighScores() {
 }
 
 
-/*
-// Your existing displayHighScores function
-function displayHighScoresDashboard() {
-    const highScoreList = document.getElementById('high-score-list-dash');
-    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
-    // Clear existing list items
-    highScoreList.innerHTML = '';
-
-    // Display high scores in the list
-    highScores.forEach((item, index) => {
-        const li = document.createElement('li');
-        const scoreNumberSpan = document.createElement('span');
-        const playerNameSpan = document.createElement('span');
-
-        scoreNumberSpan.className = 'score-number';
-        playerNameSpan.className = 'player-name';
-
-        scoreNumberSpan.textContent = index + 1 + '.';
-        playerNameSpan.textContent = `${item.name}: ${item.score}`;
-
-        li.appendChild(scoreNumberSpan);
-        li.appendChild(playerNameSpan);
-
-        // Apply different background colors for the first three elements
-        if (index === 0) {
-            li.style.backgroundColor = 'gold';
-            li.style.borderBottom = '1px';
-            li.style.color = 'black';
-        } else if (index === 1) {
-            li.style.backgroundColor = 'silver';
-            li.style.color = 'black';
-        } else if (index === 2) {
-            li.style.backgroundColor = '#cd7f32';
-            li.style.color = 'black';
-        }
-        if (index < 3) {
-            li.style.borderBottom = '2px solid white';
-        }
-
-        highScoreList.appendChild(li);
-    });
-}
-*/
-// Function to fetch and display high scores from the server
 async function displayHighScoresDashboard() {
     const highScoreList = document.getElementById('high-score-list-dash');
 
@@ -1661,27 +1619,88 @@ function createRipple(event, button) {
 document.addEventListener('DOMContentLoaded', fetchData);
 
 async function fetchData() {
-  try {
-    const response = await fetch('http://localhost:3000/players'); // Replace with your actual server URL
-    const players = await response.json();
-    updatePlayerList(players);
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
+    try {
+        const response = await fetch('http://localhost:3003/players'); // Replace with your actual server URL
+        const players = await response.json();
+
+        // Sort players by score in descending order
+        players.sort((a, b) => b.score - a.score);
+
+        updatePlayerList(players);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
 
 function updatePlayerList(players) {
-  const listContainer = document.getElementById('high-score-list-dash');
+    const listContainer = document.getElementById('high-score-list-dash');
 
-  // Clear existing list items
-  listContainer.innerHTML = '';
+    // Clear existing list items
+    listContainer.innerHTML = '';
 
-  // Create new list items
-  players.forEach(player => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${player.name} - ${player.score}`;
-    listContainer.appendChild(listItem);
-  });
+    // Create new list items
+    players.forEach((player, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${player.name} - ${player.score}`;
+
+        // Add class based on position for background color
+        if (index === 0) {
+            listItem.classList.add('gold');
+        } else if (index === 1) {
+            listItem.classList.add('silver');
+        } else if (index === 2) {
+            listItem.classList.add('bronze');
+        }
+
+        listContainer.appendChild(listItem);
+    });
 }
+
+async function fetchDataForSaveGame() {
+    try {
+        const response = await fetch('http://localhost:3003/players'); // Replace with your actual server URL
+        const players = await response.json();
+         // Sort players by score in descending order
+         players.sort((a, b) => b.score - a.score);
+        updatePlayerListForSaveGame(players);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+function updatePlayerListForSaveGame(players) {
+    const listContainer = document.getElementById('high-score-list');
+
+    // Clear existing list items
+    listContainer.innerHTML = '';
+
+    // Create new list items
+    players.forEach((player, index) => {
+        const listItem = document.createElement('li');
+        const scoreNumberSpan = document.createElement('span');
+        const playerNameSpan = document.createElement('span');
+
+        // Set content
+        scoreNumberSpan.textContent = index + 1 + '.';
+        playerNameSpan.textContent = `${player.name}: ${player.score}`;
+
+        // Add spans to the list item
+        listItem.appendChild(scoreNumberSpan);
+        listItem.appendChild(playerNameSpan);
+
+        // Add class based on position for background color
+        if (index === 0) {
+            listItem.classList.add('gold');
+        } else if (index === 1) {
+            listItem.classList.add('silver');
+        } else if (index === 2) {
+            listItem.classList.add('bronze');
+        }
+        scoreNumberSpan.style.textAlign = 'center';
+        playerNameSpan.style.textAlign = 'center';
+        listContainer.appendChild(listItem);
+    });
+}
+
 
 
