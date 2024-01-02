@@ -17,9 +17,11 @@ app.get('/players', async(req, res) => {
   try {
     const players = await Product.find({})
     res.status(200).json(players)
+    res.send('Hello is this')
+
   } catch (error) {
     res.status(500).json({ message: error.message })
-    res.send('Hello What is this')
+    res.send('Hello Who is this')
 
   
   }

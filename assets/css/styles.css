@@ -1248,7 +1248,11 @@ footer {
         height: 120px;
         font-size: 3rem;
     }
-
+    #playground-section #buttons-container-div #minus-button {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+    }
 
     #score-board-div #color-scoreboard-div #answer-text {
 
