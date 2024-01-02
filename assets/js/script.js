@@ -48,15 +48,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const rulesDash = document.getElementById('rules');
 
     const welcomeSection = document.getElementById('welcome-section');
+    const scoreForm = document.getElementById('score-form');
 
 
+
+    const popupContainer = document.getElementById('popup-container');
+    const popupButton = document.getElementById('popup-button');
 
 
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
     });
     // Example: Toggle sound on/off
-    let isSoundOn = false; // Initial state
+    let isSoundOn = false;
     soundControlButton.addEventListener('click', function () {
         isSoundOn = !isSoundOn;
 
@@ -75,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    let isMusicOn = false; // Initial state
+    let isMusicOn = false;
     musicControlButton.addEventListener('click', function () {
         isMusicOn = !isMusicOn;
 
@@ -115,11 +119,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function stopChaseMusic() {
         if (isMusicOn) {
             chaseGameMusic.pause();
-            chaseGameMusic.currentTime = 0; // Reset the playback position to the beginning
+            chaseGameMusic.currentTime = 0;
             isMusicPlaying = false;
         }
     }
-    // Function to play the background music
+
     function playBackgroundMusic() {
 
         if (isMusicOn) {
@@ -218,6 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const hideIcons = document.getElementById('icons-dash-container')
         wrapDivHighscores.style.display = 'block'
         hideIcons.style.display = 'none';
+        displayHighScoresForDashboard();
 
 
     });
@@ -269,18 +274,18 @@ document.addEventListener('DOMContentLoaded', function () {
         wrapDivRules.style.display = 'none';
     });
 
-    // Assuming you have input elements with the ids "playerNameInput" and "playerScoreInput"
     const playerNameInput = document.getElementById('username');
     const playerScoreInput = parseInt(scoreText.textContent, 10);
-    ;
 
-    // Event listener for the button click
     saveGameButton.addEventListener('click', async () => {
         const playerName = playerNameInput.value.trim();
         console.log("Username: " + playerName);
         const playerScore = parseInt(scoreText.textContent, 10);
+        saveGame();
 
-        // Check if the inputs are valid
+        scoreForm.style.display = 'none'
+
+        /*
         if (playerName && !isNaN(playerScore)) {
             const playerData = {
                 name: playerName,
@@ -310,34 +315,13 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             console.error('Invalid inputs. Please enter a valid name and score.');
         }
+
+        */
         scoreText.textContent = '0';
     });
     exitSaveGameBtn.addEventListener('click', function () {
 
-        saveGameSection.style.display = 'none'; // Make the timer visible
-        async function fetchData() {
-            try {
-                const response = await fetch('http://localhost:3003/players'); // Replace with your actual server URL
-                const players = await response.json();
-                updatePlayerList(players);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        }
-
-        function updatePlayerList(players) {
-            const listContainer = document.getElementById('high-score-list-dash');
-
-            // Clear existing list items
-            listContainer.innerHTML = '';
-
-            // Create new list items
-            players.forEach(player => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${player.name} - ${player.score}`;
-                listContainer.appendChild(listItem);
-            });
-        }
+        saveGameSection.style.display = 'none';
 
 
     });
@@ -496,40 +480,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     exitGameBtn.addEventListener('click', function () {
 
-        saveGameSection.style.display = 'block';
-        fetchDataForSaveGame();
+
+        displayHighScores();
+        checkAndDisplayBestScore();
 
 
     });
-    // Initial setup: Generate a random number when the page loads
     let currentGuess = generateRandomNumber();
     guessingNumberDiv.textContent = currentGuess;
 
     updateStyles();
-    function generateRandomNumber() {
-        let previousNumber = null;
-        let currentNumber;
 
 
-        // Generate a new random number
-        currentNumber = Math.floor(Math.random() * 100) + 1;
-
-        // Check if the new number is the same as the previous one
-        while (currentNumber === previousNumber);
-
-        if (currentNumber === previousNumber) {
-            currentNumber = Math.floor(Math.random() * 100) + 1;
-            guessingNumberDiv.textContent = currentNumber;
-
-        }
-        // Update the previousNumber for the next iteration
-        previousNumber = currentNumber;
-
-        console.log(currentNumber + " CURRENT NUMBERERRRRRRRRRR")
-        // Now, currentNumber is different from the previous one
-        return currentNumber;
-    }
-    // Function to compare numbers and update the message
     function compareNumbers(current, newNumber, guess) {
         let isCorrect;
 
@@ -562,7 +524,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return isCorrect;
     }
-    // Example: Update higher/lower title and guessing number when minus button is clicked
     minusButton.addEventListener('click', function () {
         startShaking();
 
@@ -647,9 +608,6 @@ document.addEventListener('DOMContentLoaded', function () {
         guessingNumberDiv.textContent = currentGuess;
         updateStyles(); // Apply styles after updating the number and score
     });
-
-
-    // Example: Update higher/lower title and guessing number when plus button is clicked
     plusButton.addEventListener('click', function () {
         console.log(isMusicOn + " button")
         startShaking();
@@ -752,7 +710,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateStyles(); // Apply styles after updating the number and score
 
     });
-    let intervalId; // Declare intervalId in the outer scope
+    let intervalId;
 
     optOneBck.addEventListener('click', function () {
 
@@ -810,14 +768,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
+
+    popupButton.addEventListener('click', function () {
+    
+        popupContainer.style.display = 'none';
+    });
+
     function generateAndCompareNumbersForTwo() {
-        // Generate random numbers between 1 and 100
+
         let randomNumber1 = Math.floor(Math.random() * 100) + 1;
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
 
-
-
-        // Assign the numbers to HTML elements
         let number1 = document.getElementById('option-one-number')
         let number2 = document.getElementById('option-two-number')
         let screenMessage = document.getElementById('final-chalange-score')
@@ -854,16 +815,13 @@ document.addEventListener('DOMContentLoaded', function () {
             screenMessage.style.color = 'white';
             backgroundOne.style.backgroundColor = 'green';
             backgroundTwo.style.backgroundColor = 'red';
-
-
-            // Add your logic to give points for correct guess in your game
         } else {
-
+            generateRandomNumber();
         }
 
 
 
-        // Return an object containing the generated numbers
+
         return { randomNumber1, randomNumber2 };
     }
 
@@ -992,14 +950,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
     }
-    // Function to toggle between red and original color
-    let switchDirection = true; // true for left, false for right
-    let stopSwitching = false; // Flag to stop switching colors
-
-    // Function to switch background colors between left and right
+    let switchDirection = true;
+    let stopSwitching = false;
     function switchColors() {
         if (stopSwitching) {
-            return; // Stop switching if the flag is true
+            return;
         }
 
         const optionOneBackground = document.getElementById("option-one-background");
@@ -1007,17 +962,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const iconOne = document.getElementById('icon-one');
         const iconTwo = document.getElementById('icon-two');
 
-        // Set the background colors based on the switch direction
+
         if (switchDirection) {
             optionOneBackground.style.backgroundColor = "red";
             optionTwoBackground.style.backgroundColor = "white";
             iconOne.style.color = "white";
-            iconTwo.style.color = "";
+            iconTwo.style.color = "black";
 
         } else {
             optionOneBackground.style.backgroundColor = "white";
             optionTwoBackground.style.backgroundColor = "red";
-            iconOne.style.color = "";
+            iconOne.style.color = "black";
             iconTwo.style.color = "white";
 
         }
@@ -1026,7 +981,7 @@ document.addEventListener('DOMContentLoaded', function () {
         switchDirection = !switchDirection;
     }
 
-    // Function to update the style of the guessing number and score text
+
     function updateStyles() {
         // Update styles for guessing number
         guessingNumberDiv.style.color = "white";
@@ -1041,24 +996,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // Add more styles as needed
     }
 
-    // Function to generate a random number between 1 and 100
+
     function generateRandomNumber() {
         let previousNumber = null;
         let currentNumber;
-
-
-        // Generate a new random number
         currentNumber = Math.floor(Math.random() * 100) + 1;
 
-        // Check if the new number is the same as the previous one
-        while (currentNumber === previousNumber);
 
         if (currentNumber === previousNumber) {
             currentNumber = Math.floor(Math.random() * 100) + 1;
             guessingNumberDiv.textContent = currentNumber;
 
         }
-        // Update the previousNumber for the next iteration
         previousNumber = currentNumber;
 
         console.log(currentNumber + " CURRENT NUMBERERRRRRRRRRR")
@@ -1076,158 +1025,91 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 500); // Adjust the time to match the animation duration
 
     }
-    // Reset the counter when needed (e.g., after showing the bonus screen)
     function resetConsecutiveCorrectAnswers() {
         consecutiveCorrectAnswers = 0;
     }
 
-    // Your existing isScoreInTop10 function
-    function isScoreInTop10(score, highScores) {
-        return highScores.length < 10 || score > highScores[highScores.length - 1].score;
+    function isScoreTheBest(score, highScores) {
+        return highScores.length === 0 || score > highScores[0].score;
     }
 
-    const serverUrl = 'http://localhost:3000';
+    function saveGame() {
 
-    // Attach the onclick event handler to the button
-
-
-
-
-    /*
-      // Function to handle all save game logic
-      function saveGame() {
-        // Retrieve the username input value
         const usernameInput = document.getElementById('username');
         const username = usernameInput.value.trim();
-    
+
         if (username === "") {
             alert("Please enter a valid username.");
             return;
         }
-    
-        // Retrieve the current score (replace this with your actual scoring logic)
+
         const currentScore = parseInt(scoreText.textContent, 10);
-    
-        // Retrieve high scores from local storage
         const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-    
-        // Check if current score is in top 10
-        const isInTop10 = isScoreInTop10(currentScore, highScores);
-    
-        // Display the score form container
-        const scoreFormContainer = document.querySelector('.form-container');
-    
-        if (isInTop10) {
-            // Check if the entered name already exists
+        const isTheBestScore = isScoreTheBest(currentScore, highScores);
+
+        const scoreFormContainer = document.getElementById('score-form');
+
+        if (isTheBestScore) {
+            scoreFormContainer.style.display = 'block';
             if (highScores.some(item => item.name === username)) {
                 alert("This username already exists. Please choose a different one.");
                 return;
             }
-    
+
             if (currentScore <= 0) {
                 alert("Score can't be 0");
                 return;
             }
-    
-            // Add the new score to the high scores list
+
+            highScores.length = 0;
             highScores.push({ name: username, score: currentScore });
-    
-            // Sort the high scores in descending order
-            highScores.sort((a, b) => b.score - a.score);
-    
-            // Keep only the top 10 scores
-            highScores.splice(10);
-    
-            // Save the updated high scores to local storage
             localStorage.setItem('highScores', JSON.stringify(highScores));
-    
-            // Display high scores in the list
             displayHighScores();
-    
-            
+
         } else {
-            alert("Sorry, your score did not make it to the top 10.");
+            alert("Sorry, your score is not the best.");
         }
-    
+
         // Clear the username input field
         usernameInput.value = "";
     }
-    
-    */
 
-    function saveScoreFromInput(score) {
-        const serverUrl = 'http://localhost:3000';
+    function checkAndDisplayBestScore() {
+        const currentScore = parseInt(scoreText.textContent, 10);
+        const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+        const isTheBestScore = isScoreTheBest(currentScore, highScores);
 
-        const usernameInput = document.getElementById('username');
-        const username = usernameInput.value.trim();
+        if (isTheBestScore) {
+           
 
-        if (username && score !== undefined) {
-            const playerData = {
-                username: username,
-                scoreText: score, // Use the score value, not the HTML element
-            };
 
-            addPlayer(playerData);
+            saveGameSection.style.display = 'block';
+            scoreForm.style.display = 'block'
+            console.log("Congratulations! You have the best score!");
         } else {
-            console.error('Username and Score are required.');
+            popupContainer.style.display = 'block';
+
         }
     }
 
-    async function addPlayer(playerData) {
-        const serverUrl = 'http://localhost:3000';
-
-        try {
-            const response = await fetch(`${serverUrl}/players`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(playerData),
-            });
-
-            if (response.ok) {
-                console.log('Score saved successfully!');
-                // Optionally, you can update the UI or take other actions after successful saving.
-            } else {
-                console.error('Failed to save score:', response.statusText);
-                // Handle error, update UI, or provide user feedback.
-            }
-        } catch (error) {
-            console.error('Error saving score:', error);
-            // Handle error, update UI, or provide user feedback.
-        }
-    }
-
-    async function fetchData() {
-        try {
-            const response = await fetch('http://localhost:3000/players'); // Replace with your actual server URL
-            const players = await response.json();
-            updatePlayerListForA(players);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    }
-
-    function updatePlayerListForA(players) {
-        const listContainer = document.getElementById('high-score-list');
-
-        // Clear existing list items
-        listContainer.innerHTML = '';
-
-        // Create new list items
-        players.forEach(player => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `${player.name} - ${player.score}`;
-            listContainer.appendChild(listItem);
-        });
-    }
 
 });
 
 
-//THEME
 
-// Get all the theme links
+function setBestScoreTwo() {
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+    // Find the index of the score you want to keep (in this case, 2)
+    const bestScoreIndex = highScores.findIndex(item => item.score === 2);
+
+    // Create a new array with only the best score, or an empty array if it doesn't exist
+    const updatedHighScores = bestScoreIndex !== -1 ? [highScores[bestScoreIndex]] : [];
+
+    // Update the local storage with the new array
+    localStorage.setItem('highScores', JSON.stringify(updatedHighScores));
+}
+
 let themeLinks = document.querySelectorAll('.theme-div a');
 document.addEventListener("DOMContentLoaded", function () {
     // Check if a theme is already selected
@@ -1483,12 +1365,15 @@ function applyTheme(selectedThemeId) {
 function displayHighScores() {
     const highScoreList = document.getElementById('high-score-list');
     const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
-    // Clear existing list items
     highScoreList.innerHTML = '';
 
-    // Display high scores in the list
-    highScores.forEach((item, index) => {
+    // Sort the highScores array in descending order based on the score
+    highScores.sort((a, b) => b.score - a.score);
+
+    // Display only the highest score
+    const topScore = highScores[0];
+
+    if (topScore) {
         const li = document.createElement('li');
         const scoreNumberSpan = document.createElement('span');
         const playerNameSpan = document.createElement('span');
@@ -1496,34 +1381,54 @@ function displayHighScores() {
         scoreNumberSpan.className = 'score-number';
         playerNameSpan.className = 'player-name';
 
-        scoreNumberSpan.textContent = index + 1 + '.';
-        playerNameSpan.textContent = `${item.name}: ${item.score}`;
+        scoreNumberSpan.textContent = '1.';
+        playerNameSpan.textContent = `${topScore.name}: ${topScore.score}`;
 
         li.appendChild(scoreNumberSpan);
         li.appendChild(playerNameSpan);
 
-        // Apply different background colors for the first three elements
-        if (index === 0) {
-            li.style.backgroundColor = 'gold';
-            li.style.borderBottom = '1px';
-            li.style.color = 'black';
-        } else if (index === 1) {
-            li.style.backgroundColor = 'silver';
-            li.style.color = 'black';
-        } else if (index === 2) {
-            li.style.backgroundColor = '#cd7f32';
-            li.style.color = 'black';
-        }
-        if (index < 3) {
-            li.style.borderBottom = '2px solid white';
-        }
+        li.style.backgroundColor = 'gold';
+        li.style.borderBottom = '1px solid white';
+        li.style.color = 'black';
 
         highScoreList.appendChild(li);
-    });
+    }
 }
 
+function displayHighScoresForDashboard() {
+    const highScoreList = document.getElementById('high-score-list-dash');
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    highScoreList.innerHTML = '';
 
+    // Sort the highScores array in descending order based on the score
+    highScores.sort((a, b) => b.score - a.score);
 
+    // Display only the highest score
+    const topScore = highScores[0];
+
+    if (topScore) {
+        const li = document.createElement('li');
+        const scoreNumberSpan = document.createElement('span');
+        const playerNameSpan = document.createElement('span');
+
+        scoreNumberSpan.className = 'score-number';
+        playerNameSpan.className = 'player-name';
+
+        scoreNumberSpan.textContent = '1.';
+        playerNameSpan.textContent = `${topScore.name}: ${topScore.score}`;
+
+        li.appendChild(scoreNumberSpan);
+        li.appendChild(playerNameSpan);
+
+        li.style.backgroundColor = 'gold';
+        li.style.borderBottom = '1px solid white';
+        li.style.color = 'black';
+
+        highScoreList.appendChild(li);
+    }
+}
+
+/*
 async function displayHighScoresDashboard() {
     const highScoreList = document.getElementById('high-score-list-dash');
 
@@ -1561,7 +1466,7 @@ async function displayHighScoresDashboard() {
         console.error('Error fetching high scores:', error);
     }
 }
-
+*/
 
 function blinkRedBackground() {
     let timerElement = document.getElementById('timer');
@@ -1620,7 +1525,7 @@ document.addEventListener('DOMContentLoaded', fetchData);
 
 async function fetchData() {
     try {
-        const response = await fetch('http://localhost:3003/players'); // Replace with your actual server URL
+        const response = await fetch('http://localhost:3003/players');
         const players = await response.json();
 
         // Sort players by score in descending order
@@ -1658,13 +1563,18 @@ function updatePlayerList(players) {
 
 async function fetchDataForSaveGame() {
     try {
-        const response = await fetch('http://localhost:3003/players'); // Replace with your actual server URL
+        const response = await fetch('http://localhost:3003/players');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+
+
         const players = await response.json();
-         // Sort players by score in descending order
-         players.sort((a, b) => b.score - a.score);
+        players.sort((a, b) => b.score - a.score);
         updatePlayerListForSaveGame(players);
     } catch (error) {
-        console.error('Error fetching data:', error);
+
     }
 }
 

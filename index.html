@@ -40,15 +40,15 @@
         Your browser does not support the audio element.
     </audio>
     <main>
-        
-      
-        <section id="resaponsive-main-container">
-
-            
         <header>
             <h1 class="title">Infinite Guess</h1>
         </header>
 
+      
+        <section id="resaponsive-main-container">
+
+            
+     
         
         <section id="score-board-div">
            <div id="video"> <video autoplay muted loop>
@@ -71,7 +71,7 @@
                     <div id="highscore" class="icons">
 
                         <img src="assets/images/highscore-icon.png" alt="Description of the image" class="hs-icon">
-                        <h4>HIGHSCORES</h4>
+                        <h4>HIGHSCORE</h4>
                     </div>
 
                     <div id="rules" class="icons">
@@ -178,31 +178,7 @@
 
         </div>
 
-        <section id="control-container">
-            <div id="logo-div"><button id="exit-game-button" class="exit-game-button">SAVE</button></div>
-            <section id="sound-control" class="dropdown">
-                <button id="settings" class="dropbtn"><i class="fas fa-cog"></i></button>
-                <div class="dropdown-content">
-                    <p class="s-controi-title">SOUND</p>
-                    <div id="sound">
-                        <button id="sound-on-off"><i class="fas fa-volume-mute sound-icon"></i></button>
-                        <button id="music-on-off"><i class="fas fa-music music-icon"></i></button>
-                    </div>
-                    <div class="dropdown">
-                        <div class="theme-div">
-                            <p class="s-controi-title">THEME</p>
-                            <a href="#" id="theme-default" class="theme-link active" class="theme-default">Default</a>
-                            <a href="#" id="theme-space" class="theme-link active">Space</a>
-                            <a href="#" id="theme-earth" class="theme-link active">Earth</a>
-                            <a href="#" id="theme-midgard" class="theme-link active">Fairy</a>
-                            <!-- Add more options as needed -->
-                        </div>
-                    </div>
-    
-                </div>
-    
-            </section>
-        </section>
+      
        
         <section id="challenge-screen-section">
             <div id="flex-challange-container">
@@ -256,7 +232,7 @@
         </section>
         <section id="exit-game-screen">
             <div class="high-scores-container">
-                <h1>High Scores</h1>
+                <h1>Your best score is:</h1>
                 <ul id="high-score-list">
 
                 </ul>
@@ -274,6 +250,36 @@
 
         <section id="playground-section">
 
+            <div id="popup-container">
+                <p>This is NOT your best score.</p>
+                <button id="popup-button">OK</button>
+            </div>
+            
+            <section id="control-container">
+                <div id="logo-div"><button id="exit-game-button" class="exit-game-button">SAVE</button></div>
+                <section id="sound-control" class="dropdown">
+                    <button id="settings" class="dropbtn"><i class="fas fa-cog"></i></button>
+                    <div class="dropdown-content">
+                        <p class="s-controi-title">SOUND</p>
+                        <div id="sound">
+                            <button id="sound-on-off"><i class="fas fa-volume-mute sound-icon"></i></button>
+                            <button id="music-on-off"><i class="fas fa-music music-icon"></i></button>
+                        </div>
+                        <div class="dropdown">
+                            <div class="theme-div">
+                                <p class="s-controi-title">THEME</p>
+                                <a href="#" id="theme-default" class="theme-link active" class="theme-default">Default</a>
+                                <a href="#" id="theme-space" class="theme-link active">Space</a>
+                                <a href="#" id="theme-earth" class="theme-link active">Earth</a>
+                                <a href="#" id="theme-midgard" class="theme-link active">Fairy</a>
+                                <!-- Add more options as needed -->
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                </section>
+            </section>
             <div id="timer"></div>
 
             <p id="higher-lower-title-id" class="higher-lower-title">Higher or Lower?</p>
