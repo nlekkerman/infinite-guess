@@ -113,3 +113,49 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - Players can proceed to continue their gameplay after reviewing the results.
 , enhancing the suspenseful atmosphere.
   - The audio experience intensifies the gaming sensation during the challenge.
+
+
+### Bonus Round Features:
+
+- **Bonus Round Activation:**
+  - Upon successfully guessing five numbers in a row, the Bonus Round is triggered.
+  - Players are rewarded with the opportunity to participate in a special bonus challenge.
+
+- **Welcome to Bonus Screen:**
+  - The Bonus Round begins with the "Welcome to Bonus" screen.
+  - This screen includes a welcome note, rules, and options to start the bonus challenge.
+
+- **Rules Overview:**
+  - Players can review specific rules related to the bonus challenge.
+  - Understanding the rules enhances the player's chances of success in the bonus round.
+
+- **Start Bonus Button:**
+  - A "Start Bonus" button is prominently displayed, inviting players to begin the bonus challenge.
+  - Clicking this button initiates the bonus round and presents additional gameplay.
+
+- **Tense Music:**
+  - Throughout the bonus round, intense and suspenseful music plays in the background.
+  - The music heightens the excitement and adds a dramatic touch to the bonus challenge.
+
+- **Countdown Timer:**
+  - A countdown timer is activated during the bonus round, indicating the remaining time, 20 seconds.
+  - Players must make their guesses within the given time frame for added intensity.
+
+- **Blinking Numbers:**
+  - In the last ten seconds of the bonus round, the guessing numbers blink in red, creating urgency.
+  - The visual cue signals the final moments of the bonus challenge.
+
+  
+### Bonus Result Screen Features:
+
+- **Bonus Result Screen:**
+  - After completing the Bonus Round, players are presented with a dedicated result screen.
+  - The result screen features a title, indicating the total points earned during the bonus round.
+
+- **Points Earned:**
+  - The score screen clearly displays the points accumulated by the player during the bonus round.
+  - Points are based on the player's performance and successful guesses within the given time.
+
+- **Exit Button:**
+  - A prominent "Exit" button is available on the result screen.
+  - Players can choose to exit the bonus result screen and return to the main gameplay.
