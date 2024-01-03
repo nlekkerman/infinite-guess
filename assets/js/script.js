@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    const playerNameInput = document.getElementById('username');
     const soundControl = document.getElementById('sound-control');
     const soundControlButton = document.getElementById('sound-on-off');
     const musicControlButton = document.getElementById('music-on-off');
@@ -29,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const startChallengeButton = document.getElementById('challenge-action-button')
     const declineChallengeButton = document.getElementById('decline-button')
     const acceptChallengeButton = document.getElementById('accept-button')
-    const closeDoubleItScreen = document.getElementById('challenge-button-close')
+    const closeChallengeScreen = document.getElementById('challenge-button-close')
 
-    const startBonusGameButton = document.getElementById('action-button');
+    const startTurboGameButton = document.getElementById('action-button');
     const exitTurboButton = document.getElementById('exit-turbo-btn');
 
     const optOneBck = document.getElementById('option-one-background')
@@ -274,65 +275,28 @@ document.addEventListener('DOMContentLoaded', function () {
         wrapDivRules.style.display = 'none';
     });
 
-    const playerNameInput = document.getElementById('username');
-    const playerScoreInput = parseInt(scoreText.textContent, 10);
-
+    //save score button
     saveGameButton.addEventListener('click', async () => {
         const playerName = playerNameInput.value.trim();
         console.log("Username: " + playerName);
-        const playerScore = parseInt(scoreText.textContent, 10);
         saveGame();
-
         scoreForm.style.display = 'none'
-
-        /*
-        if (playerName && !isNaN(playerScore)) {
-            const playerData = {
-                name: playerName,
-                score: playerScore,
-            };
-
-            try {
-                const response = await fetch('http://localhost:3003/players', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(playerData),
-                });
-
-                if (response.ok) {
-                    console.log('Player data submitted successfully!');
-                    // Optionally, update UI or perform other actions upon successful submission.
-                } else {
-                    console.error('Failed to submit player data:', response.statusText);
-                    // Handle error, update UI, or provide user feedback.
-                }
-            } catch (error) {
-                console.error('Error submitting player data:', error);
-                // Handle error, update UI, or provide user feedback.
-            }
-        } else {
-            console.error('Invalid inputs. Please enter a valid name and score.');
-        }
-
-        */
         scoreText.textContent = '0';
     });
+
+    //exit save game screen
     exitSaveGameBtn.addEventListener('click', function () {
-
         saveGameSection.style.display = 'none';
-
-
     });
-    startBonusGameButton.addEventListener('click', function () {
+
+    //start turbo game
+    startTurboGameButton.addEventListener('click', function () {
         isBonus = true;
         console.log(isBonus);
         document.getElementById('bonus-screen-section').style.display = 'none';        // Store the initial value of the score
         initialScore = parseInt(scoreText.textContent, 10);
         playButtonClickSound();
         playChaseMusic();
-
         function countdownTimer(seconds) {
             const timerElement = document.getElementById('timer');
             timerElement.style.backgroundColor = 'white'
@@ -400,7 +364,9 @@ document.addEventListener('DOMContentLoaded', function () {
         countdownTimer(20);
 
     });
-    closeDoubleItScreen.addEventListener('click', function () {
+
+    //close Challenge screen
+    closeChallengeScreen.addEventListener('click', function () {
         const iconOne = document.getElementById('icon-one')
         iconOne.style.display = 'block'; // Make the timer visible
         const iconTwo = document.getElementById('icon-two')
@@ -411,10 +377,12 @@ document.addEventListener('DOMContentLoaded', function () {
         challengeCloseScreen.style.display = 'none';
         const challengeAcceptScreen = document.getElementById('challenge');
         challengeAcceptScreen.style.display = 'none'; // Make the timer visible
-        resetStylesForCHallenge();
+        resetStylesForChallenge();
 
     });
-    function resetStylesForCHallenge() {
+
+    //reset styles for challenge
+    function resetStylesForChallenge() {
         // Assign the numbers to HTML elements
         let number1 = document.getElementById('option-one-number')
         let number2 = document.getElementById('option-two-number')
@@ -429,6 +397,8 @@ document.addEventListener('DOMContentLoaded', function () {
         number2.style.display = 'none'
 
     }
+
+    // exit turbo game button
     exitTurboButton.addEventListener('click', function () {
         console.log(" button clicked");
         const instruction = document.getElementById('exit-turbo-section');
@@ -441,6 +411,8 @@ document.addEventListener('DOMContentLoaded', function () {
         playButtonClickSound();
 
     });
+
+    // decline challenge game button
     declineChallengeButton.addEventListener('click', function () {
         console.log(" button clicked");
         const challengeScreen = document.getElementById('confirmation-section');
@@ -451,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function () {
         challengeScreen.style.display = 'none'; // Make the timer visible
 
     });
-
+ // accept challenge game button
     acceptChallengeButton.addEventListener('click', function () {
         stopSwitching = false; // Reset the flag
         // Start switching colors every half second
@@ -468,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
-
+ // start challenge button
     startChallengeButton.addEventListener('click', function () {
         const challengeSection = document.getElementById('challenge-screen-section');
         const confirmationScreen = document.getElementById('confirmation-section');
@@ -477,21 +449,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         playButtonClickSound();
     });
-
+    
+    // exit game button
     exitGameBtn.addEventListener('click', function () {
-
-
         displayHighScores();
         checkAndDisplayBestScore();
-
-
     });
+
     let currentGuess = generateRandomNumber();
     guessingNumberDiv.textContent = currentGuess;
-
     updateStyles();
 
-
+    //compare number
     function compareNumbers(current, newNumber, guess) {
         let isCorrect;
 
@@ -524,6 +493,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return isCorrect;
     }
+
+    //minus button
     minusButton.addEventListener('click', function () {
         startShaking();
 
@@ -608,6 +579,8 @@ document.addEventListener('DOMContentLoaded', function () {
         guessingNumberDiv.textContent = currentGuess;
         updateStyles(); // Apply styles after updating the number and score
     });
+
+    // plus button
     plusButton.addEventListener('click', function () {
         console.log(isMusicOn + " button")
         startShaking();
@@ -711,7 +684,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
     let intervalId;
-
+   //left choice in challenge
     optOneBck.addEventListener('click', function () {
 
 
@@ -741,7 +714,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
-
+    // right choice in challenge
     optTwoBck.addEventListener('click', function () {
 
 
@@ -769,23 +742,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+
+    //popup button
     popupButton.addEventListener('click', function () {
-    
         popupContainer.style.display = 'none';
     });
 
+    // generate and compare numbers for challenge(bonus)
     function generateAndCompareNumbersForTwo() {
-
         let randomNumber1 = Math.floor(Math.random() * 100) + 1;
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
-
         let number1 = document.getElementById('option-one-number')
         let number2 = document.getElementById('option-two-number')
         let screenMessage = document.getElementById('final-chalange-score')
-
         number2.innerText = randomNumber2;
         number1.innerText = randomNumber1;
-
         number1.style.display = 'block'
         number2.style.display = 'block'
 
@@ -824,15 +795,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return { randomNumber1, randomNumber2 };
     }
-
+     //generate numbers for challenge (bonus) game
     function generateAndCompareNumbers() {
-        // Generate random numbers between 1 and 100
         let randomNumber1 = Math.floor(Math.random() * 100) + 1;
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
-
-
-
-        // Assign the numbers to HTML elements
         let number1 = document.getElementById('option-one-number')
         let number2 = document.getElementById('option-two-number')
         let screenMessage = document.getElementById('final-chalange-score')
@@ -879,7 +845,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return { randomNumber1, randomNumber2 };
     }
 
-
+     // display messages 
     function displayRandomMessage(messageType) {
         const encouragingMessages = [
             "Brilliant! ",
@@ -913,11 +879,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('higher-lower-title-id').innerText = randomMessage;
     }
+    // open challenge for bonus game
     function openChallenge() {
-
         let randomOne = Math.floor(Math.random() * 10) + 1;
         let randomTwo = Math.floor(Math.random() * 10) + 1;
-
         if (randomOne === randomTwo) {
             const challengeScreen = document.getElementById('challenge-screen-section');
             const offerDisplay = document.getElementById('current-score-offer');
@@ -925,15 +890,11 @@ document.addEventListener('DOMContentLoaded', function () {
             offerNumber = parseInt(scoreText.textContent, 10);
             playbonusMusic();
             pauseBackgroundMusic();
-
             playbonusMusic();
             if (offerDisplay) {
                 offerNumber = offerNumber + 1
-
-
                 offerDisplay.innerHTML = offerNumber;
             } else {
-
             }
 
             if (doubleOfferDisplay) {
@@ -950,19 +911,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
     }
+
+    // reb blinking colors for bonus game
     let switchDirection = true;
     let stopSwitching = false;
     function switchColors() {
         if (stopSwitching) {
             return;
         }
-
         const optionOneBackground = document.getElementById("option-one-background");
         const optionTwoBackground = document.getElementById("option-two-background");
         const iconOne = document.getElementById('icon-one');
         const iconTwo = document.getElementById('icon-two');
-
-
         if (switchDirection) {
             optionOneBackground.style.backgroundColor = "red";
             optionTwoBackground.style.backgroundColor = "white";
@@ -981,32 +941,24 @@ document.addEventListener('DOMContentLoaded', function () {
         switchDirection = !switchDirection;
     }
 
-
+    //update styles after bonus game
     function updateStyles() {
-        // Update styles for guessing number
         guessingNumberDiv.style.color = "white";
         guessingNumberDiv.style.fontSize = '3rem';
         guessingNumberDiv.style.fontWeight = '700';
-
-
-        // Update styles for score text
         scoreText.style.color = 'white';
         scoreText.style.fontSize = '1.5rem';
         scoreText.style.fontWeight = '700';
-        // Add more styles as needed
     }
 
-
+   //random number generator
     function generateRandomNumber() {
         let previousNumber = null;
         let currentNumber;
         currentNumber = Math.floor(Math.random() * 100) + 1;
-
-
         if (currentNumber === previousNumber) {
             currentNumber = Math.floor(Math.random() * 100) + 1;
             guessingNumberDiv.textContent = currentNumber;
-
         }
         previousNumber = currentNumber;
 
@@ -1025,6 +977,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 500); // Adjust the time to match the animation duration
 
     }
+
+    //reset answer to 0
     function resetConsecutiveCorrectAnswers() {
         consecutiveCorrectAnswers = 0;
     }
@@ -1033,22 +987,18 @@ document.addEventListener('DOMContentLoaded', function () {
         return highScores.length === 0 || score > highScores[0].score;
     }
 
+    //save game function
     function saveGame() {
-
         const usernameInput = document.getElementById('username');
         const username = usernameInput.value.trim();
-
         if (username === "") {
             alert("Please enter a valid username.");
             return;
         }
-
         const currentScore = parseInt(scoreText.textContent, 10);
         const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
         const isTheBestScore = isScoreTheBest(currentScore, highScores);
-
         const scoreFormContainer = document.getElementById('score-form');
-
         if (isTheBestScore) {
             scoreFormContainer.style.display = 'block';
             if (highScores.some(item => item.name === username)) {
@@ -1078,24 +1028,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const currentScore = parseInt(scoreText.textContent, 10);
         const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
         const isTheBestScore = isScoreTheBest(currentScore, highScores);
-
         if (isTheBestScore) {
-           
-
-
             saveGameSection.style.display = 'block';
             scoreForm.style.display = 'block'
             console.log("Congratulations! You have the best score!");
         } else {
             popupContainer.style.display = 'block';
-
         }
     }
-
-
 });
-
-
 
 function setBestScoreTwo() {
     const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
@@ -1427,46 +1368,6 @@ function displayHighScoresForDashboard() {
         highScoreList.appendChild(li);
     }
 }
-
-/*
-async function displayHighScoresDashboard() {
-    const highScoreList = document.getElementById('high-score-list-dash');
-
-    try {
-        const response = await fetch('http://localhost:3000/highscores');
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const highScores = await response.json();
-
-        highScoreList.innerHTML = '';
-
-        highScores.forEach((item, index) => {
-            const li = document.createElement('li');
-            const scoreNumberSpan = document.createElement('span');
-            const playerNameSpan = document.createElement('span');
-
-            scoreNumberSpan.className = 'score-number';
-            playerNameSpan.className = 'player-name';
-
-            scoreNumberSpan.textContent = index + 1 + '.';
-            playerNameSpan.textContent = `${item.username}: ${item.highscore}`; // Assuming the property is 'highscore'
-
-            li.appendChild(scoreNumberSpan);
-            li.appendChild(playerNameSpan);
-
-            if (index < 3) {
-                li.style.borderBottom = '2px solid white';
-            }
-
-            highScoreList.appendChild(li);
-        });
-    } catch (error) {
-        console.error('Error fetching high scores:', error);
-    }
-}
-*/
 
 function blinkRedBackground() {
     let timerElement = document.getElementById('timer');

@@ -17,8 +17,6 @@ body {
     margin: 0;
     max-width: 100%;
     background: url('../images/body-bck.jpg') no-repeat center center/cover;
-
-
 }
 
 * {
@@ -810,7 +808,7 @@ button {
     padding: 5px;
 }
 #exit-game-screen {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
