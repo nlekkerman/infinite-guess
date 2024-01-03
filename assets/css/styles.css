@@ -1228,7 +1228,12 @@ footer {
     object-fit: cover;
     z-index: -1;
 }
-
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+   
+    body {
+      background-color: lightblue;
+    }
+  }
 /* Tablet layout */
 @media screen and (min-width: 768px) {
 
