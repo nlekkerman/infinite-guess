@@ -991,13 +991,13 @@ function applyTheme(selectedThemeId) {
         selectedThemeLink.classList.add('active');
     }
     if (selectedThemeId === 'theme-default') {
-        contentDiv.style.backgroundImage = 'url("./assets/images/main-default-background.jpg")';
-        challengeSection.style.backgroundImage = 'url("./assets/images/default-challenge-screen.jpg")';
-        confirmationSection.style.backgroundImage = 'url("./assets/images/confirm-section-background.jpg")';
-        challengeButtonbackground.style.backgroundImage = 'url("./assets/images/challenge-default-background.jpg")';
-        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/challenge-screen-background.jpg")';
-        bonusScreen.style.backgroundImage = 'url("./assets/images/bonus-default-background.jpg")';
-        turboExitScreen.style.backgroundImage = 'url("./assets/images/exit-turbo-instruction-background.jpg")';
+        contentDiv.style.backgroundImage = 'url("./assets/images/default-main-background.jpg")';
+        challengeSection.style.backgroundImage = 'url("./assets/images/default-welcome-challenge-screen.jpg")';
+        confirmationSection.style.backgroundImage = 'url("./assets/images/default-confirm-challenge-background.jpg")';
+        challengeButtonbackground.style.backgroundImage = 'url("./assets/images/default-challenge-background.jpg")';
+        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/default-close-challenge-background.jpg")';
+        bonusScreen.style.backgroundImage = 'url("./assets/images/default-turbo-bonus-background.jpg")';
+        turboExitScreen.style.backgroundImage = 'url("./assets/images/default-exit-turbo-bonus-background.jpg")';
 
         scoreBoardBackground.style.backgroundColor = "#f4f5f0"
         score.style.color = 'white'
@@ -1026,13 +1026,13 @@ function applyTheme(selectedThemeId) {
         doubleItTitle.style.border = '3px solid white';
 
     } else if (selectedThemeId === 'theme-space') {
-        contentDiv.style.backgroundImage = 'url("./assets/images/space-playground-background.jpg")';
-        challengeSection.style.backgroundImage = 'url("./assets/images/challenge-space-background.jpg")';
-        confirmationSection.style.backgroundImage = 'url("./assets/images/confirm-challenge-space-background.jpg")';
-        challengeButtonbackground.style.backgroundImage = 'url("./assets/images/bonus-screen-space.jpg")';
-        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/challen-screen-space.jpg")';
-        bonusScreen.style.backgroundImage = 'url("./assets/images/bonus-screen-space.jpg")';
-        turboExitScreen.style.backgroundImage = 'url("./assets/images/exit-turbo-space.jpg")';
+        contentDiv.style.backgroundImage = 'url("./assets/images/space-main-background.jpg")';
+        challengeSection.style.backgroundImage = 'url("./assets/images/space-welcome-challenge-background.jpg")';
+        confirmationSection.style.backgroundImage = 'url("./assets/images/space-confirm-challenge-background.jpg")';
+        challengeButtonbackground.style.backgroundImage = 'url("./assets/images/space-challenge-background.jpg")';
+        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/space-close-challenge-background.jpg")';
+        bonusScreen.style.backgroundImage = 'url("./assets/images/space-turbo-bonus-background.jpg")';
+        turboExitScreen.style.backgroundImage = 'url("./assets/images/space-exit-turbo-background.jpg")';
 
         score.style.color = 'white'
         scoreBoardBackground.style.backgroundColor = "#501682"
@@ -1110,12 +1110,12 @@ function applyTheme(selectedThemeId) {
 
     } else if (selectedThemeId === 'theme-fairy') {
         contentDiv.style.backgroundImage = 'url("./assets/images/fairy-background.jpg")';
-        challengeSection.style.backgroundImage = 'url("./assets/images/fairy-chall-bck.jpg")';
-        confirmationSection.style.backgroundImage = 'url("./assets/images/fairy-confirm.jpg")';
-        bonusScreen.style.backgroundImage = 'url("./assets/images/turbo-fairy.jpg")';
-        challengeButtonbackground.style.backgroundImage = 'url("./assets/images/fairy-double-it.jpg")';
-        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/chalenge-score.jpg")';
-        turboExitScreen.style.backgroundImage = 'url("./assets/images/turbo-fairy.jpg")';
+        challengeSection.style.backgroundImage = 'url("./assets/images/fairy-challenge-background.jpg")';
+        confirmationSection.style.backgroundImage = 'url("./assets/images/fairy-confirm-background.jpg")';
+        bonusScreen.style.backgroundImage = 'url("./assets/images/turbo-fairy-background.jpg")';
+        challengeButtonbackground.style.backgroundImage = 'url("./assets/images/fairy-double-it-background.jpg")';
+        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/fairy-challenge-score-background.jpg")';
+        turboExitScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
         
         score.style.color = 'white'
         scoreBoardBackground.style.backgroundColor = ""
