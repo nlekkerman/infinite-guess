@@ -6,6 +6,7 @@
 Video by <a href="https://pixabay.com/users/engin_akyurt-3656355/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=22098">Engin Akyurt</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=22098">Pixabay</a>
 Video by <a href="https://pixabay.com/users/nasa-imagery-10/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=5">NASA-Imagery</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=5">Pixabay</a>
 Video by <a href="https://pixabay.com/users/tommyvideo-3092371/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=6044">Tomislav Jakupec</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=6044">Pixabay</a>
+<a href="https://www.freepik.com/icon/internet-computer_7505387#fromView=search&term=favicon+for+infinite&track=ais&page=1&position=95&uuid=d4902875-4138-447a-aed5-7c3a02d8a4ab">Icon by Sagarkumar Gopani</a>
 */
 
 
@@ -16,7 +17,7 @@ body {
     flex-direction: column;
     margin: 0;
     max-width: 100%;
-    background: url('../images/body-bck.jpg') no-repeat center center/cover;
+    background: url('../images/body-background.jpg') no-repeat center center/cover;
 }
 
 * {
@@ -91,11 +92,8 @@ button {
     padding: 20px 10px;
     border: 3px solid #ccc;
     background-color: rgba(244, 245, 240, 0.8);
-    /* Adjust the RGBA values and alpha as needed */
     position: relative;
-    /* Add this line to make the video absolute positioned within this container */
     overflow: hidden;
-    /* Hide overflow to ensure the video doesn't extend beyond the container */
 }
 
 #video {
@@ -104,7 +102,6 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-
 }
 
 #video video {
@@ -167,8 +164,6 @@ button {
 }
 
 /* SOUND CONTROL AND QUIT&SAVE*/
-/*sound*/
-
 #sound-control .dropdown-content {
     display: none;
     margin-top: 35px;
@@ -285,10 +280,9 @@ button {
 
 }
 
-/* Add styles for the 'active' class */
+/*styles for the 'active' class */
 .theme-link.active {
     color: white;
-    /* Adjust the color as needed */
 }
 
 /*dropdown styles*/
@@ -296,13 +290,10 @@ button {
     position: relative;
     display: inline-block;
     margin-top: 10px;
-
-
 }
 
 .theme-div {
     background-color: rgba(255, 0, 0, 0.4);
-
 }
 
 .dropdown button {
@@ -439,11 +430,7 @@ button {
     cursor: pointer;
 }
 
-
-
-
 /* CHallenge screen*/
-
 #challenge-screen-section {
     background: url('../images/default-challenge-screen.jpg') no-repeat center center/cover;
     color: white;
@@ -477,7 +464,7 @@ button {
 
 
 #confirmation-section {
-    background: url('../images/conf-sect-bck.jpg') no-repeat center center/cover;
+    background: url('../images/confirm-section-background.jpg') no-repeat center center/cover;
     color: white;
     display: none;
     align-items: center;
@@ -521,11 +508,10 @@ button {
     text-align: center;
     margin: 10px 5px;
     background-color: rgba(214, 8, 101, 0.8);
-
 }
 
 #challenge {
-    background: url('../images/challenge-default.jpg') no-repeat center center/cover;
+    background: url('../images/challenge-default-background.jpg') no-repeat center center/cover;
     color: white;
     display: none;
     align-items: center;
@@ -594,7 +580,7 @@ button {
 }
 
 #challenge-score-display {
-    background: url('../images/chall-screen-bck.jpg') no-repeat center center/cover;
+    background: url('../images/challenge-score-background.jpg') no-repeat center center/cover;
     color: white;
     display: none;
     align-items: center;
@@ -652,7 +638,7 @@ button {
 
 /*Bonus section*/
 #bonus-screen-section {
-    background: url('../images/bonus-def-bck.jpg') no-repeat center center/cover;
+    background: url('../images/bonus-default-background.jpg') no-repeat center center/cover;
     display: none;
     align-items: center;
     justify-content: center;
@@ -681,7 +667,7 @@ button {
 }
 
 #exit-turbo-section {
-    background: url('../images/exit-turbo-instruction-bck.jpg') no-repeat center center/cover;
+    background: url('../images/exit-turbo-instruction-background.jpg') no-repeat center center/cover;
     color: white;
     display: none;
     align-items: center;
@@ -833,7 +819,7 @@ button {
     display: none;
     opacity: 1;
     z-index: 1;
-    background: url('../images/welcome-bck.jpg') no-repeat center center/cover;
+    background: url('../images/welcome-background.jpg') no-repeat center center/cover;
 }
 
 #exit-save-game-button {
@@ -921,7 +907,7 @@ h1 {
     align-items: center;
     flex-direction: column;
     z-index: 1;
-    background: url('../images/welcome-bck.jpg') no-repeat center center/cover;
+    background: url('../images/welcome-background.jpg') no-repeat center center/cover;
     color: #fff;
     /* Set your text color */
 }
@@ -1053,7 +1039,6 @@ h1 {
 }
 
 #exit-welcome-highscore-instruction {
-
     margin-top: 150px;
 }
 
@@ -1093,7 +1078,6 @@ h1 {
 #popup-container p {
     margin-top: 70px;
     margin-bottom: 150px;
-    /* Adjusted margin for better spacing */
     color: white;
     font-size: 2rem;
 }
@@ -1161,7 +1145,6 @@ h1 {
 
 .bronze {
     background-color: #cd7f32;
-    /* Bronze color */
 }
 
 @keyframes ripple-animation {
@@ -1240,16 +1223,12 @@ footer {
 
     #settings i {
         display: none;
-        /* Make the icon invisible on larger screens */
         margin-left: 5px;
-        /* Adjust the icon spacing if needed */
     }
 
     #settings::after {
         content: 'SETTINGS';
-        /* Set the content for smaller screens */
         display: inline-block;
-        /* Display the content by default */
     }
 
     .hs-icon {

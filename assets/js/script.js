@@ -993,11 +993,11 @@ function applyTheme(selectedThemeId) {
     if (selectedThemeId === 'theme-default') {
         contentDiv.style.backgroundImage = 'url("./assets/images/main-default-background.jpg")';
         challengeSection.style.backgroundImage = 'url("./assets/images/default-challenge-screen.jpg")';
-        confirmationSection.style.backgroundImage = 'url("./assets/images/conf-sect-bck.jpg")';
-        challengeButtonbackground.style.backgroundImage = 'url("./assets/images/challenge-default.jpg")';
-        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/chall-screen-bck.jpg")';
-        bonusScreen.style.backgroundImage = 'url("./assets/images/bonus-def-bck.jpg")';
-        turboExitScreen.style.backgroundImage = 'url("./assets/images/exit-turbo-instruction-bck.jpg")';
+        confirmationSection.style.backgroundImage = 'url("./assets/images/confirm-section-background.jpg")';
+        challengeButtonbackground.style.backgroundImage = 'url("./assets/images/challenge-default-background.jpg")';
+        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/challenge-screen-background.jpg")';
+        bonusScreen.style.backgroundImage = 'url("./assets/images/bonus-default-background.jpg")';
+        turboExitScreen.style.backgroundImage = 'url("./assets/images/exit-turbo-instruction-background.jpg")';
 
         scoreBoardBackground.style.backgroundColor = "#f4f5f0"
         score.style.color = 'white'
@@ -1026,9 +1026,9 @@ function applyTheme(selectedThemeId) {
         doubleItTitle.style.border = '3px solid white';
 
     } else if (selectedThemeId === 'theme-space') {
-        contentDiv.style.backgroundImage = 'url("./assets/images/space-playground-bck.jpg")';
-        challengeSection.style.backgroundImage = 'url("./assets/images/challenge-space-bck.jpg")';
-        confirmationSection.style.backgroundImage = 'url("./assets/images/confirm-challenge-space-bck.jpg")';
+        contentDiv.style.backgroundImage = 'url("./assets/images/space-playground-background.jpg")';
+        challengeSection.style.backgroundImage = 'url("./assets/images/challenge-space-background.jpg")';
+        confirmationSection.style.backgroundImage = 'url("./assets/images/confirm-challenge-space-background.jpg")';
         challengeButtonbackground.style.backgroundImage = 'url("./assets/images/bonus-screen-space.jpg")';
         challengeScoreScreen.style.backgroundImage = 'url("./assets/images/challen-screen-space.jpg")';
         bonusScreen.style.backgroundImage = 'url("./assets/images/bonus-screen-space.jpg")';
