@@ -1109,12 +1109,12 @@ function applyTheme(selectedThemeId) {
 
 
     } else if (selectedThemeId === 'theme-fairy') {
-        contentDiv.style.backgroundImage = 'url("./assets/images/fairy-background.jpg")';
-        challengeSection.style.backgroundImage = 'url("./assets/images/fairy-challenge-background.jpg")';
-        confirmationSection.style.backgroundImage = 'url("./assets/images/fairy-confirm-background.jpg")';
-        bonusScreen.style.backgroundImage = 'url("./assets/images/turbo-fairy-background.jpg")';
-        challengeButtonbackground.style.backgroundImage = 'url("./assets/images/fairy-double-it-background.jpg")';
-        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/fairy-challenge-score-background.jpg")';
+        contentDiv.style.backgroundImage = 'url("./assets/images/fairy-main-background.jpg")';
+        challengeSection.style.backgroundImage = 'url("./assets/images/fairy-welcome-challenge-background.jpg")';
+        confirmationSection.style.backgroundImage = 'url("./assets/images/fairy-confirm-challenge-background.jpg")';
+        bonusScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
+        challengeButtonbackground.style.backgroundImage = 'url("./assets/images/fairy-challenge-background.jpg")';
+        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/fairy-close-challenge-background.jpg")';
         turboExitScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
         
         score.style.color = 'white'
@@ -1204,8 +1204,9 @@ function blinkRedBackground() {
     let timerElement = document.getElementById('timer');
     let numberElement = document.getElementById('guessing-number-div');
 
-    timerElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? '' : 'red';
-    timerElement.style.color = (timerElement.style.backgroundColor === 'red') ? 'black' : 'white';
+    timerElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? 'white' : 'red';
+    timerElement.style.color = (timerElement.style.backgroundColor === 'white') ? 'black' : 'white';
+
     numberElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? '' : 'red';
 
     // Play the warning sound
