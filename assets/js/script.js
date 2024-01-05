@@ -710,6 +710,7 @@ document.addEventListener('DOMContentLoaded', function () {
             displayRandomMessage('encouraging')
             scoreText.innerText = initialScore * 2
             screenMessage.textContent = 'CORRRREEECT!!!';
+            higherLowerTitle.textContent = "You are a wizard";
             screenMessage.style.backgroundColor = 'green';
             screenMessage.style.color = 'white';
             backgroundOne.style.backgroundColor = 'green';
@@ -726,6 +727,9 @@ document.addEventListener('DOMContentLoaded', function () {
             backgroundOne.style.backgroundColor = 'red';
             backgroundTwo.style.backgroundColor = 'green';
             screenMessage.textContent = 'WROOOONG!!!';
+            higherLowerTitle.textContent = "It was other one";
+
+
 
         } else {
 
