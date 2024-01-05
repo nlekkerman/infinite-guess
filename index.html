@@ -52,15 +52,18 @@
         <section id="resaponsive-main-container">
 
             <div id="score-board-div">
+                
                 <div id="video"> <video autoplay muted loop>
                         <source src="assets/video/numbers-video.mp4">
                     </video></div>
                 <div id="color-scoreboard-div">
                     <p id="answer-text">Let's Go</p>
                 </div>
-                <div id="score-screen-number-div">
-                    <p id="score-text" class="score-text">0</p>
-                </div>
+
+    
+                
+
+          
             </div>
 
             <section id="welcome-section" class="welcome-section">
@@ -259,7 +262,8 @@
 
                 <section id="control-container">
                     <div id="logo-div"><button id="exit-game-button" class="exit-game-button">EXIT</button></div>
-                    <section id="sound-control" class="dropdown">
+                
+                    <div id="sound-control" class="dropdown">
                         <button id="settings" class="dropbtn"><i class="fas fa-cog"></i></button>
                         <div class="dropdown-content">
                             <p class="s-controi-title">SOUND</p>
@@ -281,8 +285,13 @@
 
                         </div>
 
-                    </section>
+                    </div>
                 </section>
+
+                <div id="score-screen-number-div">
+                    <h3>Score: </h3>
+                           <p id="score-text" class="score-text">0</p>
+                          </div>
                 <div id="timer"></div>
 
                 <p id="higher-lower-title-id" class="higher-lower-title">Higher or Lower?</p>

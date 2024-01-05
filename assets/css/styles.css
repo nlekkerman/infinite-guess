@@ -9,6 +9,7 @@ Video by <a href="https://pixabay.com/users/tommyvideo-3092371/?utm_source=link-
 <a href="https://www.freepik.com/icon/internet-computer_7505387#fromView=search&term=favicon+for+infinite&track=ais&page=1&position=95&uuid=d4902875-4138-447a-aed5-7c3a02d8a4ab">Icon by Sagarkumar Gopani</a>
 <a href="https://www.freepik.com/free-ai-image/digital-art-moon-wallpaper_77361117.htm#fromView=search&term=space&track=ais_ai_generated&regularType=ai&page=1&position=14&uuid=d0b6b864-e71e-4b36-88a9-16944037134d">Image By freepik</a>
 <a href="https://www.freepik.com/free-ai-image/view-mushrooms-nature_65150701.htm#fromView=search&term=fairy&track=ais_ai_generated&regularType=ai&page=1&position=49&uuid=70013e58-58b3-4423-afc6-7ddd403d05bf">Image By freepik</a>
+<a href="https://www.freepik.com/free-ai-image/beautiful-flowers-field_65640067.htm#fromView=search&term=flower+field&track=ais_ai_generated&regularType=ai&page=1&position=20&uuid=fa83d380-a421-4cc6-88fd-86ddc844081d">Image By freepik</a>
 */
 
 
@@ -89,9 +90,8 @@ button {
 
 #score-board-div {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 10px;
+    padding: 30px 0px;
     border: 3px solid #ccc;
     background-color: rgba(244, 245, 240, 0.8);
     position: relative;
@@ -131,20 +131,21 @@ button {
 
 #score-screen-number-div {
     display: flex;
-    z-index: 1;
+    width: 50%;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 50px;
-    border: 3px solid gold;
+    align-self: center;
+    border: 1px solid white;
     background-color: silver;
-    border-radius: 50%;
+}
 
-
+#score-screen-number-div h3{
+  color: white;
 }
 
 #answer-text {
     padding: 5px;
+    margin: 10px;
     background-color: rgb(2, 158, 2);
     color: white;
     font-family: 'Acme', sans-serif;
@@ -152,15 +153,13 @@ button {
     font-size: 1.5rem;
 }
 
-.score-text {
+#score-text {
     padding: 5px;
     color: white;
     font-family: 'Acme', sans-serif;
     font-weight: 500;
     padding: 5px;
     font-size: 1.5rem;
-
-
     transform: translateZ(-100px);
     transition: transform 0.5s ease-in-out;
 }
@@ -845,7 +844,6 @@ input {
 h1 {
     font-size: 24px;
     color: #333;
-    margin-bottom: 16px;
     display: flex;
     justify-content: center;
 }
