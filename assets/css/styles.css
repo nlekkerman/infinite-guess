@@ -88,7 +88,7 @@ button {
     cursor: pointer;
 }
 
-#score-board-div {
+#right-wrong-text-with-video {
     display: flex;
     align-items: center;
     padding: 30px 0px;
@@ -122,7 +122,7 @@ button {
     z-index: -1;
 }
 
-#color-scoreboard-div {
+#right-wrong-text {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1332,12 +1332,12 @@ footer {
         font-size: 3rem;
     }
 
-    #score-board-div #color-scoreboard-div #answer-text {
+    #right-wrong-text-with-video #right-wrong-text #answer-text {
 
         padding: 20px;
     }
 
-    #score-board-div #score-screen-number-div {
+    #right-wrong-text-with-video #score-screen-number-div {
         width: 70px;
         height: 70px;
     }

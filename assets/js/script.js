@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-
+    let previousNumber = null;
 
     const playerNameInput = document.getElementById('username');
     const soundControl = document.getElementById('sound-control');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const guessingNumberDiv = document.getElementById('guessing-number-div');
     const plusButton = document.getElementById('plus-button');
     const minusButton = document.getElementById('minus-button');
-    const answerText = document.getElementById('color-scoreboard-div');
+    const answerText = document.getElementById('right-wrong-text');
     const scoreText = document.getElementById('score-text');
 
     const exitGameBtn = document.getElementById('exit-game-button');
@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const startTurboGameButton = document.getElementById('action-button');
     const exitTurboButton = document.getElementById('exit-turbo-btn');
 
-    const optOneBck = document.getElementById('option-one-background')
-    const optTwoBck = document.getElementById('option-two-background')
+    const challengeLeftChoice = document.getElementById('option-one-background')
+    const challengeRightChoice = document.getElementById('option-two-background')
 
     const buttonClickSound = document.getElementById('button-click-sound');
     const rightAnswerSound = document.getElementById('right-answer-sound');
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //minus button
     minusButton.addEventListener('click', function () {
-        startShaking();
+      
         playButtonClickSound();
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'minus');
@@ -503,7 +503,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // plus button
     plusButton.addEventListener('click', function () {
-        startShaking();
+       
         playButtonClickSound();
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'plus');
@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     let intervalId;
    //left choice in challenge
-    optOneBck.addEventListener('click', function () {
+    challengeLeftChoice.addEventListener('click', function () {
 
 
 
@@ -607,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // right choice in challenge
-    optTwoBck.addEventListener('click', function () {
+    challengeRightChoice.addEventListener('click', function () {
 
 
         stopSwitching = true; // Set the flag to stop switching
@@ -844,28 +844,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
    //random number generator
-    function generateRandomNumber() {
-        let previousNumber = null;
-        let currentNumber;
+   function generateRandomNumber() {
+    let currentNumber;
+
+    do {
         currentNumber = Math.floor(Math.random() * 100) + 1;
-        if (currentNumber === previousNumber) {
-            currentNumber = Math.floor(Math.random() * 100) + 1;
+        if (guessingNumberDiv) {
             guessingNumberDiv.textContent = currentNumber;
+        } else {
+            return currentNumber; 
         }
-        previousNumber = currentNumber;
-        return currentNumber;
-    }
+    } while (currentNumber === previousNumber);
+    previousNumber = currentNumber;
+    return currentNumber;
+}
 
-    function startShaking() {
-        let element = document.getElementById('color-scoreboard-div');
-        element.classList.add('shaking');
-
-        // Remove the shaking class after the animation completes
-        setTimeout(function () {
-            element.classList.remove('shaking');
-        }, 500); // Adjust the time to match the animation duration
-
-    }
+    
 
     //reset answer to 0
     function resetConsecutiveCorrectAnswers() {
@@ -981,7 +975,7 @@ function applyTheme(selectedThemeId) {
     const challengeScoreScreen = document.getElementById('challenge-score-display');
     const turboBonusScreen = document.getElementById('bonus-screen-section');
     const turboExitScreen = document.getElementById('exit-turbo-section');
-    const scoreBoardBackground = document.getElementById('score-board-div');
+    const scoreBoardBackground = document.getElementById('right-wrong-text-with-video');
     const score = document.getElementById('score-text');
 
     themeLinks.forEach(link => link.classList.remove('active'));
