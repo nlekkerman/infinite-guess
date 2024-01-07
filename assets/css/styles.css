@@ -14,11 +14,18 @@ Video by <a href="https://pixabay.com/users/tommyvideo-3092371/?utm_source=link-
 
 
 /* General styles */
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0;
+    overflow: hide;
     max-width: 100%;
     background: url('../images/body-background.jpg') no-repeat center center/cover;
 }
@@ -29,17 +36,15 @@ body {
     box-sizing: border-box;
 }
 
-/*main*/
-
+/* Main */
 
 #main {
     margin: 0;
     padding: 0;
-    background-color: #d20f0f;
     display: flex;
     flex: 1;
     min-height: 100vh;
-
+    overflow: hidden; 
 }
 
 .hs-icon {
@@ -51,11 +56,12 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    overflow: hidden; 
     max-width: 1028px;
     margin: 0 auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    min-height: 100vh;
+    height: 100vh;
 }
 
 
@@ -358,7 +364,7 @@ button {
 
 .higher-lower-title {
     font-weight: 800;
-    margin: 0px 40px;
+    margin: 0px ;
     font-size: 1.2rem;
     padding: 20px 0px;
     display: flex;
