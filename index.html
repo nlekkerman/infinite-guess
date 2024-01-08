@@ -69,195 +69,197 @@
           
             </div>
 
-            <section id="welcome-section" class="welcome-section">
-                <div id="welcome-container" class="welcome-container">
-
-                    <h2>Welcome to Infinite Guess! </h2>
-                    <h3>DASHBOARD</h3>
-                    <div id="icons-dash-container">
-                        <div id="highscore" class="icons">
-
-                            <img src="assets/images/highscore-icon.png" alt="Description of the image" class="hs-icon">
-                            <h4>HIGHSCORE</h4>
-                        </div>
-
-                        <div id="rules" class="icons">
-                            <img src="assets/images/instruction-icon.png" alt="Description of the image"
-                                class="hs-icon">
-
-                            <h4 class="hiscores-dash-title">RULES</h4>
-                        </div>
-
-                    </div>
-                    <div id="wrap-div-rules" class="wrap-div">
-                        <div id="scrollable-container">
-                            <p>
-                                Welcome to the Infinite Guessing Challenge! Predict if the next number is higher or
-                                lower and
-                                earn +1 point for each correct guess. Connect five correct guesses to unlock the Turbo
-                                Bonus
-                                Game,
-                                where points are doubled! But beware, incorrect guesses deduct points.
-                                Save your best score. Ready for the thrill?
-                                Start guessing now and see how high you can climb on the leaderboard!</p>
-
-
-                        </div>
-                        <button id="exit-welcome-rules-instruction">X</button>
-                    </div>
-
-                    <div id="wrap-div-highscores" class="wrap-div">
-                        <h5>High Scores</h5>
-                        <div id="highscores-dash">
-
-                            <ul id="high-score-list-dash" class="player-name"></ul>
-
-
-                        </div>
-                        <button id="exit-welcome-highscore-instruction">x</button>
-                    </div>
-
-                </div>
-                <button id="start-game-btn">Start Game</button>
-            </section>
-
-            <section id="challenge-screen-section">
-                <div id="flex-challange-container">
-                    <div id="title-challange-container">
-
-                        <h2 class="challange-title-class"> WELCOME TO CHALLANGE</h2>
-                    </div>
-
-                    <div id="double-or-nothing">
-                        <p></p>
-                        <h3 id="double-it-title">DOUBLE OR NOTHING!</h3>
-                        <!-- Button to start bonus game -->
-                        <div class="button-container">
-                            <button id="challenge-action-button">Start Challenge</button>
-                        </div>
-                    </div>
-
-
-                </div>
-            </section>
-
-            <section id="confirmation-section">
-                <h2>CONFIRM or DECLINE</h2>
-                <div id="confirmation-contianer-div">
-                    <p>Are you ready to risk everything?</p>
-                    <div id="challange-offer-container">
-                        <p>You can double your current score <a id="current-score-offer"> </a> to <a
-                                id="double-score-offer"></a> or you can get back to 0</p>
-                    </div>
-                    <div class="button-container">
-                        <button id="accept-button">Accept</button>
-                        <button id="decline-button">Decline</button>
-                    </div>
-                </div>
-
-            </section>
-
-            <section id="challenge">
-                <div id="choose-title-container">
-
-                    <h2 id="challenge-h2">CHOOSE BIGGER</h2>
-                </div>
-
-                <div id="number-container-challenege">
-                    <div id="option-one-background" class="number-container-class">
-                        <p id="option-one-number"></p>
-                        <i id="icon-one" class="far fa-laugh-beam"></i>
-                    </div>
-                    <div id="option-two-background" class="number-container-class">
-                        <p id="option-two-number"></p>
-                        <i id="icon-two" class="far fa-laugh-beam"></i>
-                    </div>
-                </div>
-            </section>
-
-            <div id="challenge-score-display">
-                <section id="score-display-container">
-                    <h4>YOUR CHOICE WAS;</h4>
-                    <p id="final-chalange-score"></p>
-                    <button id="challenge-button-close">OK</button>
-                </section>
-
-
-            </div>
-
-
-
-            <section id="challenge-screen-section">
-                <div id="flex-challange-container">
-                    <div id="title-challange-container">
-
-                        <h2 class="challange-title-class"> WELCOME TO CHALLANGE</h2>
-                    </div>
-
-                    <div id="double-or-nothing">
-                        <p></p>
-                        <h3 id="double-it-title">DOUBLE OR NOTHING!</h3>
-                        <!-- Button to start bonus game -->
-                        <div class="button-container">
-                            <button id="challenge-action-button">Start Challenge</button>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </section>
-
-            <section id="bonus-screen-section">
-                <div id="flex-bonus-container">
-                    <div id="title-bonus-container">
-
-                        <h2 class="bonus-title-class"> WELCOME TO BONUS</h2>
-                    </div>
-
-                    <div id="double-it-or-nothing-div">
-
-                        <p id="double-it-title">Make correct <br> answers as much you can in 20 sec. </p>
-                        <!-- Button to start bonus game -->
-
-                    </div>
-                    <div class="button-container">
-                        <button id="action-button">Start Bonus Game</button>
-                    </div>
-                </div>
-
-            </section>
-
-            <section id="exit-turbo-section">
-
-                <div class="turbo-score-content">
-                    <h2>TURBO SCORE</h2>
-                    <h5>Your total win in Turbo mode was:</h5>
-                    <p id="turbo-score"></p>
-                    <button id="exit-turbo-btn">EXIT</button>
-                </div>
-
-            </section>
-            <section id="exit-game-screen">
-                <div class="high-scores-container">
-                    <h1 class="save-score-title">Your best score is:</h1>
-                    <ul id="high-score-list">
-
-                    </ul>
-                    <div class="form-container">
-                        <form id="score-form">
-                            <label class="userename-id" for="username">Username</label>
-                            <input type="text" id="username" name="username" required>
-                            <button type="button" id="save-game-button">Save Score</button>
-                        </form>
-                    </div>
-
-                    <button type="button" id="exit-save-game-button">EXIT</button>
-                </div>
-            </section>
 
             <section id="playground-section">
 
+                <section id="welcome-section" class="welcome-section">
+                    <div id="welcome-container" class="welcome-container">
+    
+                        <h2>Welcome to Infinite Guess! </h2>
+                        <h3>DASHBOARD</h3>
+                        <div id="icons-dash-container">
+                            <div id="highscore" class="icons">
+    
+                                <img src="assets/images/highscore-icon.png" alt="Description of the image" class="hs-icon">
+                                <h4>HIGHSCORE</h4>
+                            </div>
+    
+                            <div id="rules" class="icons">
+                                <img src="assets/images/instruction-icon.png" alt="Description of the image"
+                                    class="hs-icon">
+    
+                                <h4 class="hiscores-dash-title">RULES</h4>
+                            </div>
+    
+                        </div>
+                        <div id="wrap-div-rules" class="wrap-div">
+                            <div id="scrollable-container">
+                                <p>
+                                    Welcome to the Infinite Guessing Challenge! Predict if the next number is higher or
+                                    lower and
+                                    earn +1 point for each correct guess. Connect five correct guesses to unlock the Turbo
+                                    Bonus
+                                    Game,
+                                    where points are doubled! But beware, incorrect guesses deduct points.
+                                    Save your best score. Ready for the thrill?
+                                    Start guessing now and see how high you can climb on the leaderboard!</p>
+    
+    
+                            </div>
+                            <button id="exit-welcome-rules-instruction">X</button>
+                        </div>
+    
+                        <div id="wrap-div-highscores" class="wrap-div">
+                            <h5>High Scores</h5>
+                            <div id="highscores-dash">
+    
+                                <ul id="high-score-list-dash" class="player-name"></ul>
+    
+    
+                            </div>
+                            <button id="exit-welcome-highscore-instruction">x</button>
+                        </div>
+    
+                    </div>
+                    <button id="start-game-btn">Start Game</button>
+                </section>
+    
+                <section id="challenge-screen-section">
+                    <div id="flex-challange-container">
+                        <div id="title-challange-container">
+    
+                            <h2 class="challange-title-class"> WELCOME TO CHALLANGE</h2>
+                        </div>
+    
+                        <div id="double-or-nothing">
+                            <p></p>
+                            <h3 id="double-it-title">DOUBLE OR NOTHING!</h3>
+                            <!-- Button to start bonus game -->
+                            <div class="button-container">
+                                <button id="challenge-action-button">Start Challenge</button>
+                            </div>
+                        </div>
+    
+    
+                    </div>
+                </section>
+    
+                <section id="confirmation-section">
+                    <h2>CONFIRM or DECLINE</h2>
+                    <div id="confirmation-contianer-div">
+                        <p>Are you ready to risk everything?</p>
+                        <div id="challange-offer-container">
+                            <p>You can double your current score <a id="current-score-offer"> </a> to <a
+                                    id="double-score-offer"></a> or you can get back to 0</p>
+                        </div>
+                        <div class="button-container">
+                            <button id="accept-button">Accept</button>
+                            <button id="decline-button">Decline</button>
+                        </div>
+                    </div>
+    
+                </section>
+    
+                <section id="challenge">
+                    <div id="choose-title-container">
+    
+                        <h2 id="challenge-h2">CHOOSE BIGGER</h2>
+                    </div>
+                    <div id="number-container-challenege">
+                        <div id="option-one-background" class="number-container-class">
+                            <p id="option-one-number"></p>
+                            <i id="icon-one" class="far fa-laugh-beam"></i>
+                        </div>
+                        <div id="option-two-background" class="number-container-class">
+                            <p id="option-two-number"></p>
+                            <i id="icon-two" class="far fa-laugh-beam"></i>
+                        </div>
+                    </div>
+                </section>
+    
+                <div id="challenge-score-display">
+                    <section id="score-display-container">
+                        <h4>YOUR CHOICE WAS;</h4>
+                        <p id="final-chalange-score"></p>
+                        <button id="challenge-button-close">OK</button>
+                    </section>
+    
+    
+                </div>
+    
+    
+    
+                <section id="challenge-screen-section">
+                    <div id="flex-challange-container">
+                        <div id="title-challange-container">
+    
+                            <h2 class="challange-title-class"> WELCOME TO CHALLANGE</h2>
+                        </div>
+    
+                        <div id="double-or-nothing">
+                            <p></p>
+                            <h3 id="double-it-title">DOUBLE OR NOTHING!</h3>
+                            <!-- Button to start bonus game -->
+                            <div class="button-container">
+                                <button id="challenge-action-button">Start Challenge</button>
+                            </div>
+                        </div>
+    
+    
+                    </div>
+    
+                </section>
+    
+                <section id="bonus-screen-section">
+                    <div id="flex-bonus-container">
+                        <div id="title-bonus-container">
+    
+                            <h2 class="bonus-title-class"> WELCOME TO BONUS</h2>
+                        </div>
+    
+                        <div id="double-it-or-nothing-div">
+    
+                            <p id="double-it-title">Make correct <br> answers as much you can in 20 sec. </p>
+                            <!-- Button to start bonus game -->
+    
+                        </div>
+                        <div class="button-container">
+                            <button id="action-button">Start Bonus Game</button>
+                        </div>
+                    </div>
+    
+                </section>
+    
+                <section id="exit-turbo-section">
+    
+                    <div class="turbo-score-content">
+                        <h2>TURBO SCORE</h2>
+                        <h5>Your total win in Turbo mode was:</h5>
+                        <p id="turbo-score"></p>
+                        <button id="exit-turbo-btn">EXIT</button>
+                    </div>
+    
+                </section>
+                <section id="exit-game-screen">
+                    <div class="high-scores-container">
+                        <h1 class="save-score-title">Your best score is:</h1>
+                        <ul id="high-score-list">
+    
+                        </ul>
+                        <div class="form-container">
+                            <form id="score-form">
+                                <label class="userename-id" for="username">Username</label>
+                                <input type="text" id="username" name="username" required>
+                                <button type="button" id="save-game-button">Save Score</button>
+                            </form>
+                        </div>
+    
+                        <button type="button" id="exit-save-game-button">EXIT</button>
+                    </div>
+                </section>
+
+
+        
                 <div id="popup-container">
                     <div id="popup-content">
                     <p>This is NOT your best score.</p>

@@ -841,7 +841,6 @@ document.addEventListener('DOMContentLoaded', function () {
     //update styles after bonus game
     function updateStyles() {
         guessingNumberDiv.style.color = "white";
-        guessingNumberDiv.style.fontSize = '3rem';
         guessingNumberDiv.style.fontWeight = '700';
         scoreText.style.color = 'white';
         scoreText.style.fontSize = '1.5rem';

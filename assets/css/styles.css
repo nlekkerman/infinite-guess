@@ -349,7 +349,7 @@ button {
     flex-direction: column;
     max-width: 100%;
     margin: 0px;
-    padding: 5px;
+    overflow: hidden;
     max-height: 100%;
     position: relative;
     background: url('../images/default-main-background.jpg') no-repeat center center/cover;
@@ -367,7 +367,7 @@ button {
 
 .higher-lower-title {
     font-weight: 800;
-    margin: 0px ;
+    margin: 10px ;
     font-size: 1.2rem;
     padding: 20px 0px;
     display: flex;
@@ -395,17 +395,14 @@ button {
     animation: moveAnimation 8s infinite linear alternate;
 }
 
-.guessing-number-text {
-    color: white;
-    font-size: 3rem;
-    font-weight: 700;
-}
+
 
 #buttons-container-div {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 20px 10px;
+    padding: 1em 1em;
+    margin: 1em;
     border: 3px solid gold;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     background-color: rgba(0, 0, 0, 0.5);
@@ -481,11 +478,10 @@ button {
     display: none;
     align-items: center;
     justify-content: center;
-    max-width: 1028px;
+    max-width: 64.25em;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: absolute;
-    opacity: 1;
     z-index: 1;
 }
 
@@ -1252,16 +1248,22 @@ footer {
     object-fit: cover;
     z-index: -1;
 }
-/*
+
 @media only screen and (max-width: 767px) and (orientation: landscape) {
    
     body {
       background-color: lightblue;
     }
+  
   }
 /* Tablet layout */
 @media screen and (min-width: 768px) {
-
+    #buttons-container-div {
+       
+        padding: 2em 1em;
+        margin: 2em 5em;
+      
+    }
 
     #settings i {
         display: none;
@@ -1399,3 +1401,78 @@ footer {
 
 }
 
+@media screen and (min-width: 1801px) {
+
+
+    #playground-section .higher-lower-title {
+        padding: 5px;
+        margin: 20px;
+        font-size: 2rem;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .hs-icon {
+        height: 220px;
+        width: 220px;
+    }
+
+    #playground-section #guessing-number-div {
+        width: 5em;
+        height: 5em;
+        font-size: 4rem;
+    }
+
+    #icon-one {
+        font-size: 5rem;
+    }
+
+    #icon-two {
+        font-size: 5rem;
+    }
+    #buttons-container-div {
+        display: flex;
+        width: 70%;
+        margin: 0 auto;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 20px 10px;
+        border: 3px solid gold;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .number-container-class {
+        width: 180px;
+        height: 290px;
+        display: flex;
+        justify-content: center;
+        border: 2px solid black;
+        align-items: center;
+        border-radius: 15px;
+        font-size: 2rem;
+    }
+
+    #playground-section #buttons-container-div #plus-button {
+        width: 4em;
+        height: 4em;
+        font-size: 3rem;
+    }
+
+    #playground-section #buttons-container-div #minus-button {
+        width: 4em;
+        height: 4em;
+        font-size: 3rem;
+    }
+
+    #right-wrong-text-with-video #right-wrong-text #answer-text {
+
+        padding: 20px;
+    }
+
+    #right-wrong-text-with-video #score-screen-number-div {
+        width: 70px;
+        height: 70px;
+    }
+
+
+}
