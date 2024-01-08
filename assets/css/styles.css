@@ -21,12 +21,13 @@ html {
     height: 100vh;
 }
 body {
-    min-height: 100vh;
+    height: 100%;
     display: flex;
-    flex-direction: column;
+min-width: 100%;
+    justify-content: center;
+    align-items: center;
     margin: 0;
-    overflow: hide;
-    max-width: 100%;
+   min-height:100vh;
     background: url('../images/body-background.jpg') no-repeat center center/cover;
 }
 
@@ -36,41 +37,42 @@ body {
     box-sizing: border-box;
 }
 
+
 /* Main */
 
-#main {
+main {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     flex: 1;
-    min-height: 100vh;
-    overflow: hidden; 
+    width: 100%;
+    max-height: 100vh;
+    /* Add this if you want a scrollbar when content exceeds viewport height */
 }
 
 .hs-icon {
-    height: 120px;
-    width: 120px;
+    height: 4em;
+    width: 4em;
 }
 
-#resaponsive-main-container {
+
+
+.fit-to-screen-container{
     display: flex;
     flex-direction: column;
-    flex: 1;
-    overflow: hidden; 
-    max-width: 1028px;
-    margin: 0 auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+  max-width: 700px;
+    margin: 0;
 }
-
 
 /*HEADER*/
 
 header {
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+ 
     color: white;
     background-color: rgba(243, 244, 247, 1);
 
@@ -83,7 +85,7 @@ header {
 
 button {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 1rem;
     color: white;
     background-color: rgba(0, 15, 54, 0.9);
     margin: 5px 10px;
@@ -348,6 +350,7 @@ button {
     max-width: 100%;
     margin: 0px;
     padding: 5px;
+    max-height: 100%;
     position: relative;
     background: url('../images/default-main-background.jpg') no-repeat center center/cover;
 }
@@ -382,8 +385,8 @@ button {
     align-items: center;
     align-self: center;
     padding: 20px 10px;
-    height: 120px;
-    width: 120px;
+    height: 4em;
+    width: 4em;
     border: 3px solid gold;
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0 8px 16px rgba(237, 232, 232, 0.5);
@@ -412,7 +415,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 3.5em;
     width: 80px;
     border-radius: 50%;
     border: 3px solid gainsboro;
@@ -428,7 +431,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 3.5em;
     width: 80px;
     border-radius: 50%;
     border: 3px solid gainsboro;
@@ -1206,7 +1209,7 @@ footer {
     color: #333;
     text-align: center;
     padding: 10px;
-   
+  
 
 }
 
@@ -1249,6 +1252,7 @@ footer {
     object-fit: cover;
     z-index: -1;
 }
+/*
 @media only screen and (max-width: 767px) and (orientation: landscape) {
    
     body {
@@ -1382,3 +1386,4 @@ footer {
 
 
 }
+
