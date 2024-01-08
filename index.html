@@ -12,7 +12,7 @@
     <meta name="keywords"
         content="Game, Guess, Challenge, Number, Mystery, Challenge, Higher, Lower, Fun, Play, Strategy, Test, Master, Mind, Accuracy, Difficulty, Riddle, Estimation, Instinct">
     <meta name="author" content="Nikola Simic">
-    <!-- Favicon setup for various platforms -->
+    <!-- Favicon -->
     <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
@@ -79,7 +79,6 @@
                             <div id="rules" class="icons">
                                 <img src="assets/images/instruction-icon.png" alt="Description of the image"
                                     class="hs-icon">
-
                                 <h4 class="hiscores-dash-title">RULES</h4>
                             </div>
 
@@ -96,27 +95,26 @@
                                     where points are doubled! But beware, incorrect guesses deduct points.
                                     Save your best score. Ready for the thrill?
                                     Start guessing now and see how high you can climb on the leaderboard!</p>
-
-
                             </div>
+
                             <button id="exit-welcome-rules-instruction">X</button>
+    
                         </div>
 
                         <div id="wrap-div-highscores" class="wrap-div">
                             <h5>High Scores</h5>
                             <div id="highscores-dash">
-
                                 <ul id="high-score-list-dash" class="player-name"></ul>
-
-
                             </div>
                             <button id="exit-welcome-highscore-instruction">x</button>
                         </div>
 
                     </div>
+
                     <button id="start-game-btn">Start Game</button>
+
                 </article>
- <!-- Challenge screen Section -->
+                <!-- Challenge screen Section -->
                 <section id="challenge-screen-section">
 
                     <div id="flex-challange-container">
@@ -128,42 +126,45 @@
                         <div id="double-or-nothing">
                             <p></p>
                             <h3 id="double-it-title">DOUBLE OR NOTHING!</h3>
-            
+
                             <div class="button-container">
                                 <button id="challenge-action-button">Start Challenge</button>
                             </div>
                         </div>
-
-
                     </div>
                 </section>
-<!-- Confirmation Section -->
+
+                <!-- Confirmation Section -->
                 <article id="confirmation-section">
                     <h2>CONFIRM or DECLINE</h2>
                     <div id="confirmation-contianer-div">
                         <p>Are you ready to risk everything?</p>
+
                         <div id="challange-offer-container">
                             <p>You can double your current score <a id="current-score-offer"> </a> to <a
                                     id="double-score-offer"></a> or you can get back to 0</p>
                         </div>
+
                         <div class="button-container">
                             <button id="accept-button">Accept</button>
                             <button id="decline-button">Decline</button>
                         </div>
                     </div>
-
                 </article>
 
                 <article id="challenge">
-                    <div id="choose-title-container">
 
+                    <div id="choose-title-container">
                         <h2 id="challenge-h2">CHOOSE BIGGER</h2>
                     </div>
+
                     <div id="number-container-challenege">
+
                         <div id="option-one-background" class="number-container-class">
                             <p id="option-one-number"></p>
                             <i id="icon-one" class="far fa-laugh-beam"></i>
                         </div>
+
                         <div id="option-two-background" class="number-container-class">
                             <p id="option-two-number"></p>
                             <i id="icon-two" class="far fa-laugh-beam"></i>
@@ -177,11 +178,7 @@
                         <p id="final-chalange-score"></p>
                         <button id="challenge-button-close">OK</button>
                     </div>
-
-
                 </article>
-
-
 
                 <article id="challenge-screen-section">
 
@@ -210,6 +207,7 @@
                         <div id="double-it-or-nothing-div">
                             <p id="double-it-title">Make correct <br> answers as much you can in 20 sec. </p>
                         </div>
+
                         <div class="button-container">
                             <button id="action-button">Start Bonus Game</button>
                         </div>
@@ -230,7 +228,6 @@
                     <div class="high-scores-container">
                         <h1 class="save-score-title">Your best score is:</h1>
                         <ul id="high-score-list">
-
                         </ul>
                         <div class="form-container">
                             <form id="score-form">
@@ -241,6 +238,7 @@
                         </div>
 
                         <button type="button" id="exit-save-game-button">EXIT</button>
+                    
                     </div>
                 </article>
 
@@ -250,17 +248,24 @@
                         <button id="popup-button">OK</button>
                     </div>
                 </div>
+
+                <!--Control container sound/theme/exit button-->
                 <article id="control-container">
-                    <div id="logo-div"><button id="exit-game-button" class="exit-game-button">EXIT</button></div>
+                   
+                    <div><button id="exit-game-button" class="exit-game-button">EXIT</button></div>
 
                     <div id="sound-control" class="dropdown">
                         <button id="settings" class="dropbtn"><i class="fas fa-cog"></i></button>
                         <div class="dropdown-content">
                             <p class="s-controi-title">SOUND</p>
+
+                            <!--Sound and Music control-->
                             <div id="sound">
                                 <button id="sound-on-off"><i class="fas fa-volume-mute sound-icon"></i></button>
                                 <button id="music-on-off"><i class="fas fa-music music-icon"></i></button>
                             </div>
+
+                            <!--Theme dropdown-->
                             <div class="dropdown">
                                 <div class="theme-div">
                                     <p class="s-controi-title">THEME</p>
@@ -269,19 +274,18 @@
                                     <a href="#" id="theme-space" class="theme-link active">Space</a>
                                     <a href="#" id="theme-earth" class="theme-link active">Earth</a>
                                     <a href="#" id="theme-fairy" class="theme-link active">Fairy</a>
-                                    <!-- Add more options as needed -->
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </article>
+
                 <!-- main playground elements-->
                 <div id="score-screen-number-div">
                     <h3>Score: </h3>
                     <p id="score-text" class="score-text">0</p>
                 </div>
+
                 <div id="timer"></div>
 
                 <p id="higher-lower-title-id" class="higher-lower-title">Higher or Lower?</p>
@@ -291,7 +295,6 @@
                 </div>
 
                 <div id="buttons-container-div">
-
                     <button id="minus-button" class="guessing-buttons ripple-button">-</button>
                     <button id="plus-button" class="guessing-buttons ripple-button">+</button>
                 </div>
@@ -310,6 +313,4 @@
     <!-- Font Awesome Script -->
     <script src="https://kit.fontawesome.com/3b20d96fa9.js" crossorigin="anonymous"></script>
 </body>
-
-
 </html>
