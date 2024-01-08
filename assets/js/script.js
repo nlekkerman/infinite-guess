@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     timerElement.innerHTML = "Time's up!";
                     higherLowerTitle.innerHTML = "Higher or Lower"
                     document.getElementById('exit-turbo-section').style.display = 'block';
-
+                    timerElement.style.color="black"
                     finalScore = parseInt(scoreText.textContent, 10);
                     pauseAlarm();
                     stopChaseMusic();
@@ -321,6 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } else {
                     }
                     isBonus = false;
+                   
                 }
             }
 
@@ -477,7 +478,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 playButtonClickSound();
                 scoreText.textContent = Math.max(0, currentScore + 2);
             } else {
-                if (currentScore > 0) {
+                if (currentScore > 0 && !isBonus) {
                  openChallenge();
                 } else {
 
