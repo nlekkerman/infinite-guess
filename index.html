@@ -2,6 +2,10 @@
 <html lang="en-US">
 
 <head>
+
+    Certainly! Here is a list of comments I added in the HTML code:
+
+    <!-- Head Section -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -9,20 +13,18 @@
     <meta name="keywords"
         content="Game, Guess, Challenge, Number, Mystery, Challenge, Higher, Lower, Fun, Play, Strategy, Test, Master, Mind, Accuracy, Difficulty, Riddle, Estimation, Instinct">
     <meta name="author" content="Nikola Simic">
-   
     <!-- Favicon setup for various platforms -->
-<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-
-
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Infinite Guess</title>
 
 </head>
+<!-- Body-->
 
 <body>
-
+    <!-- Audio Elements -->
     <audio id="right-answer-sound" src="assets/audio/correct.mp3"></audio>
     <audio id="wrong-answer-sound" src="assets/audio/wrong-sound.wav"></audio>
     <audio id="wrong" src="assets/audio/wrong.wav"></audio>
@@ -37,114 +39,107 @@
     <audio id="break-music" src="assets/audio/back-breaks.wav">
         Your browser does not support the audio element.
     </audio>
-
-
     <audio id="background-music-1" loop>
         <source src="assets/audio/nice-touch.wav" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
+    <!-- Main Container -->
     <div class="fit-to-screen-container">
+
+        <!-- Header Section -->
         <header>
             <h1 class="title">Infinite Guess</h1>
         </header>
-    <main >
-      
 
-
-       
-
+        <!-- Main -->
+        <main>
+            <!-- Correct/wrong display with video -->
             <div id="right-wrong-text-with-video">
-                
                 <div id="video"> <video autoplay muted loop>
                         <source src="assets/video/numbers-video.mp4">
                     </video></div>
                 <div id="right-wrong-text">
                     <p id="answer-text">Let's Go</p>
                 </div>
-
-    
-                
-
-          
             </div>
-
-
+            <!-- Playground Section -->
             <section id="playground-section">
-
-                <section id="welcome-section" class="welcome-section">
+                <!-- Welcome article -->
+                <article id="welcome-section" class="welcome-section">
                     <div id="welcome-container" class="welcome-container">
-    
                         <h2>Welcome to Infinite Guess! </h2>
                         <h3>DASHBOARD</h3>
                         <div id="icons-dash-container">
                             <div id="highscore" class="icons">
-    
-                                <img src="assets/images/highscore-icon.png" alt="Description of the image" class="hs-icon">
+                                <img src="assets/images/highscore-icon.png" alt="Description of the image"
+                                    class="hs-icon">
                                 <h4>HIGHSCORE</h4>
                             </div>
-    
+
                             <div id="rules" class="icons">
                                 <img src="assets/images/instruction-icon.png" alt="Description of the image"
                                     class="hs-icon">
-    
+
                                 <h4 class="hiscores-dash-title">RULES</h4>
                             </div>
-    
+
                         </div>
                         <div id="wrap-div-rules" class="wrap-div">
                             <div id="scrollable-container">
                                 <p>
                                     Welcome to the Infinite Guessing Challenge! Predict if the next number is higher or
                                     lower and
-                                    earn +1 point for each correct guess. Connect five correct guesses to unlock the Turbo
+                                    earn +1 point for each correct guess. Connect five correct guesses to unlock the
+                                    Turbo
                                     Bonus
                                     Game,
                                     where points are doubled! But beware, incorrect guesses deduct points.
                                     Save your best score. Ready for the thrill?
                                     Start guessing now and see how high you can climb on the leaderboard!</p>
-    
-    
+
+
                             </div>
                             <button id="exit-welcome-rules-instruction">X</button>
                         </div>
-    
+
                         <div id="wrap-div-highscores" class="wrap-div">
                             <h5>High Scores</h5>
                             <div id="highscores-dash">
-    
+
                                 <ul id="high-score-list-dash" class="player-name"></ul>
-    
-    
+
+
                             </div>
                             <button id="exit-welcome-highscore-instruction">x</button>
                         </div>
-    
+
                     </div>
                     <button id="start-game-btn">Start Game</button>
-                </section>
-    
+                </article>
+ <!-- Challenge screen Section -->
                 <section id="challenge-screen-section">
+
                     <div id="flex-challange-container">
+
                         <div id="title-challange-container">
-    
                             <h2 class="challange-title-class"> WELCOME TO CHALLANGE</h2>
                         </div>
-    
+
                         <div id="double-or-nothing">
                             <p></p>
                             <h3 id="double-it-title">DOUBLE OR NOTHING!</h3>
-                            <!-- Button to start bonus game -->
+            
                             <div class="button-container">
                                 <button id="challenge-action-button">Start Challenge</button>
                             </div>
                         </div>
-    
-    
+
+
                     </div>
                 </section>
-    
-                <section id="confirmation-section">
+<!-- Confirmation Section -->
+                <article id="confirmation-section">
                     <h2>CONFIRM or DECLINE</h2>
                     <div id="confirmation-contianer-div">
                         <p>Are you ready to risk everything?</p>
@@ -157,12 +152,12 @@
                             <button id="decline-button">Decline</button>
                         </div>
                     </div>
-    
-                </section>
-    
-                <section id="challenge">
+
+                </article>
+
+                <article id="challenge">
                     <div id="choose-title-container">
-    
+
                         <h2 id="challenge-h2">CHOOSE BIGGER</h2>
                     </div>
                     <div id="number-container-challenege">
@@ -175,76 +170,68 @@
                             <i id="icon-two" class="far fa-laugh-beam"></i>
                         </div>
                     </div>
-                </section>
-    
-                <div id="challenge-score-display">
-                    <section id="score-display-container">
+                </article>
+
+                <article id="challenge-score-display">
+                    <div id="score-display-container">
                         <h4>YOUR CHOICE WAS;</h4>
                         <p id="final-chalange-score"></p>
                         <button id="challenge-button-close">OK</button>
-                    </section>
-    
-    
-                </div>
-    
-    
-    
-                <section id="challenge-screen-section">
+                    </div>
+
+
+                </article>
+
+
+
+                <article id="challenge-screen-section">
+
                     <div id="flex-challange-container">
+
                         <div id="title-challange-container">
-    
                             <h2 class="challange-title-class"> WELCOME TO CHALLANGE</h2>
                         </div>
-    
+
                         <div id="double-or-nothing">
                             <p></p>
                             <h3 id="double-it-title">DOUBLE OR NOTHING!</h3>
-                            <!-- Button to start bonus game -->
                             <div class="button-container">
                                 <button id="challenge-action-button">Start Challenge</button>
                             </div>
                         </div>
-    
-    
                     </div>
-    
-                </section>
-    
-                <section id="bonus-screen-section">
+                </article>
+
+                <article id="bonus-screen-section">
                     <div id="flex-bonus-container">
                         <div id="title-bonus-container">
-    
                             <h2 class="bonus-title-class"> WELCOME TO BONUS</h2>
                         </div>
-    
+
                         <div id="double-it-or-nothing-div">
-    
                             <p id="double-it-title">Make correct <br> answers as much you can in 20 sec. </p>
-                            <!-- Button to start bonus game -->
-    
                         </div>
                         <div class="button-container">
                             <button id="action-button">Start Bonus Game</button>
                         </div>
                     </div>
-    
-                </section>
-    
-                <section id="exit-turbo-section">
-    
+
+                </article>
+
+                <article id="exit-turbo-section">
                     <div class="turbo-score-content">
                         <h2>TURBO SCORE</h2>
                         <h5>Your total win in Turbo mode was:</h5>
                         <p id="turbo-score"></p>
                         <button id="exit-turbo-btn">EXIT</button>
                     </div>
-    
-                </section>
-                <section id="exit-game-screen">
+                </article>
+
+                <article id="exit-game-screen">
                     <div class="high-scores-container">
                         <h1 class="save-score-title">Your best score is:</h1>
                         <ul id="high-score-list">
-    
+
                         </ul>
                         <div class="form-container">
                             <form id="score-form">
@@ -253,22 +240,20 @@
                                 <button type="button" id="save-game-button">Save Score</button>
                             </form>
                         </div>
-    
+
                         <button type="button" id="exit-save-game-button">EXIT</button>
                     </div>
-                </section>
+                </article>
 
-
-        
                 <div id="popup-container">
                     <div id="popup-content">
-                    <p>This is NOT your best score.</p>
-                    <button id="popup-button">OK</button>
+                        <p>This is NOT your best score.</p>
+                        <button id="popup-button">OK</button>
+                    </div>
                 </div>
-            </div>
-                <section id="control-container">
+                <article id="control-container">
                     <div id="logo-div"><button id="exit-game-button" class="exit-game-button">EXIT</button></div>
-                
+
                     <div id="sound-control" class="dropdown">
                         <button id="settings" class="dropbtn"><i class="fas fa-cog"></i></button>
                         <div class="dropdown-content">
@@ -292,12 +277,12 @@
                         </div>
 
                     </div>
-                </section>
-
+                </article>
+                <!-- main playground elements-->
                 <div id="score-screen-number-div">
                     <h3>Score: </h3>
-                           <p id="score-text" class="score-text">0</p>
-                          </div>
+                    <p id="score-text" class="score-text">0</p>
+                </div>
                 <div id="timer"></div>
 
                 <p id="higher-lower-title-id" class="higher-lower-title">Higher or Lower?</p>
@@ -312,15 +297,13 @@
                     <button id="plus-button" class="guessing-buttons ripple-button">+</button>
                 </div>
             </section>
-      
-    
-    </main>
-    <footer>
-        <p>&copy; 2023 By LEKKERMAN.</p>
-        <!-- Add footer content, links, or other information here -->
-    </footer>
+        </main>
 
-</div>
+        <footer>
+            <p>&copy; 2023 By LEKKERMAN.</p>
+        </footer>
+
+    </div>
 
     <!-- Add script link -->
     <script src="assets/js/script.js"></script>
