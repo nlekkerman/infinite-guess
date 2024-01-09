@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     let previousNumber = null;
+    let countMysteryNumber = 0;
+    
+    const mystery = document.getElementById("mystery-number");
 
     const playerNameInput = document.getElementById('username');
     const soundControl = document.getElementById('sound-control');
@@ -309,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     timerElement.innerHTML = "Time's up!";
                     higherLowerTitle.innerHTML = "Higher or Lower"
                     document.getElementById('exit-turbo-section').style.display = 'block';
-                    timerElement.style.color="black"
+                    timerElement.style.color = "black"
                     finalScore = parseInt(scoreText.textContent, 10);
                     pauseAlarm();
                     stopChaseMusic();
@@ -321,11 +324,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     } else {
                     }
                     isBonus = false;
-                   
+
                 }
             }
 
-            count(); 
+            count();
         }
         countdownTimer(20);
 
@@ -378,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // decline challenge game button
     declineChallengeButton.addEventListener('click', function () {
-        const challengeScreen = document.getElementById('confirmation-section');
+        const challengeScreen = document.getElementById('acceept-challenge-section');
         playBackgroundMusic();
         playButtonClickSound();
         stopBreak();
@@ -386,7 +389,7 @@ document.addEventListener('DOMContentLoaded', function () {
         challengeScreen.style.display = 'none'; // Make the timer visible
 
     });
- // accept challenge game button
+    // accept challenge game button
     acceptChallengeButton.addEventListener('click', function () {
         stopSwitching = false; // Reset the flag
         // Start switching colors every half second
@@ -396,23 +399,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const challengeAcceptScreen = document.getElementById('challenge');
         challengeAcceptScreen.style.display = 'block'; // Make the timer visible
-        const confirmationScreen = document.getElementById('confirmation-section');
+        const confirmationScreen = document.getElementById('acceept-challenge-section');
         confirmationScreen.style.display = 'none';
         playButtonClickSound();
         playTenseMusic();
 
     });
 
- // start challenge button
+    // start challenge button
     startChallengeButton.addEventListener('click', function () {
         const challengeSection = document.getElementById('challenge-screen-section');
-        const confirmationScreen = document.getElementById('confirmation-section');
+        const confirmationScreen = document.getElementById('acceept-challenge-section');
         challengeSection.style.display = 'none';
         confirmationScreen.style.display = 'block';
 
         playButtonClickSound();
     });
-    
+
     // exit game button
     exitGameBtn.addEventListener('click', function () {
         displayHighScores();
@@ -426,8 +429,11 @@ document.addEventListener('DOMContentLoaded', function () {
     //compare number
     function compareNumbers(current, newNumber, guess) {
         let isCorrect;
+       
+        if(countMysteryNumber ===10){
+            isMistery=true;
 
-
+        }
         if ((guess === 'plus' && newNumber > current) || (guess === 'minus' && newNumber < current)) {
             answerText.textContent = 'Correct!';
             answerText.style.backgroundColor = "green"
@@ -437,8 +443,6 @@ document.addEventListener('DOMContentLoaded', function () {
             answerText.style.fontSize = "1.5rem"
             answerText.style.fontFamily = "Acme";
             displayRandomMessage('encouraging')
-
-
             isCorrect = true;
         } else {
             answerText.textContent = 'Wrong!';
@@ -459,12 +463,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //minus button
     minusButton.addEventListener('click', function () {
-      
+        mystery.style.display = 'none'
+        countMysteryNumber++;
+        console.log(countMysteryNumber);
         playButtonClickSound();
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'minus');
-        if (isCorrect) {
-            let currentScore = parseInt(scoreText.textContent, 10);
+        let currentScore = parseInt(scoreText.textContent, 10);
+
+
+        if (isCorrect ) {
+            console.log(isMistery + " button minus OnCorrect")
+
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
                 pauseBackgroundMusic();
@@ -473,20 +483,34 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 consecutiveCorrectAnswers++;;
             }
-            if (isBonus) {
+            if (isBonus && !isMistery) {
+                console.log(isBonus + " is Bonus " + isMistery + " NOT MYSTERY")
+
                 resetConsecutiveCorrectAnswers();
                 playButtonClickSound();
                 scoreText.textContent = Math.max(0, currentScore + 2);
-            } else {
+            }else if (isBonus && isMistery){
+                console.log(isBonus + " is Bonus " + isMistery + " IS MYSTERY")
+
+                scoreText.textContent = Math.max(0, currentScore + 10);
+            }else if(!isBonus && isMistery){
+                scoreText.textContent = Math.max(0, currentScore + 100);
+                console.log(isBonus + " NOT Bonus " + isMistery + " IS MYSTERY")
+
+            }
+            else{
+                console.log(isBonus + " not Bonus " + isMistery + " NOT MYSTERY")
+
                 if (currentScore > 0 && !isBonus) {
-                 openChallenge();
+                    openChallenge();
                 } else {
 
                 }
+              
                 scoreText.textContent = Math.max(0, currentScore + 1);
             }
             playRightAnswerSound();
-        } else {
+        } else  {
             resetConsecutiveCorrectAnswers();
             let currentScore = parseInt(scoreText.textContent, 10);
             if (isBonus) {
@@ -497,19 +521,25 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             playWrongAnswerSound();
         }
+
+        isMistery = false;
         currentGuess = newGuess;
         guessingNumberDiv.textContent = currentGuess;
         updateStyles(); // Apply styles after updating the number and score
     });
-
     // plus button
     plusButton.addEventListener('click', function () {
-       
+        countMysteryNumber++;
+        mystery.style.display = 'none'
         playButtonClickSound();
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'plus');
-        if (isCorrect) {
+
+        if (isCorrect ) {
             let currentScore = parseInt(scoreText.textContent, 10);
+
+    
+
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
                 pauseBackgroundMusic();
@@ -519,16 +549,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
             }
             consecutiveCorrectAnswers++;;
-            if (isBonus) {
+            if (isBonus && !isMistery) {
+                console.log(isBonus + " is Bonus " + isMistery + " NOT MYSTERY plus button")
+
                 resetConsecutiveCorrectAnswers();
+                playButtonClickSound();
                 scoreText.textContent = Math.max(0, currentScore + 2);
-            } else {
-                let currentScore = parseInt(scoreText.textContent, 10);
-                if (currentScore > 0) {
+            }else if (isBonus && isMistery){
+                console.log(isBonus + " is Bonus " + isMistery + " IS MYSTERY  plus button")
+
+                scoreText.textContent = Math.max(0, currentScore + 10);
+            }else if(!isBonus && isMistery){
+                scoreText.textContent = Math.max(0, currentScore + 100);
+                console.log(isBonus + " NOT Bonus " + isMistery + " IS MYSTERY  plus button")
+
+            }
+            else{
+                console.log(isBonus + " not Bonus " + isMistery + " NOT MYSTERY  plus button")
+
+                if (currentScore > 0 && !isBonus) {
                     openChallenge();
                 } else {
 
                 }
+              
                 scoreText.textContent = Math.max(0, currentScore + 1);
             }
             playRightAnswerSound();
@@ -542,8 +586,11 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
 
             }
+         
 
-        } else {
+          
+
+        }else {
             resetConsecutiveCorrectAnswers();
 
 
@@ -571,13 +618,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
             playWrongAnswerSound();
         }
+        isMistery = false;
+
         currentGuess = newGuess;
         guessingNumberDiv.textContent = currentGuess;
         updateStyles(); // Apply styles after updating the number and score
 
     });
+
+
     let intervalId;
-   //left choice in challenge
+    //left choice in challenge
     challengeLeftChoice.addEventListener('click', function () {
 
 
@@ -688,7 +739,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return { randomNumber1, randomNumber2 };
     }
-     //generate numbers for challenge (bonus) game
+    //generate numbers for challenge (bonus) game
     function generateAndCompareNumbers() {
         let randomNumber1 = Math.floor(Math.random() * 100) + 1;
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
@@ -742,7 +793,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return { randomNumber1, randomNumber2 };
     }
 
-     // display messages 
+    // display messages 
     function displayRandomMessage(messageType) {
         const encouragingMessages = [
             "Brilliant! ",
@@ -755,6 +806,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "Incredible!",
             "Remarkable! You're a true star."
         ];
+
 
         const discouragingMessages = [
             "Oops, that didn't go as planned. ",
@@ -843,27 +895,38 @@ document.addEventListener('DOMContentLoaded', function () {
         guessingNumberDiv.style.color = "white";
         guessingNumberDiv.style.fontWeight = '700';
         scoreText.style.color = 'white';
-        scoreText.style.fontSize = '1.5rem';
+        scoreText.style.fontSize = '2rem';
         scoreText.style.fontWeight = '700';
     }
-
-   //random number generator
-   function generateRandomNumber() {
-    let currentNumber;
-
-    do {
-        currentNumber = Math.floor(Math.random() * 100) + 1;
-        if (guessingNumberDiv) {
-            guessingNumberDiv.textContent = currentNumber;
+let isMistery = false;
+    //random number generator
+    function generateRandomNumber() {
+        let currentNumber;
+        console.log(countMysteryNumber)
+      
+        if (countMysteryNumber === 9) {
+            mystery.style.display = 'block'
+            console.log(countMysteryNumber +" akjdnbs");
         } else {
-            return currentNumber; 
-        }
-    } while (currentNumber === previousNumber);
-    previousNumber = currentNumber;
-    return currentNumber;
-}
 
-    
+        }
+        if(countMysteryNumber === 10) {
+            isMistery = true;
+            countMysteryNumber = 0;
+        }
+        do {
+            currentNumber = Math.floor(Math.random() * 100) + 1;
+            if (guessingNumberDiv) {
+                guessingNumberDiv.textContent = currentNumber;
+            } else {
+                return currentNumber;
+            }
+        } while (currentNumber === previousNumber);
+        previousNumber = currentNumber;
+        return currentNumber;
+    }
+
+
 
     //reset answer to 0
     function resetConsecutiveCorrectAnswers() {
@@ -968,7 +1031,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function applyTheme(selectedThemeId) {
     const playground = document.getElementById("playground-section");
     const welcomeChallengeScreen = document.getElementById("challenge-screen-section");
-    const confirmChallengeScreen = document.getElementById("confirmation-section");
+    const confirmChallengeScreen = document.getElementById("acceept-challenge-section");
     const plusButton = document.getElementById('plus-button');
     const minusBtn = document.getElementById('minus-button');
     const challengeBackground = document.getElementById('challenge')
@@ -1124,7 +1187,7 @@ function applyTheme(selectedThemeId) {
         challengeBackground.style.backgroundImage = 'url("./assets/images/fairy-challenge-background.jpg")';
         challengeScoreScreen.style.backgroundImage = 'url("./assets/images/fairy-close-challenge-background.jpg")';
         turboExitScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
-        
+
         score.style.color = 'white'
         scoreBoardBackground.style.backgroundColor = ""
         plusButton.style.backgroundColor = "#fc03f4"
@@ -1159,7 +1222,7 @@ function applyTheme(selectedThemeId) {
         challengeTitle.style.border = '3px solid white';
 
     } else {
-       
+
     }
 }
 
