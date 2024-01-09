@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // decline challenge game button
     declineChallengeButton.addEventListener('click', function () {
-        const challengeScreen = document.getElementById('confirm-challenge-section');
+        const challengeScreen = document.getElementById('accept-challenge-section');
         playBackgroundMusic();
         playButtonClickSound();
         stopBreak();
@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const challengeAcceptScreen = document.getElementById('challenge');
         challengeAcceptScreen.style.display = 'block'; // Make the timer visible
-        const confirmationScreen = document.getElementById('confirm-challenge-section');
+        const confirmationScreen = document.getElementById('accept-challenge-section');
         confirmationScreen.style.display = 'none';
         playButtonClickSound();
         playTenseMusic();
@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // start challenge button
     startChallengeButton.addEventListener('click', function () {
         const challengeSection = document.getElementById('challenge-screen-section');
-        const confirmationScreen = document.getElementById('confirm-challenge-section');
+        const confirmationScreen = document.getElementById('accept-challenge-section');
         challengeSection.style.display = 'none';
         confirmationScreen.style.display = 'block';
 
@@ -817,6 +817,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // open challenge for bonus game
     function openChallenge() {
+        mystery.style.display = 'none'
+
         let randomOne = Math.floor(Math.random() * 10) + 1;
         let randomTwo = Math.floor(Math.random() * 10) + 1;
         if (randomOne === randomTwo) {
@@ -1022,7 +1024,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function applyTheme(selectedThemeId) {
     const playground = document.getElementById("playground-section");
     const welcomeChallengeScreen = document.getElementById("challenge-screen-section");
-    const confirmChallengeScreen = document.getElementById("confirm-challenge-section");
+    const confirmChallengeScreen = document.getElementById("accept-challenge-section");
     const plusButton = document.getElementById('plus-button');
     const minusBtn = document.getElementById('minus-button');
     const challengeBackground = document.getElementById('challenge')
