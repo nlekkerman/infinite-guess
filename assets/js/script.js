@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let previousNumber = null;
     let countMysteryNumber = 0;
-    
+
     const mystery = document.getElementById("mystery-number");
     const messageForMystery = document.getElementById("mystery-message-id");
 
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
             backgroundMusic.play();
         }
     }
-
+ 
     // Function to play the alarm sound every second last 10 seconds
     function playAlarm() {
         const audio = document.getElementById("alarmAudio");
@@ -144,12 +144,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function pauseAlarm() {
         const audio = document.getElementById("alarmAudio");
-
         audio.pause();
-
-
     }
-
 
     function playCorrectCheer() {
         const audio = document.getElementById("correct");
@@ -158,14 +154,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
     }
+
     function playWronHmmm() {
         const audio = document.getElementById("wrong");
         if (isSoundOn) {
             audio.play();
         }
-
     }
-
 
     function pauseBackgroundMusic() {
         if (backgroundMusic) {
@@ -180,14 +175,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function playWrongAnswerSound() {
-
         if (isSoundOn) {
             wrongAnswerSound.play();
         }
     }
 
     function playMysterySound() {
-
         if (isSoundOn) {
             mysterySound.play();
         }
@@ -197,13 +190,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isSoundOn) {
             buttonClickSound.play();
         }
-
     }
+
     function playbonusMusic() {
         if (isSoundOn) {
             bonusGameMusic.play();
         }
-
     }
 
     function stopTenseMusic() {
@@ -220,8 +212,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
     }
-    let consecutiveCorrectAnswers = 0;
 
+    let consecutiveCorrectAnswers = 0;
     isBonus = false;
 
     //BUTTONS
@@ -391,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // decline challenge game button
     declineChallengeButton.addEventListener('click', function () {
-        const challengeScreen = document.getElementById('acceept-challenge-section');
+        const challengeScreen = document.getElementById('confirm-challenge-section');
         playBackgroundMusic();
         playButtonClickSound();
         stopBreak();
@@ -409,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const challengeAcceptScreen = document.getElementById('challenge');
         challengeAcceptScreen.style.display = 'block'; // Make the timer visible
-        const confirmationScreen = document.getElementById('acceept-challenge-section');
+        const confirmationScreen = document.getElementById('confirm-challenge-section');
         confirmationScreen.style.display = 'none';
         playButtonClickSound();
         playTenseMusic();
@@ -419,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // start challenge button
     startChallengeButton.addEventListener('click', function () {
         const challengeSection = document.getElementById('challenge-screen-section');
-        const confirmationScreen = document.getElementById('acceept-challenge-section');
+        const confirmationScreen = document.getElementById('confirm-challenge-section');
         challengeSection.style.display = 'none';
         confirmationScreen.style.display = 'block';
 
@@ -439,9 +431,9 @@ document.addEventListener('DOMContentLoaded', function () {
     //compare number
     function compareNumbers(current, newNumber, guess) {
         let isCorrect;
-       
-        if(countMysteryNumber ===10){
-            isMystery=true;
+
+        if (countMysteryNumber === 10) {
+            isMystery = true;
 
         }
         if ((guess === 'plus' && newNumber > current) || (guess === 'minus' && newNumber < current)) {
@@ -476,16 +468,13 @@ document.addEventListener('DOMContentLoaded', function () {
         mystery.style.display = 'none'
         messageForMystery.style.display = 'none'
         countMysteryNumber++;
-        console.log(countMysteryNumber);
         playButtonClickSound();
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'minus');
         let currentScore = parseInt(scoreText.textContent, 10);
 
 
-        if (isCorrect ) {
-            console.log(isMystery + " button minus OnCorrect")
-
+        if (isCorrect) {
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
                 pauseBackgroundMusic();
@@ -495,33 +484,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 consecutiveCorrectAnswers++;;
             }
             if (isBonus && !isMystery) {
-                console.log(isBonus + " is Bonus " + isMystery + " NOT MYSTERY")
-
                 resetConsecutiveCorrectAnswers();
                 playButtonClickSound();
                 scoreText.textContent = Math.max(0, currentScore + 2);
-            }else if (isBonus && isMystery){
-                console.log(isBonus + " is Bonus " + isMystery + " IS MYSTERY")
-
+            } else if (isBonus && isMystery) {
                 scoreText.textContent = Math.max(0, currentScore + 10);
-            }else if(!isBonus && isMystery){
+            } else if (!isBonus && isMystery) {
                 scoreText.textContent = Math.max(0, currentScore + 5);
-                console.log(isBonus + " NOT Bonus " + isMystery + " IS MYSTERY")
-
             }
-            else{
-                console.log(isBonus + " not Bonus " + isMystery + " NOT MYSTERY")
-
+            else {
                 if (currentScore > 0 && !isBonus) {
                     openChallenge();
                 } else {
 
                 }
-              
+
                 scoreText.textContent = Math.max(0, currentScore + 1);
             }
             playRightAnswerSound();
-        } else  {
+        } else {
             resetConsecutiveCorrectAnswers();
             let currentScore = parseInt(scoreText.textContent, 10);
             if (isBonus) {
@@ -547,10 +528,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'plus');
 
-        if (isCorrect ) {
+        if (isCorrect) {
             let currentScore = parseInt(scoreText.textContent, 10);
 
-    
+
 
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
@@ -562,29 +543,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             consecutiveCorrectAnswers++;;
             if (isBonus && !isMystery) {
-                console.log(isBonus + " is Bonus " + isMystery + " NOT MYSTERY plus button")
-
                 resetConsecutiveCorrectAnswers();
                 playButtonClickSound();
                 scoreText.textContent = Math.max(0, currentScore + 2);
-            }else if (isBonus && isMystery){
-                console.log(isBonus + " is Bonus " + isMystery + " IS MYSTERY  plus button")
-
+            } else if (isBonus && isMystery) {
                 scoreText.textContent = Math.max(0, currentScore + 10);
-            }else if(!isBonus && isMystery){
+            } else if (!isBonus && isMystery) {
                 scoreText.textContent = Math.max(0, currentScore + 5);
-                console.log(isBonus + " NOT Bonus " + isMystery + " IS MYSTERY  plus button")
-
             }
-            else{
-                console.log(isBonus + " not Bonus " + isMystery + " NOT MYSTERY  plus button")
-
+            else {
                 if (currentScore > 0 && !isBonus) {
                     openChallenge();
                 } else {
 
                 }
-              
+
                 scoreText.textContent = Math.max(0, currentScore + 1);
             }
             playRightAnswerSound();
@@ -598,11 +571,11 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
 
             }
-         
 
-          
 
-        }else {
+
+
+        } else {
             resetConsecutiveCorrectAnswers();
 
 
@@ -703,6 +676,8 @@ document.addEventListener('DOMContentLoaded', function () {
     popupButton.addEventListener('click', function () {
         popupContainer.style.display = 'none';
     });
+
+    
 
     // generate and compare numbers for challenge(bonus)
     function generateAndCompareNumbersForTwo() {
@@ -825,7 +800,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "It happens to the best of us.",
             "Struggling a bit? ",
             "It's a tough one.",
-            "Hmm, not the result you hoped for.",
+            "Not the result you hoped for?",
             "Challenges make us stronger.",
             "Don't be discouraged!",
             "Facing hurdles? ",
@@ -902,29 +877,31 @@ document.addEventListener('DOMContentLoaded', function () {
         switchDirection = !switchDirection;
     }
 
-    //update styles after bonus game
     function updateStyles() {
         guessingNumberDiv.style.color = "white";
         guessingNumberDiv.style.fontWeight = '700';
         scoreText.style.color = 'white';
-        scoreText.style.fontSize = '2rem';
+    
+        let screenWidth = window.innerWidth;
+        let threshold = 1801;
+        let newSize = (screenWidth > threshold) ? 3.5 : 2;
+    
+        // Adjust the font size based on screen width
+        scoreText.style.fontSize = newSize + 'rem';
         scoreText.style.fontWeight = '700';
     }
-let isMystery = false;
+    let isMystery = false;
     //random number generator
     function generateRandomNumber() {
         let currentNumber;
-        console.log(countMysteryNumber)
-      
         if (countMysteryNumber === 9) {
             mystery.style.display = 'block'
             messageForMystery.style.display = 'block'
-            console.log(countMysteryNumber +" akjdnbs");
             playMysterySound();
         } else {
 
         }
-        if(countMysteryNumber === 10) {
+        if (countMysteryNumber === 10) {
             isMystery = true;
             countMysteryNumber = 0;
         }
@@ -1045,12 +1022,12 @@ document.addEventListener("DOMContentLoaded", function () {
 function applyTheme(selectedThemeId) {
     const playground = document.getElementById("playground-section");
     const welcomeChallengeScreen = document.getElementById("challenge-screen-section");
-    const confirmChallengeScreen = document.getElementById("acceept-challenge-section");
+    const confirmChallengeScreen = document.getElementById("confirm-challenge-section");
     const plusButton = document.getElementById('plus-button');
     const minusBtn = document.getElementById('minus-button');
     const challengeBackground = document.getElementById('challenge')
     const messageText = document.getElementById('message-id')
-    
+
     const scoreText = document.getElementById('score-screen-number-div');
     const guessingNumber = document.getElementById('guessing-number-div');
     const challengeTitle = document.getElementById('double-it-title');
@@ -1157,9 +1134,6 @@ function applyTheme(selectedThemeId) {
         turboBonusScreen.style.backgroundImage = 'url("./assets/images/earth-challenge-background.jpg")';
         turboExitScreen.style.backgroundImage = 'url("./assets/images/earth-exit-turbo-bonus-background.jpg")';
 
-
-
-
         scoreBoardBackground.style.backgroundColor = "lightblue"
         score.style.color = 'white'
 
@@ -1224,7 +1198,6 @@ function applyTheme(selectedThemeId) {
         scoreText.style.opacity = 0.8;
         scoreText.style.color = "white"
         scoreText.style.border = '2px solid white';
-
 
         guessingNumber.style.backgroundColor = "#9403fc"
         guessingNumber.style.opacity = 0.6;

@@ -372,7 +372,7 @@ button {
     font-weight: 800;
     margin: 10px;
     font-size: 1.2rem;
-    padding: 20px 0px;
+    padding: 20px 10px;
     display: flex;
     justify-content: center;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -380,6 +380,7 @@ button {
     border-radius: 25px;
     border: 2px solid gold;
     color: white;
+    width: 90%;
 }
 #mystery-message-id{
     position: absolute;
@@ -387,6 +388,12 @@ button {
    display: none;
    text-align: center;
    background-color: rgba(0, 0, 0, 1);
+   width: 91%;
+   
+}
+#message-container{
+    justify-content: center;
+    display: flex;
 }
 #guessing-mystery-container {
     z-index: 0;
@@ -444,9 +451,6 @@ button {
     font-size: 2em; /* Adjust font size as needed */
 }
 
-#mystery-number  {
-    /* Remove default margin to ensure text is centered */
-}
 
 #buttons-container-div {
     display: flex;
@@ -523,7 +527,7 @@ button {
 }
 
 
-#acceept-challenge-section {
+#confirm-challenge-section {
     background: url('../images/confirm-section-background.jpg') no-repeat center center/cover;
     color: white;
     display: none;
@@ -556,11 +560,11 @@ button {
     width: 80%;
     border-radius: 25px;
     border: 2px solid white;
-    background-color: rgba(214, 8, 101, 0.7);
+    background-color: rgba(214, 8, 101, 0.3);
     border-radius: 15px;
 }
 
-#acceept-challenge-section h2 {
+#confirm-challenge-section h2 {
     background-color: #fff;
     padding: 5px;
     border-radius: 25px;
@@ -1319,8 +1323,17 @@ footer {
 
 /* Tablet layout */
 @media screen and (min-width: 768px) {
-    #buttons-container-div {
 
+    #right-wrong-text-with-video {
+        display: flex;
+        align-items: center;
+        padding: 3.5em 0px;
+        border: 3px solid #ccc;
+        background-color: rgba(244, 245, 240, 0.8);
+        position: relative;
+        overflow: hidden;
+    }
+    #buttons-container-div {
         padding: 2em 1em;
         margin: 2em 5em;
 
@@ -1352,7 +1365,7 @@ footer {
         font-size: 2rem;
     }
 
-    #acceept-challenge-section h2 {
+    #confirm-challenge-section h2 {
         background-color: #fff;
         padding: 33px;
         border-radius: 25px;
@@ -1361,6 +1374,17 @@ footer {
         border: 2px solid white;
         margin: 30px 170px;
         background-color: rgba(214, 8, 101, 0.3);
+    }
+
+    #confirm-challenge-section h2 {
+        padding: 1rem;
+        border-radius: 25px;
+        color: white;
+        font-size: 1.5rem;
+        border: 2px solid white;
+        text-align: center;
+        margin: 2rem 7em;
+        background-color: rgba(252, 251, 251, 0.1);
     }
 
     #confirmation-contianer-div p {
@@ -1407,6 +1431,13 @@ footer {
         width: 3em;
         height: 3em;
         font-size: 4rem;
+      
+    }
+    #guessing-mystery-container {
+        height: 7em;
+        width: 7em;
+        background-color: rgb(20, 249, 92);
+        border: 0.15em solid rgb(255, 255, 255);
     }
 
     #icon-one {
@@ -1428,7 +1459,16 @@ footer {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         background-color: rgba(0, 0, 0, 0.5);
     }
-
+    #score-text {
+        padding: 5px;
+        color: white;
+        font-family: 'Acme', sans-serif;
+        font-weight: 500;
+        padding: 5px;
+        font-size: 2.5rem;
+        transform: translateZ(-100px);
+        transition: transform 0.5s ease-in-out;
+    }
     .number-container-class {
         width: 180px;
         height: 290px;
@@ -1445,7 +1485,11 @@ footer {
         height: 120px;
         font-size: 3rem;
     }
-
+    #confirmation-contianer-div p {
+       margin: 1rem auto;
+       padding: 1em;
+       font-size: 2rem;
+    }
     #playground-section #buttons-container-div #minus-button {
         width: 120px;
         height: 120px;
@@ -1474,6 +1518,8 @@ footer {
         font-size: 2rem;
         width: 70%;
         margin: 0 auto;
+        padding: rem;
+
     }
 
     .hs-icon {
@@ -1482,9 +1528,52 @@ footer {
     }
 
     #playground-section #guessing-number-div {
-        width: 5em;
-        height: 5em;
-        font-size: 4rem;
+        width: 4em;
+        height: 4em;
+        font-size: 8rem;
+    }
+    #mystery-number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 3em;
+        height: 3em;
+        display: none;
+        color: red;
+        font-family: 'Acme';
+        font-size: 5rem;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 50%;
+        z-index: 1;
+        line-height: 3em; 
+        text-align: center;
+    }
+    #confirmation-contianer-div p {
+        margin: 8rem auto;
+        padding: remem;
+        font-size: 2.5rem;
+     }
+    #guessing-mystery-container {
+        height: 7em;
+        width: 7em;
+        background-color: rgb(20, 249, 92);
+        border: 0.15em solid rgb(255, 255, 255);
+    }
+    .message-text {
+        font-weight: 800;
+        margin: 10px;
+        font-size: 1.2rem;
+        padding: 20px 10px;
+        padding-top: 100px;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 0, 0, 0.7);
+        border-radius: 25px;
+        border: 2px solid gold;
+        color: white;
+        width: 90%;
     }
 
     #icon-one {
@@ -1517,7 +1606,18 @@ footer {
         border-radius: 15px;
         font-size: 2rem;
     }
-
+    button {
+        padding: 10px 20px;
+        font-size: 2.5rem;
+        color: white;
+        background-color: rgba(0, 15, 54, 0.9);
+        margin: 5px 10px;
+        font-family: 'Oswald';
+        font-weight: 600;
+        border: 2px solid white;
+        border-radius: 25px;
+        cursor: pointer;
+    }
     #playground-section #buttons-container-div #plus-button {
         width: 4em;
         height: 4em;
@@ -1539,6 +1639,14 @@ footer {
         width: 70px;
         height: 70px;
     }
+/*footer*/
+footer {
+    background-color: white;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+font-size: 2rem;
 
+}
 
 }
