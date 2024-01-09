@@ -367,7 +367,7 @@ button {
     align-self: center;
 }
 
-.higher-lower-title {
+.message-text {
     font-weight: 800;
     margin: 10px;
     font-size: 1.2rem;
@@ -380,7 +380,13 @@ button {
     border: 2px solid gold;
     color: white;
 }
-
+#mystery-message-id{
+    position: absolute;
+   z-index: 1;
+   display: none;
+   text-align: center;
+   background-color: rgba(0, 0, 0, 1);
+}
 #guessing-mystery-container {
     z-index: 0;
     display: flex;
@@ -390,6 +396,7 @@ button {
     height: 3em;
     font-size: 3rem;
     width: 3em;
+    border: 2px solid white;
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0 8px 16px rgba(237, 232, 232, 0.5);
     border-radius: 50%;
@@ -1381,7 +1388,7 @@ footer {
 @media screen and (min-width: 1024px) {
 
 
-    #playground-section .higher-lower-title {
+    #playground-section .message-text {
         padding: 5px;
         margin: 20px;
         font-size: 2rem;
@@ -1460,7 +1467,7 @@ footer {
 @media screen and (min-width: 1801px) {
 
 
-    #playground-section .higher-lower-title {
+    #playground-section .message-text {
         padding: 5px;
         margin: 20px;
         font-size: 2rem;
