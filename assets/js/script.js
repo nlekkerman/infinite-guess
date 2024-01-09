@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const bonusGameMusic = document.getElementById('bonus-game-music');
     const chaseGameMusic = document.getElementById('chase-game-music');
     const tenseGameMusic = document.getElementById('tense-game-music');
-    const breaksMusic = document.getElementById('break-music');
 
     const higherLowerTitle = document.getElementById('message-id');
     const guessingNumberDiv = document.getElementById('guessing-number-div');
+    const guessedNumber = document.getElementById('guessed-number')
     const plusButton = document.getElementById('plus-button');
     const minusButton = document.getElementById('minus-button');
     const answerText = document.getElementById('right-wrong-text');
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
             backgroundMusic.play();
         }
     }
- 
+
     // Function to play the alarm sound every second last 10 seconds
     function playAlarm() {
         const audio = document.getElementById("alarmAudio");
@@ -206,12 +206,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function stopBreak() {
-        if (isMusicOn) {
-            breaksMusic.pause();
-
-        }
-    }
 
     let consecutiveCorrectAnswers = 0;
     isBonus = false;
@@ -287,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
     startTurboGameButton.addEventListener('click', function () {
         isBonus = true;
         console.log(isBonus);
-        document.getElementById('bonus-screen-section').style.display = 'none';        // Store the initial value of the score
+        document.getElementById('bonus-screen-section').style.display = 'none';  
         initialScore = parseInt(scoreText.textContent, 10);
         playButtonClickSound();
         playChaseMusic();
@@ -339,15 +333,14 @@ document.addEventListener('DOMContentLoaded', function () {
     //close Challenge screen
     closeChallengeScreen.addEventListener('click', function () {
         const iconOne = document.getElementById('icon-one')
-        iconOne.style.display = 'block'; // Make the timer visible
+        iconOne.style.display = 'block';
         const iconTwo = document.getElementById('icon-two')
-        iconTwo.style.display = 'block'; // Make the timer visible
+        iconTwo.style.display = 'block';
         playBackgroundMusic();
-        stopBreak();
         const challengeCloseScreen = document.getElementById('challenge-score-display');
         challengeCloseScreen.style.display = 'none';
         const challengeAcceptScreen = document.getElementById('challenge');
-        challengeAcceptScreen.style.display = 'none'; // Make the timer visible
+        challengeAcceptScreen.style.display = 'none';
         resetStylesForChallenge();
 
     });
@@ -371,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // exit turbo game button
     exitTurboButton.addEventListener('click', function () {
         const instruction = document.getElementById('exit-turbo-section');
-        instruction.style.display = 'none'; // Make the timer visible
+        instruction.style.display = 'none';
         const timerElement = document.getElementById('timer');
         timerElement.style.backgroundColor = 'white';
         timerElement.style.display = 'none';
@@ -386,21 +379,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const challengeScreen = document.getElementById('accept-challenge-section');
         playBackgroundMusic();
         playButtonClickSound();
-        stopBreak();
-
-        challengeScreen.style.display = 'none'; // Make the timer visible
-
+        challengeScreen.style.display = 'none';
     });
     // accept challenge game button
     acceptChallengeButton.addEventListener('click', function () {
-        stopSwitching = false; // Reset the flag
-        // Start switching colors every half second
-
-        stopBreak();
+        stopSwitching = false;
         intervalId = setInterval(switchColors, 500);
 
         const challengeAcceptScreen = document.getElementById('challenge');
-        challengeAcceptScreen.style.display = 'block'; // Make the timer visible
+        challengeAcceptScreen.style.display = 'block';
         const confirmationScreen = document.getElementById('accept-challenge-section');
         confirmationScreen.style.display = 'none';
         playButtonClickSound();
@@ -472,8 +459,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'minus');
         let currentScore = parseInt(scoreText.textContent, 10);
+        guessedNumber.textContent = "Mystery number was: " + currentGuess;
 
-
+        startFadeOutAnimation('guessed-number');
         if (isCorrect) {
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
@@ -489,7 +477,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 scoreText.textContent = Math.max(0, currentScore + 2);
             } else if (isBonus && isMystery) {
                 scoreText.textContent = Math.max(0, currentScore + 10);
+                guessedNumber.style.display = 'block';
             } else if (!isBonus && isMystery) {
+                guessedNumber.style.display = 'block';
+
                 scoreText.textContent = Math.max(0, currentScore + 5);
             }
             else {
@@ -503,6 +494,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             playRightAnswerSound();
         } else {
+
+            if(isMystery){
+                console.log(isMystery)
+                guessedNumber.style.display = 'block';}
             resetConsecutiveCorrectAnswers();
             let currentScore = parseInt(scoreText.textContent, 10);
             if (isBonus) {
@@ -513,25 +508,27 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             playWrongAnswerSound();
         }
+        startFadeOutAnimation('guessed-number');
 
         isMystery = false;
         currentGuess = newGuess;
         guessingNumberDiv.textContent = currentGuess;
-        updateStyles(); // Apply styles after updating the number and score
+        updateStyles();
     });
     // plus button
     plusButton.addEventListener('click', function () {
         countMysteryNumber++;
         mystery.style.display = 'none'
         messageForMystery.style.display = 'none'
+        guessedNumber.style.display = "none"
+        guessedNumber.textContent = "Mystery number was: " + currentGuess;
+        startFadeOutAnimation('guessed-number');
         playButtonClickSound();
         const newGuess = generateRandomNumber();
         const isCorrect = compareNumbers(currentGuess, newGuess, 'plus');
 
         if (isCorrect) {
             let currentScore = parseInt(scoreText.textContent, 10);
-
-
 
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
@@ -548,8 +545,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 scoreText.textContent = Math.max(0, currentScore + 2);
             } else if (isBonus && isMystery) {
                 scoreText.textContent = Math.max(0, currentScore + 10);
+                guessedNumber.style.display = 'block';
             } else if (!isBonus && isMystery) {
                 scoreText.textContent = Math.max(0, currentScore + 5);
+                guessedNumber.style.display = 'block';
             }
             else {
                 if (currentScore > 0 && !isBonus) {
@@ -576,9 +575,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         } else {
+            if(isMystery){
+                console.log(isMystery)
+                guessedNumber.style.display = 'block';}
             resetConsecutiveCorrectAnswers();
-
-
             // Decrement the score if the guess is wrong
             let currentScore = parseInt(scoreText.textContent, 10);
 
@@ -603,8 +603,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             playWrongAnswerSound();
         }
-        isMystery = false;
+        startFadeOutAnimation('guessed-number');
 
+        isMystery = false;
         currentGuess = newGuess;
         guessingNumberDiv.textContent = currentGuess;
         updateStyles(); // Apply styles after updating the number and score
@@ -638,7 +639,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-        }, 700); // Delay for 2 seconds
+        }, 700);
 
 
     });
@@ -677,8 +678,20 @@ document.addEventListener('DOMContentLoaded', function () {
         popupContainer.style.display = 'none';
     });
 
-    
 
+    function startFadeOutAnimation(elementId) {
+        const guessedNumberBackground = document.getElementById(elementId);
+
+        if (!guessedNumberBackground) {
+            console.error('Element with ID ' + elementId + ' not found.');
+            return;
+        }
+        guessedNumberBackground.classList.add('fadeOut');
+
+        setTimeout(function () {
+            guessedNumberBackground.style.display = 'none';
+        }, 3000); 
+    }
     // generate and compare numbers for challenge(bonus)
     function generateAndCompareNumbersForTwo() {
         let randomNumber1 = Math.floor(Math.random() * 100) + 1;
@@ -817,7 +830,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // open challenge for bonus game
     function openChallenge() {
-        mystery.style.display = 'none'
+        messageForMystery.style.display = 'none'
 
         let randomOne = Math.floor(Math.random() * 10) + 1;
         let randomTwo = Math.floor(Math.random() * 10) + 1;
@@ -882,14 +895,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateStyles() {
         guessingNumberDiv.style.color = "white";
         guessingNumberDiv.style.fontWeight = '700';
-        scoreText.style.color = 'white';
-    
-        let screenWidth = window.innerWidth;
-        let threshold = 1801;
-        let newSize = (screenWidth > threshold) ? 3.5 : 2;
-    
-        // Adjust the font size based on screen width
-        scoreText.style.fontSize = newSize + 'rem';
+       
         scoreText.style.fontWeight = '700';
     }
     let isMystery = false;

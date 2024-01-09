@@ -35,11 +35,8 @@
     <audio id="end-bonus" src="assets/audio/end-bonus.wav"></audio>
     <audio id="alarmAudio" src="assets/audio/alert.wav" loop></audio>
     <audio src="assets/audio/double-music-tense-loop.wav" loop id="tense-game-music"></audio>
-    <audio id="break-music" src="assets/audio/back-breaks.wav">
         <audio id="mystery-sound" src="assets/audio/mystery-sound.wav"></audio>
 
-        Your browser does not support the audio element.
-    </audio>
     <audio id="background-music-1" loop>
         <source src="assets/audio/nice-touch.mp3" type="audio/mp3">
         Your browser does not support the audio element.
@@ -139,7 +136,7 @@
                 <!-- Confirmation Section -->
                 <article id="accept-challenge-section">
                     <h2>CONFIRM or DECLINE</h2>
-                    <div id="confirmation-container-div">
+                    <div id="acceptance-container-div">
                         <p>Are you ready to risk everything?</p>
 
                         <div id="challange-offer-container">
@@ -160,7 +157,7 @@
                         <h2 id="challenge-h2">CHOOSE BIGGER</h2>
                     </div>
 
-                    <div id="number-container-challenege">
+                    <div id="number-container-challenge">
 
                         <div id="option-one-background" class="number-container-class">
                             <p id="option-one-number"></p>
@@ -290,12 +287,16 @@
 
                 <div id="timer"></div>
                 <div id="message-container">
+                   
+                        <p id="guessed-number" class="message-text">ldksnfs</p>
                     <p id="mystery-message-id" class="message-text">Make correct guess and get this points multiplied by 5!</p>
                     <p id="message-id" class="message-text">Higher or Lower?</p>
                 </div>
 
                 <div id="guessing-mystery-container">
+
                     <div id="mystery-number"></div>
+
                     <div id="guessing-number-div">
                         <p class="guessing-number-text"></p>
                     </div>
