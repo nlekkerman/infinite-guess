@@ -45,6 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonClickSound = document.getElementById('button-click-sound');
     const rightAnswerSound = document.getElementById('right-answer-sound');
     const wrongAnswerSound = document.getElementById('wrong-answer-sound');
+    const mysterySound = document.getElementById('mystery-sound');
+
 
     const exitHighDashboard = document.getElementById('exit-welcome-highscore-instruction');
     const exitRulesDashboard = document.getElementById('exit-welcome-rules-instruction');
@@ -181,6 +183,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (isSoundOn) {
             wrongAnswerSound.play();
+        }
+    }
+
+    function playMysterySound() {
+
+        if (isSoundOn) {
+            mysterySound.play();
         }
     }
 
@@ -911,6 +920,7 @@ let isMystery = false;
             mystery.style.display = 'block'
             messageForMystery.style.display = 'block'
             console.log(countMysteryNumber +" akjdnbs");
+            playMysterySound();
         } else {
 
         }
