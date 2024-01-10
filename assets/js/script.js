@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupContainer = document.getElementById('popup-container');
     const popupButton = document.getElementById('popup-button');
 
-    resizeAllImages(37.5,25);
+    resizeAllImages(37.5, 25);
 
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
     startTurboGameButton.addEventListener('click', function () {
         isBonus = true;
         console.log(isBonus);
-        document.getElementById('bonus-screen-section').style.display = 'none';  
+        document.getElementById('bonus-screen-section').style.display = 'none';
         initialScore = parseInt(scoreText.textContent, 10);
         playButtonClickSound();
         playChaseMusic();
@@ -496,9 +496,10 @@ document.addEventListener('DOMContentLoaded', function () {
             playRightAnswerSound();
         } else {
 
-            if(isMystery){
+            if (isMystery) {
                 console.log(isMystery)
-                guessedNumber.style.display = 'block';}
+                guessedNumber.style.display = 'block';
+            }
             resetConsecutiveCorrectAnswers();
             let currentScore = parseInt(scoreText.textContent, 10);
             if (isBonus) {
@@ -576,9 +577,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         } else {
-            if(isMystery){
+            if (isMystery) {
                 console.log(isMystery)
-                guessedNumber.style.display = 'block';}
+                guessedNumber.style.display = 'block';
+            }
             resetConsecutiveCorrectAnswers();
             // Decrement the score if the guess is wrong
             let currentScore = parseInt(scoreText.textContent, 10);
@@ -691,7 +693,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setTimeout(function () {
             guessedNumberBackground.style.display = 'none';
-        }, 3000); 
+        }, 3000);
     }
     // generate and compare numbers for challenge(bonus)
     function generateAndCompareNumbersForTwo() {
@@ -805,7 +807,21 @@ document.addEventListener('DOMContentLoaded', function () {
             "You're making it look easy.",
             "Exceptional! ",
             "Incredible!",
-            "Remarkable! You're a true star."
+            "Remarkable! You're a true star.",
+            "You're killing it!",
+            "Simply amazing!",
+            "Rock on!",
+            "Nailed it!",
+            "Unreal!",
+            "Boss moves!",
+            "You're a legend!",
+            "Oops, try again.",
+            "Learning curve!",
+            "It happens.",
+            "Keep pushing!",
+            "Chin up!",
+            "Not the end!",
+            "You got this!"
         ];
 
 
@@ -896,7 +912,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateStyles() {
         guessingNumberDiv.style.color = "white";
         guessingNumberDiv.style.fontWeight = '700';
-       
+
         scoreText.style.fontWeight = '700';
     }
     let isMystery = false;
@@ -993,21 +1009,25 @@ function setBestScoreTwo() {
     const updatedHighScores = bestScoreIndex !== -1 ? [highScores[bestScoreIndex]] : [];
     localStorage.setItem('highScores', JSON.stringify(updatedHighScores));
 }
- /**
-         * Function to dynamically resize all images on small screens (e.g., phones).
-         * @param {number} newWidth - The new width for the images in ems.
-         * @param {number} newHeight - The new height for the images in ems.
-         */
- function resizeAllImages(newWidth, newHeight) {
+/**
+        * Function to dynamically resize all images on small screens (e.g., phones).
+        * @param {number} newWidth - The new width for the images in ems.
+        * @param {number} newHeight - The new height for the images in ems.
+        */
+function resizeAllImages(newWidth, newHeight) {
     let viewportWidth = window.innerWidth;
     if (viewportWidth <= 600) {
         let imgElements = document.getElementsByTagName('img');
         for (let i = 0; i < imgElements.length; i++) {
-            imgElements[i].style.width = newWidth + 'em';
-            imgElements[i].style.height = newHeight + 'em';
+            // Check if the current image should be excluded
+            if (!imgElements[i].classList.contains('dashboard-icons-class')) {
+                imgElements[i].style.width = newWidth + 'em';
+                imgElements[i].style.height = newHeight + 'em';
+            }
         }
     }
 }
+
 
 let themeLinks = document.querySelectorAll('.theme-div a');
 document.addEventListener("DOMContentLoaded", function () {
@@ -1015,7 +1035,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedThemeId = localStorage.getItem('selectedTheme');
     if (savedThemeId) {
         applyTheme(savedThemeId);
-        resizeAllImages(37.5,25);
+        resizeAllImages(37.5, 25);
 
     }
 
@@ -1038,7 +1058,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Apply the selected theme
             applyTheme(selectedThemeId);
-            resizeAllImages(37.5,25);
+            resizeAllImages(37.5, 25);
 
         });
     });
