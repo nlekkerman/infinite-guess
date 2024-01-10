@@ -101,9 +101,9 @@
                         </div>
 
                         <div id="wrap-div-highscores" class="wrap-div">
-                            <h5>High Scores</h5>
+                            <h5>Your best score</h5>
                             <div id="highscores-dash">
-                                <ul id="high-score-list-dash" class="player-name"></ul>
+                                <p id="the-best-score-dashboard" class="player-name"></ul>
                             </div>
                             <button id="exit-welcome-highscore-instruction">x</button>
                         </div>
@@ -225,13 +225,15 @@
 
                 <article id="exit-game-screen">
                     <div class="high-scores-container">
-                        <h1 class="save-score-title">Your best score is:</h1>
-                        <ul id="high-score-list">
-                        </ul>
+                        <h1 class="save-score-title">The best score</h1>
+
+                        <p id="high-score-paragraph">
+                        </p>
                         <div class="form-container">
                             <form id="score-form">
-                                <label class="userename-id" for="username">Username</label>
-                                <input type="text" id="username" name="username" required>
+                                <p class="best-score-title">Your new best score is:</p>
+
+                               <p id="best-score-paragraph"></p>
                                 <button type="button" id="save-game-button">Save Score</button>
                             </form>
                         </div>

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const mystery = document.getElementById("mystery-number");
     const messageForMystery = document.getElementById("mystery-message-id");
 
-    const playerNameInput = document.getElementById('username');
+
     const soundControl = document.getElementById('sound-control');
     const soundControlButton = document.getElementById('sound-on-off');
     const musicControlButton = document.getElementById('music-on-off');
@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const welcomeSection = document.getElementById('welcome-section');
     const scoreForm = document.getElementById('score-form');
+    const bestScoreText = document.getElementById('best-score-paragraph');
 
 
 
@@ -266,8 +267,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //save score button
     saveGameButton.addEventListener('click', async () => {
-        const playerName = playerNameInput.value.trim();
-        console.log("Username: " + playerName);
+
+
         saveGame();
         scoreForm.style.display = 'none'
         scoreText.textContent = '0';
@@ -408,6 +409,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // exit game button
     exitGameBtn.addEventListener('click', function () {
+        bestScoreText.textContent = parseInt(scoreText.textContent, 10);
+        console.log(bestScoreText)
         displayHighScores();
         checkAndDisplayBestScore();
     });
@@ -948,56 +951,47 @@ document.addEventListener('DOMContentLoaded', function () {
     function resetConsecutiveCorrectAnswers() {
         consecutiveCorrectAnswers = 0;
     }
-/** 
- * Checks if this is your best score
- * @param {number} score - The score to be checked.
- * @param {Array} highScores - An array of objects containing highscores.
- * @returns {boolean} - true if score is the best, false otherwise.
-  */
+    /** 
+     * Checks if this is your best score
+     * @param {number} score - The score to be checked.
+     * @param {Array} highScores - An array of objects containing highscores.
+     * @returns {boolean} - true if score is the best, false otherwise.
+      */
     function isScoreTheBest(score, highScores) {
         return highScores.length === 0 || score > highScores[0].score;
     }
 
     //save game function
     function saveGame() {
-        const usernameInput = document.getElementById('username');
-        const username = usernameInput.value.trim();
-        if (username === "") {
-            alert("Please enter a valid username.");
-            return;
-        }
+
+
         const currentScore = parseInt(scoreText.textContent, 10);
-        const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-        const isTheBestScore = isScoreTheBest(currentScore, highScores);
+        const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+        const isTheBestScore = isScoreTheBest(currentScore, bestScores);
         const scoreFormContainer = document.getElementById('score-form');
         if (isTheBestScore) {
             scoreFormContainer.style.display = 'block';
-            if (highScores.some(item => item.name === username)) {
-                alert("This username already exists. Please choose a different one.");
-                return;
-            }
+
 
             if (currentScore <= 0) {
                 alert("Score can't be 0");
                 return;
             }
 
-            highScores.length = 0;
-            highScores.push({ name: username, score: currentScore });
-            localStorage.setItem('highScores', JSON.stringify(highScores));
+            bestScores.length = 0;
+            bestScores.push({ score: currentScore });
+            localStorage.setItem('bestScores', JSON.stringify(bestScores));
             displayHighScores();
 
         } else {
             alert("Sorry, your score is not the best.");
         }
 
-        // Clear the username input field
-        usernameInput.value = "";
+       
     }
-
     function checkAndDisplayBestScore() {
         const currentScore = parseInt(scoreText.textContent, 10);
-        const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+        const highScores = JSON.parse(localStorage.getItem('bestScores')) || [];
         const isTheBestScore = isScoreTheBest(currentScore, highScores);
         if (isTheBestScore) {
             saveGameSection.style.display = 'block';
@@ -1268,50 +1262,36 @@ function applyTheme(selectedThemeId) {
 }
 
 function displayHighScores() {
-    const highScoreList = document.getElementById('high-score-list');
-    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-    highScoreList.innerHTML = '';
-    highScores.sort((a, b) => b.score - a.score);
-    const topScore = highScores[0];
+    const highScore = document.getElementById('high-score-paragraph');
+    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+const score = bestScores[0].score
+    // Clear the existing content of the highScore element
+    highScore.innerHTML = '';
 
-    if (topScore) {
-        const li = document.createElement('li');
-        const scoreNumberSpan = document.createElement('span');
-        const playerNameSpan = document.createElement('span');
-        scoreNumberSpan.className = 'score-number';
-        playerNameSpan.className = 'player-name';
-        playerNameSpan.textContent = `${topScore.name}: ${topScore.score}`;
-        li.appendChild(scoreNumberSpan);
-        li.appendChild(playerNameSpan);
-        li.style.backgroundColor = 'gold';
-        li.style.borderRadius = '25px';
-        li.style.color = 'black';
-        highScoreList.appendChild(li);
+    // Sort the bestScores array in descending order based on the score
+    bestScores.sort((a, b) => b.score - a.score);
+
+    // Display only the top score number
+    if (bestScores.length > 0) {
+        highScore.textContent = score;
     }
 }
 
 function displayHighScoresForDashboard() {
-    const highScoreList = document.getElementById('high-score-list-dash');
-    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-    highScoreList.innerHTML = '';
-    // Sort the highScores array in descending order based on the score
-    highScores.sort((a, b) => b.score - a.score);
-    const topScore = highScores[0];
-    if (topScore) {
-        const li = document.createElement('li');
-        const scoreNumberSpan = document.createElement('span');
-        const playerNameSpan = document.createElement('span');
-        scoreNumberSpan.className = 'score-number';
-        playerNameSpan.className = 'player-name';
-        playerNameSpan.textContent = `${topScore.name}: ${topScore.score}`;
-        li.appendChild(scoreNumberSpan);
-        li.appendChild(playerNameSpan);
-        li.style.backgroundColor = 'gold';
-        li.style.border = '1px solid white';
-        li.style.color = 'black';
+    const highScore = document.getElementById('the-best-score-dashboard');
+    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+const score = bestScores[0].score
+    // Clear the existing content of the highScore element
+    highScore.innerHTML = '';
 
-        highScoreList.appendChild(li);
+    // Sort the bestScores array in descending order based on the score
+    bestScores.sort((a, b) => b.score - a.score);
+
+    // Display only the top score number
+    if (bestScores.length > 0) {
+        highScore.textContent = score;
     }
+    
 }
 
 function blinkRedBackground() {
@@ -1369,29 +1349,6 @@ function createRipple(event, button) {
 
 
 
-function updatePlayerList(players) {
-    const listContainer = document.getElementById('high-score-list-dash');
-
-    // Clear existing list items
-    listContainer.innerHTML = '';
-
-    // Create new list items
-    players.forEach((player, index) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${player.name} - ${player.score}`;
-
-        // Add class based on position for background color
-        if (index === 0) {
-            listItem.classList.add('gold');
-        } else if (index === 1) {
-            listItem.classList.add('silver');
-        } else if (index === 2) {
-            listItem.classList.add('bronze');
-        }
-
-        listContainer.appendChild(listItem);
-    });
-}
 
 async function fetchDataForSaveGame() {
     try {
