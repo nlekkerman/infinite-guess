@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupContainer = document.getElementById('popup-container');
     const popupButton = document.getElementById('popup-button');
 
+    resizeAllImages(37.5,25);
 
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
@@ -992,6 +993,21 @@ function setBestScoreTwo() {
     const updatedHighScores = bestScoreIndex !== -1 ? [highScores[bestScoreIndex]] : [];
     localStorage.setItem('highScores', JSON.stringify(updatedHighScores));
 }
+ /**
+         * Function to dynamically resize all images on small screens (e.g., phones).
+         * @param {number} newWidth - The new width for the images in ems.
+         * @param {number} newHeight - The new height for the images in ems.
+         */
+ function resizeAllImages(newWidth, newHeight) {
+    let viewportWidth = window.innerWidth;
+    if (viewportWidth <= 600) {
+        let imgElements = document.getElementsByTagName('img');
+        for (let i = 0; i < imgElements.length; i++) {
+            imgElements[i].style.width = newWidth + 'em';
+            imgElements[i].style.height = newHeight + 'em';
+        }
+    }
+}
 
 let themeLinks = document.querySelectorAll('.theme-div a');
 document.addEventListener("DOMContentLoaded", function () {
@@ -999,6 +1015,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedThemeId = localStorage.getItem('selectedTheme');
     if (savedThemeId) {
         applyTheme(savedThemeId);
+        resizeAllImages(37.5,25);
+
     }
 
     // Add event listeners for theme selection
@@ -1020,6 +1038,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Apply the selected theme
             applyTheme(selectedThemeId);
+            resizeAllImages(37.5,25);
+
         });
     });
 
@@ -1398,6 +1418,5 @@ function updatePlayerListForSaveGame(players) {
         listContainer.appendChild(listItem);
     });
 }
-
 
 
