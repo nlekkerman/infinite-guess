@@ -948,7 +948,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function resetConsecutiveCorrectAnswers() {
         consecutiveCorrectAnswers = 0;
     }
-
+/** 
+ * Checks if this is your best score
+ * @param {number} score - The score to be checked.
+ * @param {Array} highScores - An array of objects containing highscores.
+ * @returns {boolean} - true if score is the best, false otherwise.
+  */
     function isScoreTheBest(score, highScores) {
         return highScores.length === 0 || score > highScores[0].score;
     }

@@ -1293,15 +1293,15 @@ footer {
     }
 
     25% {
-        transform: translate(1.5em, 1em);
+        transform: translate(3em, 0.5em);
     }
 
     50% {
-        transform: translate(-1.5em, 1em);
+        transform: translate(-3em, 0.5em);
     }
 
     75% {
-        transform: translate(1.5em, -1.5em);
+        transform: translate(3em, 0.5em);
     }
 }
 
