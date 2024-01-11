@@ -420,40 +420,43 @@ document.addEventListener('DOMContentLoaded', function () {
     updateStyles();
 
     //compare number
+    function applyCommonStyles(element) {
+        element.style.color = "white";
+        element.style.padding = '5px';
+        element.style.fontWeight = "700";
+        element.style.fontFamily = "Acme";
+    }
+    
     function compareNumbers(current, newNumber, guess) {
         let isCorrect;
-
+    
         if (countMysteryNumber === 10) {
             isMystery = true;
-
         }
+    
         if ((guess === 'plus' && newNumber > current) || (guess === 'minus' && newNumber < current)) {
             answerText.textContent = 'Correct!';
-            answerText.style.backgroundColor = "green"
-            answerText.style.color = "white"
-            answerText.style.padding = '5px';
-            answerText.style.fontWeight = "700"
-            answerText.style.fontSize = "1.5rem"
-            answerText.style.fontFamily = "Acme";
-            displayRandomMessage('encouraging')
+            answerText.style.backgroundColor = "green";
+            applyCommonStyles(answerText);
+            displayRandomMessage('encouraging');
             isCorrect = true;
         } else {
             answerText.textContent = 'Wrong!';
             answerText.style.backgroundColor = 'red';
-            answerText.style.color = "white"
-            answerText.style.padding = '5px';
-            answerText.style.fontWeight = "700"
-            answerText.style.fontSize = "1.5rem"
-            answerText.style.fontFamily = "Acme";
-            displayRandomMessage('discouraging')
-
-
+            applyCommonStyles(answerText);
+            displayRandomMessage('discouraging');
             isCorrect = false;
         }
-
+    
+        // Check screen width and adjust font size
+        if (window.innerWidth > 1800) {
+            answerText.style.fontSize = '3rem'; // Set your desired font size
+        } else {
+            answerText.style.fontSize = '1.5rem'; // Set the default font size
+        }
+    
         return isCorrect;
     }
-
     //minus button
     minusButton.addEventListener('click', function () {
         mystery.style.display = 'none'
@@ -704,7 +707,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
         let number1 = document.getElementById('option-one-number')
         let number2 = document.getElementById('option-two-number')
-        let screenMessage = document.getElementById('final-chalange-score')
+        let screenMessage = document.getElementById('final-challenge-score')
         number2.innerText = randomNumber2;
         number1.innerText = randomNumber1;
         number1.style.display = 'block'
@@ -751,7 +754,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
         let number1 = document.getElementById('option-one-number')
         let number2 = document.getElementById('option-two-number')
-        let screenMessage = document.getElementById('final-chalange-score')
+        let screenMessage = document.getElementById('final-challenge-score')
 
         number2.innerText = randomNumber2;
         number1.innerText = randomNumber1;

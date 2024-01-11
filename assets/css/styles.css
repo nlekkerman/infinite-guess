@@ -722,18 +722,8 @@ button {
     align-items: center;
 }
 
-#score-display-container h4 {
-    padding: 15px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: black;
-    border-radius: 0.9rem;
-    background-color: rgba(253, 251, 251, 0.8);
-    box-shadow: 0 8px 1rem rgba(252, 252, 252, 0.2);
-    border: 0.3rem solid rgb(155, 154, 154);
-}
 
-#final-chalange-score {
+#final-challenge-score {
     padding: 10px;
     font-size: 2rem;
     font-weight: 600;
@@ -745,7 +735,6 @@ button {
 
 #challenge-button-close {
     cursor: pointer;
-   
     font-size: 20px;
     border-radius: 25px;
     top: 10px;
@@ -2032,4 +2021,144 @@ footer {
         border: 0.3rem solid rgb(155, 154, 154);
         background-color: rgba(253, 251, 251, 0.7);
     }
+    #best-score-paragraph {
+        display: flex;
+        justify-content: center;
+        font-size: 5rem;
+        color: white;
+        font-weight: 700;
+        background-color: #cd7f32;
+        width: 2.5em;
+        height: 2.5em;
+        text-align: center;
+        margin: 0 auto;
+        padding: 2rem;
+        margin-bottom: 1rem;
+        border: 0.5rem solid white;
+        align-items: center;
+        border-radius: 50%;
+    }
+
+    .best-score-title {
+        padding-bottom: 1rem;
+        color: black;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    .save-score-title {
+        margin: 0 auto;
+        padding: 20px;
+        font-size: 3rem;
+        border-radius: 25px;
+        margin-top: 20px;
+        display: block;
+        box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+        border: 0.3rem solid rgb(155, 154, 154);
+        background-color: rgba(253, 251, 251, 0.8);
+    }
+    .high-scores-container h1,
+.high-scores-container ul,
+.high-scores-container,
+.high-scores-container {
+    margin-bottom: 1em;
+    font-size: 3rem;
+    color: black;
+
 }
+#score-display-container h4 {
+    font-size: 3rem;
+}
+
+#final-challenge-score {
+    
+    font-size: 5rem;
+    border-radius: 3rem;
+    border: 0.5rem solid white;
+  
+}
+#challenge-button-close {
+    cursor: pointer;
+    font-size: 3rem;
+    border-radius: 25px;
+    top: 10px;
+    padding: 15px 35px;
+    color: black;
+    background-color: rgba(253, 251, 251, 0.8);
+    box-shadow: 0 8px 1rem rgba(252, 252, 252, 0.2);
+    border: 0.5rem solid rgb(155, 154, 154);
+}
+
+#right-wrong-text {
+   font-size: 3rem;
+}
+.title {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 5rem;
+}
+#welcome-container h2 {
+    font-size: 7rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 35px;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#welcome-container h3 {
+    font-size: 5rem;
+    margin-top: -15%;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    border-radius: 35px;
+    text-align: center; /* Center the text horizontally */
+}
+#start-game-btn {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9em;
+    font-size: 4rem;
+    margin: 0 auto;
+    border: 0.5rem solid white;
+
+}
+
+.welcome-container {
+    text-align: center;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(253, 251, 251, 0.8);
+    box-shadow: 0 8px 1rem rgba(252, 252, 252, 0.2);
+    border: 0.3rem solid rgb(155, 154, 154);
+}
+#rules-button-container {
+    width: 25%;
+    margin: 2em;
+    border: 0.7rem solid rgb(247, 244, 244);
+
+    
+}
+.dashboard-icons-class {
+    height: 20em;
+    width: 20em;
+}
+#welcome-container h4 {
+    font-size: 4rem;
+    width: 90%;
+    margin: 1em auto;
+}
+#highscore-button-container {
+    width: 25%;
+    border: 0.7rem solid rgb(247, 244, 244);
+
+}
+}
+
