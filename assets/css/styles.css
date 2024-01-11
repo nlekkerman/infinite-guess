@@ -178,21 +178,6 @@ button {
     color: white;
 }
 
-#double-or-nothing {
-    width: 100%;
-    height: 350px;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 0px;
-    margin: 10px;
-    color: white;
-    min-height: 90px;
-    font-weight: 600;
-    font-size: 2rem;
-}
-
 #sound-control .dropdown-content button {
     display: block;
 
@@ -456,9 +441,8 @@ button {
 
 #mystery-number::before {
     content: '?';
-    /* Add your desired text or content here */
     font-size: 2em;
-    /* Adjust font size as needed */
+
 }
 
 
@@ -505,57 +489,54 @@ button {
 }
 
 /* CHallenge screen*/
+
 #challenge-screen-section {
     background: url('../images/default-challenge-screen.jpg') no-repeat center center/cover;
-    color: white;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    max-width: 1028px;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
-    position: absolute;
-    opacity: 1;
+    background-color: #f0f0f0;
+    display: none;
     z-index: 1;
-
-}
-
-#flex-challange-container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-evenly;
-    text-align: center;
-    align-items: center;
 }
 
 .button-container {
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 2em
-        /* Adjust this value based on the distance from the bottom */
-    ;
-
+    bottom: 25%;
+    left: 50%;
+    width: 70%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
-
-.challenge-title-class {
-    background-color: black;
-    color: white;
-    opacity: 0.8;
+.challenge-rules{
     border-radius: 25px;
-    padding: 0.2em;
-    width: 90%;
-    margin: 0 auto;
-    font-weight: 700;
-    font-size: 2rem;
-    border: 3px solid white;
+    color: black;
+    margin:55% auto 1em ;
+    width: 90%;  
+    font-family: 'Pirata'; 
+    font-size: 2rem; 
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+    border: 0.3rem solid rgb(155, 154, 154);
+    background-color: rgba(253, 251, 251, 0.7);
 }
+#challenge-action-button {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 25px;
+    color: black;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+    border: 0.3rem solid rgb(155, 154, 154);
+    background-color: rgba(253, 251, 251, 0.7);
+}
+
+
+
 
 #accept-challenge-section {
     background: url('../images/confirm-section-background.jpg') no-repeat center center/cover;
@@ -568,16 +549,19 @@ button {
     height: 100%;
     position: absolute;
     z-index: 1;
+    
 }
 
 #acceptance-container-div {
     flex: 1;
     width: 100%;
-   
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: space-between;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     
 }
 
@@ -589,12 +573,21 @@ button {
     margin-bottom: 2em;
     color: white;
     padding: 10px;
+    max-width: 20em;
     width: 80%;
     border-radius: 25px;
     color: black;
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     border: 0.3rem solid rgb(155, 154, 154);
     background-color: rgba(253, 251, 251, 0.7);
+}
+
+.accept-button-container {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: calc(50% + 70%); /* 2em below the center */
+    width: 100%;
 }
 
 #double-score-offer {
@@ -733,11 +726,11 @@ button {
     padding: 15px;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: 10px;
-    border: 2px solid white;
-    margin: 5px;
-    margin-top: 25px;
-    background-color: rgba(0, 15, 54, 0.9);
+    color: black;
+    border-radius: 0.9rem;
+    background-color: rgba(253, 251, 251, 0.8);
+    box-shadow: 0 8px 1rem rgba(252, 252, 252, 0.2);
+    border: 0.3rem solid rgb(155, 154, 154);
 }
 
 #final-chalange-score {
@@ -752,13 +745,15 @@ button {
 
 #challenge-button-close {
     cursor: pointer;
-    background-color: rgba(0, 15, 54, 0.9);
-    color: white;
+   
     font-size: 20px;
-    border-radius: 7px;
+    border-radius: 25px;
     top: 10px;
-    border: 2px solid white;
     padding: 15px 35px;
+    color: black;
+    background-color: rgba(253, 251, 251, 0.8);
+    box-shadow: 0 8px 1rem rgba(252, 252, 252, 0.2);
+    border: 0.2rem solid rgb(155, 154, 154);
 }
 
 /*Bonus section*/
@@ -837,25 +832,22 @@ button {
 }
 
 #title-bonus-container {
-    margin: 25px;
+    margin:1rem auto;
     font-family: 'Cabin';
-    border: 2px solid white;
-
-    background-color: rgba(15, 57, 162, 0.5);
-    color: white;
-    width: 100%;
-
-}
-
-#double-it-title {
-    width: 90%;
-    padding: 30px 0px;
-    font-weight: 600;
-    font-family: 'Cabin';
-    border: 2px solid white;
     border-radius: 25px;
-    background-color: rgba(145, 168, 227, 0.5);
+    border: 0.3rem solid rgb(155, 154, 154);
+    background-color: rgba(253, 251, 251, 0.8);
+    color: black;
+    padding: 0.6rem;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: calc(50% - 30%); /* 2em below the center */
+
 }
+
+
 
 #turbo-score {
     display: flex;
@@ -863,8 +855,8 @@ button {
     align-items: center;
     align-self: center;
     padding: 20px 10px;
-    height: 150px;
-    width: 150px;
+    height: 9.735em;
+    width: 9.735em;
     font-size: 3rem;
     border: 2px solid white;
     background-color: rgba(95, 34, 1, 0.9);
@@ -880,17 +872,16 @@ button {
 }
 
 #double-it-or-nothing-div {
-    width: 100%;
-    height: 250px;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    color: white;
-    min-height: 90px;
     font-weight: 600;
     font-size: 2rem;
+    margin:0 auto;
+    width: 90%;
+    padding: 1rem;
+    border-radius: 25px;
+    border: 0.3rem solid rgb(155, 154, 154);
+    background-color: rgba(253, 251, 251, 0.8);
+    color: black;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
 }
 
 /*exit button*/
@@ -985,9 +976,9 @@ h1 {
 
     margin: 0 auto;
     padding: 20px;
-    border-radius: 25px;
     margin-top: 20px;
     background-color: rgba(253, 251, 251, 0.8);
+    border-radius: 25px;
     color: black;
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     border: 0.3rem solid rgb(155, 154, 154);
@@ -1454,6 +1445,19 @@ footer {
 
 /* Tablet layout */
 @media screen and (min-width: 768px) {
+    .challenge-rules {
+        border-radius: 25px;
+        color: black;
+        margin: 25% auto 1em;
+        width: 90%;
+        font-family: 'Pirata';
+        font-size: 2rem;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+        border: 0.3rem solid rgb(155, 154, 154);
+        background-color: rgba(253, 251, 251, 0.7);
+    }
 
     #right-wrong-text-with-video {
         display: flex;
@@ -1548,12 +1552,25 @@ footer {
     #icon-two {
         font-size: 5rem;
     }
+  
 
 }
 
 /* Laptop layout */
 @media screen and (min-width: 1024px) {
-
+    .challenge-rules {
+        border-radius: 25px;
+        color: black;
+        margin: 15% auto 1em;
+        width: 90%;
+        font-family: 'Pirata';
+        font-size: 2rem;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+        border: 0.3rem solid rgb(155, 154, 154);
+        background-color: rgba(253, 251, 251, 0.7);
+    }
 
     #playground-section .message-text {
         padding: 5px;
@@ -1644,7 +1661,6 @@ footer {
     }
 
     .challenge-title-class {
-        background-color: black;
         color: white;
         opacity: 0.8;
         border-radius: 25px;
@@ -1654,6 +1670,10 @@ footer {
         font-weight: 700;
         font-size: 2rem;
         border: 3px solid white;
+        position: fixed;
+        top: 25%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     #acceptance-container-div p {
@@ -1908,22 +1928,31 @@ footer {
         border: 2px solid white;
         background-color: rgba(15, 57, 162, 0.5);
         color: white;
-        width: 70%;
+     padding: 1rem;
         font-size: 2em;
+
+        border: 0.3rem solid rgb(155, 154, 154);
+    background-color: rgba(253, 251, 251, 0.8);
+    color: black;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     }
 
     #double-it-or-nothing-div {
-        width: 100%;
+        width: 90%;
         height: 250px;
         flex-direction: column;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 1rem;
-        color: white;
+      
         min-height: 3em;
         font-weight: 600;
         font-size: 4em;
+        border: 0.3rem solid rgb(155, 154, 154);
+    background-color: rgba(253, 251, 251, 0.8);
+    color: black;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     }
 
     #acceptance-container-div p {
@@ -1964,5 +1993,43 @@ footer {
         align-items: center;
         border-radius: 15px;
         font-size: 2rem;
+    }
+    .accept-decline-buttons {
+        width: 10%;
+        color: black;
+        background-color: rgba(253, 251, 251, 0.8);
+        box-shadow: 0 8px 1rem rgba(252, 252, 252, 0.2);
+        border: 0.3rem solid rgb(155, 154, 154);
+    }
+    .accept-button-container {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: calc(50% + 50%); /* 2em below the center */
+        width: 100%;
+    }
+    .challenge-rules {
+        border-radius: 25px;
+        color: black;
+        margin: 55% auto 1em;
+        width: 90%;
+        font-family: 'Pirata';
+        font-size: 4rem;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+        border: 0.3rem solid rgb(155, 154, 154);
+        background-color: rgba(253, 251, 251, 0.7);
+    }
+    #challenge-action-button {
+        padding: 10px 20px;
+        font-size: 3rem;
+        border-radius: 5px;
+        cursor: pointer;
+        border-radius: 25px;
+        color: black;
+        box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+        border: 0.3rem solid rgb(155, 154, 154);
+        background-color: rgba(253, 251, 251, 0.7);
     }
 }

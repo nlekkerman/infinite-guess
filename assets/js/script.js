@@ -1077,7 +1077,6 @@ function applyTheme(selectedThemeId) {
 
     const scoreText = document.getElementById('score-screen-number-div');
     const guessingNumber = document.getElementById('guessing-number-div');
-    const challengeTitle = document.getElementById('double-it-title');
     const challengeScoreScreen = document.getElementById('challenge-score-display');
     const turboBonusScreen = document.getElementById('bonus-screen-section');
     const turboExitScreen = document.getElementById('exit-turbo-section');
@@ -1126,10 +1125,6 @@ function applyTheme(selectedThemeId) {
         guessingNumber.style.color = "white"
         guessingNumber.style.border = '3px solid yellow';
 
-        challengeTitle.style.backgroundColor = "black"
-        challengeTitle.style.color = "white"
-        challengeTitle.style.opacity = 0.8;
-        challengeTitle.style.border = '3px solid white';
 
     } else if (selectedThemeId === 'theme-space') {
         playground.style.backgroundImage = 'url("./assets/images/space-main-background.jpg")';
@@ -1167,10 +1162,7 @@ function applyTheme(selectedThemeId) {
         guessingNumber.style.color = "white"
         guessingNumber.style.border = '3px solid cyan';
 
-        challengeTitle.style.backgroundColor = "black"
-        challengeTitle.style.color = "white"
-        challengeTitle.style.opacity = 0.8;
-        challengeTitle.style.border = '3px solid white';
+    
 
     } else if (selectedThemeId === 'theme-earth') {
         playground.style.backgroundImage = 'url("./assets/images/earth-main-background.jpg")';
@@ -1209,10 +1201,6 @@ function applyTheme(selectedThemeId) {
         guessingNumber.style.color = "white"
         guessingNumber.style.border = '3px solid white';
 
-        challengeTitle.style.backgroundColor = "black"
-        challengeTitle.style.color = "white"
-        challengeTitle.style.opacity = 0.8;
-        challengeTitle.style.border = '3px solid white';
 
 
     } else if (selectedThemeId === 'theme-fairy') {
@@ -1251,11 +1239,7 @@ function applyTheme(selectedThemeId) {
         guessingNumber.style.color = "white"
         guessingNumber.style.border = '3px solid white';
 
-        challengeTitle.style.backgroundColor = "black"
-        challengeTitle.style.color = "white"
-        challengeTitle.style.opacity = 0.8;
-        challengeTitle.style.border = '3px solid white';
-
+    
     } else {
 
     }
