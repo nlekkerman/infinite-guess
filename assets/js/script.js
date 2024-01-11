@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const exitHighDashboard = document.getElementById('exit-welcome-highscore-instruction');
     const exitRulesDashboard = document.getElementById('exit-welcome-rules-instruction');
 
-    const highScoreDash = document.getElementById('highscore');
-    const rulesDash = document.getElementById('rules');
+    const highScoreDash = document.getElementById('highscore-button-container');
+    const rulesDash = document.getElementById('rules-button-container');
 
     const welcomeSection = document.getElementById('welcome-section');
     const scoreForm = document.getElementById('score-form');
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const displayCloseButton = document.getElementById('exit-welcome-rules-instruction');
 
         const hideIcons = document.getElementById('icons-dash-container')
-        const rules = document.getElementById('scrollable-container');
+        const rules = document.getElementById('rules-container');
         rules.style.display = 'block'
 
         wrapDivRules.style.display = 'block'
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     exitRulesDashboard.addEventListener('click', function () {
-        const rules = document.getElementById('scrollable-container');
+        const rules = document.getElementById('rules-container');
         const wrapDivRules = document.getElementById('wrap-div-rules');
         const hideIcons = document.getElementById('icons-dash-container');
 

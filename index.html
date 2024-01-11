@@ -66,24 +66,25 @@
                 <!-- Welcome article -->
                 <article id="welcome-section" class="welcome-section">
                     <div id="welcome-container" class="welcome-container">
-                        <h2>Welcome to Infinite Guess! </h2>
+                        <h2>INFINITE GUESS </h2>
                         <h3>DASHBOARD</h3>
                         <div id="icons-dash-container">
-                            <div id="highscore" class="icons">
+                            <div id="highscore-button-container" class="icons">
                                 <img src="assets/images/highscore-icon.png" alt="Description of the image"
                                     class="dashboard-icons-class">
                                 <h4>HIGHSCORE</h4>
                             </div>
 
-                            <div id="rules" class="icons">
+                            <div id="rules-button-container" class="icons">
                                 <img src="assets/images/instruction-icon.png" alt="Description of the image"
                                     class="dashboard-icons-class">
-                                <h4 class="hiscores-dash-title">RULES</h4>
+                                <h4 class="dash-titles">RULES</h4>
                             </div>
 
                         </div>
                         <div id="wrap-div-rules" class="wrap-div">
-                            <div id="scrollable-container">
+                            <h5>RULES</h5>
+                            <div id="rules-container">
                                 <p>
                                     Welcome to the Infinite Guessing Challenge! Predict if the next number is higher or
                                     lower and
@@ -96,16 +97,16 @@
                                     Start guessing now and see how high you can climb on the leaderboard!</p>
                             </div>
 
-                            <button id="exit-welcome-rules-instruction">X</button>
+                            <button id="exit-welcome-rules-instruction">EXIT</button>
 
                         </div>
 
                         <div id="wrap-div-highscores" class="wrap-div">
-                            <h5>Your best score</h5>
-                            <div id="highscores-dash">
-                                <p id="the-best-score-dashboard" class="player-name"></ul>
+                            <h5>Current best score</h5>
+                            <div id="highscores-dashboard">
+                                <p id="the-best-score-dashboard" class="player-name">0</ul>
                             </div>
-                            <button id="exit-welcome-highscore-instruction">x</button>
+                            <button id="exit-welcome-highscore-instruction">EXIT</button>
                         </div>
                         <button id="start-game-btn">Start Game</button>
                     </div>
@@ -119,7 +120,7 @@
                     <div id="flex-challange-container">
 
                         <div id="title-challange-container">
-                            <h2 class="challange-title-class"> WELCOME TO CHALLANGE</h2>
+                            <h2 class="challenge-title-class"> WELCOME TO CHALLANGE</h2>
                         </div>
 
                         <div id="double-or-nothing">
@@ -145,8 +146,8 @@
                         </div>
 
                         <div class="button-container">
-                            <button id="accept-button">Accept</button>
-                            <button id="decline-button">Decline</button>
+                            <button id="accept-button" class="accept-decline-buttons">Accept</button>
+                            <button id="decline-button"class="accept-decline-buttons">Decline</button>
                         </div>
                     </div>
                 </article>
@@ -154,7 +155,7 @@
                 <article id="challenge">
 
                     <div id="choose-title-container">
-                        <h2 id="challenge-h2">CHOOSE BIGGER</h2>
+                        <h2 id="challenge-h2">CHOOSE HIGHER</h2>
                     </div>
 
                     <div id="number-container-challenge">
@@ -184,7 +185,7 @@
                     <div id="flex-challange-container">
 
                         <div id="title-challange-container">
-                            <h2 class="challange-title-class"> WELCOME TO CHALLANGE</h2>
+                            <h2 class="challenge-title-class"> WELCOME TO CHALLANGE</h2>
                         </div>
 
                         <div id="double-or-nothing">
@@ -258,7 +259,7 @@
                     <div id="sound-control" class="dropdown">
                         <button id="settings" class="dropbtn"><i class="fas fa-cog"></i></button>
                         <div class="dropdown-content">
-                            <p class="s-controi-title">SOUND</p>
+                            <p class="dropdown-theme-title">SOUND</p>
 
                             <!--Sound and Music control-->
                             <div id="sound">
@@ -269,7 +270,7 @@
                             <!--Theme dropdown-->
                             <div class="dropdown">
                                 <div class="theme-div">
-                                    <p class="s-controi-title">THEME</p>
+                                    <p class="dropdown-theme-title">THEME</p>
                                     <a href="#" id="theme-default" class="theme-link active"
                                         class="theme-default">Default</a>
                                     <a href="#" id="theme-space" class="theme-link active">Space</a>
