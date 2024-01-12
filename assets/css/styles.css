@@ -488,14 +488,14 @@ button {
 }
 
 /* CHallenge screen*/
-#challenge-rules-content-wraper {
+#challenge-welcome-screen-content-wraper {
     background-color: rgba(253, 251, 251, 0.6);
     min-height: 100vh;
     display: flex;
     justify-content: center;
 }
 
-#challenge-rules-screen {
+#challenge-welcome-screen {
     background: url('../images/default-challenge-screen.jpg') no-repeat center center/cover;
     position: absolute;
     top: 0;
@@ -504,8 +504,9 @@ button {
     height: 100vh;
     display: none;
     z-index: 3;
-
 }
+
+
 
 .button-container {
     position: absolute;
@@ -516,12 +517,11 @@ button {
     text-align: center;
 }
 
-.challenge-rules {
+#challenge-welcome-screen-content-wraper h3 {
     border-radius: 25px;
     color: black;
-    margin: 30% auto 1em;
-    width: 90%;
-    height: 6em;
+    margin: 5% auto 1em;
+    height: 2.4em;
     font-family: 'Acme';
     font-size: 2rem;
     padding: 1rem;
