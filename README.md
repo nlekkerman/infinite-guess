@@ -126,7 +126,9 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - **Hidden Numbers Challenge:**
   - In a special challenge round, two numbers are hidden behind "cards."
   - The hidden numbers blink, creating anticipation and excitement for the player.
+
  ![Am I Responsive Screenshot](assets/images/screenshots/challenge-acceptance-screenshot.png)
+ 
 - **Visual Cues:**
   - The hidden numbers are revealed when clicked, each with a distinct visual effect.
   - Correct answers are highlighted with a green background, providing instant feedback.
