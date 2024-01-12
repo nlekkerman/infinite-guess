@@ -34,13 +34,19 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
 - **Check Your High Score:**
   - Click on the high scores icon to view your best score.
-  - Compete with yourself and aim to beat your own records.![Am I Responsive Screenshot](assets/images/screenshots/best-score-screenshot.png)
+  - Compete with yourself and aim to beat your own records.
+  
+  ![Am I Responsive Screenshot](assets/images/screenshots/best-score-screenshot.png)
+
 - **Learn the Rules:**
   - Click on the rules icon to access detailed game instructions.
-  - Understand how the scoring system works and master the art of predicting numbers.![Am I Responsive Screenshot](assets/images/screenshots/rules-screenshot.png)
+  - Understand how the scoring system works and master the art of predicting numbers.
+  
+  ![Am I Responsive Screenshot](assets/images/screenshots/rules-screenshot.png)
 
 - **Get Ready to Play:**
   - Press the "Start Game" button to kick off the guessing number challenge.
+  
   ![Am I Responsive Screenshot](assets/images/screenshots/start-game-screenshot.png)
 
 
@@ -49,16 +55,20 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - **Score Monitoring:**
   - Keep track of your current score on the top of the main playground section.
   - Monitor your progress as you make guesses and face various challenges.
+  
   ![Am I Responsive Screenshot](assets/images/screenshots/score-screenshot.png)
 
 - **Background Video:**
   - Enjoy an immersive gaming experience with a dynamic video background that sets the tone for the game.
+  
   ![Am I Responsive Screenshot](assets/images/screenshots/video-screenshot.png)
 
 - **Answer Text:**
   - The answer text is prominently displayed, providing feedback on the correctness of your guess.
   - When your guess is correct, the answer text turns green for visual confirmation.
   - If your guess is incorrect, the answer text turns red to indicate a wrong prediction.
+
+  ![Am I Responsive Screenshot](assets/images/screenshots/correc-wrong-message-header-screenshot.png)
 
 
 - **Mystery Number:** After tenattempts, a question mark will be displayed above the guessing number, covering it completely.
