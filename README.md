@@ -96,7 +96,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - **Start Challenge Button:**
   - A button is provided under the challenge title, inviting players to start the Double or Nothing challenge.
   - Initiating the challenge adds an extra layer of excitement and potential rewards to the gameplay.
-
+ ![Am I Responsive Screenshot](assets/images/screenshots/start-challenge-button-screnshoot.png)
   ### Challenge Acceptance Screen Features:
 
 - **Challenge Confirmation:**

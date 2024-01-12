@@ -509,7 +509,7 @@ button {
 
 .button-container {
     position: absolute;
-    bottom: 25%;
+    bottom: 15%;
     left: 50%;
     width: 70%;
     transform: translate(-50%, -50%);
@@ -519,7 +519,7 @@ button {
 .challenge-rules {
     border-radius: 25px;
     color: black;
-    margin: 55% auto 1em;
+    margin: 40% auto 1em;
     width: 90%;
     height: 6em;
     font-family: 'Acme';
