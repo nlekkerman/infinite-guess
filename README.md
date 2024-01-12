@@ -8,9 +8,12 @@ Welcome to **Infinite Guess**, a thrilling guessing number game where your intui
 
 To start playing Infinite Guess, simply click on the "Start Game" button and let the guessing game thrill begin!
 
+![Am I Responsive Screenshot](assets/images/screenshots/start-game-screenshot.png)
+
+
 ### Bonus Games
 
-- The Callenge Game is randomized, offering exciting and unexpected challenges.
+- The Challenge Game is randomized, offering exciting and unexpected challenges.
 - The Turbo Bonus Game is triggered when the player achieves five correct answers in a row.
 - After 10 attempts, a Mystery Number challenge will be triggered, adding an element of surprise to your gameplay.
 
@@ -26,12 +29,13 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
 - **Welcome to Infinite Guess!**
   - Access the welcome screen with a dashboard at the beginning of the game.
-  - Explore various options, including checking your high score and reading the game rules.
+  - Explore various options, including checking your high score and reading the game rules.![Am I Responsive Screenshot](assets/images/screenshots/welcome-screen-screenshot.png)
+
 
 - **Check Your High Score:**
   - Click on the high scores icon to view your best score.
   - Compete with yourself and aim to beat your own records.
-
+[Am I Responsive Screenshot](assets/images/screenshots/best-score-screenshot.png)
 - **Learn the Rules:**
   - Click on the rules icon to access detailed game instructions.
   - Understand how the scoring system works and master the art of predicting numbers.
