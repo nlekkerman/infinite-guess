@@ -70,16 +70,28 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
   ![Am I Responsive Screenshot](assets/images/screenshots/correc-wrong-message-header-screenshot.png)
 
+### Guessing Number
 
-- **Mystery Number:** After tenattempts, a question mark will be displayed above the guessing number, covering it completely.
+- The central element of the game screen displaying the current number in the sequence.
+- You'll use this number as a reference to decide whether the next number will be higher or lower.
+- Number is in motion.
+
+ ![Am I Responsive Screenshot](assets/images/screenshots/correc-wrong-message-header-screenshot.png)
+
+- **Mystery Number:** After ten attempts, a question mark will be displayed above the guessing number, covering it completely.
   - Upon triggering this feature,pecial message will be displayed with instructions on how to proceed. Pay attention to the guidance provided to enhance your gaming experience.
   -After you guessed it will be displayed another message with value of the Mystery number.
 
 
+ ![Am I Responsive Screenshot](assets/images/screenshots/correc-wrong-message-header-screenshot.png)
+
 ### Challenge Screen Features:
 
 - **First Challenge: Double or Nothing:**
-  - When triggered, the first challenge screen opens with the title "Double or Nothing."
+  - When triggered, the first opens challenge screen 
+   with instructions abot challenge game."
+
+ ![Am I Responsive Screenshot](assets/images/screenshots/challenge-screen-screenshot.png)
 
 - **Start Challenge Button:**
   - A button is provided under the challenge title, inviting players to start the Double or Nothing challenge.
