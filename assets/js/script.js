@@ -399,7 +399,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // start challenge button
     startChallengeButton.addEventListener('click', function () {
-        const challengeSection = document.getElementById('challenge-screen-section');
+        const challengeSection = document.getElementById('challenge-rules-screen');
         const confirmationScreen = document.getElementById('accept-challenge-section');
         challengeSection.style.display = 'none';
         confirmationScreen.style.display = 'block';
@@ -699,7 +699,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setTimeout(function () {
             guessedNumberBackground.style.display = 'none';
-        }, 1000);
+        }, 3000);
     }
     // generate and compare numbers for challenge(bonus)
     function generateAndCompareNumbersForTwo() {
@@ -858,7 +858,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let randomOne = Math.floor(Math.random() * 10) + 1;
         let randomTwo = Math.floor(Math.random() * 10) + 1;
         if (randomOne === randomTwo) {
-            const challengeScreen = document.getElementById('challenge-screen-section');
+            const challengeScreen = document.getElementById('challenge-rules-screen');
             const offerDisplay = document.getElementById('current-score-offer');
             const doubleOfferDisplay = document.getElementById('double-score-offer');
             offerNumber = parseInt(scoreText.textContent, 10);
@@ -1071,7 +1071,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function applyTheme(selectedThemeId) {
     const playground = document.getElementById("playground-section");
-    const welcomeChallengeScreen = document.getElementById("challenge-screen-section");
+    const welcomeChallengeScreen = document.getElementById("challenge-rules-screen");
     const confirmChallengeScreen = document.getElementById("accept-challenge-section");
     const plusButton = document.getElementById('plus-button');
     const minusBtn = document.getElementById('minus-button');
