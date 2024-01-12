@@ -16,6 +16,10 @@
     <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <!-- Preload Image -->
+    <link rel="preload" as="image" href="assets/images/highscore-icon.png">
+    <link rel="preload" as="image" href="assets/images/instruction-icon.png">
+
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Infinite Guess</title>
 
@@ -117,15 +121,15 @@
                 <section id="challenge-rules-screen">
                     <div id="challenge-rules-content-wraper">
 
-                 
-                    <div class="challenge-rules">
-                        <p>Left or Right<br>Trust your instincts<br>Choose Wisely. </p>
-                    </div>
 
-                    <div class="button-container">
-                        <button id="challenge-action-button">Start Challenge</button>
+                        <div class="challenge-rules">
+                            <p>Left or Right<br>Trust your instincts<br>Choose Wisely. </p>
+                        </div>
+
+                        <div class="button-container">
+                            <button id="challenge-action-button">Start Challenge</button>
+                        </div>
                     </div>
-                </div>
                 </section>
 
                 <!-- Confirmation Section -->
@@ -297,7 +301,7 @@
     </div>
 
     <!-- Add script link -->
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js" defer></script>
 
     <!-- Font Awesome Script -->
     <script src="https://kit.fontawesome.com/3b20d96fa9.js" crossorigin="anonymous"></script>

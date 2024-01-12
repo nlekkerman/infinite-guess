@@ -2,14 +2,18 @@
 
 Welcome to **Infinite Guess**, a thrilling guessing number game where your intuition and strategy will be put to the test. Can you accurately predict whether the next number in the sequence is higher or lower? Let the challenge begin!
 
+![Am I Responsive Screenshot](assets/images/screenshots/am-i-responsive-sceenshot.png)
+
 ### Getting Started
 
 To start playing Infinite Guess, simply click on the "Start Game" button and let the guessing game thrill begin!
 
 ### Bonus Games
 
-- The Bonus Game is randomized, offering exciting and unexpected challenges.
+- The Callenge Game is randomized, offering exciting and unexpected challenges.
 - The Turbo Bonus Game is triggered when the player achieves five correct answers in a row.
+- After 10 attempts, a Mystery Number challenge will be triggered, adding an element of surprise to your gameplay.
+
 
 ### Saving High Scores
 
@@ -169,7 +173,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - **Correct Answer:**
   - During the Turbo Bonus Game,a correct answer will earn you an additional 2 points for the Mystery Number will be awarded with 10 points.
 
-- **Incorrect Answer (Turbo Bonus):**
+- **Incorrect Answer:**
   - If the guess for the Turbo Bonus is incorrect, 2 points will be deducted, same if is Mystery Number.
 
   - **Music and Alert Tone (Turbo Bonus):**
