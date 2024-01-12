@@ -107,7 +107,7 @@ button {
 
 #timer {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     padding: 10px;
     border-radius: 8px;
     display: none;
@@ -512,7 +512,7 @@ button {
     bottom: 15%;
     left: 50%;
     width: 70%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -90%);
     text-align: center;
 }
 
@@ -595,7 +595,6 @@ button {
     justify-content: center;
     position: fixed;
     top: calc(50% + 70%);
-    /* 2em below the center */
     width: 100%;
 }
 
@@ -869,10 +868,10 @@ button {
     justify-content: center;
     align-items: center;
     align-self: center;
-    padding: 20px 10px;
     height: 3em;
+    font-family: 'Acme';
     width: 3em;
-    font-size: 3rem;
+    font-size: 2rem;
     background-color: rgba(253, 251, 251, 0.8);
     color: black;
     border: 0.3rem solid rgb(155, 154, 154);
