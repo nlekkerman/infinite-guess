@@ -35,13 +35,16 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - **Check Your High Score:**
   - Click on the high scores icon to view your best score.
   - Compete with yourself and aim to beat your own records.
-[Am I Responsive Screenshot](assets/images/screenshots/best-score-screenshot.png)
+![Am I Responsive Screenshot](assets/images/screenshots/best-score-screenshot.png)
 - **Learn the Rules:**
   - Click on the rules icon to access detailed game instructions.
   - Understand how the scoring system works and master the art of predicting numbers.
+![Am I Responsive Screenshot](assets/images/screenshots/rules-screenshot.png)
 
 - **Get Ready to Play:**
   - Press the "Start Game" button to kick off the guessing number challenge.
+  ![Am I Responsive Screenshot](assets/images/screenshots/start-game-screenshot.png)
+
 
 ### Main Playground:
 
