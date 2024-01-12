@@ -48,11 +48,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const mysterySound = document.getElementById('mystery-sound');
 
 
-    const exitHighDashboard = document.getElementById('exit-welcome-highscore-instruction');
-    const exitRulesDashboard = document.getElementById('exit-welcome-rules-instruction');
+    const exitHighscoreDashboardButton = document.getElementById('exit-welcome-highscore-instruction');
+    const exitRulesDashboardButton = document.getElementById('exit-welcome-rules-instruction');
 
-    const highScoreDash = document.getElementById('highscore-button-container');
-    const rulesDash = document.getElementById('rules-button-container');
+    const seeHighscoreDashboardButton = document.getElementById('highscore-button-container');
+    const seeRulesDashboardButton = document.getElementById('rules-button-container');
 
     const welcomeSection = document.getElementById('welcome-section');
     const scoreForm = document.getElementById('score-form');
@@ -213,7 +213,8 @@ document.addEventListener('DOMContentLoaded', function () {
     isBonus = false;
 
     //BUTTONS
-    highScoreDash.addEventListener('click', function () {
+    /*See highscore on dashboard button*/
+    seeHighscoreDashboardButton.addEventListener('click', function () {
         const wrapDivRules = document.getElementById('wrap-div-rules');
         const wrapDivHighscores = document.getElementById('wrap-div-highscores');
         const hideIcons = document.getElementById('icons-dash-container')
@@ -221,41 +222,35 @@ document.addEventListener('DOMContentLoaded', function () {
         hideIcons.style.display = 'none';
         displayHighScoresForDashboard();
 
-
     });
+    /*See rules on dashboard button*/
 
-    rulesDash.addEventListener('click', function () {
+    seeRulesDashboardButton.addEventListener('click', function () {
 
         const wrapDivRules = document.getElementById('wrap-div-rules');
         const displayCloseButton = document.getElementById('exit-welcome-rules-instruction');
-
         const hideIcons = document.getElementById('icons-dash-container')
         const rules = document.getElementById('rules-container');
         rules.style.display = 'block'
-
         wrapDivRules.style.display = 'block'
         displayCloseButton.style.display = 'block'
-
         hideIcons.style.display = 'none';
-
-
     });
+
+    /*Button to start game and close welcome screen*/
     startGameBtn.addEventListener('click', function () {
         welcomeSection.style.display = 'none';
-
-
-        // Add logic to start your game here
     });
 
-
-    exitHighDashboard.addEventListener('click', function () {
+    /*Button to close high/best score on dashboard*/
+    exitHighscoreDashboardButton.addEventListener('click', function () {
         const hideIcons = document.getElementById('icons-dash-container')
         hideIcons.style.display = 'block';
         const exitHigh = document.getElementById('wrap-div-highscores')
         exitHigh.style.display = 'none';
     });
-
-    exitRulesDashboard.addEventListener('click', function () {
+    /*Button to close rules on dashboard*/
+    exitRulesDashboardButton.addEventListener('click', function () {
         const rules = document.getElementById('rules-container');
         const wrapDivRules = document.getElementById('wrap-div-rules');
         const hideIcons = document.getElementById('icons-dash-container');
@@ -426,14 +421,14 @@ document.addEventListener('DOMContentLoaded', function () {
         element.style.fontWeight = "700";
         element.style.fontFamily = "Acme";
     }
-    
+
     function compareNumbers(current, newNumber, guess) {
         let isCorrect;
-    
+
         if (countMysteryNumber === 10) {
             isMystery = true;
         }
-    
+
         if ((guess === 'plus' && newNumber > current) || (guess === 'minus' && newNumber < current)) {
             answerText.textContent = 'Correct!';
             answerText.style.backgroundColor = "green";
@@ -447,14 +442,14 @@ document.addEventListener('DOMContentLoaded', function () {
             displayRandomMessage('discouraging');
             isCorrect = false;
         }
-    
+
         // Check screen width and adjust font size
         if (window.innerWidth > 1800) {
             answerText.style.fontSize = '3rem'; // Set your desired font size
         } else {
             answerText.style.fontSize = '1.5rem'; // Set the default font size
         }
-    
+
         return isCorrect;
     }
     //minus button
@@ -748,6 +743,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return { randomNumber1, randomNumber2 };
     }
+
     //generate numbers for challenge (bonus) game
     function generateAndCompareNumbers() {
         let randomNumber1 = Math.floor(Math.random() * 100) + 1;
@@ -795,9 +791,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
 
         }
-
-
-
         // Return an object containing the generated numbers
         return { randomNumber1, randomNumber2 };
     }
@@ -845,10 +838,8 @@ document.addEventListener('DOMContentLoaded', function () {
         ];
 
         const messagesArray = (messageType === 'encouraging') ? encouragingMessages : discouragingMessages;
-
         const randomIndex = Math.floor(Math.random() * messagesArray.length);
         const randomMessage = messagesArray[randomIndex];
-
         document.getElementById('message-id').innerText = randomMessage;
     }
     // open challenge for bonus game
@@ -870,7 +861,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 offerDisplay.innerHTML = offerNumber;
             } else {
             }
-
             if (doubleOfferDisplay) {
                 doubleOfferDisplay.innerHTML = offerNumber * 2;
 
@@ -886,7 +876,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-    // reb blinking colors for bonus game
+    // red blinking colors for bonus game guessing cards
     let switchDirection = true;
     let stopSwitching = false;
     function switchColors() {
@@ -921,6 +911,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         scoreText.style.fontWeight = '700';
     }
+
     let isMystery = false;
     //random number generator
     function generateRandomNumber() {
@@ -948,8 +939,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return currentNumber;
     }
 
-
-
     //reset answer to 0
     function resetConsecutiveCorrectAnswers() {
         consecutiveCorrectAnswers = 0;
@@ -966,21 +955,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //save game function
     function saveGame() {
-
-
         const currentScore = parseInt(scoreText.textContent, 10);
         const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
         const isTheBestScore = isScoreTheBest(currentScore, bestScores);
         const scoreFormContainer = document.getElementById('score-form');
         if (isTheBestScore) {
             scoreFormContainer.style.display = 'block';
-
-
             if (currentScore <= 0) {
                 alert("Score can't be 0");
                 return;
             }
-
             bestScores.length = 0;
             bestScores.push({ score: currentScore });
             localStorage.setItem('bestScores', JSON.stringify(bestScores));
@@ -990,7 +974,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert("Sorry, your score is not the best.");
         }
 
-       
+
     }
     function checkAndDisplayBestScore() {
         const currentScore = parseInt(scoreText.textContent, 10);
@@ -1030,45 +1014,97 @@ function resizeAllImages(newWidth, newHeight) {
     }
 }
 
+function displayHighScores() {
+    const highScore = document.getElementById('high-score-paragraph');
+    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+    const score = bestScores[0].score
+    // Clear the existing content of the highScore element
+    highScore.innerHTML = '';
 
-let themeLinks = document.querySelectorAll('.theme-div a');
-document.addEventListener("DOMContentLoaded", function () {
-    // Check if a theme is already selected
-    const savedThemeId = localStorage.getItem('selectedTheme');
-    if (savedThemeId) {
-        applyTheme(savedThemeId);
-        resizeAllImages(37.5, 25);
+    // Sort the bestScores array in descending order based on the score
+    bestScores.sort((a, b) => b.score - a.score);
 
+    // Display only the top score number
+    if (bestScores.length > 0) {
+        highScore.textContent = score;
+    }
+}
+
+function displayHighScoresForDashboard() {
+    const highScore = document.getElementById('the-best-score-dashboard');
+    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+    const score = bestScores[0].score
+    // Clear the existing content of the highScore element
+    highScore.innerHTML = '';
+
+    // Sort the bestScores array in descending order based on the score
+    bestScores.sort((a, b) => b.score - a.score);
+
+    // Display only the top score number
+    if (bestScores.length > 0) {
+        highScore.textContent = score;
     }
 
-    // Add event listeners for theme selection
-    themeLinks.forEach(function (themeLink) {
-        themeLink.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent the default behavior of the anchor tag
+}
+/*function to create blinkig effect on card in Challenge*/
+function blinkRedBackground() {
+    let timerElement = document.getElementById('timer');
+    let numberElement = document.getElementById('guessing-number-div');
 
-            // Remove 'active' class from all theme links
-            themeLinks.forEach(link => link.classList.remove('active'));
+    timerElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? 'white' : 'red';
+    timerElement.style.color = (timerElement.style.backgroundColor === 'white') ? 'black' : 'white';
 
-            // Add 'active' class to the clicked theme link
-            themeLink.classList.add('active');
+    numberElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? '' : 'red';
 
-            // Get the selected theme ID
-            const selectedThemeId = event.target.id;
-            localStorage.setItem('selectedTheme', selectedThemeId);
+    // Play the warning sound
+    //warningSound.play();
+}
 
-            // Apply the selected theme
 
-            // Apply the selected theme
-            applyTheme(selectedThemeId);
-            resizeAllImages(37.5, 25);
-
+/*DOM element to create button ripple effect*/
+document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.ripple-button');
+    buttons.forEach(button => {
+        button.addEventListener('click', function (event) {
+            createRipple(event, button);
         });
     });
+    function createRipple(event, button) {
+
+        const ripple = document.createElement('div');
+        ripple.classList.add('ripple');
+
+        // Set the position of the ripple
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = event.clientX - rect.left - size / 2;
+        const y = event.clientY - rect.top - size / 2;
+
+        ripple.style.width = ripple.style.height = `${size}px`;
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+
+        // Append the ripple to the button
+        button.appendChild(ripple);
+
+        // Apply click/press effects
+        button.style.transform = 'scale(0.95)';
 
 
+        // Remove the ripple element and reset styles after animation completes
+        ripple.addEventListener('animationend', () => {
+            ripple.remove();
+            button.style.transform = '';
+
+        });
+    }
 });
 
+/*DOM element to select various Theme*/
+let themeLinks = document.querySelectorAll('.theme-div a');
+document.addEventListener("DOMContentLoaded", function () {
 
+    /* function to apply different Theme*/
 function applyTheme(selectedThemeId) {
     const playground = document.getElementById("playground-section");
     const welcomeChallengeScreen = document.getElementById("challenge-rules-screen");
@@ -1165,7 +1201,7 @@ function applyTheme(selectedThemeId) {
         guessingNumber.style.color = "white"
         guessingNumber.style.border = '3px solid cyan';
 
-    
+
 
     } else if (selectedThemeId === 'theme-earth') {
         playground.style.backgroundImage = 'url("./assets/images/earth-main-background.jpg")';
@@ -1242,150 +1278,43 @@ function applyTheme(selectedThemeId) {
         guessingNumber.style.color = "white"
         guessingNumber.style.border = '3px solid white';
 
-    
+
     } else {
 
     }
 }
 
-function displayHighScores() {
-    const highScore = document.getElementById('high-score-paragraph');
-    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
-const score = bestScores[0].score
-    // Clear the existing content of the highScore element
-    highScore.innerHTML = '';
+    // Check if a theme is already selected
+    const savedThemeId = localStorage.getItem('selectedTheme');
+    if (savedThemeId) {
+        applyTheme(savedThemeId);
+        resizeAllImages(37.5, 25);
 
-    // Sort the bestScores array in descending order based on the score
-    bestScores.sort((a, b) => b.score - a.score);
-
-    // Display only the top score number
-    if (bestScores.length > 0) {
-        highScore.textContent = score;
     }
-}
 
-function displayHighScoresForDashboard() {
-    const highScore = document.getElementById('the-best-score-dashboard');
-    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
-const score = bestScores[0].score
-    // Clear the existing content of the highScore element
-    highScore.innerHTML = '';
+    // Add event listeners for theme selection
+    themeLinks.forEach(function (themeLink) {
+        themeLink.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default behavior of the anchor tag
 
-    // Sort the bestScores array in descending order based on the score
-    bestScores.sort((a, b) => b.score - a.score);
+            // Remove 'active' class from all theme links
+            themeLinks.forEach(link => link.classList.remove('active'));
 
-    // Display only the top score number
-    if (bestScores.length > 0) {
-        highScore.textContent = score;
-    }
-    
-}
+            // Add 'active' class to the clicked theme link
+            themeLink.classList.add('active');
 
-function blinkRedBackground() {
-    let timerElement = document.getElementById('timer');
-    let numberElement = document.getElementById('guessing-number-div');
+            // Get the selected theme ID
+            const selectedThemeId = event.target.id;
+            localStorage.setItem('selectedTheme', selectedThemeId);
 
-    timerElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? 'white' : 'red';
-    timerElement.style.color = (timerElement.style.backgroundColor === 'white') ? 'black' : 'white';
+            // Apply the selected theme
+            applyTheme(selectedThemeId);
+            resizeAllImages(37.5, 25);
 
-    numberElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? '' : 'red';
-
-    // Play the warning sound
-    //warningSound.play();
-}
-document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('.ripple-button');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', function (event) {
-            createRipple(event, button);
         });
     });
+
+
 });
-function createRipple(event, button) {
-    // Create a ripple element
-    const ripple = document.createElement('div');
-    ripple.classList.add('ripple');
-
-    // Set the position of the ripple
-    const rect = button.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = event.clientX - rect.left - size / 2;
-    const y = event.clientY - rect.top - size / 2;
-
-    ripple.style.width = ripple.style.height = `${size}px`;
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
-
-    // Append the ripple to the button
-    button.appendChild(ripple);
-
-    // Apply click/press effects
-    button.style.transform = 'scale(0.95)';
-
-
-    // Remove the ripple element and reset styles after animation completes
-    ripple.addEventListener('animationend', () => {
-        ripple.remove();
-        button.style.transform = '';
-
-    });
-}
-
-
-
-
-
-
-async function fetchDataForSaveGame() {
-    try {
-        const response = await fetch('http://localhost:3003/players');
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-
-
-        const players = await response.json();
-        players.sort((a, b) => b.score - a.score);
-        updatePlayerListForSaveGame(players);
-    } catch (error) {
-
-    }
-}
-
-function updatePlayerListForSaveGame(players) {
-    const listContainer = document.getElementById('high-score-list');
-
-    // Clear existing list items
-    listContainer.innerHTML = '';
-
-    // Create new list items
-    players.forEach((player, index) => {
-        const listItem = document.createElement('li');
-        const scoreNumberSpan = document.createElement('span');
-        const playerNameSpan = document.createElement('span');
-
-        // Set content
-        scoreNumberSpan.textContent = index + 1 + '.';
-        playerNameSpan.textContent = `${player.name}: ${player.score}`;
-
-        // Add spans to the list item
-        listItem.appendChild(scoreNumberSpan);
-        listItem.appendChild(playerNameSpan);
-
-        // Add class based on position for background color
-        if (index === 0) {
-            listItem.classList.add('gold');
-        } else if (index === 1) {
-            listItem.classList.add('silver');
-        } else if (index === 2) {
-            listItem.classList.add('bronze');
-        }
-        scoreNumberSpan.style.textAlign = 'center';
-        playerNameSpan.style.textAlign = 'center';
-        listContainer.appendChild(listItem);
-    });
-}
 
 

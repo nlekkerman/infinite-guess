@@ -35,7 +35,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - **Get Ready to Play:**
   - Press the "Start Game" button to kick off the guessing number challenge.
 
-  ### Main Playground:
+### Main Playground:
 
 - **Score Monitoring:**
   - Keep track of your current score on the top of the main playground section.
@@ -49,9 +49,10 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - When your guess is correct, the answer text turns green for visual confirmation.
   - If your guess is incorrect, the answer text turns red to indicate a wrong prediction.
 
-  - **Footer:**
-  - The footer displays essential information about the game, including the copyright notice.
-  - Stay informed about the game's ownership and creation.
+
+- **Mystery Number:** After tenattempts, a question mark will be displayed above the guessing number, covering it completely.
+  - Upon triggering this feature,pecial message will be displayed with instructions on how to proceed. Pay attention to the guidance provided to enhance your gaming experience.
+  -After you guessed it will be displayed another message with value of the Mystery number.
 
 
 ### Challenge Screen Features:
@@ -146,9 +147,9 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - The visual cue signals the final moments of the bonus challenge.
 
   
-### Bonus Result Screen Features:
+### Turbo bonus Result Screen Features:
 
-- **Bonus Result Screen:**
+- **Turbo bonus Result Screen:**
   - After completing the Bonus Round, players are presented with a dedicated result screen.
   - The result screen features a title, indicating the total points earned during the bonus round.
 
@@ -156,6 +157,30 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - The score screen clearly displays the points accumulated by the player during the bonus round.
   - Points are based on the player's performance and successful guesses within the given time.
 
+  - **Timer:**
+  - When the Turbo Bonus Game is initiated, a timer will appear and countdown from 20 seconds to 0.
+  - The timer will blink in red during the last 10 seconds, adding an extra layer of intensity to the game.
+
+
 - **Exit Button:**
   - A prominent "Exit" button is available on the result screen.
   - Players can choose to exit the bonus result screen and return to the main gameplay.
+
+  - **Correct Answer:**
+  - During the Turbo Bonus Game,a correct answer will earn you an additional 2 points for the Mystery Number will be awarded with 10 points.
+
+- **Incorrect Answer (Turbo Bonus):**
+  - If the guess for the Turbo Bonus is incorrect, 2 points will be deducted, same if is Mystery Number.
+
+  - **Music and Alert Tone (Turbo Bonus):**
+  - Extra pressure is added during the last 10 seconds of the Turbo Bonus Game.
+  - Experience heightened tension with a specific alert tone.
+  - The red light will blink on the number and timer, creating a thrilling atmosphere.
+
+
+
+### Footer:
+
+- The footer displays essential information about the game, including the copyright notice.
+- Stay informed about the game's ownership and creation.
+
