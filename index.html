@@ -35,7 +35,7 @@
     <audio id="end-bonus" src="assets/audio/end-bonus.wav"></audio>
     <audio id="alarmAudio" src="assets/audio/alert.wav" loop></audio>
     <audio src="assets/audio/double-music-tense-loop.wav" loop id="tense-game-music"></audio>
-        <audio id="mystery-sound" src="assets/audio/mystery-sound.wav"></audio>
+    <audio id="mystery-sound" src="assets/audio/mystery-sound.wav"></audio>
 
     <audio id="background-music-1" loop>
         <source src="assets/audio/nice-touch.mp3" type="audio/mp3">
@@ -63,6 +63,7 @@
             </div>
             <!-- Playground Section -->
             <section id="playground-section">
+                
                 <!-- Welcome article -->
                 <article id="welcome-section" class="welcome-section">
                     <div id="welcome-container" class="welcome-container">
@@ -110,39 +111,34 @@
                         </div>
                         <button id="start-game-btn">Start Game</button>
                     </div>
-
-
-
                 </article>
+
                 <!-- Challenge screen Section -->
                 <section id="challenge-screen-section">
+                    <div class="challenge-rules">
+                        <p>Left or Right<br>Trust your instincts<br>Choose Wisely. </p>
+                    </div>
 
-                          <div class="challenge-rules">
-<p>Left or Right<br>Trust your instincts<br>Choose Wisely.  </p>
-                          </div>
-                        
-                          
-                            <div class="button-container">
-                                <button id="challenge-action-button">Start Challenge</button>
-                            </div>
-                       
-                    
+                    <div class="button-container">
+                        <button id="challenge-action-button">Start Challenge</button>
+                    </div>
                 </section>
 
                 <!-- Confirmation Section -->
                 <article id="accept-challenge-section">
                     <h2>CONFIRM or DECLINE</h2>
                     <div id="acceptance-container-div">
-                 
+
 
                         <div id="challange-offer-container">
-                            <p>Are you ready to risk everything? You can double your current score <a id="current-score-offer"> </a> to <a
-                                    id="double-score-offer"></a> or you can get back to 0, it is up to you?</p>
+                            <p>Are you ready to risk everything? You can double your current score <a
+                                    id="current-score-offer"> </a> to <a id="double-score-offer"></a> or you can get
+                                back to 0, it is up to you?</p>
                         </div>
 
                         <div class="accept-button-container">
                             <button id="accept-button" class="accept-decline-buttons">Accept</button>
-                            <button id="decline-button"class="accept-decline-buttons">Decline</button>
+                            <button id="decline-button" class="accept-decline-buttons">Decline</button>
                         </div>
                     </div>
                 </article>
@@ -169,7 +165,7 @@
 
                 <article id="challenge-score-display">
                     <div id="score-display-container">
-               
+
                         <p id="final-challenge-score"></p>
                         <button id="challenge-button-close">Close</button>
                     </div>
@@ -211,7 +207,7 @@
                             <form id="score-form">
                                 <p class="best-score-title">Your new best score is:</p>
 
-                               <p id="best-score-paragraph"></p>
+                                <p id="best-score-paragraph"></p>
                                 <button type="button" id="save-game-button">Save Score</button>
                             </form>
                         </div>
@@ -267,9 +263,10 @@
 
                 <div id="timer"></div>
                 <div id="message-container">
-                   
-                        <p id="guessed-number" class="message-text"></p>
-                    <p id="mystery-message-id" class="message-text">Make correct guess and get this points multiplied by 5!</p>
+
+                    <p id="guessed-number" class="message-text"></p>
+                    <p id="mystery-message-id" class="message-text">Make correct guess and get this points multiplied by
+                        5!</p>
                     <p id="message-id" class="message-text">Higher or Lower?</p>
                 </div>
 

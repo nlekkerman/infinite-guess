@@ -699,7 +699,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setTimeout(function () {
             guessedNumberBackground.style.display = 'none';
-        }, 3000);
+        }, 1000);
     }
     // generate and compare numbers for challenge(bonus)
     function generateAndCompareNumbersForTwo() {
