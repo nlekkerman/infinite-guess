@@ -96,20 +96,19 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - **Start Challenge Button:**
   - A button is provided under the challenge title, inviting players to start the Double or Nothing challenge.
   - Initiating the challenge adds an extra layer of excitement and potential rewards to the gameplay.
- ![Am I Responsive Screenshot](assets/images/screenshots/start-challenge-button-screnshoot.png)
+ ![Am I Responsive Screenshot](assets/images/screenshots/start-challenge-button-screnshot.png)
+
   ### Challenge Acceptance Screen Features:
 
 - **Challenge Confirmation:**
   - Upon triggering a challenge, the challenge acceptance screen appears.
   - Information about the challenge, including rules and potential rewards for a correct answer, is displayed.
 
+  ![Am I Responsive Screenshot](assets/images/screenshots/challenge-acceptance-screenshot.png)
+
 - **Challenge Invitation:**
   - Players receive an invitation to accept or decline the challenge.
   - The invitation includes details about the potential benefits of participating in the challenge.
-
-- **Rules Overview:**
-  - In-depth rules about the challenge are provided for players to review before making a decision.
-  - Understanding the challenge rules enhances player engagement and strategy.
 
 - **Reward Information:**
   - Details about the potential reward for providing a correct answer are presented
@@ -120,12 +119,14 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - Two buttons, "Accept" and "Decline," are displayed at the bottom of the screen.
   - Players can choose to accept the challenge and proceed or decline and continue with regular gameplay.
 
+
+
 ### Challenge Features:
 
 - **Hidden Numbers Challenge:**
   - In a special challenge round, two numbers are hidden behind "cards."
   - The hidden numbers blink, creating anticipation and excitement for the player.
-
+ ![Am I Responsive Screenshot](assets/images/screenshots/challenge-acceptance-screenshot.png)
 - **Visual Cues:**
   - The hidden numbers are revealed when clicked, each with a distinct visual effect.
   - Correct answers are highlighted with a green background, providing instant feedback.
