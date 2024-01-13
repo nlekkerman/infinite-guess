@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const mystery = document.getElementById("mystery-number");
     const messageForMystery = document.getElementById("mystery-message-id");
 
-
     const soundControl = document.getElementById('sound-control');
     const soundControlButton = document.getElementById('sound-on-off');
     const musicControlButton = document.getElementById('music-on-off');
+    const acceptChallengeScreen = document.getElementById("accept-challenge-section");
 
     const backgroundMusic = document.getElementById('background-music-1');
     const bonusGameMusic = document.getElementById('bonus-game-music');
@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const exitSaveGameBtn = document.getElementById('exit-save-game-button')
     const startGameBtn = document.getElementById('start-game-btn');
 
-    const startChallengeButton = document.getElementById('challenge-action-button')
     const declineChallengeButton = document.getElementById('decline-button')
     const acceptChallengeButton = document.getElementById('accept-button')
     const closeChallengeScreen = document.getElementById('challenge-button-close')
@@ -373,34 +372,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // decline challenge game button
     declineChallengeButton.addEventListener('click', function () {
-        const challengeScreen = document.getElementById('accept-challenge-section');
+        const acceptChallengeScreen = document.getElementById('accept-challenge-section');
         playBackgroundMusic();
         playButtonClickSound();
-        challengeScreen.style.display = 'none';
+        acceptChallengeScreen.style.display = 'none';
     });
     // accept challenge game button
     acceptChallengeButton.addEventListener('click', function () {
         stopSwitching = false;
         intervalId = setInterval(switchColors, 500);
-
-        const challengeAcceptScreen = document.getElementById('challenge');
-        challengeAcceptScreen.style.display = 'block';
-        const confirmationScreen = document.getElementById('accept-challenge-section');
-        confirmationScreen.style.display = 'none';
+        const challengeScreen = document.getElementById('challenge');
+        challengeScreen.style.display = 'block';
+        const acceptChallengeScreen = document.getElementById('accept-challenge-section');
+        acceptChallengeScreen.style.display = 'none';
         playButtonClickSound();
         playTenseMusic();
 
     });
 
-    // start challenge button
-    startChallengeButton.addEventListener('click', function () {
-        const challengeSection = document.getElementById('challenge-welcome-screen');
-        const confirmationScreen = document.getElementById('accept-challenge-section');
-        challengeSection.style.display = 'none';
-        confirmationScreen.style.display = 'block';
-
-        playButtonClickSound();
-    });
 
     // exit game button
     exitGameBtn.addEventListener('click', function () {
@@ -702,7 +691,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
         let number1 = document.getElementById('option-one-number')
         let number2 = document.getElementById('option-two-number')
-        let screenMessage = document.getElementById('final-challenge-score')
+        let screenMessage = document.getElementById('challenge-guess-result-message')
         number2.innerText = randomNumber2;
         number1.innerText = randomNumber1;
         number1.style.display = 'block'
@@ -750,7 +739,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
         let number1 = document.getElementById('option-one-number')
         let number2 = document.getElementById('option-two-number')
-        let screenMessage = document.getElementById('final-challenge-score')
+        let screenMessage = document.getElementById('challenge-guess-result-message')
 
         number2.innerText = randomNumber2;
         number1.innerText = randomNumber1;
@@ -849,7 +838,8 @@ document.addEventListener('DOMContentLoaded', function () {
         let randomOne = Math.floor(Math.random() * 10) + 1;
         let randomTwo = Math.floor(Math.random() * 10) + 1;
         if (randomOne === randomTwo) {
-            const challengeScreen = document.getElementById('challenge-welcome-screen');
+            acceptChallengeScreen.style.display = 'block'; 
+        
             const offerDisplay = document.getElementById('current-score-offer');
             const doubleOfferDisplay = document.getElementById('double-score-offer');
             offerNumber = parseInt(scoreText.textContent, 10);
@@ -868,10 +858,6 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
 
             }
-
-            challengeScreen.style.display = 'block';
-
-
         }
 
     }
@@ -1107,8 +1093,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /* function to apply different Theme*/
 function applyTheme(selectedThemeId) {
     const playground = document.getElementById("playground-section");
-    const welcomeChallengeScreen = document.getElementById("challenge-welcome-screen");
-    const confirmChallengeScreen = document.getElementById("accept-challenge-section");
+    const acceptChallengeScreen = document.getElementById("accept-challenge-section");
     const plusButton = document.getElementById('plus-button');
     const minusBtn = document.getElementById('minus-button');
     const challengeBackground = document.getElementById('challenge')
@@ -1129,8 +1114,7 @@ function applyTheme(selectedThemeId) {
     }
     if (selectedThemeId === 'theme-default') {
         playground.style.backgroundImage = 'url("./assets/images/default-main-background.jpg")';
-        welcomeChallengeScreen.style.backgroundImage = 'url("./assets/images/default-welcome-challenge-screen.jpg")';
-        confirmChallengeScreen.style.backgroundImage = 'url("./assets/images/default-confirm-challenge-background.jpg")';
+        acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/default-confirm-challenge-background.jpg")';
         challengeBackground.style.backgroundImage = 'url("./assets/images/default-challenge-background.jpg")';
         challengeScoreScreen.style.backgroundImage = 'url("./assets/images/default-close-challenge-background.jpg")';
         turboBonusScreen.style.backgroundImage = 'url("./assets/images/default-turbo-bonus-background.jpg")';
@@ -1167,8 +1151,7 @@ function applyTheme(selectedThemeId) {
 
     } else if (selectedThemeId === 'theme-space') {
         playground.style.backgroundImage = 'url("./assets/images/space-main-background.jpg")';
-        welcomeChallengeScreen.style.backgroundImage = 'url("./assets/images/space-welcome-challenge-background.jpg")';
-        confirmChallengeScreen.style.backgroundImage = 'url("./assets/images/space-confirm-challenge-background.jpg")';
+        acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/space-confirm-challenge-background.jpg")';
         challengeBackground.style.backgroundImage = 'url("./assets/images/space-challenge-background.jpg")';
         challengeScoreScreen.style.backgroundImage = 'url("./assets/images/space-close-challenge-background.jpg")';
         turboBonusScreen.style.backgroundImage = 'url("./assets/images/space-turbo-bonus-background.jpg")';
@@ -1205,8 +1188,7 @@ function applyTheme(selectedThemeId) {
 
     } else if (selectedThemeId === 'theme-earth') {
         playground.style.backgroundImage = 'url("./assets/images/earth-main-background.jpg")';
-        welcomeChallengeScreen.style.backgroundImage = 'url("./assets/images/earth-welcome-challenge-background.jpg")';
-        confirmChallengeScreen.style.backgroundImage = 'url("./assets/images/earth-confirm-challenge-background.jpg")';
+        acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/earth-confirm-challenge-background.jpg")';
         challengeBackground.style.backgroundImage = 'url("./assets/images/earth-challenge-background.jpg")';
         challengeScoreScreen.style.backgroundImage = 'url("./assets/images/earth-close-challenge-background.jpg")';
         turboBonusScreen.style.backgroundImage = 'url("./assets/images/earth-challenge-background.jpg")';
@@ -1244,8 +1226,7 @@ function applyTheme(selectedThemeId) {
 
     } else if (selectedThemeId === 'theme-fairy') {
         playground.style.backgroundImage = 'url("./assets/images/fairy-main-background.jpg")';
-        welcomeChallengeScreen.style.backgroundImage = 'url("./assets/images/fairy-welcome-challenge-background.jpg")';
-        confirmChallengeScreen.style.backgroundImage = 'url("./assets/images/fairy-confirm-challenge-background.jpg")';
+        acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/fairy-confirm-challenge-background.jpg")';
         turboBonusScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
         challengeBackground.style.backgroundImage = 'url("./assets/images/fairy-challenge-background.jpg")';
         challengeScoreScreen.style.backgroundImage = 'url("./assets/images/fairy-close-challenge-background.jpg")';
@@ -1313,7 +1294,6 @@ function applyTheme(selectedThemeId) {
 
         });
     });
-
 
 });
 
