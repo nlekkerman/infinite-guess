@@ -426,9 +426,9 @@ button {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     margin-top: 5px;
-    border-radius: 2px solid #333;
-}
+   
 
+}
 .theme-link {
     margin-right: 10px;
     text-decoration: none;
@@ -460,16 +460,7 @@ button {
     cursor: pointer;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    margin-top: 5px;
-    border-radius: 2px solid #333;
 
-}
 
 .dropdown-content a {
     color: white;
