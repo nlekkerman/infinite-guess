@@ -944,7 +944,6 @@ h1 {
     background-color: rgba(253, 251, 251, 0.8);
     border-radius: 25px;
     color: black;
-    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     border: 0.3rem solid rgb(155, 154, 154);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -960,6 +959,12 @@ h1 {
     top: 0;
     left: 0;
     right: 0;
+    
+}
+
+#control-container h6{
+
+    display: none;
 }
 
 /*welcome section*/
