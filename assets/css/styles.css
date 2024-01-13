@@ -949,7 +949,6 @@ h1 {
 }
 
 
-
 #control-container {
     display: flex;
     justify-content: space-between;
@@ -959,16 +958,13 @@ h1 {
     top: 0;
     left: 0;
     right: 0;
-    
 }
 
 #control-container h6{
-
     display: none;
 }
 
 /*welcome section*/
-
 #welcome-section {
     position: fixed;
     top: 0;
@@ -982,7 +978,6 @@ h1 {
     z-index: 3;
     background: url('../images/welcome-background.jpg') no-repeat center center/cover;
     color: #fff;
-    /* Set your text color */
 }
 
 .welcome-container {

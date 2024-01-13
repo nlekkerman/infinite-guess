@@ -1,3 +1,4 @@
+// jshint esversion: 6
 document.addEventListener('DOMContentLoaded', function () {
 
     let previousNumber = null;
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const higherLowerTitle = document.getElementById('message-id');
     const guessingNumberDiv = document.getElementById('guessing-number-div');
-    const guessedNumber = document.getElementById('guessed-number')
+    const guessedNumber = document.getElementById('guessed-number');
     const plusButton = document.getElementById('plus-button');
     const minusButton = document.getElementById('minus-button');
     const answerText = document.getElementById('right-wrong-text');
@@ -28,18 +29,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const saveGameSection = document.getElementById('exit-game-screen');
     const saveGameButton = document.getElementById('save-game-button');
 
-    const exitSaveGameBtn = document.getElementById('exit-save-game-button')
+    const exitSaveGameBtn = document.getElementById('exit-save-game-button');
     const startGameBtn = document.getElementById('start-game-btn');
 
-    const declineChallengeButton = document.getElementById('decline-button')
-    const acceptChallengeButton = document.getElementById('accept-button')
-    const closeChallengeScreen = document.getElementById('challenge-button-close')
+    const declineChallengeButton = document.getElementById('decline-button');
+    const acceptChallengeButton = document.getElementById('accept-button');
+    const closeChallengeScreen = document.getElementById('challenge-button-close');
 
     const startTurboGameButton = document.getElementById('action-button');
     const exitTurboButton = document.getElementById('exit-turbo-btn');
 
-    const challengeLeftChoice = document.getElementById('option-one-background')
-    const challengeRightChoice = document.getElementById('option-two-background')
+    const challengeLeftChoice = document.getElementById('option-one-background');
+    const challengeRightChoice = document.getElementById('option-two-background');
 
     const buttonClickSound = document.getElementById('button-click-sound');
     const rightAnswerSound = document.getElementById('right-answer-sound');
@@ -101,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pauseBackgroundMusic();
 
         }
-        localStorage.setItem('isMusicOn', JSON.stringify(isMusicOn))
+        localStorage.setItem('isMusicOn', JSON.stringify(isMusicOn));
     });
 
     let isMusicPlaying = false;
@@ -209,15 +210,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     let consecutiveCorrectAnswers = 0;
-    isBonus = false;
+    let isBonus = false;
 
     //BUTTONS
     /*See highscore on dashboard button*/
     seeHighscoreDashboardButton.addEventListener('click', function () {
-        const wrapDivRules = document.getElementById('wrap-div-rules');
         const wrapDivHighscores = document.getElementById('wrap-div-highscores');
-        const hideIcons = document.getElementById('icons-dash-container')
-        wrapDivHighscores.style.display = 'block'
+        const hideIcons = document.getElementById('icons-dash-container');
+        wrapDivHighscores.style.display = 'block';
         hideIcons.style.display = 'none';
         displayHighScoresForDashboard();
 
@@ -228,11 +228,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const wrapDivRules = document.getElementById('wrap-div-rules');
         const displayCloseButton = document.getElementById('exit-welcome-rules-instruction');
-        const hideIcons = document.getElementById('icons-dash-container')
+        const hideIcons = document.getElementById('icons-dash-container');
         const rules = document.getElementById('rules-container');
-        rules.style.display = 'block'
-        wrapDivRules.style.display = 'block'
-        displayCloseButton.style.display = 'block'
+        rules.style.display = 'block';
+        wrapDivRules.style.display = 'block';
+        displayCloseButton.style.display = 'block';
         hideIcons.style.display = 'none';
     });
 
@@ -243,9 +243,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /*Button to close high/best score on dashboard*/
     exitHighscoreDashboardButton.addEventListener('click', function () {
-        const hideIcons = document.getElementById('icons-dash-container')
+        const hideIcons = document.getElementById('icons-dash-container');
         hideIcons.style.display = 'block';
-        const exitHigh = document.getElementById('wrap-div-highscores')
+        const exitHigh = document.getElementById('wrap-div-highscores');
         exitHigh.style.display = 'none';
     });
     /*Button to close rules on dashboard*/
@@ -260,11 +260,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     //save score button
-    saveGameButton.addEventListener('click', async () => {
-
+    saveGameButton.addEventListener('click', function () {
 
         saveGame();
-        scoreForm.style.display = 'none'
+        scoreForm.style.display = 'none';
         scoreText.textContent = '0';
     });
 
@@ -278,13 +277,13 @@ document.addEventListener('DOMContentLoaded', function () {
         isBonus = true;
         console.log(isBonus);
         document.getElementById('bonus-screen-section').style.display = 'none';
-        initialScore = parseInt(scoreText.textContent, 10);
+        let initialScore = parseInt(scoreText.textContent, 10);
         playButtonClickSound();
         playChaseMusic();
         function countdownTimer(seconds) {
             const timerElement = document.getElementById('timer');
-            timerElement.style.backgroundColor = 'white'
-            higherLowerTitle.innerHTML = "TURBO BONUS"
+            timerElement.style.backgroundColor = 'white';
+            higherLowerTitle.innerHTML = "TURBO BONUS";
             function updateDisplay() {
                 timerElement.style.display = 'block'; // Make the timer visible
                 timerElement.innerHTML = `Time: ${seconds} sec`;
@@ -302,10 +301,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     setTimeout(count, 1000); // Call count() again after 1000 milliseconds (1 second)
                 } else {
                     timerElement.innerHTML = "Time's up!";
-                    higherLowerTitle.innerHTML = "Higher or Lower"
+                    higherLowerTitle.innerHTML = "Higher or Lower";
                     document.getElementById('exit-turbo-section').style.display = 'block';
-                    timerElement.style.color = "black"
-                    finalScore = parseInt(scoreText.textContent, 10);
+                    timerElement.style.color = "black";
+                    let finalScore = parseInt(scoreText.textContent, 10);
                     pauseAlarm();
                     stopChaseMusic();
                     playbonusMusic();
@@ -328,9 +327,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //close Challenge screen
     closeChallengeScreen.addEventListener('click', function () {
-        const iconOne = document.getElementById('icon-one')
+        const iconOne = document.getElementById('icon-one');
         iconOne.style.display = 'block';
-        const iconTwo = document.getElementById('icon-two')
+        const iconTwo = document.getElementById('icon-two');
         iconTwo.style.display = 'block';
         playBackgroundMusic();
         const challengeCloseScreen = document.getElementById('challenge-score-display');
@@ -344,16 +343,16 @@ document.addEventListener('DOMContentLoaded', function () {
     //reset styles for challenge
     function resetStylesForChallenge() {
         // Assign the numbers to HTML elements
-        let number1 = document.getElementById('option-one-number')
-        let number2 = document.getElementById('option-two-number')
+        let number1 = document.getElementById('option-one-number');
+        let number2 = document.getElementById('option-two-number');
         let backgroundOne = document.getElementById("option-one-background");
         let backgroundTwo = document.getElementById("option-two-background");
 
         backgroundOne.style.backgroundColor = 'white';
         backgroundTwo.style.backgroundColor = 'white';
 
-        number1.style.display = 'none'
-        number2.style.display = 'none'
+        number1.style.display = 'none';
+        number2.style.display = 'none';
 
     }
 
@@ -394,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // exit game button
     exitGameBtn.addEventListener('click', function () {
         bestScoreText.textContent = parseInt(scoreText.textContent, 10);
-        console.log(bestScoreText)
+        console.log(bestScoreText);
         displayHighScores();
         checkAndDisplayBestScore();
     });
@@ -443,8 +442,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     //minus button
     minusButton.addEventListener('click', function () {
-        mystery.style.display = 'none'
-        messageForMystery.style.display = 'none'
+        mystery.style.display = 'none';
+        messageForMystery.style.display = 'none';
         countMysteryNumber++;
         playButtonClickSound();
         const newGuess = generateRandomNumber();
@@ -460,7 +459,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('bonus-screen-section').style.display = 'block';
                 resetConsecutiveCorrectAnswers();
             } else {
-                consecutiveCorrectAnswers++;;
+                consecutiveCorrectAnswers++;
             }
             if (isBonus && !isMystery) {
                 resetConsecutiveCorrectAnswers();
@@ -487,7 +486,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
 
             if (isMystery) {
-                console.log(isMystery)
+                console.log(isMystery);
                 guessedNumber.style.display = 'block';
             }
             resetConsecutiveCorrectAnswers();
@@ -510,9 +509,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // plus button
     plusButton.addEventListener('click', function () {
         countMysteryNumber++;
-        mystery.style.display = 'none'
-        messageForMystery.style.display = 'none'
-        guessedNumber.style.display = "none"
+        mystery.style.display = 'none';
+        messageForMystery.style.display = 'none';
+        guessedNumber.style.display = "none";
         guessedNumber.textContent = "Mystery number was: " + currentGuess;
         startFadeOutAnimation('guessed-number');
         playButtonClickSound();
@@ -530,7 +529,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
 
             }
-            consecutiveCorrectAnswers++;;
+            consecutiveCorrectAnswers++;
             if (isBonus && !isMystery) {
                 resetConsecutiveCorrectAnswers();
                 playButtonClickSound();
@@ -568,7 +567,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         } else {
             if (isMystery) {
-                console.log(isMystery)
+                console.log(isMystery);
                 guessedNumber.style.display = 'block';
             }
             resetConsecutiveCorrectAnswers();
@@ -609,15 +608,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let intervalId;
     //left choice in challenge
     challengeLeftChoice.addEventListener('click', function () {
-
-
-
-        stopSwitching = true; // Set the flag to stop switching
-        clearInterval(intervalId); // Stop the blinking
-        const iconTwo = document.getElementById('icon-two')
-        iconTwo.style.display = 'none'; // Make the timer visible
-        const iconOne = document.getElementById('icon-one')
-        iconOne.style.display = 'none'; // Make the timer visible
+        stopSwitching = true;
+        clearInterval(intervalId); 
+        const iconTwo = document.getElementById('icon-two');
+        iconTwo.style.display = 'none';
+        const iconOne = document.getElementById('icon-one');
+        iconOne.style.display = 'none';
 
         const challengeAcceptScreen = document.getElementById('challenge-score-display');
         challengeAcceptScreen.style.opacity = 0;
@@ -639,20 +635,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // right choice in challenge
     challengeRightChoice.addEventListener('click', function () {
-
-
-        stopSwitching = true; // Set the flag to stop switching
-        clearInterval(intervalId); // Stop the blinking
-        const iconOne = document.getElementById('icon-one')
-        iconOne.style.display = 'none'; // Make the timer visible
-        const iconTwo = document.getElementById('icon-two')
-        iconTwo.style.display = 'none'; // Make the timer visible
+        stopSwitching = true; 
+        clearInterval(intervalId); 
+        const iconOne = document.getElementById('icon-one');
+        iconOne.style.display = 'none'; 
+        const iconTwo = document.getElementById('icon-two');
+        iconTwo.style.display = 'none';
 
         const challengeAcceptScreen = document.getElementById('challenge-score-display');
         challengeAcceptScreen.style.opacity = 0;
 
 
-        challengeAcceptScreen.style.display = 'block'; // Make the timer visible
+        challengeAcceptScreen.style.display = 'block';
         stopTenseMusic();
         generateAndCompareNumbersForTwo();
         setTimeout(function () {
@@ -689,13 +683,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function generateAndCompareNumbersForTwo() {
         let randomNumber1 = Math.floor(Math.random() * 100) + 1;
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
-        let number1 = document.getElementById('option-one-number')
-        let number2 = document.getElementById('option-two-number')
-        let screenMessage = document.getElementById('challenge-guess-result-message')
+        let number1 = document.getElementById('option-one-number');
+        let number2 = document.getElementById('option-two-number');
+        let screenMessage = document.getElementById('challenge-guess-result-message');
         number2.innerText = randomNumber2;
         number1.innerText = randomNumber1;
-        number1.style.display = 'block'
-        number2.style.display = 'block'
+        number1.style.display = 'block';
+        number2.style.display = 'block';
 
         let backgroundOne = document.getElementById("option-one-background");
         let backgroundTwo = document.getElementById("option-two-background");
@@ -705,19 +699,19 @@ document.addEventListener('DOMContentLoaded', function () {
         if (randomNumber1 < randomNumber2) {
             playCorrectCheer();
 
-            displayRandomMessage('encouraging')
-            scoreText.innerText = initialScore * 2
+            displayRandomMessage('encouraging');
+            scoreText.innerText = initialScore * 2;
             screenMessage.style.color = 'white';
-            screenMessage.style.backgroundColor = 'green'
+            screenMessage.style.backgroundColor = 'green';
             backgroundOne.style.backgroundColor = 'red';
             backgroundTwo.style.backgroundColor = 'green';
             screenMessage.textContent = 'CORRRREEECT!!!';
 
 
         } else if (randomNumber2 < randomNumber1) {
-            displayRandomMessage('discouraging')
+            displayRandomMessage('discouraging');
             playWronHmmm();
-            scoreText.innerText = initialScore * 0
+            scoreText.innerText = initialScore * 0;
             screenMessage.textContent = 'WROOOONG!!!';
             screenMessage.style.backgroundColor = 'red';
             screenMessage.style.color = 'white';
@@ -737,14 +731,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function generateAndCompareNumbers() {
         let randomNumber1 = Math.floor(Math.random() * 100) + 1;
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
-        let number1 = document.getElementById('option-one-number')
-        let number2 = document.getElementById('option-two-number')
-        let screenMessage = document.getElementById('challenge-guess-result-message')
+        let number1 = document.getElementById('option-one-number');
+        let number2 = document.getElementById('option-two-number');
+        let screenMessage = document.getElementById('challenge-guess-result-message');
 
         number2.innerText = randomNumber2;
         number1.innerText = randomNumber1;
-        number1.style.display = 'block'
-        number2.style.display = 'block'
+        number1.style.display = 'block';
+        number2.style.display = 'block';
         let initialScore = parseInt(scoreText.textContent, 10);
 
         let backgroundOne = document.getElementById("option-one-background");
@@ -752,9 +746,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (randomNumber1 > randomNumber2) {
             playCorrectCheer();
-
-            displayRandomMessage('encouraging')
-            scoreText.innerText = initialScore * 2
+            displayRandomMessage('encouraging');
+            scoreText.innerText = initialScore * 2;
             screenMessage.textContent = 'CORRRREEECT!!!';
             higherLowerTitle.textContent = "You are a wizard";
             screenMessage.style.backgroundColor = 'green';
@@ -765,7 +758,7 @@ document.addEventListener('DOMContentLoaded', function () {
             backgroundTwo.style.backgroundColor = 'red';
 
         } else if (randomNumber1 < randomNumber2) {
-            scoreText.innerText = initialScore * 0
+            scoreText.innerText = initialScore * 0;
             playWronHmmm();
 
             screenMessage.style.backgroundColor = 'red';
@@ -833,7 +826,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // open challenge for bonus game
     function openChallenge() {
-        messageForMystery.style.display = 'none'
+        messageForMystery.style.display = 'none';
 
         let randomOne = Math.floor(Math.random() * 10) + 1;
         let randomTwo = Math.floor(Math.random() * 10) + 1;
@@ -842,12 +835,12 @@ document.addEventListener('DOMContentLoaded', function () {
         
             const offerDisplay = document.getElementById('current-score-offer');
             const doubleOfferDisplay = document.getElementById('double-score-offer');
-            offerNumber = parseInt(scoreText.textContent, 10);
+            let offerNumber = parseInt(scoreText.textContent, 10);
             playbonusMusic();
             pauseBackgroundMusic();
             playbonusMusic();
             if (offerDisplay) {
-                offerNumber = offerNumber + 1
+                offerNumber = offerNumber + 1;
                 offerDisplay.innerHTML = offerNumber;
             } else {
             }
@@ -903,8 +896,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function generateRandomNumber() {
         let currentNumber;
         if (countMysteryNumber === 9) {
-            mystery.style.display = 'block'
-            messageForMystery.style.display = 'block'
+            mystery.style.display = 'block';
+            messageForMystery.style.display = 'block';
             playMysterySound();
         } else {
 
@@ -968,19 +961,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const isTheBestScore = isScoreTheBest(currentScore, highScores);
         if (isTheBestScore) {
             saveGameSection.style.display = 'block';
-            scoreForm.style.display = 'block'
+            scoreForm.style.display = 'block';
         } else {
             popupContainer.style.display = 'block';
         }
     }
 });
 
-function setBestScoreTwo() {
-    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-    const bestScoreIndex = highScores.findIndex(item => item.score === 2);
-    const updatedHighScores = bestScoreIndex !== -1 ? [highScores[bestScoreIndex]] : [];
-    localStorage.setItem('highScores', JSON.stringify(updatedHighScores));
-}
+
 /**
         * Function to dynamically resize all images on small screens (e.g., phones).
         * @param {number} newWidth - The new width for the images in ems.
@@ -1003,14 +991,10 @@ function resizeAllImages(newWidth, newHeight) {
 function displayHighScores() {
     const highScore = document.getElementById('high-score-paragraph');
     const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
-    const score = bestScores[0].score
-    // Clear the existing content of the highScore element
+    const score = bestScores[0].score;
     highScore.innerHTML = '';
-
-    // Sort the bestScores array in descending order based on the score
     bestScores.sort((a, b) => b.score - a.score);
 
-    // Display only the top score number
     if (bestScores.length > 0) {
         highScore.textContent = score;
     }
@@ -1019,14 +1003,10 @@ function displayHighScores() {
 function displayHighScoresForDashboard() {
     const highScore = document.getElementById('the-best-score-dashboard');
     const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
-    const score = bestScores[0].score
-    // Clear the existing content of the highScore element
+    const score = bestScores[0].score;
     highScore.innerHTML = '';
-
-    // Sort the bestScores array in descending order based on the score
     bestScores.sort((a, b) => b.score - a.score);
 
-    // Display only the top score number
     if (bestScores.length > 0) {
         highScore.textContent = score;
     }
@@ -1096,8 +1076,8 @@ function applyTheme(selectedThemeId) {
     const acceptChallengeScreen = document.getElementById("accept-challenge-section");
     const plusButton = document.getElementById('plus-button');
     const minusBtn = document.getElementById('minus-button');
-    const challengeBackground = document.getElementById('challenge')
-    const messageText = document.getElementById('message-id')
+    const challengeBackground = document.getElementById('challenge');
+    const messageText = document.getElementById('message-id');
 
     const scoreText = document.getElementById('score-screen-number-div');
     const guessingNumber = document.getElementById('guessing-number-div');
@@ -1120,32 +1100,32 @@ function applyTheme(selectedThemeId) {
         turboBonusScreen.style.backgroundImage = 'url("./assets/images/default-turbo-bonus-background.jpg")';
         turboExitScreen.style.backgroundImage = 'url("./assets/images/default-exit-turbo-bonus-background.jpg")';
 
-        scoreBoardBackground.style.backgroundColor = "#f4f5f0"
-        score.style.color = 'white'
-        scoreText.style.backgroundColor = "red"
+        scoreBoardBackground.style.backgroundColor = "#f4f5f0";
+        score.style.color = 'white';
+        scoreText.style.backgroundColor = "red";
         scoreText.style.opacity = 0.8;
-        scoreText.style.color = "white"
+        scoreText.style.color = "white";
         scoreText.style.border = '2px solid white';
 
 
-        plusButton.style.backgroundColor = "green"
+        plusButton.style.backgroundColor = "green";
         plusButton.style.opacity = 0.8;
         plusButton.style.border = '3px solid white';
         plusButton.style.color = "white";
 
-        minusBtn.style.backgroundColor = "red"
+        minusBtn.style.backgroundColor = "red";
         minusBtn.style.opacity = 0.8;
         minusBtn.style.border = '3px solid white';
-        minusBtn.style.color = "white"
+        minusBtn.style.color = "white";
 
-        messageText.style.backgroundColor = "red"
+        messageText.style.backgroundColor = "red";
         messageText.style.opacity = 0.8;
-        messageText.style.color = "white"
+        messageText.style.color = "white";
         messageText.style.border = '3px solid gold';
 
-        guessingNumber.style.backgroundColor = "black"
+        guessingNumber.style.backgroundColor = "black";
         guessingNumber.style.opacity = 0.8;
-        guessingNumber.style.color = "white"
+        guessingNumber.style.color = "white";
         guessingNumber.style.border = '3px solid yellow';
 
 
@@ -1157,31 +1137,31 @@ function applyTheme(selectedThemeId) {
         turboBonusScreen.style.backgroundImage = 'url("./assets/images/space-turbo-bonus-background.jpg")';
         turboExitScreen.style.backgroundImage = 'url("./assets/images/space-exit-turbo-background.jpg")';
 
-        score.style.color = 'white'
-        scoreBoardBackground.style.backgroundColor = "#501682"
-        plusButton.style.backgroundColor = "black"
+        score.style.color = 'white';
+        scoreBoardBackground.style.backgroundColor = "#501682";
+        plusButton.style.backgroundColor = "black";
         plusButton.style.opacity = 0.8;
         plusButton.style.border = '3px solid cyan';
         plusButton.style.color = "white";
 
-        minusBtn.style.backgroundColor = "white"
+        minusBtn.style.backgroundColor = "white";
         minusBtn.style.opacity = 0.8;
         minusBtn.style.border = '3px solid cyan';
-        minusBtn.style.color = "black"
+        minusBtn.style.color = "black";
 
-        messageText.style.backgroundColor = "lightblue"
+        messageText.style.backgroundColor = "lightblue";
         messageText.style.opacity = 0.8;
-        messageText.style.color = "black"
+        messageText.style.color = "black";
         messageText.style.border = '3px solid cyan';
 
-        scoreText.style.backgroundColor = "red"
+        scoreText.style.backgroundColor = "red";
         scoreText.style.opacity = 0.8;
-        scoreText.style.color = "white"
+        scoreText.style.color = "white";
         scoreText.style.border = '2px solid white';
 
-        guessingNumber.style.backgroundColor = "HotMagenta"
+        guessingNumber.style.backgroundColor = "HotMagenta";
         guessingNumber.style.opacity = 0.8;
-        guessingNumber.style.color = "white"
+        guessingNumber.style.color = "white";
         guessingNumber.style.border = '3px solid cyan';
 
 
@@ -1194,32 +1174,32 @@ function applyTheme(selectedThemeId) {
         turboBonusScreen.style.backgroundImage = 'url("./assets/images/earth-challenge-background.jpg")';
         turboExitScreen.style.backgroundImage = 'url("./assets/images/earth-exit-turbo-bonus-background.jpg")';
 
-        scoreBoardBackground.style.backgroundColor = "lightblue"
-        score.style.color = 'white'
+        scoreBoardBackground.style.backgroundColor = "lightblue";
+        score.style.color = 'white';
 
-        plusButton.style.backgroundColor = "#40E0D0"
+        plusButton.style.backgroundColor = "#40E0D0";
         plusButton.style.opacity = 1;
-        plusButton.style.color = "black"
+        plusButton.style.color = "black";
         plusButton.style.border = '3px solid white';
 
-        minusBtn.style.backgroundColor = "#FF10F0"
+        minusBtn.style.backgroundColor = "#FF10F0";
         minusBtn.style.opacity = 0.8;
         minusBtn.style.border = '3px solid white';
-        minusBtn.style.color = "black"
+        minusBtn.style.color = "black";
 
-        messageText.style.backgroundColor = "black"
+        messageText.style.backgroundColor = "black";
         messageText.style.opacity = 0.8;
-        messageText.style.color = "white"
+        messageText.style.color = "white";
         messageText.style.border = '3px solid white';
 
-        scoreText.style.backgroundColor = "red"
+        scoreText.style.backgroundColor = "red";
         scoreText.style.opacity = 0.8;
-        scoreText.style.color = "white"
+        scoreText.style.color = "white";
         scoreText.style.border = '2px solid white';
 
-        guessingNumber.style.backgroundColor = "green"
+        guessingNumber.style.backgroundColor = "green";
         guessingNumber.style.opacity = 0.8;
-        guessingNumber.style.color = "white"
+        guessingNumber.style.color = "white";
         guessingNumber.style.border = '3px solid white';
 
 
@@ -1232,31 +1212,31 @@ function applyTheme(selectedThemeId) {
         challengeScoreScreen.style.backgroundImage = 'url("./assets/images/fairy-close-challenge-background.jpg")';
         turboExitScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
 
-        score.style.color = 'white'
-        scoreBoardBackground.style.backgroundColor = ""
-        plusButton.style.backgroundColor = "#fc03f4"
-        plusButton.style.color = "black"
+        score.style.color = 'white';
+        scoreBoardBackground.style.backgroundColor = "lightblue";
+        plusButton.style.backgroundColor = "#fc03f4";
+        plusButton.style.color = "black";
         plusButton.style.opacity = 0.6;
         plusButton.style.border = '3px solid white';
 
-        minusBtn.style.backgroundColor = "#30fc03"
+        minusBtn.style.backgroundColor = "#30fc03";
         minusBtn.style.opacity = 0.8;
         minusBtn.style.border = '3px solid white';
-        minusBtn.style.color = "black"
+        minusBtn.style.color = "black";
 
-        messageText.style.backgroundColor = "#f4fc03"
+        messageText.style.backgroundColor = "#f4fc03";
         messageText.style.opacity = 0.8;
-        messageText.style.color = "black"
+        messageText.style.color = "black";
         messageText.style.border = '3px solid darkRed';
 
-        scoreText.style.backgroundColor = "red"
+        scoreText.style.backgroundColor = "red";
         scoreText.style.opacity = 0.8;
-        scoreText.style.color = "white"
+        scoreText.style.color = "white";
         scoreText.style.border = '2px solid white';
 
-        guessingNumber.style.backgroundColor = "#9403fc"
+        guessingNumber.style.backgroundColor = "#9403fc";
         guessingNumber.style.opacity = 0.6;
-        guessingNumber.style.color = "white"
+        guessingNumber.style.color = "white";
         guessingNumber.style.border = '3px solid white';
 
 
@@ -1276,19 +1256,11 @@ function applyTheme(selectedThemeId) {
     // Add event listeners for theme selection
     themeLinks.forEach(function (themeLink) {
         themeLink.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent the default behavior of the anchor tag
-
-            // Remove 'active' class from all theme links
+            event.preventDefault();
             themeLinks.forEach(link => link.classList.remove('active'));
-
-            // Add 'active' class to the clicked theme link
             themeLink.classList.add('active');
-
-            // Get the selected theme ID
             const selectedThemeId = event.target.id;
             localStorage.setItem('selectedTheme', selectedThemeId);
-
-            // Apply the selected theme
             applyTheme(selectedThemeId);
             resizeAllImages(37.5, 25);
 
