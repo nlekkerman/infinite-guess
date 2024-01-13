@@ -689,7 +689,7 @@ button {
 
 #challenge-button-close {
     position: fixed;
-    bottom: 25%;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
@@ -1434,7 +1434,7 @@ footer {
     }
     
     #challenge-button-close {
-        bottom: 20%; 
+        bottom: 15%; 
     }
     
     #right-wrong-text-with-video {
@@ -1563,7 +1563,7 @@ footer {
     }
     
     #challenge-button-close {
-        bottom: 20%; 
+        bottom: 15%; 
     }
     
     #playground-section .message-text {
