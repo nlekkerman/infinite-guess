@@ -58,13 +58,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const scoreForm = document.getElementById('score-form');
     const bestScoreText = document.getElementById('best-score-paragraph');
 
-
-
     const popupContainer = document.getElementById('popup-container');
     const popupButton = document.getElementById('popup-button');
 
     resizeAllImages(37.5, 25);
-      initializeBestScore();
+    initializeBestScore();
 
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
@@ -610,7 +608,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //left choice in challenge
     challengeLeftChoice.addEventListener('click', function () {
         stopSwitching = true;
-        clearInterval(intervalId); 
+        clearInterval(intervalId);
         const iconTwo = document.getElementById('icon-two');
         iconTwo.style.display = 'none';
         const iconOne = document.getElementById('icon-one');
@@ -636,10 +634,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // right choice in challenge
     challengeRightChoice.addEventListener('click', function () {
-        stopSwitching = true; 
-        clearInterval(intervalId); 
+        stopSwitching = true;
+        clearInterval(intervalId);
         const iconOne = document.getElementById('icon-one');
-        iconOne.style.display = 'none'; 
+        iconOne.style.display = 'none';
         const iconTwo = document.getElementById('icon-two');
         iconTwo.style.display = 'none';
 
@@ -832,8 +830,8 @@ document.addEventListener('DOMContentLoaded', function () {
         let randomOne = Math.floor(Math.random() * 10) + 1;
         let randomTwo = Math.floor(Math.random() * 10) + 1;
         if (randomOne === randomTwo) {
-            acceptChallengeScreen.style.display = 'block'; 
-        
+            acceptChallengeScreen.style.display = 'block';
+
             const offerDisplay = document.getElementById('current-score-offer');
             const doubleOfferDisplay = document.getElementById('double-score-offer');
             let offerNumber = parseInt(scoreText.textContent, 10);
@@ -958,14 +956,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function initializeBestScore() {
         const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
-    
+
         // If no best scores are stored, initialize with a score of 0
         if (bestScores.length === 0) {
             const initialBestScore = [{ score: 0 }];
             localStorage.setItem('bestScores', JSON.stringify(initialBestScore));
         }
     }
-    
+
     function checkAndDisplayBestScore() {
         const currentScore = parseInt(scoreText.textContent, 10);
         const highScores = JSON.parse(localStorage.getItem('bestScores')) || [];
@@ -1008,7 +1006,7 @@ function displayHighScores() {
 
     if (bestScores.length > 0) {
         highScore.textContent = score;
-    } 
+    }
 }
 
 function displayHighScoresForDashboard() {
@@ -1082,179 +1080,179 @@ let themeLinks = document.querySelectorAll('.theme-div a');
 document.addEventListener("DOMContentLoaded", function () {
 
     /* function to apply different Theme*/
-function applyTheme(selectedThemeId) {
-    const playground = document.getElementById("playground-section");
-    const acceptChallengeScreen = document.getElementById("accept-challenge-section");
-    const plusButton = document.getElementById('plus-button');
-    const minusBtn = document.getElementById('minus-button');
-    const challengeBackground = document.getElementById('challenge');
-    const messageText = document.getElementById('message-id');
+    function applyTheme(selectedThemeId) {
+        const playground = document.getElementById("playground-section");
+        const acceptChallengeScreen = document.getElementById("accept-challenge-section");
+        const plusButton = document.getElementById('plus-button');
+        const minusBtn = document.getElementById('minus-button');
+        const challengeBackground = document.getElementById('challenge');
+        const messageText = document.getElementById('message-id');
 
-    const scoreText = document.getElementById('score-screen-number-div');
-    const guessingNumber = document.getElementById('guessing-number-div');
-    const challengeScoreScreen = document.getElementById('challenge-score-display');
-    const turboBonusScreen = document.getElementById('bonus-screen-section');
-    const turboExitScreen = document.getElementById('exit-turbo-section');
-    const scoreBoardBackground = document.getElementById('right-wrong-text-with-video');
-    const score = document.getElementById('score-text');
+        const scoreText = document.getElementById('score-screen-number-div');
+        const guessingNumber = document.getElementById('guessing-number-div');
+        const challengeScoreScreen = document.getElementById('challenge-score-display');
+        const turboBonusScreen = document.getElementById('bonus-screen-section');
+        const turboExitScreen = document.getElementById('exit-turbo-section');
+        const scoreBoardBackground = document.getElementById('right-wrong-text-with-video');
+        const score = document.getElementById('score-text');
 
-    themeLinks.forEach(link => link.classList.remove('active'));
-    const selectedThemeLink = document.getElementById(selectedThemeId);
-    if (selectedThemeLink) {
-        selectedThemeLink.classList.add('active');
+        themeLinks.forEach(link => link.classList.remove('active'));
+        const selectedThemeLink = document.getElementById(selectedThemeId);
+        if (selectedThemeLink) {
+            selectedThemeLink.classList.add('active');
+        }
+        if (selectedThemeId === 'theme-default') {
+            playground.style.backgroundImage = 'url("./assets/images/default-main-background.jpg")';
+            acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/default-confirm-challenge-background.jpg")';
+            challengeBackground.style.backgroundImage = 'url("./assets/images/default-challenge-background.jpg")';
+            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/default-close-challenge-background.jpg")';
+            turboBonusScreen.style.backgroundImage = 'url("./assets/images/default-turbo-bonus-background.jpg")';
+            turboExitScreen.style.backgroundImage = 'url("./assets/images/default-exit-turbo-bonus-background.jpg")';
+
+            scoreBoardBackground.style.backgroundColor = "#f4f5f0";
+            score.style.color = 'white';
+            scoreText.style.backgroundColor = "red";
+            scoreText.style.opacity = 0.8;
+            scoreText.style.color = "white";
+            scoreText.style.border = '2px solid white';
+
+
+            plusButton.style.backgroundColor = "green";
+            plusButton.style.opacity = 0.8;
+            plusButton.style.border = '3px solid white';
+            plusButton.style.color = "white";
+
+            minusBtn.style.backgroundColor = "red";
+            minusBtn.style.opacity = 0.8;
+            minusBtn.style.border = '3px solid white';
+            minusBtn.style.color = "white";
+
+            messageText.style.backgroundColor = "red";
+            messageText.style.opacity = 0.8;
+            messageText.style.color = "white";
+            messageText.style.border = '3px solid gold';
+
+            guessingNumber.style.backgroundColor = "black";
+            guessingNumber.style.opacity = 0.8;
+            guessingNumber.style.color = "white";
+            guessingNumber.style.border = '3px solid yellow';
+
+
+        } else if (selectedThemeId === 'theme-space') {
+            playground.style.backgroundImage = 'url("./assets/images/space-main-background.jpg")';
+            acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/space-confirm-challenge-background.jpg")';
+            challengeBackground.style.backgroundImage = 'url("./assets/images/space-challenge-background.jpg")';
+            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/space-close-challenge-background.jpg")';
+            turboBonusScreen.style.backgroundImage = 'url("./assets/images/space-turbo-bonus-background.jpg")';
+            turboExitScreen.style.backgroundImage = 'url("./assets/images/space-exit-turbo-background.jpg")';
+
+            score.style.color = 'white';
+            scoreBoardBackground.style.backgroundColor = "#501682";
+            plusButton.style.backgroundColor = "black";
+            plusButton.style.opacity = 0.8;
+            plusButton.style.border = '3px solid cyan';
+            plusButton.style.color = "white";
+
+            minusBtn.style.backgroundColor = "white";
+            minusBtn.style.opacity = 0.8;
+            minusBtn.style.border = '3px solid cyan';
+            minusBtn.style.color = "black";
+
+            messageText.style.backgroundColor = "lightblue";
+            messageText.style.opacity = 0.8;
+            messageText.style.color = "black";
+            messageText.style.border = '3px solid cyan';
+
+            scoreText.style.backgroundColor = "red";
+            scoreText.style.opacity = 0.8;
+            scoreText.style.color = "white";
+            scoreText.style.border = '2px solid white';
+
+            guessingNumber.style.backgroundColor = "HotMagenta";
+            guessingNumber.style.opacity = 0.8;
+            guessingNumber.style.color = "white";
+            guessingNumber.style.border = '3px solid cyan';
+
+
+
+        } else if (selectedThemeId === 'theme-earth') {
+            playground.style.backgroundImage = 'url("./assets/images/earth-main-background.jpg")';
+            acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/earth-confirm-challenge-background.jpg")';
+            challengeBackground.style.backgroundImage = 'url("./assets/images/earth-challenge-background.jpg")';
+            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/earth-close-challenge-background.jpg")';
+            turboBonusScreen.style.backgroundImage = 'url("./assets/images/earth-challenge-background.jpg")';
+            turboExitScreen.style.backgroundImage = 'url("./assets/images/earth-exit-turbo-bonus-background.jpg")';
+
+            scoreBoardBackground.style.backgroundColor = "lightblue";
+            score.style.color = 'white';
+
+            plusButton.style.backgroundColor = "#40E0D0";
+            plusButton.style.opacity = 1;
+            plusButton.style.color = "black";
+            plusButton.style.border = '3px solid white';
+
+            minusBtn.style.backgroundColor = "#FF10F0";
+            minusBtn.style.opacity = 0.8;
+            minusBtn.style.border = '3px solid white';
+            minusBtn.style.color = "black";
+
+            messageText.style.backgroundColor = "black";
+            messageText.style.opacity = 0.8;
+            messageText.style.color = "white";
+            messageText.style.border = '3px solid white';
+
+            scoreText.style.backgroundColor = "red";
+            scoreText.style.opacity = 0.8;
+            scoreText.style.color = "white";
+            scoreText.style.border = '2px solid white';
+
+            guessingNumber.style.backgroundColor = "green";
+            guessingNumber.style.opacity = 0.8;
+            guessingNumber.style.color = "white";
+            guessingNumber.style.border = '3px solid white';
+
+
+
+        } else if (selectedThemeId === 'theme-fairy') {
+            playground.style.backgroundImage = 'url("./assets/images/fairy-main-background.jpg")';
+            acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/fairy-confirm-challenge-background.jpg")';
+            turboBonusScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
+            challengeBackground.style.backgroundImage = 'url("./assets/images/fairy-challenge-background.jpg")';
+            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/fairy-close-challenge-background.jpg")';
+            turboExitScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
+
+            score.style.color = 'white';
+            scoreBoardBackground.style.backgroundColor = "lightblue";
+            plusButton.style.backgroundColor = "#fc03f4";
+            plusButton.style.color = "black";
+            plusButton.style.opacity = 0.6;
+            plusButton.style.border = '3px solid white';
+
+            minusBtn.style.backgroundColor = "#30fc03";
+            minusBtn.style.opacity = 0.8;
+            minusBtn.style.border = '3px solid white';
+            minusBtn.style.color = "black";
+
+            messageText.style.backgroundColor = "#f4fc03";
+            messageText.style.opacity = 0.8;
+            messageText.style.color = "black";
+            messageText.style.border = '3px solid darkRed';
+
+            scoreText.style.backgroundColor = "red";
+            scoreText.style.opacity = 0.8;
+            scoreText.style.color = "white";
+            scoreText.style.border = '2px solid white';
+
+            guessingNumber.style.backgroundColor = "#9403fc";
+            guessingNumber.style.opacity = 0.6;
+            guessingNumber.style.color = "white";
+            guessingNumber.style.border = '3px solid white';
+
+
+        } else {
+
+        }
     }
-    if (selectedThemeId === 'theme-default') {
-        playground.style.backgroundImage = 'url("./assets/images/default-main-background.jpg")';
-        acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/default-confirm-challenge-background.jpg")';
-        challengeBackground.style.backgroundImage = 'url("./assets/images/default-challenge-background.jpg")';
-        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/default-close-challenge-background.jpg")';
-        turboBonusScreen.style.backgroundImage = 'url("./assets/images/default-turbo-bonus-background.jpg")';
-        turboExitScreen.style.backgroundImage = 'url("./assets/images/default-exit-turbo-bonus-background.jpg")';
-
-        scoreBoardBackground.style.backgroundColor = "#f4f5f0";
-        score.style.color = 'white';
-        scoreText.style.backgroundColor = "red";
-        scoreText.style.opacity = 0.8;
-        scoreText.style.color = "white";
-        scoreText.style.border = '2px solid white';
-
-
-        plusButton.style.backgroundColor = "green";
-        plusButton.style.opacity = 0.8;
-        plusButton.style.border = '3px solid white';
-        plusButton.style.color = "white";
-
-        minusBtn.style.backgroundColor = "red";
-        minusBtn.style.opacity = 0.8;
-        minusBtn.style.border = '3px solid white';
-        minusBtn.style.color = "white";
-
-        messageText.style.backgroundColor = "red";
-        messageText.style.opacity = 0.8;
-        messageText.style.color = "white";
-        messageText.style.border = '3px solid gold';
-
-        guessingNumber.style.backgroundColor = "black";
-        guessingNumber.style.opacity = 0.8;
-        guessingNumber.style.color = "white";
-        guessingNumber.style.border = '3px solid yellow';
-
-
-    } else if (selectedThemeId === 'theme-space') {
-        playground.style.backgroundImage = 'url("./assets/images/space-main-background.jpg")';
-        acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/space-confirm-challenge-background.jpg")';
-        challengeBackground.style.backgroundImage = 'url("./assets/images/space-challenge-background.jpg")';
-        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/space-close-challenge-background.jpg")';
-        turboBonusScreen.style.backgroundImage = 'url("./assets/images/space-turbo-bonus-background.jpg")';
-        turboExitScreen.style.backgroundImage = 'url("./assets/images/space-exit-turbo-background.jpg")';
-
-        score.style.color = 'white';
-        scoreBoardBackground.style.backgroundColor = "#501682";
-        plusButton.style.backgroundColor = "black";
-        plusButton.style.opacity = 0.8;
-        plusButton.style.border = '3px solid cyan';
-        plusButton.style.color = "white";
-
-        minusBtn.style.backgroundColor = "white";
-        minusBtn.style.opacity = 0.8;
-        minusBtn.style.border = '3px solid cyan';
-        minusBtn.style.color = "black";
-
-        messageText.style.backgroundColor = "lightblue";
-        messageText.style.opacity = 0.8;
-        messageText.style.color = "black";
-        messageText.style.border = '3px solid cyan';
-
-        scoreText.style.backgroundColor = "red";
-        scoreText.style.opacity = 0.8;
-        scoreText.style.color = "white";
-        scoreText.style.border = '2px solid white';
-
-        guessingNumber.style.backgroundColor = "HotMagenta";
-        guessingNumber.style.opacity = 0.8;
-        guessingNumber.style.color = "white";
-        guessingNumber.style.border = '3px solid cyan';
-
-
-
-    } else if (selectedThemeId === 'theme-earth') {
-        playground.style.backgroundImage = 'url("./assets/images/earth-main-background.jpg")';
-        acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/earth-confirm-challenge-background.jpg")';
-        challengeBackground.style.backgroundImage = 'url("./assets/images/earth-challenge-background.jpg")';
-        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/earth-close-challenge-background.jpg")';
-        turboBonusScreen.style.backgroundImage = 'url("./assets/images/earth-challenge-background.jpg")';
-        turboExitScreen.style.backgroundImage = 'url("./assets/images/earth-exit-turbo-bonus-background.jpg")';
-
-        scoreBoardBackground.style.backgroundColor = "lightblue";
-        score.style.color = 'white';
-
-        plusButton.style.backgroundColor = "#40E0D0";
-        plusButton.style.opacity = 1;
-        plusButton.style.color = "black";
-        plusButton.style.border = '3px solid white';
-
-        minusBtn.style.backgroundColor = "#FF10F0";
-        minusBtn.style.opacity = 0.8;
-        minusBtn.style.border = '3px solid white';
-        minusBtn.style.color = "black";
-
-        messageText.style.backgroundColor = "black";
-        messageText.style.opacity = 0.8;
-        messageText.style.color = "white";
-        messageText.style.border = '3px solid white';
-
-        scoreText.style.backgroundColor = "red";
-        scoreText.style.opacity = 0.8;
-        scoreText.style.color = "white";
-        scoreText.style.border = '2px solid white';
-
-        guessingNumber.style.backgroundColor = "green";
-        guessingNumber.style.opacity = 0.8;
-        guessingNumber.style.color = "white";
-        guessingNumber.style.border = '3px solid white';
-
-
-
-    } else if (selectedThemeId === 'theme-fairy') {
-        playground.style.backgroundImage = 'url("./assets/images/fairy-main-background.jpg")';
-        acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/fairy-confirm-challenge-background.jpg")';
-        turboBonusScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
-        challengeBackground.style.backgroundImage = 'url("./assets/images/fairy-challenge-background.jpg")';
-        challengeScoreScreen.style.backgroundImage = 'url("./assets/images/fairy-close-challenge-background.jpg")';
-        turboExitScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
-
-        score.style.color = 'white';
-        scoreBoardBackground.style.backgroundColor = "lightblue";
-        plusButton.style.backgroundColor = "#fc03f4";
-        plusButton.style.color = "black";
-        plusButton.style.opacity = 0.6;
-        plusButton.style.border = '3px solid white';
-
-        minusBtn.style.backgroundColor = "#30fc03";
-        minusBtn.style.opacity = 0.8;
-        minusBtn.style.border = '3px solid white';
-        minusBtn.style.color = "black";
-
-        messageText.style.backgroundColor = "#f4fc03";
-        messageText.style.opacity = 0.8;
-        messageText.style.color = "black";
-        messageText.style.border = '3px solid darkRed';
-
-        scoreText.style.backgroundColor = "red";
-        scoreText.style.opacity = 0.8;
-        scoreText.style.color = "white";
-        scoreText.style.border = '2px solid white';
-
-        guessingNumber.style.backgroundColor = "#9403fc";
-        guessingNumber.style.opacity = 0.6;
-        guessingNumber.style.color = "white";
-        guessingNumber.style.border = '3px solid white';
-
-
-    } else {
-
-    }
-}
 
     // Check if a theme is already selected
     const savedThemeId = localStorage.getItem('selectedTheme');
