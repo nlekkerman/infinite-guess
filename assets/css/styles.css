@@ -1095,13 +1095,13 @@ h1 {
     font-size: 24px;
 }
 
-#wrap-div-rules {
+#rules-screen {
     display: none;
     padding: 20px;
     z-index: 3;
 }
 
-#wrap-div-rules h5 {
+#rules-screen h5 {
     font-size: 2rem;
     color: black;
     padding: 15px;
@@ -1150,13 +1150,13 @@ h1 {
 }
 
 
-#wrap-div-highscores {
+#welcome-highscore-screen {
     display: none;
     padding: 20px;
     z-index: 3;
 }
 
-#wrap-div-highscores h5 {
+#welcome-highscore-screen h5 {
     font-size: 1.7rem;
     color: black;
     padding: 5px;
@@ -1428,13 +1428,13 @@ footer {
         width: 50%;
         font-size: 2rem;
     }
-    #wrap-div-rules {
+    #rules-screen {
         display: none;
         padding: 20px;
         z-index: 3;
     }
     
-    #wrap-div-rules h5 {
+    #rules-screen h5 {
       width: 50%;
       margin: 0 auto;
       margin-bottom: 20px;
@@ -1448,7 +1448,7 @@ footer {
       margin: 0 auto;
       
     }
-    #wrap-div-highscores h5{
+    #welcome-highscore-screen h5{
         width: 40%;
         margin: 0 auto;
         border-radius: 50px;
@@ -1584,7 +1584,7 @@ footer {
 /* Laptop layout */
 @media screen and (min-width: 1024px) {
 
-    #wrap-div-highscores h5{
+    #welcome-highscore-screen h5{
         width: 30%;
         margin: 0 auto;
         font-size: 2rem;
@@ -1771,7 +1771,7 @@ footer {
 
 }
 @media screen and (min-width: 1439px){
-    #wrap-div-highscores h5{
+    #welcome-highscore-screen h5{
       width: 25%;
     }
     #rules-container{
@@ -2252,7 +2252,7 @@ footer {
         border: 0.3rem solid rgb(155, 154, 154);
     }
 
-    #wrap-div-rules{
+    #rules-screen{
         translate: 0% 0%;
     }
     #rules-container{
@@ -2261,7 +2261,7 @@ footer {
         height: 11em;
     }
 
-    #wrap-div-rules h5{
+    #rules-screen h5{
         font-size: 4rem;
         width: 30%;
     }
@@ -2289,7 +2289,7 @@ footer {
         border: 0.7rem solid rgb(247, 244, 244);
     }
 
-    #wrap-div-highscores h5{
+    #welcome-highscore-screen h5{
         font-size: 4rem;
         width: 30%;
         margin-bottom: 2em;

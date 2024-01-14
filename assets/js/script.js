@@ -218,7 +218,7 @@ let colorIndex = 0;
     //BUTTONS
     /*See highscore on dashboard button*/
     seeHighscoreDashboardButton.addEventListener('click', function () {
-        const wrapDivHighscores = document.getElementById('wrap-div-highscores');
+        const wrapDivHighscores = document.getElementById('welcome-highscore-screen');
         const hideIcons = document.getElementById('icons-dash-container');
         wrapDivHighscores.style.display = 'block';
         hideIcons.style.display = 'none';
@@ -229,7 +229,7 @@ let colorIndex = 0;
 
     seeRulesDashboardButton.addEventListener('click', function () {
 
-        const wrapDivRules = document.getElementById('wrap-div-rules');
+        const wrapDivRules = document.getElementById('rules-screen');
         const displayCloseButton = document.getElementById('exit-welcome-rules-instruction');
         const hideIcons = document.getElementById('icons-dash-container');
         const rules = document.getElementById('rules-container');
@@ -248,18 +248,18 @@ let colorIndex = 0;
     exitHighscoreDashboardButton.addEventListener('click', function () {
         const hideIcons = document.getElementById('icons-dash-container');
         hideIcons.style.display = 'block';
-        const exitHigh = document.getElementById('wrap-div-highscores');
+        const exitHigh = document.getElementById('welcome-highscore-screen');
         exitHigh.style.display = 'none';
     });
     /*Button to close rules on dashboard*/
     exitRulesDashboardButton.addEventListener('click', function () {
         const rules = document.getElementById('rules-container');
-        const wrapDivRules = document.getElementById('wrap-div-rules');
+        const rulesScreen = document.getElementById('rules-screen');
         const hideIcons = document.getElementById('icons-dash-container');
 
         hideIcons.style.display = 'block';
         rules.style.display = 'block';
-        wrapDivRules.style.display = 'none';
+        rulesScreen.style.display = 'none';
     });
 
     //save score button

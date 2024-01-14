@@ -65,14 +65,14 @@
                     <p id="answer-text">Let's Go</p>
                 </div>
             </div>
-            <!-- Playground Section -->
+            <!-- Playground Section  -->
             <section id="playground-section">
 
                 <!-- Welcome article -->
                 <article id="welcome-section" class="welcome-section">
                     <div id="welcome-container" class="welcome-container">
                         <h2>INFINITE GUESS </h2>
-                      
+                        <!-- Welcome screen buttons, for highscore and rules -->
                         <div id="icons-dash-container">
                             <div id="highscore-button-container" class="icons">
                                 <img src="assets/images/highscore-icon.png" alt="Description of the image"
@@ -87,7 +87,7 @@
                             </div>
 
                         </div>
-                        <div id="wrap-div-rules" class="wrap-div">
+                        <div id="rules-screen" class="wrap-div">
                             <h5>RULES</h5>
                             <div id="rules-container">
                                 <p>
@@ -107,7 +107,7 @@
 
                         </div>
 
-                        <div id="wrap-div-highscores" class="wrap-div">
+                        <div id="welcome-highscore-screen" class="wrap-div">
                             <h5>Current best score</h5>
                             <div id="highscores-dashboard">
                                 <p id="the-best-score-dashboard" class="player-name">0</p>
@@ -219,7 +219,7 @@
 
                 <!--Control container sound/theme/exit button-->
                 <article id="control-container">
-                     <h6>Invisible title</h6>
+                    <h6>Invisible title</h6>
                     <div><button id="exit-game-button" class="exit-game-button">EXIT</button></div>
 
                     <div id="sound-control" class="dropdown">
@@ -253,15 +253,18 @@
                     <p id="score-text"> 0</p>
                 </div>
 
+                <!-- Timer for Turbo Bonus-->
                 <div id="timer"></div>
-                <div id="message-container">
 
+                <!-- Messages container-->
+                <div id="message-container">
                     <p id="guessed-number" class="message-text"></p>
                     <p id="mystery-message-id" class="message-text">Make correct guess and get this points multiplied by
                         5!</p>
                     <p id="message-id" class="message-text">Higher or Lower?</p>
                 </div>
 
+                <!-- Container for Guessing and Mystery number-->
                 <div id="guessing-mystery-container">
 
                     <div id="mystery-number"></div>
@@ -271,6 +274,7 @@
                     </div>
 
                 </div>
+                <!--playing buttons container-->
                 <div id="buttons-container-div">
                     <button id="minus-button" class="guessing-buttons ripple-button">-</button>
                     <button id="plus-button" class="guessing-buttons ripple-button">+</button>
@@ -278,13 +282,14 @@
             </section>
         </main>
 
+        <!-- footer-->
         <footer>
             <p>&copy; 2023 By LEKKERMAN.</p>
         </footer>
 
     </div>
 
-    <!-- Add script link -->
+    <!-- JS script link -->
     <script src="assets/js/script.js" defer></script>
 
     <!-- Font Awesome Script -->
