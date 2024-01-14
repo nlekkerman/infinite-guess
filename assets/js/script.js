@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupButton = document.getElementById('popup-button');
 
     resizeAllImages(37.5, 25);
+      initializeBestScore();
 
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
@@ -955,6 +956,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     }
+    function initializeBestScore() {
+        const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+    
+        // If no best scores are stored, initialize with a score of 0
+        if (bestScores.length === 0) {
+            const initialBestScore = [{ score: 0 }];
+            localStorage.setItem('bestScores', JSON.stringify(initialBestScore));
+        }
+    }
+    
     function checkAndDisplayBestScore() {
         const currentScore = parseInt(scoreText.textContent, 10);
         const highScores = JSON.parse(localStorage.getItem('bestScores')) || [];
@@ -989,23 +1000,16 @@ function resizeAllImages(newWidth, newHeight) {
 }
 
 function displayHighScores() {
-    const highScoreElement = document.getElementById('high-score-paragraph');
+    const highScore = document.getElementById('high-score-paragraph');
     const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+    const score = bestScores[0].score;
+    highScore.innerHTML = '';
+    bestScores.sort((a, b) => b.score - a.score);
 
-    // Check if the array is not empty before accessing the first element
     if (bestScores.length > 0) {
-        // Sort bestScores in descending order
-        bestScores.sort((a, b) => b.score - a.score);
-
-        // Display the highest score
-        const highestScore = bestScores[0].score;
-        highScoreElement.textContent = highestScore;
-    } else {
-        // Handle the case when there are no best scores
-        highScoreElement.textContent = 'No high scores yet.';
-    }
+        highScore.textContent = score;
+    } 
 }
-
 
 function displayHighScoresForDashboard() {
     const highScore = document.getElementById('the-best-score-dashboard');
