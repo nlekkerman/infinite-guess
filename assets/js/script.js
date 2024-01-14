@@ -997,8 +997,8 @@ function displayHighScores() {
 
     if (bestScores.length > 0) {
         highScore.textContent = score;
-    }else{
-        alert("what is this")
+    }  else {
+        highScore.textContent = 100;
     }
 }
 
