@@ -63,6 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     resizeAllImages(37.5, 25);
     initializeBestScore();
+    setInterval(changeBackgroundColor, 100); 
+
 
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
@@ -1034,6 +1036,17 @@ function blinkRedBackground() {
     // Play the warning sound
     //warningSound.play();
 }
+/*Function to chnage color of challenge title*/
+let colors = ["red", "pink", "purple", "blue", "orange", "yellow"];
+let colorIndex = 0;
+
+function changeBackgroundColor() {
+    let challengeBackgroundColorBlink = document.getElementById("challenge-h2");
+
+    challengeBackgroundColorBlink.style.backgroundColor = colors[colorIndex];
+
+    colorIndex = (colorIndex + 1) % colors.length;
+}
 
 
 /*DOM element to create button ripple effect*/
@@ -1082,17 +1095,12 @@ document.addEventListener("DOMContentLoaded", function () {
     /* function to apply different Theme*/
     function applyTheme(selectedThemeId) {
         const playground = document.getElementById("playground-section");
-        const acceptChallengeScreen = document.getElementById("accept-challenge-section");
         const plusButton = document.getElementById('plus-button');
         const minusBtn = document.getElementById('minus-button');
-        const challengeBackground = document.getElementById('challenge');
         const messageText = document.getElementById('message-id');
 
         const scoreText = document.getElementById('score-screen-number-div');
         const guessingNumber = document.getElementById('guessing-number-div');
-        const challengeScoreScreen = document.getElementById('challenge-score-display');
-        const turboBonusScreen = document.getElementById('bonus-screen-section');
-        const turboExitScreen = document.getElementById('exit-turbo-section');
         const scoreBoardBackground = document.getElementById('right-wrong-text-with-video');
         const score = document.getElementById('score-text');
 
@@ -1103,11 +1111,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (selectedThemeId === 'theme-default') {
             playground.style.backgroundImage = 'url("./assets/images/default-main-background.jpg")';
-            acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/default-confirm-challenge-background.jpg")';
-            challengeBackground.style.backgroundImage = 'url("./assets/images/default-challenge-background.jpg")';
-            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/default-close-challenge-background.jpg")';
-            turboBonusScreen.style.backgroundImage = 'url("./assets/images/default-turbo-bonus-background.jpg")';
-            turboExitScreen.style.backgroundImage = 'url("./assets/images/default-exit-turbo-bonus-background.jpg")';
+           
 
             scoreBoardBackground.style.backgroundColor = "#f4f5f0";
             score.style.color = 'white';
@@ -1140,12 +1144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else if (selectedThemeId === 'theme-space') {
             playground.style.backgroundImage = 'url("./assets/images/space-main-background.jpg")';
-            acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/space-confirm-challenge-background.jpg")';
-            challengeBackground.style.backgroundImage = 'url("./assets/images/space-challenge-background.jpg")';
-            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/space-close-challenge-background.jpg")';
-            turboBonusScreen.style.backgroundImage = 'url("./assets/images/space-turbo-bonus-background.jpg")';
-            turboExitScreen.style.backgroundImage = 'url("./assets/images/space-exit-turbo-background.jpg")';
-
+           
             score.style.color = 'white';
             scoreBoardBackground.style.backgroundColor = "#501682";
             plusButton.style.backgroundColor = "black";
@@ -1177,12 +1176,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else if (selectedThemeId === 'theme-earth') {
             playground.style.backgroundImage = 'url("./assets/images/earth-main-background.jpg")';
-            acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/earth-confirm-challenge-background.jpg")';
-            challengeBackground.style.backgroundImage = 'url("./assets/images/earth-challenge-background.jpg")';
-            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/earth-close-challenge-background.jpg")';
-            turboBonusScreen.style.backgroundImage = 'url("./assets/images/earth-challenge-background.jpg")';
-            turboExitScreen.style.backgroundImage = 'url("./assets/images/earth-exit-turbo-bonus-background.jpg")';
-
+         
             scoreBoardBackground.style.backgroundColor = "lightblue";
             score.style.color = 'white';
 
@@ -1215,12 +1209,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else if (selectedThemeId === 'theme-fairy') {
             playground.style.backgroundImage = 'url("./assets/images/fairy-main-background.jpg")';
-            acceptChallengeScreen.style.backgroundImage = 'url("./assets/images/fairy-confirm-challenge-background.jpg")';
-            turboBonusScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
-            challengeBackground.style.backgroundImage = 'url("./assets/images/fairy-challenge-background.jpg")';
-            challengeScoreScreen.style.backgroundImage = 'url("./assets/images/fairy-close-challenge-background.jpg")';
-            turboExitScreen.style.backgroundImage = 'url("./assets/images/fairy-turbo-bonus-background.jpg")';
-
+          
             score.style.color = 'white';
             scoreBoardBackground.style.backgroundColor = "lightblue";
             plusButton.style.backgroundColor = "#fc03f4";
