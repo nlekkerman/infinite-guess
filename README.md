@@ -76,14 +76,14 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - You'll use this number as a reference to decide whether the next number will be higher or lower.
 - Number is in motion.
 
- ![Am I Responsive Screenshot](assets/images/screenshots/correc-wrong-message-header-screenshot.png)
+ ![Am I Responsive Screenshot](assets/images/screenshots/guessing-number-screenshot.png)
 
 - **Mystery Number:** After ten attempts, a question mark will be displayed above the guessing number, covering it completely.
   - Upon triggering this feature,pecial message will be displayed with instructions on how to proceed. Pay attention to the guidance provided to enhance your gaming experience.
   -After you guessed it will be displayed another message with value of the Mystery number.
 
 
- ![Am I Responsive Screenshot](assets/images/screenshots/correc-wrong-message-header-screenshot.png)
+ ![Am I Responsive Screenshot](assets/images/screenshots/mystery-number-screenshoot.png)
 
 ### Challenge Screen Features:
 
@@ -93,10 +93,6 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
  ![Am I Responsive Screenshot](assets/images/screenshots/challenge-screen-screenshot.png)
 
-- **Start Challenge Button:**
-  - A button is provided under the challenge title, inviting players to start the Double or Nothing challenge.
-  - Initiating the challenge adds an extra layer of excitement and potential rewards to the gameplay.
- ![Am I Responsive Screenshot](assets/images/screenshots/start-challenge-button-screnshot.png)
 
   ### Challenge Acceptance Screen Features:
 
@@ -127,7 +123,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - In a special challenge round, two numbers are hidden behind "cards."
   - The hidden numbers blink, creating anticipation and excitement for the player.
 
- ![Am I Responsive Screenshot](assets/images/screenshots/challenge-acceptance-screenshot.png)
+ ![Am I Responsive Screenshot](assets/images/screenshots/challenge-screen-screenshot.png)
  
 - **Visual Cues:**
   - The hidden numbers are revealed when clicked, each with a distinct visual effect.
@@ -140,6 +136,11 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - **Challenge Result Screen:**
   - After completing the Hidden Numbers Challenge, a result screen is triggered.
   - The result screen displays a title and informative text based on whether the player's answer is correct or incorrect.
+  
+   ![Challenge wrong answer screenshot](assets/images/screenshots/challenge-wrong-answer-screen-screenshot.png)
+
+    ![Challenge wrong answer screenshot](assets/images/screenshots/challenge-correct-answer-screen-screenshot.png)
+
 
 - **Informative Text:**
   - If the player's answer is correct, the screen provides positive feedback, acknowledging their success.
@@ -162,6 +163,8 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - The Bonus Round begins with the "Welcome to Bonus" screen.
   - This screen includes a welcome note, rules, and options to start the bonus challenge.
 
+   ![Bonus rules Screenshot](assets/images/screenshots/bonus-rules-screenshot.png)
+
 - **Rules Overview:**
   - Players can review specific rules related to the bonus challenge.
   - Understanding the rules enhances the player's chances of success in the bonus round.
@@ -174,16 +177,14 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - Throughout the bonus round, intense and suspenseful music plays in the background.
   - The music heightens the excitement and adds a dramatic touch to the bonus challenge.
 
-- **Countdown Timer:**
-  - A countdown timer is activated during the bonus round, indicating the remaining time, 20 seconds.
-  - Players must make their guesses within the given time frame for added intensity.
-
 - **Blinking Numbers:**
   - In the last ten seconds of the bonus round, the guessing numbers blink in red, creating urgency.
   - The visual cue signals the final moments of the bonus challenge.
 
   
 ### Turbo bonus Result Screen Features:
+ 
+   ![Bonus result Screenshot](assets/images/screenshots/bonus-result-screenshot.png)
 
 - **Turbo bonus Result Screen:**
   - After completing the Bonus Round, players are presented with a dedicated result screen.
@@ -196,6 +197,8 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - **Timer:**
   - When the Turbo Bonus Game is initiated, a timer will appear and countdown from 20 seconds to 0.
   - The timer will blink in red during the last 10 seconds, adding an extra layer of intensity to the game.
+
+    ![Bonus timer Screenshot](assets/images/screenshots/bonus-timer-screenshot.png)
 
 
 - **Exit Button:**
@@ -216,6 +219,8 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
 
 ### Footer:
+
+   ![Footer Screenshot](assets/images/screenshots/bonus-timer-screenshot.png)
 
 - The footer displays essential information about the game, including the copyright notice.
 - Stay informed about the game's ownership and creation.
