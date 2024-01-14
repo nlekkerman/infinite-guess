@@ -137,9 +137,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - After completing the Hidden Numbers Challenge, a result screen is triggered.
   - The result screen displays a title and informative text based on whether the player's answer is correct or incorrect.
   
-   ![Challenge wrong answer screenshot](assets/images/screenshots/challenge-wrong-answer-screen-screenshot.png)
-
-    ![Challenge wrong answer screenshot](assets/images/screenshots/challenge-correct-answer-screen-screenshot.png)
+   ![Challenge wrong answer screenshot](assets/images/screenshots/challenge-wrong-answer-screen-screenshot.png)![Challenge wrong answer screenshot](assets/images/screenshots/challenge-correct-answer-screen-screenshot.png)
 
 
 - **Informative Text:**
@@ -198,7 +196,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - When the Turbo Bonus Game is initiated, a timer will appear and countdown from 20 seconds to 0.
   - The timer will blink in red during the last 10 seconds, adding an extra layer of intensity to the game.
 
-    ![Bonus timer Screenshot](assets/images/screenshots/bonus-timer-screenshot.png)
+    ![Bonus timer Screenshot](assets/images/screenshots/bonus-timer-screenshot.png![Bonus timer red Screenshot](assets/images/screenshots/bonus-timer-red-screenshot.png)
 
 
 - **Exit Button:**
@@ -220,7 +218,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
 ### Footer:
 
-   ![Footer Screenshot](assets/images/screenshots/bonus-timer-screenshot.png)
+   ![Footer Screenshot](assets/images/screenshots/footer-screenshot.png)
 
 - The footer displays essential information about the game, including the copyright notice.
 - Stay informed about the game's ownership and creation.
