@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let previousNumber = null;
     let countMysteryNumber = 0;
+    let colors = ["red", "pink", "purple", "blue", "orange", "yellow"];
+let colorIndex = 0;
 
     const mystery = document.getElementById("mystery-number");
     const messageForMystery = document.getElementById("mystery-message-id");
@@ -63,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     resizeAllImages(37.5, 25);
     initializeBestScore();
-    setInterval(changeBackgroundColor, 100); 
+    setInterval(changeBackgroundColor, 200);
 
 
     soundControl.addEventListener('click', function () {
@@ -977,6 +979,15 @@ document.addEventListener('DOMContentLoaded', function () {
             popupContainer.style.display = 'block';
         }
     }
+    /*Function to chnage color of challenge title*/
+    function changeBackgroundColor() {
+        let challengeBackgroundColorBlink = document.getElementById("challenge-h2");
+
+        challengeBackgroundColorBlink.style.backgroundColor = colors[colorIndex];
+
+        colorIndex = (colorIndex + 1) % colors.length;
+    }
+
 });
 
 
@@ -1035,17 +1046,6 @@ function blinkRedBackground() {
 
     // Play the warning sound
     //warningSound.play();
-}
-/*Function to chnage color of challenge title*/
-let colors = ["red", "pink", "purple", "blue", "orange", "yellow"];
-let colorIndex = 0;
-
-function changeBackgroundColor() {
-    let challengeBackgroundColorBlink = document.getElementById("challenge-h2");
-
-    challengeBackgroundColorBlink.style.backgroundColor = colors[colorIndex];
-
-    colorIndex = (colorIndex + 1) % colors.length;
 }
 
 
@@ -1111,10 +1111,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (selectedThemeId === 'theme-default') {
             playground.style.backgroundImage = 'url("./assets/images/default-main-background.jpg")';
-           
+
 
             scoreBoardBackground.style.backgroundColor = "#f4f5f0";
-            score.style.color = 'white';
+            score.style.color = 'black';
             scoreText.style.backgroundColor = "red";
             scoreText.style.opacity = 0.8;
             scoreText.style.color = "white";
@@ -1144,8 +1144,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else if (selectedThemeId === 'theme-space') {
             playground.style.backgroundImage = 'url("./assets/images/space-main-background.jpg")';
-           
-            score.style.color = 'white';
+
+            score.style.color = 'black';
             scoreBoardBackground.style.backgroundColor = "#501682";
             plusButton.style.backgroundColor = "black";
             plusButton.style.opacity = 0.8;
@@ -1176,9 +1176,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else if (selectedThemeId === 'theme-earth') {
             playground.style.backgroundImage = 'url("./assets/images/earth-main-background.jpg")';
-         
+
             scoreBoardBackground.style.backgroundColor = "lightblue";
-            score.style.color = 'white';
+            score.style.color = 'black';
 
             plusButton.style.backgroundColor = "#40E0D0";
             plusButton.style.opacity = 1;
@@ -1209,8 +1209,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else if (selectedThemeId === 'theme-fairy') {
             playground.style.backgroundImage = 'url("./assets/images/fairy-main-background.jpg")';
-          
-            score.style.color = 'white';
+
+            score.style.color = 'black';
             scoreBoardBackground.style.backgroundColor = "lightblue";
             plusButton.style.backgroundColor = "#fc03f4";
             plusButton.style.color = "black";
