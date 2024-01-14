@@ -697,7 +697,7 @@ button {
 /*Bonus section*/
 #bonus-screen-section {
     background: url('../images/bonus-default-background.jpg') no-repeat center center/cover;
-    display: none;
+    display: block;
     align-items: center;
     justify-content: center;
     max-width: 1028px;
@@ -829,7 +829,7 @@ button {
 #turbo-bonus-rules-screen {
     font-weight: 600;
     font-size: 2rem;
-    margin: 0 auto;
+    margin:4em auto;
     width: 90%;
     padding: 1rem;
     border-radius: 25px;
@@ -1642,7 +1642,7 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 5rem;
+        margin-top: 3rem;
     }
 
     .challenge-title-class {
@@ -1918,7 +1918,6 @@ footer {
         color: white;
         padding: 1rem;
         font-size: 2em;
-
         border: 0.3rem solid rgb(155, 154, 154);
         background-color: rgba(253, 251, 251, 0.8);
         color: black;
