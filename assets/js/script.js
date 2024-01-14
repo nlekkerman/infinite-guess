@@ -989,18 +989,23 @@ function resizeAllImages(newWidth, newHeight) {
 }
 
 function displayHighScores() {
-    const highScore = document.getElementById('high-score-paragraph');
+    const highScoreElement = document.getElementById('high-score-paragraph');
     const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
-    const score = bestScores[0].score;
-    highScore.innerHTML = '';
-    bestScores.sort((a, b) => b.score - a.score);
 
+    // Check if the array is not empty before accessing the first element
     if (bestScores.length > 0) {
-        highScore.textContent = score;
-    }  else {
-        highScore.textContent = 100;
+        // Sort bestScores in descending order
+        bestScores.sort((a, b) => b.score - a.score);
+
+        // Display the highest score
+        const highestScore = bestScores[0].score;
+        highScoreElement.textContent = highestScore;
+    } else {
+        // Handle the case when there are no best scores
+        highScoreElement.textContent = 'No high scores yet.';
     }
 }
+
 
 function displayHighScoresForDashboard() {
     const highScore = document.getElementById('the-best-score-dashboard');
