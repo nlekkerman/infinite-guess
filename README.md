@@ -196,7 +196,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - When the Turbo Bonus Game is initiated, a timer will appear and countdown from 20 seconds to 0.
   - The timer will blink in red during the last 10 seconds, adding an extra layer of intensity to the game.
 
-    ![Bonus timer Screenshot](assets/images/screenshots/bonus-timer-screenshot.png![Bonus timer red Screenshot](assets/images/screenshots/bonus-timer-red-screenshot.png)
+    ![Bonus timer Screenshot](assets/images/screenshots/bonus-timer-screenshot.png)![Bonus timer red Screenshot](assets/images/screenshots/bonus-timer-red-screenshot.png)
 
 
 - **Exit Button:**
