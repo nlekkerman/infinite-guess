@@ -32,7 +32,7 @@ let colorIndex = 0;
     const saveGameButton = document.getElementById('save-game-button');
 
     const exitSaveGameBtn = document.getElementById('exit-save-game-button');
-    const startGameBtn = document.getElementById('start-game-btn');
+    const startGameBtn = document.getElementById('start-game-button');
 
     const declineChallengeButton = document.getElementById('decline-button');
     const acceptChallengeButton = document.getElementById('accept-button');
@@ -50,10 +50,10 @@ let colorIndex = 0;
     const mysterySound = document.getElementById('mystery-sound');
 
 
-    const exitHighscoreDashboardButton = document.getElementById('exit-welcome-highscore-rules');
-    const exitRulesDashboardButton = document.getElementById('exit-welcome-rules-instruction');
+    const exitHighscoreDashboardButton = document.getElementById('exit-welcome-highscore');
+    const exitRulesDashboardButton = document.getElementById('exit-welcome-rules');
 
-    const seeHighscoreDashboardButton = document.getElementById('welcome-rules-screen');
+    const seeHighscoreDashboardButton = document.getElementById('highscore-button-container');
     const seeRulesDashboardButton = document.getElementById('rules-button-container');
 
     const welcomeSection = document.getElementById('welcome-screen-section');
@@ -230,7 +230,7 @@ let colorIndex = 0;
     seeRulesDashboardButton.addEventListener('click', function () {
 
         const displaysRules = document.getElementById('welcome-rules-screen');
-        const displayCloseButton = document.getElementById('exit-welcome-rules-instruction');
+        const displayCloseButton = document.getElementById('exit-welcome-rules');
         const hideIcons = document.getElementById('icons-for-welcome-screen-container');
         const rules = document.getElementById('rules-container');
         rules.style.display = 'block';
@@ -410,6 +410,7 @@ let colorIndex = 0;
         element.style.color = "white";
         element.style.padding = '5px';
         element.style.fontWeight = "700";
+        element.style.top = "0";
         element.style.fontFamily = "Acme";
     }
 

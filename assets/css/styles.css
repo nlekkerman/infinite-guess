@@ -91,6 +91,7 @@ button {
     border-radius: 25px;
     cursor: pointer;
 }
+
 /*PLAYGROUND SECTION*/
 #playground-section {
     flex: 1;
@@ -296,6 +297,7 @@ button {
     position: absolute;
     top: 50%;
     left: 50%;
+    margin-top: 1.2em;
     transform: translate(-50%, -50%);
 }
 
@@ -330,13 +332,13 @@ button {
     font-family: 'Acme', sans-serif;
     font-weight: 500;
     font-size: 1.7rem;
-   border: 3px solid rgb(0, 0, 0);
-   background-color: white;
-   width: 3rem;
-   text-align: center;
-   margin-top: 5px;
-   margin-left: 5px;
-   margin-bottom: 5px;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: white;
+    width: 3rem;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 
 /* SOUND CONTROL AND QUIT&SAVE*/
@@ -432,9 +434,10 @@ button {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     margin-top: 5px;
-   
+
 
 }
+
 .theme-link {
     margin-right: 10px;
     text-decoration: none;
@@ -530,11 +533,11 @@ button {
     background-color: rgba(253, 251, 251, 1);
 }
 
-#accept-button{
+#accept-button {
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
 }
 
-#decline-button{
+#decline-button {
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
 }
 
@@ -598,14 +601,14 @@ button {
     background-color: rgba(253, 251, 251, 0.9);
 
 }
-#choose-title-container{
+
+#choose-title-container {
     border: 0.5rem solid rgb(255, 255, 255);
-    margin:  auto;
+    margin: auto;
     border-radius: 5px;
-width: 90%;
-
-
+    width: 90%;
 }
+
 #challenge h2 {
     padding: 1rem;
     font-size: 2rem;
@@ -639,14 +642,17 @@ width: 90%;
     border-radius: 15px;
     font-size: 2rem;
 }
-#option-one-background{
+
+#option-one-background {
     box-shadow: 0 8px 1rem rgba(23, 23, 0, 0.5);
 
 }
-#option-two-background{
+
+#option-two-background {
     box-shadow: 0 8px 1rem rgba(23, 23, 0, 0.5);
 
 }
+
 #option-one-number {
     padding: 10px;
     border-radius: 15px;
@@ -654,7 +660,7 @@ width: 90%;
     font-size: 3rem;
     color: white;
     display: none;
-    
+
 }
 
 #option-two-number {
@@ -683,9 +689,10 @@ width: 90%;
     display: none;
     background-color: rgba(253, 251, 251, 0.9);
 }
+
 #challenge-score-display h3 {
     border-radius: 1rem;
-    margin: 35% 0.5rem 0; 
+    margin: 35% 0.5rem 0;
     color: black;
     font-family: 'Acme';
     font-size: 1.3rem;
@@ -806,10 +813,12 @@ width: 90%;
     border-radius: 25px;
     color: black;
 }
-#turbo-score-content h2{
+
+#turbo-score-content h2 {
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
 
 }
+
 #title-bonus-container {
     margin: 1rem auto;
     font-family: 'Cabin';
@@ -842,8 +851,11 @@ width: 90%;
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     border-radius: 50%;
 }
-#exit-turbo-button{    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+
+#exit-turbo-button {
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
 }
+
 .theme-link.active {
     background-color: rgba(131, 2, 54, 0.7);
     border-right: 1px solid white;
@@ -866,7 +878,7 @@ width: 90%;
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
 }
 
-#start-turbo-bonus-game-button{
+#start-turbo-bonus-game-button {
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
 
 }
@@ -940,8 +952,9 @@ width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
-   
+
 }
+
 #save-game-screen-section {
     display: flex;
     align-items: center;
@@ -993,7 +1006,7 @@ h1 {
     right: 0;
 }
 
-#control-container h6{
+#control-container h6 {
     display: none;
 }
 
@@ -1037,8 +1050,8 @@ h1 {
     font-size: 1.9rem;
     font-weight: 700;
     font-family: 'Acme';
-   width: 80%;
-   margin: 0 auto;
+    width: 80%;
+    margin: 0 auto;
     border-radius: 15px;
     flex-direction: column;
     color: black;
@@ -1047,7 +1060,7 @@ h1 {
     border: 0.3rem solid rgb(155, 154, 154);
 }
 
-#start-game-btn {
+#start-game-button {
     margin-bottom: 5rem;
     width: 9em;
     margin: 0 auto;
@@ -1181,7 +1194,7 @@ h1 {
     border: 0.3rem solid rgb(155, 154, 154)
 }
 
-#exit-welcome-highscore-instruction {
+#exit-welcome-highscore {
     margin-top: 2em;
     color: black;
     background-color: rgba(253, 251, 251, 0.8);
@@ -1224,7 +1237,7 @@ h1 {
 }
 
 #popup-container p {
-   margin-top: 3rem;
+    margin-top: 3rem;
     color: black;
     font-weight: 600;
     font-size: 2rem;
@@ -1245,7 +1258,7 @@ h1 {
     width: 3em;
 }
 
-#exit-welcome-rules-instruction {
+#exit-welcome-rules {
     display: none;
     margin: 0 auto;
     color: black;
@@ -1395,7 +1408,7 @@ footer {
 
 #settings::after {
     content: '';
-  
+
 }
 
 
@@ -1427,7 +1440,6 @@ footer {
 }
 
 
-
 /* Tablet layout */
 @media screen and (min-width: 768px) {
     #score-text {
@@ -1435,41 +1447,46 @@ footer {
         font-family: 'Acme', sans-serif;
         font-weight: 500;
         font-size: 1.7rem;
-       border: 3px solid rgb(0, 0, 0);
-       background-color: white;
-       width: 4rem;
-     
+        border: 3px solid rgb(0, 0, 0);
+        background-color: white;
+        width: 4rem;
+
     }
 
-    #welcome-container h2{
+    #welcome-container h2 {
         width: 50%;
         font-size: 2rem;
     }
+
     #welcome-rules-screen {
         display: none;
         padding: 20px;
         z-index: 3;
     }
-    
+
     #welcome-rules-screen h5 {
-      width: 50%;
-      margin: 0 auto;
-      margin-bottom: 20px;
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 20px;
     }
-   #exit-welcome-rules-instruction{
-    margin-top: 2rem;
-   }
+
+    #exit-welcome-rules {
+        margin-top: 2rem;
+    }
+
     #rules-container {
-      width: 80%;
-      height: 55%;
-      margin: 0 auto;
-      
+        width: 80%;
+        height: 55%;
+        margin: 0 auto;
+
     }
-    #welcome-highscore-screen h5{
+
+    #welcome-highscore-screen h5 {
         width: 40%;
         margin: 0 auto;
         border-radius: 50px;
     }
+
     .challenge-rules {
         border-radius: 25px;
         color: black;
@@ -1484,23 +1501,24 @@ footer {
         border: 0.3rem solid rgb(155, 154, 154);
         background-color: rgba(253, 251, 251, 0.7);
     }
+
     #challenge-score-display h3 {
         border-radius: 1rem;
-        margin: 20% 0.5rem 0; 
-     
+        margin: 20% 0.5rem 0;
+
     }
-    
-    
+
+
     #challenge-guess-result-message {
-    width: 70%;
-    margin: 0 auto;
+        width: 70%;
+        margin: 0 auto;
         margin-top: 20%;
     }
-    
+
     #challenge-button-close {
-        bottom: 15%; 
+        bottom: 15%;
     }
-    
+
     #right-wrong-text-with-video {
         display: flex;
         align-items: center;
@@ -1597,30 +1615,436 @@ footer {
     #icon-two {
         font-size: 5rem;
     }
+    #right-wrong-text {
+        margin-top: 2em;
+    }
 
 
+}
+
+@media screen and (max-width: 1000px)and (max-height: 500px) and (orientation: landscape) {
+
+    header {
+        justify-content: space-between;
+        padding: 10px 20px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        height: 3em;
+        background-color: rgba(243, 244, 247, 1);
+        z-index: 1000;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin: 0 auto;
+        margin-top: 0;
+    }
+
+    /* Main */
+    main {
+        flex: 1;
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #highscore-button-container {
+        width: 20%;
+
+    }
+
+    #rules-button-container {
+        width: 20%;
+        margin: 20px;
+
+    }
+
+    .dashboard-icons-class {
+        height: 2em;
+        width: 2em;
+    }
+
+    #highscore-button-container h4 {
+        font-size: 0.7rem;
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 3em;
+        margin-bottom: -2em;
+    }
+
+    #welcome-rules-screen h5 {
+        font-size: 1rem;
+        padding: 0.5rem;
+        margin-top: 5em;
+    }
+
+    #welcome-highscore-screen h5 {
+        font-size: 1.5rem;
+        padding: 0.5rem;
+        margin-top: 1em;
+    }
+
+    #start-game-button {
+
+        width: 9em;
+        margin: 0 auto;
+        box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+    }
+
+    #welcome-screen-section h2 {
+        font-size: 1.5rem;
+        margin-top: 4em;
+        display: none;
+    }
+
+    #the-best-score-dashboard {
+        font-size: 3rem;
+        
+    }
+
+    #rules-container {
+        width: 100%;
+        height: 35%;
+
+    }
+
+  
+
+   .best-score-title{
+    width: 30%;
+    margin:0 auto;
+   }
+
+   #popup-button{
+    left: 47%;
+   }
+
+   #score-form{
+    width: 100%;
+    height: 100%;
+    margin-top: 2.3em;
+    background-color: rgba(253, 251, 251, 0.9);
+   }
+
+   .save-score-title{
+    font-size: 2rem;
+    padding: 0 0.7rem ;
+   }
+.form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      
+
+}
+    #rules-button-container h4 {
+        font-size: 0.7rem;
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 3em;
+        margin-bottom: -2em;
+    }
+
+    #exit-welcome-rules{
+    margin-top: 0rem;
+        margin-bottom: -5em;
+    }
+
+    /* Wrap Container */
+    .fit-to-screen-container {
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #right-wrong-text-with-video {
+        height: 1em;
+        width: 100%;
+        align-items: center;
+    }
+
+    #video-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #right-wrong-text {
+        position: absolute;
+       margin-top: 1em;
+        left: 44%;
+        transform: translate(10%, 100%);
+    }
+
+    /* Playground Section */
+    #playground-section {
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+        position: relative;
+    }
+
+    #score-screen-number-div {
+        display: flex;
+        margin-top: 5px;
+        font-size: 1rem;
+        border: 1px solid white;
+        background-color: red;
+    }
+
+    #score-screen-number-div h3 {
+        font-size: 1rem;
+    }
+
+    #score-text {
+        font-size: 1rem;
+    }
+
+    #playground-section .message-text {
+        padding: 5px;
+        font-size: 1rem;
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    #buttons-container-div {
+        position: fixed;
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        background: none;
+        background-color: rgba(0, 0, 0, 0);
+        /* Black background with no transparency */
+        border: none;
+        bottom: 4rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #acceptance-container-div p {
+        margin: 0em auto;
+        padding: 1rem;
+        font-size: 2rem;
+        background-color: rgba(253, 251, 251, 0.9);
+        border-radius: 25px;
+    }
+
+    #minus-button {
+        position: absolute;
+        left: 0;
+        width: 1.5em;
+        height: 1.5em;
+        font-size: 3rem;
+    }
+
+    #plus-button {
+        position: absolute;
+        right: 0;
+        width: 1.5em;
+        height: 1.5em;
+        font-size: 3rem;
+    }
+
+    .challenge-title-class {
+        color: white;
+
+    }
+
+    #choose-title-container {
+        border: 0.5rem solid rgb(255, 255, 255);
+        margin: auto;
+        border-radius: 5px;
+        width: 40%;
+    }
+
+    #challenge h2 {
+        padding: 1rem;
+        font-size: 1.5rem;
+        border-radius: 5px;
+    }
+
+    #number-container-challenge {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 20px;
+        height: 100%;
+    }
+
+    .number-container-class {
+        width: 4em;
+        height: 6em;
+        display: flex;
+        justify-content: center;
+        border: 2px solid black;
+        align-items: center;
+        border-radius: 15px;
+        font-size: 2rem;
+        margin-bottom: 5em;
+    }
+
+    #option-one-background {
+        left: 0;
+    }
+
+    #playground-section #guessing-number-div {
+
+        width: 2em;
+        height: 2em;
+        font-size: 3rem;
+
+    }
+
+    #guessing-mystery-container {
+        height: 2em;
+        width: 2em;
+        border: 0.1em solid rgb(255, 255, 255);
+    }
+
+    #mystery-number::before {
+        content: '?';
+        font-size: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    #mystery-message-id {
+        position: absolute;
+        z-index: 1;
+        display: none;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 1);
+        width: 91%;
+        translate: 0px -20%;
+    }
+
+    #accept-challenge-section {
+        color: white;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        width: 100%;
+        max-height: 100%;
+        position: absolute;
+        z-index: 3;
+        background-color: rgba(253, 251, 251, 0.8);
+
+    }
+
+    #challenge-score-display h3 {
+        border-radius: 1rem;
+        margin: 9% 40px 0;
+    }
+
+    #challenge-button-close {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    #challenge-guess-result-message {
+        padding: 10px;
+        margin-top: 1rem;
+        width: 50%;
+    }
+
+    #title-bonus-container {
+        margin: 1em;
+        font-family: 'Cabin';
+        border: 2px solid white;
+        background-color: rgba(15, 57, 162, 0.5);
+        color: white;
+        padding: 1rem;
+        font-size: 2em;
+        border: 0.3rem solid rgb(155, 154, 154);
+        background-color: rgba(253, 251, 251, 0.8);
+        color: black;
+        box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+    }
+
+    #title-bonus-container {
+        padding: 0.4rem;
+        font-size: 0.7rem;
+        margin-top: 4em;
+    }
+
+    #turbo-bonus-rules-screen {
+        font-size: 1.2rem;
+        margin: 0 auto;
+        margin-top: 4em;
+        width: 40%;
+        padding: 0.5rem;
+        border-radius: 25px;
+
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1em;
+
+    }
+
+    @keyframes moveAnimation {
+
+        0%,
+        100% {
+            transform: translate(0, 0);
+        }
+
+        25% {
+            transform: translate(1em, 0.2em);
+        }
+
+        50% {
+            transform: translate(-1em, 0.2em);
+        }
+
+        75% {
+            transform: translate(1em, 0.2em);
+        }
+
+    }
 }
 
 /* Laptop layout */
 @media screen and (min-width: 1024px) {
 
-    #welcome-highscore-screen h5{
+    #welcome-highscore-screen h5 {
         width: 30%;
         margin: 0 auto;
         font-size: 2rem;
         padding: 0.5rem;
     }
-    #welcome-container h2{
+
+    #welcome-container h2 {
         width: 40%;
         font-size: 2.3rem;
     }
+
     #welcome-container h4 {
         font-size: 2rem;
         width: 70%;
         margin: 0 auto;
         margin-top: 2rem;
     }
-    #highscore-button-container,#rules-button-container  {
+
+    #highscore-button-container,
+    #rules-button-container {
         width: 30%;
         box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
         border: 0.3rem solid white;
@@ -1639,23 +2063,22 @@ footer {
         border: 0.3rem solid rgb(155, 154, 154);
         background-color: rgba(253, 251, 251, 0.7);
     }
+
     #challenge-score-display h3 {
         border-radius: 1rem;
-        margin: 15% 15rem 0; 
-     
+        margin: 15% 15rem 0;
     }
-    
-    
+
     #challenge-guess-result-message {
-    width: 70%;
-    margin: 0 auto;
+        width: 70%;
+        margin: 0 auto;
         margin-top: 15%;
     }
-    
+
     #challenge-button-close {
-        bottom: 15%; 
+        bottom: 15%;
     }
-    
+
     #playground-section .message-text {
         padding: 5px;
         margin: 20px;
@@ -1780,7 +2203,7 @@ footer {
         padding: 20px;
     }
 
-   #score-screen-number-div {
+    #score-screen-number-div {
         width: 8em;
         height: 2.5em;
     }
@@ -1790,17 +2213,20 @@ footer {
     }
 
 }
-@media screen and (min-width: 1439px){
-    #welcome-highscore-screen h5{
-      width: 25%;
+
+@media screen and (min-width: 1439px) {
+    #welcome-highscore-screen h5 {
+        width: 25%;
     }
-    #rules-container{
+
+    #rules-container {
         font-size: 1.7rem;
         max-height: 15em;
         height: 11.5em;
         width: 60%;
     }
 }
+
 @media screen and (min-width: 1801px) {
 
 
@@ -1946,7 +2372,7 @@ footer {
         padding: 20px;
     }
 
-   #score-screen-number-div {
+    #score-screen-number-div {
         width: 70px;
         height: 70px;
     }
@@ -2024,7 +2450,7 @@ footer {
         background-color: rgba(255, 255, 255, 1);
         border-radius: 50%;
         z-index: 1;
-    
+
     }
 
     #title-bonus-container {
@@ -2050,13 +2476,15 @@ footer {
     #exit-turbo-bonus-section div h5 {
         font-size: 3rem;
     }
+
     #turbo-score {
-    
+
         height: 4em;
         width: 4em;
         font-size: 4rem;
-     
+
     }
+
     #exit-turbo-bonus-section div h2 {
         padding: 2rem;
         background-color: rgba(253, 251, 251, 0.8);
@@ -2211,9 +2639,10 @@ footer {
         margin-top: 50%;
 
     }
+
     #challenge-score-display h3 {
         border-radius: 1rem;
-        margin: 25% auto 0; 
+        margin: 25% auto 0;
         color: black;
         font-family: 'Acme';
         font-size: 3rem;
@@ -2229,12 +2658,6 @@ footer {
         bottom: 10%;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 3rem;
-      
-    }
-    
-
-    #right-wrong-text {
         font-size: 3rem;
     }
 
@@ -2255,7 +2678,7 @@ footer {
         transform: translateX(-50%);
     }
 
-    #start-game-btn {
+    #start-game-button {
         position: fixed;
         bottom: 5%;
         left: 50%;
@@ -2278,19 +2701,21 @@ footer {
         border: 0.3rem solid rgb(155, 154, 154);
     }
 
-    #welcome-rules-screen{
+    #welcome-rules-screen {
         translate: 0% 0%;
     }
-    #rules-container{
+
+    #rules-container {
         font-size: 3rem;
         max-height: 15em;
         height: 11em;
     }
 
-    #rules-screen h5{
+    #rules-screen h5 {
         font-size: 4rem;
         width: 30%;
     }
+
     #rules-button-container {
         width: 25%;
         margin: 2em;
@@ -2309,29 +2734,29 @@ footer {
         width: 90%;
         margin: 1em auto;
     }
-  
+
     #highscore-button-container {
         width: 25%;
         border: 0.7rem solid rgb(247, 244, 244);
     }
 
-    #welcome-highscore-screen h5{
+    #welcome-highscore-screen h5 {
         font-size: 4rem;
         width: 30%;
         margin-bottom: 2em;
         margin: 0 auto;
-border-radius: 50px;
+        border-radius: 50px;
     }
-   
+
     #highscores-dashboard {
         max-height: 630px;
-       align-self: center;
+        align-self: center;
         overflow-y: scroll;
         padding: 10px;
     }
 
-    #the-best-score-dashboard{
-        font-size:8rem ;
+    #the-best-score-dashboard {
+        font-size: 8rem;
     }
 
     #popup-content {
@@ -2349,14 +2774,14 @@ border-radius: 50px;
         border-radius: 1em;
         height: 38em;
     }
-    
+
     #popup-container p {
-       margin-top: 9rem;
+        margin-top: 9rem;
         color: black;
         font-weight: 600;
         font-size: 4rem;
     }
-    
+
     #popup-button {
         position: fixed;
         bottom: 0;
@@ -2372,6 +2797,6 @@ border-radius: 50px;
         width: 5em;
         height: 3em;
     }
-   
-    
+
+
 }
