@@ -332,9 +332,8 @@ button {
     font-size: 1.7rem;
    border: 3px solid rgb(0, 0, 0);
    background-color: white;
-   width: 30%;
+   width: 3rem;
    text-align: center;
-   flex: 0.5;
    margin-top: 5px;
    margin-left: 5px;
    margin-bottom: 5px;
@@ -692,7 +691,7 @@ width: 90%;
     font-size: 1.3rem;
     padding: 0.5rem;
     background-color: rgba(253, 251, 251, 0.8);
-    box-shadow: 0 8px 1rem rgba(252, 252, 252, 0.2);
+    box-shadow: 0 8px 1rem rgba(5, 0, 0, 0.3);
     border: 0.2rem solid rgb(155, 154, 154);
 }
 
@@ -705,6 +704,8 @@ width: 90%;
     border: 2px solid white;
     margin: 5px;
     margin-top: 30%;
+    box-shadow: 0 8px 1rem rgba(5, 0, 0, 0.3);
+
 }
 
 #challenge-button-close {
@@ -718,13 +719,13 @@ width: 90%;
     padding: 15px 35px;
     color: black;
     background-color: rgba(253, 251, 251, 0.8);
-    box-shadow: 0 8px 1rem rgba(252, 252, 252, 0.2);
+    box-shadow: 0 8px 1rem rgba(5, 0, 0, 0.3);
     border: 0.2rem solid rgb(155, 154, 154);
 }
 
 
 /*Bonus section*/
-#bonus-screen-section {
+#turbo-bonus-screen-section {
     display: none;
     align-items: center;
     justify-content: center;
@@ -750,7 +751,7 @@ width: 90%;
 
 }
 
-#exit-turbo-section {
+#exit-turbo-bonus-section {
     display: none;
     align-items: center;
     justify-content: center;
@@ -768,7 +769,7 @@ width: 90%;
 }
 
 
-#exit-turbo-section div h5 {
+#exit-turbo-bonus-section div h5 {
     padding: 10px;
     background-color: rgba(95, 34, 1, 0.9);
     border-radius: 15px;
@@ -782,14 +783,13 @@ width: 90%;
 
 }
 
-#exit-turbo-section div h2 {
+#exit-turbo-bonus-section div h2 {
     padding: 5px 10px;
     background-color: rgba(253, 251, 251, 0.8);
     border-radius: 25px;
     color: black;
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     border: 0.3rem solid rgb(155, 154, 154);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 
 }
@@ -805,10 +805,11 @@ width: 90%;
     background-color: rgba(253, 251, 251, 0.5);
     border-radius: 25px;
     color: black;
+}
+#turbo-score-content h2{
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
 
 }
-
 #title-bonus-container {
     margin: 1rem auto;
     font-family: 'Cabin';
@@ -822,8 +823,6 @@ width: 90%;
     justify-content: center;
     position: fixed;
     top: calc(50% - 30%);
-    /* 2em below the center */
-
 }
 
 
@@ -840,10 +839,11 @@ width: 90%;
     background-color: rgba(253, 251, 251, 0.8);
     color: black;
     border: 0.3rem solid rgb(155, 154, 154);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     border-radius: 50%;
 }
-
+#exit-turbo-button{    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+}
 .theme-link.active {
     background-color: rgba(131, 2, 54, 0.7);
     border-right: 1px solid white;
@@ -864,6 +864,11 @@ width: 90%;
     background-color: rgba(253, 251, 251, 0.8);
     color: black;
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+}
+
+#start-turbo-bonus-game-button{
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+
 }
 
 /*exit button*/
@@ -937,7 +942,7 @@ width: 90%;
     justify-content: center;
    
 }
-#exit-game-screen {
+#save-game-screen-section {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -993,7 +998,7 @@ h1 {
 }
 
 /*welcome section*/
-#welcome-section {
+#welcome-screen-section {
     position: fixed;
     top: 0;
     left: 0;
@@ -1038,7 +1043,7 @@ h1 {
     flex-direction: column;
     color: black;
     background-color: rgba(253, 251, 251, 0.8);
-    box-shadow: 0 8px 1rem rgba(252, 252, 252, 0.2);
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     border: 0.3rem solid rgb(155, 154, 154);
 }
 
@@ -1046,10 +1051,12 @@ h1 {
     margin-bottom: 5rem;
     width: 9em;
     margin: 0 auto;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+
 
 }
 
-#icons-dash-container {
+#icons-for-welcome-screen-container {
     margin: 0px;
     text-align: center;
 }
@@ -1071,6 +1078,8 @@ h1 {
     justify-content: space-evenly;
     border: 3px solid white;
     border-radius: 15px;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+
 }
 
 #rules-button-container {
@@ -1085,9 +1094,11 @@ h1 {
     background-color: black;
     border: 3px solid white;
     border-radius: 15px;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+
 }
 
-#icons-dash-container>div {
+#icons-for-welcome-screen-container>div {
     display: inline-block;
 }
 
@@ -1095,13 +1106,13 @@ h1 {
     font-size: 24px;
 }
 
-#rules-screen {
+#welcome-rules-screen {
     display: none;
     padding: 20px;
     z-index: 3;
 }
 
-#rules-screen h5 {
+#welcome-rules-screen h5 {
     font-size: 2rem;
     color: black;
     padding: 15px;
@@ -1178,9 +1189,6 @@ h1 {
     border: 0.3rem solid rgb(155, 154, 154);
 }
 
-
-
-
 /*popup*/
 
 #popup-container {
@@ -1236,7 +1244,6 @@ h1 {
     box-shadow: 0 0 10px rgba(132, 0, 0, 0.2);
     width: 3em;
 }
-
 
 #exit-welcome-rules-instruction {
     display: none;
@@ -1423,18 +1430,28 @@ footer {
 
 /* Tablet layout */
 @media screen and (min-width: 768px) {
+    #score-text {
+        color: rgb(0, 0, 0);
+        font-family: 'Acme', sans-serif;
+        font-weight: 500;
+        font-size: 1.7rem;
+       border: 3px solid rgb(0, 0, 0);
+       background-color: white;
+       width: 4rem;
+     
+    }
 
     #welcome-container h2{
         width: 50%;
         font-size: 2rem;
     }
-    #rules-screen {
+    #welcome-rules-screen {
         display: none;
         padding: 20px;
         z-index: 3;
     }
     
-    #rules-screen h5 {
+    #welcome-rules-screen h5 {
       width: 50%;
       margin: 0 auto;
       margin-bottom: 20px;
@@ -1526,7 +1543,10 @@ footer {
         font-size: 2rem;
     }
 
-
+    #score-screen-number-div {
+        width: 8em;
+        height: 2.5em;
+    }
 
     #accept-challenge-section h2 {
         padding: 1rem;
@@ -1689,7 +1709,7 @@ footer {
         font-family: 'Acme', sans-serif;
         font-weight: 500;
         padding: 5px;
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         transform: translateZ(-100px);
         transition: transform 0.5s ease-in-out;
     }
@@ -1760,9 +1780,9 @@ footer {
         padding: 20px;
     }
 
-    #right-wrong-text-with-video #score-screen-number-div {
-        width: 70px;
-        height: 70px;
+   #score-screen-number-div {
+        width: 8em;
+        height: 2.5em;
     }
 
     #turbo-bonus-rules-screen {
@@ -1926,7 +1946,7 @@ footer {
         padding: 20px;
     }
 
-    #right-wrong-text-with-video #score-screen-number-div {
+   #score-screen-number-div {
         width: 70px;
         height: 70px;
     }
@@ -1943,7 +1963,8 @@ footer {
 
     #score-screen-number-div {
         display: flex;
-        width: 50%;
+        width: 7em;
+        margin-top: 10px;
         justify-content: center;
         align-items: center;
         align-self: center;
@@ -1965,11 +1986,21 @@ footer {
 }
 
 @media screen and (min-width: 2225px) {
+    #score-text {
+        font-size: 2rem;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    #score-screen-number-div h3 {
+        color: white;
+        font-size: 2.7rem;
+    }
+
     #playground-section #guessing-number-div {
         width: 6em;
         height: 6em;
         font-size: 6rem;
-
     }
 
     #guessing-mystery-container {
@@ -2016,7 +2047,7 @@ footer {
     }
 
 
-    #exit-turbo-section div h5 {
+    #exit-turbo-bonus-section div h5 {
         font-size: 3rem;
     }
     #turbo-score {
@@ -2026,7 +2057,7 @@ footer {
         font-size: 4rem;
      
     }
-    #exit-turbo-section div h2 {
+    #exit-turbo-bonus-section div h2 {
         padding: 2rem;
         background-color: rgba(253, 251, 251, 0.8);
         border-radius: 25px;
@@ -2037,8 +2068,6 @@ footer {
         font-size: 3rem;
 
     }
-
-
 
     #acceptance-container-div p {
         margin: 9em auto;
@@ -2226,8 +2255,6 @@ footer {
         transform: translateX(-50%);
     }
 
-  
-
     #start-game-btn {
         position: fixed;
         bottom: 5%;
@@ -2237,7 +2264,6 @@ footer {
         font-size: 4rem;
         margin: 0 auto;
         border: 0.5rem solid white;
-
     }
 
     .welcome-container {
@@ -2252,7 +2278,7 @@ footer {
         border: 0.3rem solid rgb(155, 154, 154);
     }
 
-    #rules-screen{
+    #welcome-rules-screen{
         translate: 0% 0%;
     }
     #rules-container{
@@ -2305,7 +2331,6 @@ border-radius: 50px;
     }
 
     #the-best-score-dashboard{
-
         font-size:8rem ;
     }
 
@@ -2323,7 +2348,6 @@ border-radius: 50px;
         transform: translate(-50%, -50%);
         border-radius: 1em;
         height: 38em;
-    
     }
     
     #popup-container p {
@@ -2348,5 +2372,6 @@ border-radius: 50px;
         width: 5em;
         height: 3em;
     }
+   
     
 }

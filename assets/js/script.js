@@ -28,7 +28,7 @@ let colorIndex = 0;
     const scoreText = document.getElementById('score-text');
 
     const exitGameBtn = document.getElementById('exit-game-button');
-    const saveGameSection = document.getElementById('exit-game-screen');
+    const saveGameSection = document.getElementById('save-game-screen-section');
     const saveGameButton = document.getElementById('save-game-button');
 
     const exitSaveGameBtn = document.getElementById('exit-save-game-button');
@@ -38,8 +38,8 @@ let colorIndex = 0;
     const acceptChallengeButton = document.getElementById('accept-button');
     const closeChallengeScreen = document.getElementById('challenge-button-close');
 
-    const startTurboGameButton = document.getElementById('action-button');
-    const exitTurboButton = document.getElementById('exit-turbo-btn');
+    const startTurboGameButton = document.getElementById('start-turbo-bonus-game-button');
+    const exitTurboButton = document.getElementById('exit-turbo-button');
 
     const challengeLeftChoice = document.getElementById('option-one-background');
     const challengeRightChoice = document.getElementById('option-two-background');
@@ -56,7 +56,7 @@ let colorIndex = 0;
     const seeHighscoreDashboardButton = document.getElementById('highscore-button-container');
     const seeRulesDashboardButton = document.getElementById('rules-button-container');
 
-    const welcomeSection = document.getElementById('welcome-section');
+    const welcomeSection = document.getElementById('welcome-screen-section');
     const scoreForm = document.getElementById('score-form');
     const bestScoreText = document.getElementById('best-score-paragraph');
 
@@ -219,7 +219,7 @@ let colorIndex = 0;
     /*See highscore on dashboard button*/
     seeHighscoreDashboardButton.addEventListener('click', function () {
         const wrapDivHighscores = document.getElementById('welcome-highscore-screen');
-        const hideIcons = document.getElementById('icons-dash-container');
+        const hideIcons = document.getElementById('icons-for-welcome-screen-container');
         wrapDivHighscores.style.display = 'block';
         hideIcons.style.display = 'none';
         displayHighScoresForDashboard();
@@ -231,7 +231,7 @@ let colorIndex = 0;
 
         const wrapDivRules = document.getElementById('rules-screen');
         const displayCloseButton = document.getElementById('exit-welcome-rules-instruction');
-        const hideIcons = document.getElementById('icons-dash-container');
+        const hideIcons = document.getElementById('icons-for-welcome-screen-container');
         const rules = document.getElementById('rules-container');
         rules.style.display = 'block';
         wrapDivRules.style.display = 'block';
@@ -246,7 +246,7 @@ let colorIndex = 0;
 
     /*Button to close high/best score on dashboard*/
     exitHighscoreDashboardButton.addEventListener('click', function () {
-        const hideIcons = document.getElementById('icons-dash-container');
+        const hideIcons = document.getElementById('icons-for-welcome-screen-container');
         hideIcons.style.display = 'block';
         const exitHigh = document.getElementById('welcome-highscore-screen');
         exitHigh.style.display = 'none';
@@ -255,7 +255,7 @@ let colorIndex = 0;
     exitRulesDashboardButton.addEventListener('click', function () {
         const rules = document.getElementById('rules-container');
         const rulesScreen = document.getElementById('rules-screen');
-        const hideIcons = document.getElementById('icons-dash-container');
+        const hideIcons = document.getElementById('icons-for-welcome-screen-container');
 
         hideIcons.style.display = 'block';
         rules.style.display = 'block';
@@ -279,7 +279,7 @@ let colorIndex = 0;
     startTurboGameButton.addEventListener('click', function () {
         isBonus = true;
         console.log(isBonus);
-        document.getElementById('bonus-screen-section').style.display = 'none';
+        document.getElementById('turbo-bonus-screen-section').style.display = 'none';
         let initialScore = parseInt(scoreText.textContent, 10);
         playButtonClickSound();
         playChaseMusic();
@@ -305,7 +305,7 @@ let colorIndex = 0;
                 } else {
                     timerElement.innerHTML = "Time's up!";
                     higherLowerTitle.innerHTML = "Higher or Lower";
-                    document.getElementById('exit-turbo-section').style.display = 'block';
+                    document.getElementById('exit-turbo-bonus-section').style.display = 'block';
                     timerElement.style.color = "black";
                     let finalScore = parseInt(scoreText.textContent, 10);
                     pauseAlarm();
@@ -361,7 +361,7 @@ let colorIndex = 0;
 
     // exit turbo game button
     exitTurboButton.addEventListener('click', function () {
-        const instruction = document.getElementById('exit-turbo-section');
+        const instruction = document.getElementById('exit-turbo-bonus-section');
         instruction.style.display = 'none';
         const timerElement = document.getElementById('timer');
         timerElement.style.backgroundColor = 'white';
@@ -459,7 +459,7 @@ let colorIndex = 0;
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
                 pauseBackgroundMusic();
-                document.getElementById('bonus-screen-section').style.display = 'block';
+                document.getElementById('turbo-bonus-screen-section').style.display = 'block';
                 resetConsecutiveCorrectAnswers();
             } else {
                 consecutiveCorrectAnswers++;
@@ -527,7 +527,7 @@ let colorIndex = 0;
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
                 pauseBackgroundMusic();
-                document.getElementById('bonus-screen-section').style.display = 'block';
+                document.getElementById('turbo-bonus-screen-section').style.display = 'block';
                 resetConsecutiveCorrectAnswers();
             } else {
 
@@ -558,7 +558,7 @@ let colorIndex = 0;
                 isBonus = true;
                 pauseBackgroundMusic();
                 playbonusMusic();
-                document.getElementById('bonus-screen-section').style.display = 'block';
+                document.getElementById('turbo-bonus-screen-section').style.display = 'block';
                 resetConsecutiveCorrectAnswers();
 
             } else {
@@ -925,6 +925,7 @@ let colorIndex = 0;
     function resetConsecutiveCorrectAnswers() {
         consecutiveCorrectAnswers = 0;
     }
+
     /** 
      * Checks if this is your best score
      * @param {number} score - The score to be checked.
@@ -1204,9 +1205,6 @@ document.addEventListener("DOMContentLoaded", function () {
             guessingNumber.style.opacity = 0.8;
             guessingNumber.style.color = "white";
             guessingNumber.style.border = '3px solid white';
-
-
-
         } else if (selectedThemeId === 'theme-fairy') {
             playground.style.backgroundImage = 'url("./assets/images/fairy-main-background.jpg")';
 
