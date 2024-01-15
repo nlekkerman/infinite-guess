@@ -2,13 +2,13 @@
 
 Welcome to **Infinite Guess**, a thrilling guessing number game where your intuition and strategy will be put to the test. Can you accurately predict whether the next number in the sequence is higher or lower? Let the challenge begin!
 
-![Am I Responsive Screenshot](assets/images/screenshots/am-i-responsive-sceenshot.png)
+![Am I Responsive Screenshot](docs/images/am-i-responsive-sceenshot.png)
 
 ### Getting Started
 
 To start playing Infinite Guess, simply click on the "Start Game" button and let the guessing game thrill begin!
 
-![Am I Responsive Screenshot](assets/images/screenshots/start-game-screenshot.png)
+![Start button Screenshot](docs/images/start-game-screenshot.png)
 
 
 ### Bonus Games
@@ -29,25 +29,23 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
 - **Welcome to Infinite Guess!**
   - Access the welcome screen with a dashboard at the beginning of the game.
-  - Explore various options, including checking your high score and reading the game rules.![Am I Responsive Screenshot](assets/images/screenshots/welcome-screen-screenshot.png)
+  - Explore various options, including checking your high score and reading the game rules.![Welcome screen Screenshot](docs/images/welcome-screen-screenshot.png)
 
 
 - **Check Your High Score:**
   - Click on the high scores icon to view your best score.
   - Compete with yourself and aim to beat your own records.
   
-  ![Am I Responsive Screenshot](assets/images/screenshots/best-score-screenshot.png)
+  ![Best score for welcome screen Screenshot](docs/images/best-score-screenshot.png)
 
 - **Learn the Rules:**
   - Click on the rules icon to access detailed game instructions.
   - Understand how the scoring system works and master the art of predicting numbers.
   
-  ![Am I Responsive Screenshot](assets/images/screenshots/rules-screenshot.png)
+  ![Rules  for welcome screen Screenshot](docs/images/rules-screenshot.png)
 
-- **Get Ready to Play:**
+- **Start to Play:**
   - Press the "Start Game" button to kick off the guessing number challenge.
-  
-  ![Am I Responsive Screenshot](assets/images/screenshots/start-game-screenshot.png)
 
 
 ### Main Playground:
@@ -56,19 +54,19 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - Keep track of your current score on the top of the main playground section.
   - Monitor your progress as you make guesses and face various challenges.
   
-  ![Am I Responsive Screenshot](assets/images/screenshots/score-screenshot.png)
+  ![Score display Screenshot](docs/images/score-screenshot.png)
 
 - **Background Video:**
   - Enjoy an immersive gaming experience with a dynamic video background that sets the tone for the game.
   
-  ![Am I Responsive Screenshot](assets/images/screenshots/video-screenshot.png)
+  ![Video header Screenshot](docs/images/video-screenshot.png)
 
 - **Answer Text:**
   - The answer text is prominently displayed, providing feedback on the correctness of your guess.
   - When your guess is correct, the answer text turns green for visual confirmation.
   - If your guess is incorrect, the answer text turns red to indicate a wrong prediction.
 
-  ![Am I Responsive Screenshot](assets/images/screenshots/correc-wrong-message-header-screenshot.png)
+  ![Correct or Wrong message Screenshot](docs/images/correc-wrong-message-header-screenshot.png)
 
 ### Guessing Number
 
@@ -76,31 +74,22 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - You'll use this number as a reference to decide whether the next number will be higher or lower.
 - Number is in motion.
 
- ![Am I Responsive Screenshot](assets/images/screenshots/guessing-number-screenshot.png)
+ ![Guessing number Screenshot](docs/images/guessing-number-screenshot.png)
 
 - **Mystery Number:** After ten attempts, a question mark will be displayed above the guessing number, covering it completely.
   - Upon triggering this feature,pecial message will be displayed with instructions on how to proceed. Pay attention to the guidance provided to enhance your gaming experience.
   -After you guessed it will be displayed another message with value of the Mystery number.
 
 
- ![Am I Responsive Screenshot](assets/images/screenshots/mystery-number-screenshoot.png)
-
-### Challenge Screen Features:
-
-- **First Challenge: Double or Nothing:**
-  - When triggered, the first opens challenge screen 
-   with instructions abot challenge game."
-
- ![Am I Responsive Screenshot](assets/images/screenshots/challenge-screen-screenshot.png)
-
+ ![Mystery number Screenshot](docs/images/mystery-number-screenshoot.png)
 
   ### Challenge Acceptance Screen Features:
 
 - **Challenge Confirmation:**
-  - Upon triggering a challenge, the challenge acceptance screen appears.
+  - Upon triggering se challenge, the challenge acceptance screen appears.
   - Information about the challenge, including rules and potential rewards for a correct answer, is displayed.
 
-  ![Am I Responsive Screenshot](assets/images/screenshots/challenge-acceptance-screenshot.png)
+  ![Challenge acceptance screen Screenshot](docs/images/challenge-acceptance-screenshot.png)
 
 - **Challenge Invitation:**
   - Players receive an invitation to accept or decline the challenge.
@@ -123,7 +112,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - In a special challenge round, two numbers are hidden behind "cards."
   - The hidden numbers blink, creating anticipation and excitement for the player.
 
- ![Am I Responsive Screenshot](assets/images/screenshots/challenge-screen-screenshot.png)
+ ![Challenge screen Screenshot](docs/images/challenge-screen-screenshot.png)
  
 - **Visual Cues:**
   - The hidden numbers are revealed when clicked, each with a distinct visual effect.
@@ -137,7 +126,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - After completing the Hidden Numbers Challenge, a result screen is triggered.
   - The result screen displays a title and informative text based on whether the player's answer is correct or incorrect.
   
-   ![Challenge wrong answer screenshot](assets/images/screenshots/challenge-wrong-answer-screen-screenshot.png)![Challenge wrong answer screenshot](assets/images/screenshots/challenge-correct-answer-screen-screenshot.png)
+   ![Challenge wrong answer screenshot](docs/images/challenge-wrong-answer-screen-screenshot.png)![Challenge correct answer screenshot](docs/images/challenge-correct-answer-screen-screenshot.png)
 
 
 - **Informative Text:**
@@ -161,7 +150,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - The Bonus Round begins with the "Welcome to Bonus" screen.
   - This screen includes a welcome note, rules, and options to start the bonus challenge.
 
-   ![Bonus rules Screenshot](assets/images/screenshots/bonus-rules-screenshot.png)
+   ![Bonus rules Screenshot](docs/images/bonus-rules-screenshot.png)
 
 - **Rules Overview:**
   - Players can review specific rules related to the bonus challenge.
@@ -182,7 +171,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   
 ### Turbo bonus Result Screen Features:
  
-   ![Bonus result Screenshot](assets/images/screenshots/bonus-result-screenshot.png)
+   ![Bonus result Screenshot](docs/images/bonus-result-screenshot.png)
 
 - **Turbo bonus Result Screen:**
   - After completing the Bonus Round, players are presented with a dedicated result screen.
@@ -196,7 +185,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - When the Turbo Bonus Game is initiated, a timer will appear and countdown from 20 seconds to 0.
   - The timer will blink in red during the last 10 seconds, adding an extra layer of intensity to the game.
 
-    ![Bonus timer Screenshot](assets/images/screenshots/bonus-timer-screenshot.png)![Bonus timer red Screenshot](assets/images/screenshots/bonus-timer-red-screenshot.png)
+    ![Bonus timer Screenshot](docs/images/bonus-timer-screenshot.png)![Bonus timer red Screenshot](docs/images/bonus-timer-red-screenshot.png)
 
 
 - **Exit Button:**
@@ -218,7 +207,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
 ### Footer:
 
-   ![Footer Screenshot](assets/images/screenshots/footer-screenshot.png)
+   ![Footer Screenshot](docs/images/footer-screenshot.png)
 
 - The footer displays essential information about the game, including the copyright notice.
 - Stay informed about the game's ownership and creation.
