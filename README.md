@@ -4,47 +4,44 @@ Welcome to **Infinite Guess**, a thrilling guessing number game where your intui
 
 ![Am I Responsive Screenshot](docs/images/am-i-responsive-sceenshot.png)
 
-### Start game
+## Start game
 
 To start playing Infinite Guess, simply click on the "Start Game" button and let the guessing game thrill begin!
 
 ![Start button Screenshot](docs/images/start-game-screenshot.png)
 
-### Bonus Games
+## Bonus Games
 
 - The Challenge Game is randomized, offering exciting and unexpected challenges.
 - The Turbo Bonus Game is triggered when the player achieves five correct answers in a row.
 - After 10 attempts, a Mystery Number challenge will be triggered, adding an element of surprise to your gameplay.
 
-
-### Saving High Scores
+## Saving High Scores
 
 - Only the highest score will be saved on the leaderboard.
 
+# Goals
 
-## Goals
-
-### Owner's Goals:
+## Owner's Goals:
 
 - Create an engaging and immersive guessing number game experience.
 - Encourage user retention through exciting bonus features like Turbo Bonus and Mystery Number challenges.
 - Provide customization options such as sound and theme settings to enhance user experience.
 
-### External User Goals:
+## External User Goals:
 
 - Enjoy a dynamic and challenging guessing number game with intuitive controls.
 - Experience additional excitement through bonus features like Turbo Bonus and Mystery Number challenges.
 
-## Features:
+# Features:
 
-### Welcome Screen and Dashboard:
+## Welcome Screen and Dashboard:
 
 - **Welcome to Infinite Guess!**
   - Access the welcome screen with a dashboard at the beginning of the game.
   - Explore various options, including checking your high score and reading the game rules.
   
   ![Welcome screen Screenshot](docs/images/welcome-screen-screenshot.png)
-
 
 - **Check Your High Score:**
   - Click on the high scores icon to view your best score.
@@ -61,8 +58,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - **Start to Play:**
   - Press the "Start Game" button to kick off the guessing number challenge.
 
-
-### Main Playground:
+## Main Playground:
 
 - **Score Monitoring:**
   - Keep track of your current score on the top of the main playground section.
@@ -75,7 +71,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   
     ![Video header Screenshot](docs/images/video-screenshot.png)
 
-  - **Exit Button:**
+- **Exit Button:**
   - A prominent "Exit" button is available on the result screen.
   - Players can choose to exit and or to save a game.
 
@@ -88,7 +84,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
   ![Correct or Wrong message Screenshot](docs/images/correc-wrong-message-header-screenshot.png)
 
-### Guessing Number
+## Guessing Number
 
 - The central element of the game screen displaying the current number in the sequence.
 - You'll use this number as a reference to decide whether the next number will be higher or lower.
@@ -97,16 +93,15 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
  ![Guessing number Screenshot](docs/images/guessing-number-screenshot.png)
 
 - **Mystery Number:** After ten attempts, a question mark will be displayed above the guessing number, covering it completely.
-  - Upon triggering this feature,pecial message will be displayed with instructions on how to proceed. Pay attention to the guidance provided to enhance your gaming experience.
-  -After you guessed it will be displayed another message with value of the Mystery number.
-
+  - Upon triggering this feature, a special message will be displayed with instructions on how to proceed. Pay attention to the guidance provided to enhance your gaming experience.
+  - After you guessed it will be displayed another message with the value of the Mystery number.
 
  ![Mystery number Screenshot](docs/images/mystery-number-screenshoot.png)
 
-  ### Challenge Acceptance Screen Features:
+## Challenge Acceptance Screen Features:
 
 - **Challenge Confirmation:**
-  - Upon triggering se challenge, the challenge acceptance screen appears.
+  - Upon triggering the challenge, the challenge acceptance screen appears.
   - Information about the challenge, including rules and potential rewards for a correct answer, is displayed.
 
   ![Challenge acceptance screen Screenshot](docs/images/challenge-acceptance-screenshot.png)
@@ -116,17 +111,14 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - The invitation includes details about the potential benefits of participating in the challenge.
 
 - **Reward Information:**
-  - Details about the potential reward for providing a correct answer are presented
-  same as waring what will happen if answer is wrong.
+  - Details about the potential reward for providing a correct answer are presented same as warning what will happen if the answer is wrong.
   - Players can assess the risk and reward before deciding to accept or decline the challenge.
 
 - **Accept and Decline Buttons:**
   - Two buttons, "Accept" and "Decline," are displayed at the bottom of the screen.
   - Players can choose to accept the challenge and proceed or decline and continue with regular gameplay.
 
-
-
-### Challenge Features:
+## Challenge Features:
 
 - **Hidden Numbers Challenge:**
   - In a special challenge round, two numbers are hidden behind "cards."
@@ -140,7 +132,9 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - Incorrect answers trigger a red background, signaling a wrong guess.
 
 - **Intense Music:**
-  - The challenge is accompanied by intense music and sounds### Challenge Result Screen Features:
+  - The challenge is accompanied by intense music and sounds.
+
+## Challenge Result Screen Features:
 
 - **Challenge Result Screen:**
   - After completing the Hidden Numbers Challenge, a result screen is triggered.
@@ -150,18 +144,14 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - If the player's answer is correct, the screen provides positive feedback, acknowledging their success.
   - If the player's answer is incorrect, the screen offers guidance or encouragement for the next attempt.
 
-  
-   ![Challenge wrong answer screenshot](docs/images/challenge-wrong-answer-screen-screenshot.png)![Challenge correct answer screenshot](docs/images/challenge-correct-answer-screen-screenshot.png)
-
+  ![Challenge wrong answer screenshot](docs/images/challenge-wrong-answer-screen-screenshot.png)![Challenge correct answer screenshot](docs/images/challenge-correct-answer-screen-screenshot.png)
 
 - **OK Button:**
   - An "OK" button is available to close the challenge result screen.
-  - Players can proceed to continue their gameplay after reviewing the results.
-, enhancing the suspenseful atmosphere.
+  - Players can proceed to continue their gameplay after reviewing the results, enhancing the suspenseful atmosphere.
   - The audio experience intensifies the gaming sensation during the challenge.
 
-
-### Bonus Round Features:
+## Bonus Round Features:
 
 - **Bonus Round Activation:**
   - Upon successfully guessing five numbers in a row, the Bonus Round is triggered.
@@ -189,8 +179,7 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - In the last ten seconds of the bonus round, the guessing numbers blink in red, creating urgency.
   - The visual cue signals the final moments of the bonus challenge.
 
-  
-### Turbo bonus Result Screen Features:
+## Turbo bonus Result Screen Features:
  
    ![Bonus result Screenshot](docs/images/bonus-result-screenshot.png)
 
@@ -208,12 +197,11 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
     ![Bonus timer Screenshot](docs/images/bonus-timer-screenshot.png)![Bonus timer red Screenshot](docs/images/bonus-timer-red-screenshot.png)
 
-
   - **Correct Answer:**
-  - During the Turbo Bonus Game,a correct answer will earn you an additional 2 points for the Mystery Number will be awarded with 10 points.
+  - During the Turbo Bonus Game, a correct answer will earn you an additional 2 points, and for the Mystery Number, you will be awarded 10 points.
 
 - **Incorrect Answer:**
-  - If the guess for the Turbo Bonus is incorrect, 2 points will be deducted, same if is Mystery Number.
+  - If the guess for the Turbo Bonus is incorrect, 2 points will be deducted, same as if it is the Mystery Number.
 
   - **Music and Alert Tone (Turbo Bonus):**
   - Extra pressure is added during the last 10 seconds of the Turbo Bonus Game.
@@ -226,18 +214,17 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
 ![Default Theme screenshot](docs/images/default-theme-screenshot.png)![Space Theme screenshot](docs/images/space-theme-screenshot.png)![Earth Theme screenshot](docs/images/earth-theme-screenshot.png)![Fairy Theme screenshot](docs/images/fairy-theme-screenshot.png)
 
-
-### Footer:
+## Footer:
 
    ![Footer Screenshot](docs/images/footer-screenshot.png)
 
 - The footer displays essential information about the game, including the copyright notice.
 - Stay informed about the game's ownership and creation.
 
-## Future Features:
+# Future Features:
 
 - **Adaptive Difficulty System:**
-- Introduce a dynamic difficulty system that automatically adjusts based on the player's performance.As players progress and demonstrate mastery, the game dynamically increases the challenge to maintain engagement and excitement.
+  - Introduce a dynamic difficulty system that automatically adjusts based on the player's performance. As players progress and demonstrate mastery, the game dynamically increases the challenge to maintain engagement and excitement.
 
 - **Manual Difficulty Selection:**
   - Empower players with the ability to manually choose their preferred difficulty level.
@@ -302,19 +289,19 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 ## Project Technologies
 
 - **Development Tools**
-- Visual Studio (VS)
-- Git
-- GitHub
+  - Visual Studio (VS)
+  - Git
+  - GitHub
 
 - **Artificial Intelligence**
-- ChatGPT
+  - ChatGPT
 
 - **Design and Graphics**
-- Adobe Photoshop
-- Windows Paint
-- Ableton
+  - Adobe Photoshop
+  - Windows Paint
+  - Ableton
 
 - **Web Technologies**
-- HTML
-- CSS
-- JavaScript
+  - HTML
+  - CSS
+  - JavaScript
