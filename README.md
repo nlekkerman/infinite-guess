@@ -4,12 +4,11 @@ Welcome to **Infinite Guess**, a thrilling guessing number game where your intui
 
 ![Am I Responsive Screenshot](docs/images/am-i-responsive-sceenshot.png)
 
-### Getting Started
+### Start game
 
 To start playing Infinite Guess, simply click on the "Start Game" button and let the guessing game thrill begin!
 
 ![Start button Screenshot](docs/images/start-game-screenshot.png)
-
 
 ### Bonus Games
 
@@ -23,13 +22,28 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - Only the highest score will be saved on the leaderboard.
 
 
+## Goals
+
+### Owner's Goals:
+
+- Create an engaging and immersive guessing number game experience.
+- Encourage user retention through exciting bonus features like Turbo Bonus and Mystery Number challenges.
+- Provide customization options such as sound and theme settings to enhance user experience.
+
+### External User Goals:
+
+- Enjoy a dynamic and challenging guessing number game with intuitive controls.
+- Experience additional excitement through bonus features like Turbo Bonus and Mystery Number challenges.
+
 ## Features:
 
 ### Welcome Screen and Dashboard:
 
 - **Welcome to Infinite Guess!**
   - Access the welcome screen with a dashboard at the beginning of the game.
-  - Explore various options, including checking your high score and reading the game rules.![Welcome screen Screenshot](docs/images/welcome-screen-screenshot.png)
+  - Explore various options, including checking your high score and reading the game rules.
+  
+  ![Welcome screen Screenshot](docs/images/welcome-screen-screenshot.png)
 
 
 - **Check Your High Score:**
@@ -124,14 +138,15 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
 - **Challenge Result Screen:**
   - After completing the Hidden Numbers Challenge, a result screen is triggered.
-  - The result screen displays a title and informative text based on whether the player's answer is correct or incorrect.
-  
-   ![Challenge wrong answer screenshot](docs/images/challenge-wrong-answer-screen-screenshot.png)![Challenge correct answer screenshot](docs/images/challenge-correct-answer-screen-screenshot.png)
-
+  - The result screen dynamically changes background colors based on the player's performance.
 
 - **Informative Text:**
   - If the player's answer is correct, the screen provides positive feedback, acknowledging their success.
   - If the player's answer is incorrect, the screen offers guidance or encouragement for the next attempt.
+
+  
+   ![Challenge wrong answer screenshot](docs/images/challenge-wrong-answer-screen-screenshot.png)![Challenge correct answer screenshot](docs/images/challenge-correct-answer-screen-screenshot.png)
+
 
 - **OK Button:**
   - An "OK" button is available to close the challenge result screen.
@@ -203,6 +218,11 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - Experience heightened tension with a specific alert tone.
   - The red light will blink on the number and timer, creating a thrilling atmosphere.
 
+- **Customizable Themes:**
+  - Allow users to personalize their gaming experience with customizable themes.
+  - Choose from a variety of color schemes, backgrounds, and visual elements to tailor the game's look.
+
+![Default Theme screenshot](docs/images/default-theme-screenshot.png)![Space Theme screenshot](docs/images/space-theme-screenshot.png)![Earth Theme screenshot](docs/images/earth-theme-screenshot.png)![Fairy Theme screenshot](docs/images/fairy-theme-screenshot.png)
 
 
 ### Footer:
