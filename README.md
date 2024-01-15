@@ -73,7 +73,13 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 - **Background Video:**
   - Enjoy an immersive gaming experience with a dynamic video background that sets the tone for the game.
   
-  ![Video header Screenshot](docs/images/video-screenshot.png)
+    ![Video header Screenshot](docs/images/video-screenshot.png)
+
+  - **Exit Button:**
+  - A prominent "Exit" button is available on the result screen.
+  - Players can choose to exit and or to save a game.
+
+  ![Exit button Screenshot](docs/images/ex)
 
 - **Answer Text:**
   - The answer text is prominently displayed, providing feedback on the correctness of your guess.
@@ -203,10 +209,6 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
     ![Bonus timer Screenshot](docs/images/bonus-timer-screenshot.png)![Bonus timer red Screenshot](docs/images/bonus-timer-red-screenshot.png)
 
 
-- **Exit Button:**
-  - A prominent "Exit" button is available on the result screen.
-  - Players can choose to exit the bonus result screen and return to the main gameplay.
-
   - **Correct Answer:**
   - During the Turbo Bonus Game,a correct answer will earn you an additional 2 points for the Mystery Number will be awarded with 10 points.
 
@@ -231,4 +233,41 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
 
 - The footer displays essential information about the game, including the copyright notice.
 - Stay informed about the game's ownership and creation.
+
+## Future Features:
+
+- **Adaptive Difficulty System:**
+- Introduce a dynamic difficulty system that automatically adjusts based on the player's performance.As players progress and demonstrate mastery, the game dynamically increases the challenge to maintain engagement and excitement.
+
+- **Manual Difficulty Selection:**
+  - Empower players with the ability to manually choose their preferred difficulty level.
+  - Whether you're a beginner seeking a relaxed experience or a seasoned player craving a more intense challenge, customize the game according to individual preferences.
+
+  - **How it Works:**
+    - The adaptive difficulty system ensures a seamless transition between manual and dynamic difficulty modes.
+    - Players can switch between manual and adaptive modes at any time, allowing for a flexible and personalized gaming experience.
+
+- **Mission-Based Progression:**
+  - Implement a mission-based progression system, offering players a structured way to advance through the game.
+  - Completing missions unlocks new features, challenges, or customization options, providing a sense of accomplishment.
+
+- **Global Competition:**
+  - Introduce a Global Highscore System that allows players to compete on a worldwide leaderboard.
+  - Players can see how their skills measure up against participants from various regions, adding a competitive and global aspect to the game.
+
+- **Weekly and Monthly Challenges:**
+  - Implement weekly and monthly challenges within the Global Highscore System.
+  - Players can strive to achieve top rankings in specially curated challenges, each with unique objectives and rewards.
+
+- **Rewards for Top Performers:**
+  - Recognize and reward top-performing players on the global leaderboard.
+  - Exclusive in-game rewards, badges, or other virtual incentives can be granted to those who consistently excel and secure top positions.
+
+- **Friend Leaderboards:**
+  - Extend the competition to friends by incorporating Friend Leaderboards.
+  - Challenge your friends directly and compare your scores within a more intimate and personalized leaderboard.
+
+- **Social Integration:**
+  - Allow players to share their high scores and achievements on social media platforms.
+  - Foster a sense of community and friendly competition by encouraging players to showcase their accomplishments to a wider audience.
 

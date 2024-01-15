@@ -50,10 +50,10 @@ let colorIndex = 0;
     const mysterySound = document.getElementById('mystery-sound');
 
 
-    const exitHighscoreDashboardButton = document.getElementById('exit-welcome-highscore-instruction');
+    const exitHighscoreDashboardButton = document.getElementById('exit-welcome-highscore-rules');
     const exitRulesDashboardButton = document.getElementById('exit-welcome-rules-instruction');
 
-    const seeHighscoreDashboardButton = document.getElementById('highscore-button-container');
+    const seeHighscoreDashboardButton = document.getElementById('welcome-rules-screen');
     const seeRulesDashboardButton = document.getElementById('rules-button-container');
 
     const welcomeSection = document.getElementById('welcome-screen-section');
@@ -229,12 +229,12 @@ let colorIndex = 0;
 
     seeRulesDashboardButton.addEventListener('click', function () {
 
-        const wrapDivRules = document.getElementById('rules-screen');
+        const displaysRules = document.getElementById('welcome-rules-screen');
         const displayCloseButton = document.getElementById('exit-welcome-rules-instruction');
         const hideIcons = document.getElementById('icons-for-welcome-screen-container');
         const rules = document.getElementById('rules-container');
         rules.style.display = 'block';
-        wrapDivRules.style.display = 'block';
+        displaysRules.style.display = 'block';
         displayCloseButton.style.display = 'block';
         hideIcons.style.display = 'none';
     });
@@ -254,7 +254,7 @@ let colorIndex = 0;
     /*Button to close rules on dashboard*/
     exitRulesDashboardButton.addEventListener('click', function () {
         const rules = document.getElementById('rules-container');
-        const rulesScreen = document.getElementById('rules-screen');
+        const rulesScreen = document.getElementById('welcome-rules-screen');
         const hideIcons = document.getElementById('icons-for-welcome-screen-container');
 
         hideIcons.style.display = 'block';
