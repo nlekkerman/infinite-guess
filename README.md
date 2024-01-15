@@ -271,3 +271,50 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - Allow players to share their high scores and achievements on social media platforms.
   - Foster a sense of community and friendly competition by encouraging players to showcase their accomplishments to a wider audience.
 
+# Color Palette
+
+## Background Colors
+
+- **Primary Background Color:** `rgba(253, 251, 251, 0.8)`
+- **Secondary Background Color:** `rgba(253, 251, 251, 0.7)`
+
+## Text Colors
+
+- **Primary Text Color:** `black`
+- **Secondary Text Color:** `rgb(128, 128, 128)`
+
+## Box Shadows
+
+- **Box Shadow Color:** `rgba(5, 0, 0, 0.3)`
+
+## Outlines
+
+- **Outline Color:** `rgb(155, 154, 154)`
+
+## Buttons
+
+- **Button Text Color:** `black`
+- **Button Background Color:** `rgba(253, 251, 251, 0.8)`
+- **Button Box Shadow:** `0 8px 1rem rgba(5, 0, 0, 0.3)`
+- **Button Border Color:** `rgb(155, 154, 154)`
+- **Exit Button:** `red`
+
+## Project Technologies
+
+- **Development Tools**
+- Visual Studio (VS)
+- Git
+- GitHub
+
+- **Artificial Intelligence**
+- ChatGPT
+
+- **Design and Graphics**
+- Adobe Photoshop
+- Windows Paint
+- Ableton
+
+- **Web Technologies**
+- HTML
+- CSS
+- JavaScript
