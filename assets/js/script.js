@@ -6,13 +6,17 @@ document.addEventListener('DOMContentLoaded', function () {
     let colors = ["red", "pink", "purple", "blue", "orange", "yellow"];
     let colorIndex = 0;
     let isSoundOn = false;
+    let isMusicOn = false;
+    let isMusicPlaying = false;
+    let consecutiveCorrectAnswers = 0;
+    let isBonus = false;
 
-/**
- * SOUND CONTROL ELEMENTS: displaying controls and switchng on/off sound and music
- */
-    const soundControl = document.getElementById('dropdown-sound-control-and-theme');
-    const soundControlButton = document.getElementById('sound-on-off');
-    const musicControlButton = document.getElementById('music-on-off');
+    /**
+     * SOUND AND THEME CONTROL ELEMENTS: displaying dropdown controls and switchng on/off sound and music;
+     */
+    const soundAndThemeDropdownButton = document.getElementById('dropdown-sound-control-and-theme');
+    const soundControlButton = document.getElementById('sound-on-off-button');
+    const musicControlButton = document.getElementById('music-on-off-button');
 
     /**
      * MUSIC AND SOUND ELEMENTS: Triggering background music and game sounds. 
@@ -59,9 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const seeHighscoreDashboardButton = document.getElementById('highscore-button-container');
     const seeRulesDashboardButton = document.getElementById('rules-button-container');
 
-/**
- * SCREEN ELEMENTS: Used to navigate player though the game, opening and closing screens as game require
- */
+    /**
+     * SCREEN ELEMENTS: Used to navigate player though the game, opening and closing screens as game require
+     */
     const saveGameScreen = document.getElementById('save-game-screen-section');
     const acceptChallengeScreen = document.getElementById("accept-challenge-section");
     const welcomeScreen = document.getElementById('welcome-screen-section');
@@ -71,21 +75,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupButton = document.getElementById('popup-button');
 
 
-/**
- * FUNCTION CALLS: 
- * to downsize image resolution if is smalls screen,
- * initialise best score,
- * make cards blink in challenge
- */
+    /**
+     * FUNCTION CALLS: 
+     * to downsize image resolution if is smalls screen,
+     * initialise best score,
+     * make cards blink in challenge
+     */
     resizeAllImages(37.5, 25);
     initializeBestScore();
     setInterval(changeBackgroundColor, 200);
 
-
-    soundControl.addEventListener('click', function () {
-        soundControl.classList.toggle('active');
+    /**DROPDOWN CONTROL EVENT LISTENER:Toggle dropdown for theme and music when is active, hidde when is inactive
+     */
+    soundAndThemeDropdownButton.addEventListener('click', function () {
+        soundAndThemeDropdownButton.classList.toggle('active');
     });
-   
+
+    /**SOUND CONTROL EVENT LISTENER: Checking for status of isSOundOn in local storage,
+     *  turning on and off game sounds,
+     *  set icon green when is on and red when is off */
     soundControlButton.addEventListener('click', function () {
         isSoundOn = !isSoundOn;
         const icon = isSoundOn ? 'fa-volume-up' : 'fa-volume-mute';
@@ -100,7 +108,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    let isMusicOn = false;
+    /**MUSIC CONTROL EVENT LISTENER: Checking for status of isSOundOn in local storage,
+     *  turning on and off game sounds,
+     *  set icon green when is on and red when is off */
     musicControlButton.addEventListener('click', function () {
         isMusicOn = !isMusicOn;
 
@@ -120,85 +130,155 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         localStorage.setItem('isMusicOn', JSON.stringify(isMusicOn));
     });
-
-    let isMusicPlaying = false;
-
-    function playChaseMusic() {
+    /**
+     * Plays the turbo bonus music if music is turned on and it's not already playing.
+     * This function checks the state of the music and plays the turbo bonus music accordingly.
+     * It relies on the global variables isMusicOn and isMusicPlaying.
+     */
+    function playTurboBonusMusic() {
         if (isMusicOn && !isMusicPlaying) {
             turboBonusMusic.play();
             isMusicPlaying = true;
         }
     }
-
-    function playTenseMusic() {
+    /**
+     * Plays the challenge game music if music is on and it's not currently playing.
+     */
+    function playChallengeMusic() {
+        // Check if music is turned on and it's not currently playing
         if (isMusicOn && !isMusicPlaying) {
+            // Play the challenge game music
             challengeGameMusic.play();
+            // Set the music state to playing
             isMusicPlaying = true;
         }
     }
 
-    function stopChaseMusic() {
+    /**
+     *  Function to stop the chase music .
+     * This function checks if music is turned on and then pauses the turbo bonus music,
+     * sets the current time of the music to 0, and updates the music state to not playing.
+     */
+    function stopTurboBonusMusic() {
+        // Check if music is turned on
         if (isMusicOn) {
+            // Pause the turbo bonus music
             turboBonusMusic.pause();
+              // Set the current time of the music to 0
             turboBonusMusic.currentTime = 0;
+            // Update the music state to not playing
             isMusicPlaying = false;
         }
     }
-
+/**
+ * Function to play the background music.
+ * 
+ * This function checks if music is turned on and then plays the background music.
+ */
     function playBackgroundMusic() {
-
+            // Check if music is turned on
         if (isMusicOn) {
+            // Play the background music
             backgroundMusic.play();
         }
     }
 
-    // Function to play the alarm sound every second last 10 seconds
-    function playAlarm() {
-        const audio = document.getElementById("alarmAudio");
-        if (isSoundOn) {
-            audio.play();
-        }
-
+   /**
+ * Function to pause the background music.
+ * 
+ * This function pauses the background music if it is currently playing.
+ */
+function pauseBackgroundMusic() {
+    // Check if the background music element exists
+    if (backgroundMusic) {
+        // Pause the background music
+        backgroundMusic.pause();
     }
-    function pauseAlarm() {
-        const audio = document.getElementById("alarmAudio");
-        audio.pause();
+}
+
+  /**
+ * Function to play the alarm sound for last 10 second Turbo Bonus Game.
+ * 
+ * This function checks if sound is turned on and then plays the alarm sound.
+ */
+function playAlarmAlertSoundTimer() {
+    // Get the alarm audio element
+    const audio = document.getElementById("alarmAudio");
+    // Check if sound is turned on
+    if (isSoundOn) {
+        // Play the alarm sound
+        audio.play();
     }
+}
+   /**
+ * Function to pause the alarm alert sound timer.
+ * 
+ * This function pauses the audio element associated with the alarm sound.
+ */
+function pauseAlarmAlertSoundTimer() {
+    // Get the audio element for the alarm sound
+    const audio = document.getElementById("alarmAudio");
+    // Pause the audio
+    audio.pause();
+}
 
-    function playCorrectCheer() {
-        const audio = document.getElementById("correct");
-        if (isSoundOn) {
-            audio.play();
-        }
-
+   /**
+ * Function to play the correct answer challenge sound.
+ * 
+ * This function plays the audio element associated with the correct answer challenge sound
+ * if the sound is turned on.
+ */
+function playCorrectAnswerChallengeSound() {
+    // Get the audio element for the correct answer challenge sound
+    const audio = document.getElementById("correct");
+    // Play the audio if sound is turned on
+    if (isSoundOn) {
+        audio.play();
     }
+}
 
-    function playWronHmmm() {
-        const audio = document.getElementById("wrong");
-        if (isSoundOn) {
-            audio.play();
-        }
+  /**
+ * Function to play the wrong answer challenge sound.
+ * 
+ * This function plays the audio element associated with the wrong answer challenge sound
+ * if the sound is turned on.
+ */
+function playWrongAnswerChallengeSound() {
+    // Get the audio element for the wrong answer challenge sound
+    const audio = document.getElementById("wrong");
+    
+    // Play the audio if sound is turned on
+    if (isSoundOn) {
+        audio.play();
     }
+}
 
-    function pauseBackgroundMusic() {
-        if (backgroundMusic) {
-            backgroundMusic.pause();
-        }
+   /**
+ * Function to play the main right answer sound when plus or minus button is clicked.
+ * 
+ * This function plays the sound effect for a correct answer in the main game.
+ */
+function playMainRightAnswerSound() {
+    // Check if the sound is turned on
+    if (isSoundOn) {
+        // Play the right answer sound effect
+        rightAnswerSound.play();
     }
-
-    function playRightAnswerSound() {
-        if (isSoundOn) {
-            rightAnswerSound.play();
-        }
+}
+   /**
+ * Function to play the wrong answer sound when plus or minus button is clicked.
+ * 
+ * This function plays the sound effect for an incorrect answer.
+ */
+function playWrongAnswerSound() {
+    // Check if the sound is turned on
+    if (isSoundOn) {
+        // Play the wrong answer sound effect
+        wrongAnswerSound.play();
     }
+}
 
-    function playWrongAnswerSound() {
-        if (isSoundOn) {
-            wrongAnswerSound.play();
-        }
-    }
-
-    function playMysterySound() {
+    function playMysteryNumberSound() {
         if (isSoundOn) {
             mysterySound.play();
         }
@@ -225,8 +305,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    let consecutiveCorrectAnswers = 0;
-    let isBonus = false;
+
 
     //BUTTONS
     /*See highscore on dashboard button*/
@@ -295,7 +374,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('turbo-bonus-screen-section').style.display = 'none';
         let initialScore = parseInt(scoreText.textContent, 10);
         playButtonClickSound();
-        playChaseMusic();
+        playTurboBonusMusic();
         function countdownTimer(seconds) {
             const timerElement = document.getElementById('timer');
             timerElement.style.backgroundColor = 'white';
@@ -310,7 +389,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (seconds > 0) {
                     // Check if it's the last 5 seconds
                     if (seconds <= 9) {
-                        playAlarm();
+                        playAlarmAlertSoundTimer();
                         blinkRedBackground(); // Call the blink function
                     }
                     seconds--;
@@ -321,8 +400,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('exit-turbo-bonus-section').style.display = 'block';
                     timerElement.style.color = "black";
                     let finalScore = parseInt(scoreText.textContent, 10);
-                    pauseAlarm();
-                    stopChaseMusic();
+                    pauseAlarmAlertSoundTimer();
+                    stopTurboBonusMusic();
                     playbonusMusic();
                     let scoreDifference = finalScore - initialScore;
                     let turboScoreElement = document.getElementById('turbo-score');
@@ -401,7 +480,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const acceptChallengeScreen = document.getElementById('accept-challenge-section');
         acceptChallengeScreen.style.display = 'none';
         playButtonClickSound();
-        playTenseMusic();
+        playChallengeMusic();
 
     });
 
@@ -498,7 +577,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 scoreText.textContent = Math.max(0, currentScore + 1);
             }
-            playRightAnswerSound();
+            playMainRightAnswerSound();
         } else {
 
             if (isMystery) {
@@ -566,7 +645,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 scoreText.textContent = Math.max(0, currentScore + 1);
             }
-            playRightAnswerSound();
+            playMainRightAnswerSound();
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
                 pauseBackgroundMusic();
@@ -713,7 +792,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         if (randomNumber1 < randomNumber2) {
-            playCorrectCheer();
+            playCorrectAnswerChallengeSound();
 
             displayRandomMessage('encouraging');
             scoreText.innerText = initialScore * 2;
@@ -726,7 +805,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         } else if (randomNumber2 < randomNumber1) {
             displayRandomMessage('discouraging');
-            playWronHmmm();
+            playWrongAnswerChallengeSound();
             scoreText.innerText = initialScore * 0;
             screenMessage.textContent = 'WROOOONG!!!';
             screenMessage.style.backgroundColor = 'red';
@@ -761,7 +840,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let backgroundTwo = document.getElementById("option-two-background");
 
         if (randomNumber1 > randomNumber2) {
-            playCorrectCheer();
+            playCorrectAnswerChallengeSound();
             displayRandomMessage('encouraging');
             scoreText.innerText = initialScore * 2;
             screenMessage.textContent = 'CORRRREEECT!!!';
@@ -775,7 +854,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         } else if (randomNumber1 < randomNumber2) {
             scoreText.innerText = initialScore * 0;
-            playWronHmmm();
+            playWrongAnswerChallengeSound();
 
             screenMessage.style.backgroundColor = 'red';
             screenMessage.style.color = 'white';
@@ -913,7 +992,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (countMysteryNumber === 9) {
             mysteryNumberContainer.style.display = 'block';
             messageForMystery.style.display = 'block';
-            playMysterySound();
+            playMysteryNumberSound();
         } else {
 
         }

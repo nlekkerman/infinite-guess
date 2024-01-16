@@ -337,10 +337,6 @@ button {
     color: white;
 }
 
-#dropdown-sound-control-and-theme .dropdown-content button {
-    display: block;
-    text-align: left;
-}
 
 #dropdown-sound-control-and-theme.active .dropdown-content {
     display: block;
@@ -362,38 +358,56 @@ button {
     margin-top: 5px;
     display: flex;
     flex-direction: row;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+    border: 0.2rem solid rgb(83, 91, 246);
+    background-color: rgba(251, 252, 253, 0.3);
+    
 }
 
 .dropdown-theme-title {
-    background-color: rgba(0, 94, 255, 0.9);
+    background-color: rgba(253, 251, 251, 1);
     border: 1px solid gold;
+    color: black;
     text-align: center;
     font-weight: 700;
     font-size: 1rem;
     text-decoration: underline;
 }
 
-#music-on-off i {
-    font-size: 1rem;
-    color: red;
-
-}
-
-#music-on-off {
+#music-on-off-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
     margin-left: 0px;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+    border: 0.2rem solid rgb(155, 154, 154);
+    background-color: rgba(253, 251, 251, 1);
 }
 
-#sound-on-off {
-    border-radius: 50%;
+#music-on-off-button i {
+    font-size: 1rem;
+    color: red;
+    margin: 0; /* To remove any default margin */
+}
+
+#sound-on-off-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 2rem;
     width: 2rem;
+    border-radius: 50%;
+    margin-left: 0px;
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+    border: 0.2rem solid rgb(155, 154, 154);
+    background-color: rgba(253, 251, 251, 1);
 }
 
 
-#sound-on-off i {
+#sound-on-off-button i {
     font-size: 1rem;
     color: red;
 
@@ -448,7 +462,9 @@ button {
 }
 
 .theme-div {
-    background-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
+    border: 0.2rem solid rgb(155, 154, 154);
+    background-color: rgba(253, 251, 251,0.4);
 }
 
 .dropdown button {
@@ -2237,6 +2253,11 @@ footer {
         width: 60%;
     }
 
+   
+}
+
+@media screen and (min-width: 1801px) {
+
     #settings {
         display: none;
         height: 0px;
@@ -2266,10 +2287,6 @@ footer {
 
 
     }
-}
-
-@media screen and (min-width: 1801px) {
-
 
     #playground-section .message-text {
         padding: 5px;
