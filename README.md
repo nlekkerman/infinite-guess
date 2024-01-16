@@ -387,3 +387,61 @@ The JavaScript code has been checked for potential issues using JSHint. Click on
 [JavaScript Validator](https://jshint.com/)
 
 ![JavaScript Validation Screenshot](docs/images/javascript-validation-screenshot.png)
+
+
+# Deployment
+
+## Create a GitHub Repository:
+
+1. Created a new repo on GitHub from the Code Institute template [Code Institute Template](https://github.com/Code-Institute-Org/gitpod-full-template)
+
+## Push Code to GitHub:
+
+1. Initialized a Git repository locally.
+2. Added and committed HTML, CSS, and other relevant files.
+3. Pushed the code to the GitHub repository.
+
+### Enable GitHub Pages:
+
+1. Went to the GitHub repository on the GitHub website.
+2. Clicked on the "Settings" tab.
+3. Scrolled down to the "GitHub Pages" section.
+4. Under "Source," selected the branch `main` for GitHub Pages.
+
+## Access Deployed Page:
+
+The deployed page for Infinite Guess is accessible [here](https://nlekkerman.github.io/infinite-guess/).
+
+
+## Development
+
+### GitHub Repository
+
+The source code for Infinite Guess is on GitHub. You can find the repository at:
+
+[Infinite Guess Repository](https://github.com/nlekkerman/infinite-guess)
+
+Feel free to explore the codebase, open issues, and submit pull requests.
+
+## Installation
+
+### Cloning Infinite Guess Repository in Visual Studio
+
+Follow these steps to clone the Infinite Guess repository using Visual Studio:
+
+1. Open Visual Studio: On the start window, select "Clone a repository."
+2. Enter Repository URL: In the "Clone a Repository" window, enter the repository URL: `https://github.com/nlekkerman/infinite-guess.git`
+3. Choose Local Directory: Choose a directory on your local machine where you want to clone the repository.
+4. Click "Clone": Click the "Clone" button.
+5. Open Cloned Project: Once the cloning process is complete, open the cloned project in Visual Studio.
+
+Now you have the Infinite Guess project cloned to your local machine, and you can explore, modify, and run it from within Visual Studio.
+
+### Cloning with Terminal or Command Prompt
+
+1. Open a terminal or command prompt. Navigate to Local Directory: cd path/to/your/directory
+2. Clone Repository: Run the following command to clone the Infinite Guess repository from GitHub: `git clone https://github.com/nlekkerman/infinite-guess.git`
+3. Navigate to Cloned Project: `cd infinite-guess`
+
+Now you have the Infinite Guess project cloned to your local machine, and you can explore, modify, and run it from the terminal.
+
