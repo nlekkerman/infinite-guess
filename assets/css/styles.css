@@ -2135,7 +2135,6 @@ footer {
 
     #score-text {
         padding: 5px;
-        color: white;
         font-family: 'Acme', sans-serif;
         font-weight: 500;
         padding: 5px;
@@ -2383,7 +2382,7 @@ footer {
     }
 
     #score-text {
-        font-size: 3rem;
+        font-size: 2rem;
 
     }
 

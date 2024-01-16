@@ -326,8 +326,8 @@ The Infinite Guess game has been tested on various devices to ensure a seamless 
 - **Screen Resolution:** Ensured responsive design for the display resolution of Huawei Nova 8i.
 - **Touch Controls:** Verified smooth and accurate touch controls for intuitive gameplay.
 
- ![Huawei nova 8i Welcome screen Screenshot](docs/images/welcome-screen-huawei-screenshot.png.png)![Rules Huawei nova 8i Screenshot](docs/images/rules-huawei-screenshot.png)![Highscore welcome screen Huawei nova 8i Screenshot](docs/images/highscore-welcome-screen-huawei-screenshot.png)![Playground screen Huawei nova 8i Screenshot](docs/images/playground-huawei-screenshot.png)![Accept Challenge screen Huawei nova 8i Screenshot](docs/images/challenge-acceptance-huawei-screenshot.png)![Challenge screen Huawei nova 8i  Screenshot](docs/images/challenge-screen-huawei-screenshot.png)![Challenge correct answer Huawei nova 8i Screenshot](docs/images/challenge-correct-answer-screen-huawei-screenshot.png)![Challenge wrong answer Huawei nova 8i  Screenshot](docs/images/challenge-wrong-answer-screen-huawei-screenshot.png)![Turbo rules tablet Screenshot](docs/images/turbo-rules-huawei-screenshot.png)![Turbos score screen tablet Screenshot](docs/images/turbo-score-screen-huawei-screenshot.png)
- 
+ ![Huawei nova 8i Welcome screen Screenshot](docs/images/welcome-screen-huawei-screenshot.png)![Rules Huawei nova 8i Screenshot](docs/images/rules-huawei-screenshot.png)![Highscore welcome screen Huawei nova 8i Screenshot](docs/images/highscore-welcome-screen-huawei-screenshot.png)![Playground screen Huawei nova 8i Screenshot](docs/images/playground-huawei-screenshot.png)![Accept Challenge screen Huawei nova 8i Screenshot](docs/images/challenge-acceptance-huawei-screenshot.png)![Challenge screen Huawei nova 8i  Screenshot](docs/images/challenge-screen-huawei-screenshot.png)![Challenge correct answer Huawei nova 8i Screenshot](docs/images/challenge-correct-answer-screen-huawei-screenshot.png)![Challenge wrong answer Huawei nova 8i  Screenshot](docs/images/challenge-wrong-answer-screen-huawei-screenshot.png)![Turbo rules tablet Screenshot](docs/images/turbo-rules-huawei-screenshot.png)![Turbos score screen tablet Screenshot](docs/images/turbo-score-screen-huawei-screenshot.png)
+
 ### 3. Samsung Tablet SM-500
 
 - **Browser:** Tested and optimized for the latest versions of Google Chrome and Samsung Internet Browser.
@@ -345,10 +345,12 @@ The Infinite Guess game has been tested on various devices to ensure a seamless 
 
 ### 4. Large Desktop Monitor
 
-- **Browser:** Tested and optimized for the latest versions of Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari.
+- **Browser:** Tested and optimized for the latest versions of Google Chrome, Mozilla Firefox.
 - **Screen Resolution:** Ensured responsive design for large desktop monitors (e.g., 1920 x 1080 pixels or higher).
 
+![Large Desktop Screen Screenshot](docs/images/desktop-screen-screenshot.png) 
 
+![Turbos score screen tablet Screenshot](docs/images/turbo-score-screen-huawei-screenshot.png)
 ## Performance Testing
 
 Performance testing has been conducted to ensure a smooth and enjoyable gaming experience across devices. The game's resource usage and loading times have been optimized for efficient performance on various platforms.
@@ -360,7 +362,7 @@ The Infinite Guess game has been tested on major web browsers, including:
 - Google Chrome
 - Mozilla Firefox
 
-Feel free to provide feedback if you encounter any issues on the mentioned devices or if you have additional devices you'd like us to test.
+Feel free to provide feedback if you encounter any issues on the mentioned devices. 
 
 ## Validation Status
 
