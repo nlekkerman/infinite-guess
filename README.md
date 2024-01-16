@@ -318,6 +318,8 @@ The Infinite Guess game has been tested on various devices to ensure a seamless 
 - **Screen Resolution:** Ensured responsive design for the display resolution of Samsung Galaxy S21 (e.g., 1080 x 2400 pixels).
 - **Touch Controls:** Verified smooth and accurate touch controls for intuitive gameplay.
 
+ ![Welcome screen s21 Screenshot](docs/images/welcome-screen-s21-screenshot.png)![Rules s21 Screenshot](docs/images/rules-s21-screenshot.png)![Highscore welcome screen s21 Screenshot](docs/images/highscore-welcome-screen-s21-screenshot.png)![Playground screen s21 Screenshot](docs/images/playground-s21-screenshot.png)![Accept Challenge screen s21 Screenshot](docs/images/challenge-acceptance-s21-screenshot.png)![Challenge screen s 21 Screenshot](docs/images/challenge-screen-s21-screenshot.png)![Challenge correct answer s21 Screenshot](docs/images/challenge-correct-answer-screen-s21-screenshot.png)![Challenge wrong answer s21 Screenshot](docs/images/challenge-wrong-answer-screen-s21-screenshot.png)![Turbo rules s21 Screenshot](docs/images/turbo-rules-s21-screenshot.png)![Turbos score screen s21 Screenshot](docs/images/turbo-score-screen-s21-screenshot.png)
+
 ### 2. Huawei Nova 8i
 
 - **Browser:** Tested and optimized for the latest versions of Google Chrome and Huawei Browser.
@@ -330,7 +332,7 @@ The Infinite Guess game has been tested on various devices to ensure a seamless 
 - **Screen Resolution:** Ensured responsive design for tablet-sized displays (e.g., 1200 x 1920 pixels).
 - **Touch Controls:** Verified smooth and accurate touch controls for intuitive gameplay.
 
-   ![Tablet Welcome screen Screenshot](docs/images/welcome-screen-tablet-screenshot.png)![Rules tablet Screenshot](docs/images/rules-screenshot-tablet.png)![Highscore welcome screen tablet Screenshot](docs/images/high)![Playground screen tablet Screenshot](docs/images/playground-tablet-screenshot.png)![Accept Challenge screen tablet Screenshot](docs/images/challenge-acceptance-tablet-screenshot.png)![Challenge screen Screenshot](docs/images/challenge-screen-tablet-screenshot.png)![Challenge correct answer tablet Screenshot](docs/images/challenge-correct-answer-screen-tablet-screenshot.png)![Challenge correct answer tablet Screenshot](docs/images/challenge-wrong-answer-screen-tablet-screenshot.png)![Turbo rules tablet Screenshot](docs/images/turbo-rules-tablet-screenshot.png)![Turbos score screen tablet Screenshot](docs/images/turbo-score-screen-tablet-screenshot.png)
+   ![Tablet Welcome screen Screenshot](docs/images/welcome-screen-tablet-screenshot.png)![Rules tablet Screenshot](docs/images/rules-screenshot-tablet.png)![Highscore welcome screen tablet Screenshot](docs/images/highscore-welcome-screen-tablet-screenshot.png)![Playground screen tablet Screenshot](docs/images/playground-tablet-screenshot.png)![Accept Challenge screen tablet Screenshot](docs/images/challenge-acceptance-tablet-screenshot.png)![Challenge screen tablet Screenshot](docs/images/challenge-screen-tablet-screenshot.png)![Challenge correct answer tablet Screenshot](docs/images/challenge-correct-answer-screen-tablet-screenshot.png)![Challenge wrong answer tablet Screenshot](docs/images/challenge-wrong-answer-screen-tablet-screenshot.png)![Turbo rules tablet Screenshot](docs/images/turbo-rules-tablet-screenshot.png)![Turbos score screen tablet Screenshot](docs/images/turbo-score-screen-tablet-screenshot.png)
 
 
 
