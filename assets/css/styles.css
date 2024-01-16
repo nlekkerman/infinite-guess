@@ -354,7 +354,6 @@ button {
 
 #sound-control .dropdown-content button {
     display: block;
-
     text-align: left;
 }
 
@@ -1535,16 +1534,6 @@ footer {
 
     }
 
-    #settings i {
-        display: none;
-        margin-left: 5px;
-    }
-
-    #settings::after {
-        content: 'SETTINGS';
-        display: inline-block;
-    }
-
     .dashboard-icons-class {
         height: 180px;
         width: 180px;
@@ -2045,7 +2034,15 @@ footer {
         margin: 0 auto;
         margin-top: 2rem;
     }
+    #settings i {
+        display: none;
+        margin-left: 5px;
+    }
 
+    #settings::after {
+        content: 'SETTINGS';
+        display: inline-block;
+    }
     #highscore-button-container,
     #rules-button-container {
         width: 30%;
