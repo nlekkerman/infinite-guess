@@ -319,7 +319,6 @@ button {
 
 #answer-text {
     padding: 5px;
-    margin: 10px;
     background-color: rgb(2, 158, 2);
     color: white;
     font-family: 'Acme', sans-serif;
@@ -1604,11 +1603,7 @@ footer {
     #icon-two {
         font-size: 5rem;
     }
-    #right-wrong-text {
-       
-    }
-
-
+ 
 }
 
 @media screen and (max-width: 1000px)and (max-height: 500px) and (orientation: landscape) {
@@ -2367,7 +2362,6 @@ footer {
     }
 
     #right-wrong-text-with-video #right-wrong-text #answer-text {
-
         padding: 20px;
     }
 
