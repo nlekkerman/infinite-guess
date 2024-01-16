@@ -4,65 +4,79 @@ document.addEventListener('DOMContentLoaded', function () {
     let previousNumber = null;
     let countMysteryNumber = 0;
     let colors = ["red", "pink", "purple", "blue", "orange", "yellow"];
-let colorIndex = 0;
+    let colorIndex = 0;
+    let isSoundOn = false;
 
-    const mystery = document.getElementById("mystery-number");
-    const messageForMystery = document.getElementById("mystery-message-id");
-
-    const soundControl = document.getElementById('sound-control');
+/**
+ * SOUND CONTROL ELEMENTS: displaying controls and switchng on/off sound and music
+ */
+    const soundControl = document.getElementById('dropdown-sound-control-and-theme');
     const soundControlButton = document.getElementById('sound-on-off');
     const musicControlButton = document.getElementById('music-on-off');
-    const acceptChallengeScreen = document.getElementById("accept-challenge-section");
 
+    /**
+     * MUSIC AND SOUND ELEMENTS: Triggering background music and game sounds. 
+     * */
     const backgroundMusic = document.getElementById('background-music-1');
     const bonusGameMusic = document.getElementById('bonus-game-music');
-    const chaseGameMusic = document.getElementById('chase-game-music');
-    const tenseGameMusic = document.getElementById('tense-game-music');
-
-    const higherLowerTitle = document.getElementById('message-id');
-    const guessingNumberDiv = document.getElementById('guessing-number-div');
-    const guessedNumber = document.getElementById('guessed-number');
-    const plusButton = document.getElementById('plus-button');
-    const minusButton = document.getElementById('minus-button');
-    const answerText = document.getElementById('right-wrong-text');
-    const scoreText = document.getElementById('score-text');
-
-    const exitGameBtn = document.getElementById('exit-game-button');
-    const saveGameSection = document.getElementById('save-game-screen-section');
-    const saveGameButton = document.getElementById('save-game-button');
-
-    const exitSaveGameBtn = document.getElementById('exit-save-game-button');
-    const startGameBtn = document.getElementById('start-game-button');
-
-    const declineChallengeButton = document.getElementById('decline-button');
-    const acceptChallengeButton = document.getElementById('accept-button');
-    const closeChallengeScreen = document.getElementById('challenge-button-close');
-
-    const startTurboGameButton = document.getElementById('start-turbo-bonus-game-button');
-    const exitTurboButton = document.getElementById('exit-turbo-button');
-
-    const challengeLeftChoice = document.getElementById('option-one-background');
-    const challengeRightChoice = document.getElementById('option-two-background');
+    const turboBonusMusic = document.getElementById('chase-game-music');
+    const challengeGameMusic = document.getElementById('tense-game-music');
 
     const buttonClickSound = document.getElementById('button-click-sound');
     const rightAnswerSound = document.getElementById('right-answer-sound');
     const wrongAnswerSound = document.getElementById('wrong-answer-sound');
     const mysterySound = document.getElementById('mystery-sound');
 
+    /**
+     * PLAYGROUND ELEMENS: elements that apears on main playground screen.
+     */
+    const higherLowerTitle = document.getElementById('message-id');
+    const guessingNumberMovingContainer = document.getElementById('guessing-number-div');
+    const mysteryNumberContainer = document.getElementById("mystery-number");
+    const messageForMystery = document.getElementById("mystery-message-id");
+    const guessedNumber = document.getElementById('guessed-number');
+    const plusButton = document.getElementById('plus-button');
+    const minusButton = document.getElementById('minus-button');
+    const answerText = document.getElementById('right-wrong-text');
+    const scoreText = document.getElementById('score-text');
 
+    /**
+     * BUTTONS ELEMENT: buttons taht apear during game over all screens
+     */
+    const exitGameBtn = document.getElementById('exit-game-button');
+    const saveGameButton = document.getElementById('save-game-button');
+    const exitSaveGameBtn = document.getElementById('exit-save-game-button');
+    const startGameBtn = document.getElementById('start-game-button');
+    const declineChallengeButton = document.getElementById('decline-button');
+    const acceptChallengeButton = document.getElementById('accept-button');
+    const startTurboGameButton = document.getElementById('start-turbo-bonus-game-button');
+    const exitTurboButton = document.getElementById('exit-turbo-button');
+    const closeChallengeScreenButton = document.getElementById('challenge-button-close');
+    const challengeLeftChoiceButton = document.getElementById('option-one-background');
+    const challengeRightChoiceButton = document.getElementById('option-two-background');
     const exitHighscoreDashboardButton = document.getElementById('exit-welcome-highscore');
     const exitRulesDashboardButton = document.getElementById('exit-welcome-rules');
-
     const seeHighscoreDashboardButton = document.getElementById('highscore-button-container');
     const seeRulesDashboardButton = document.getElementById('rules-button-container');
 
-    const welcomeSection = document.getElementById('welcome-screen-section');
-    const scoreForm = document.getElementById('score-form');
-    const bestScoreText = document.getElementById('best-score-paragraph');
-
+/**
+ * SCREEN ELEMENTS: Used to navigate player though the game, opening and closing screens as game require
+ */
+    const saveGameScreen = document.getElementById('save-game-screen-section');
+    const acceptChallengeScreen = document.getElementById("accept-challenge-section");
+    const welcomeScreen = document.getElementById('welcome-screen-section');
+    const saveBestScoreScreen = document.getElementById('score-form');
+    const bestScoreTextDisplay = document.getElementById('best-score-paragraph');
     const popupContainer = document.getElementById('popup-container');
     const popupButton = document.getElementById('popup-button');
 
+
+/**
+ * FUNCTION CALLS: 
+ * to downsize image resolution if is smalls screen,
+ * initialise best score,
+ * make cards blink in challenge
+ */
     resizeAllImages(37.5, 25);
     initializeBestScore();
     setInterval(changeBackgroundColor, 200);
@@ -71,8 +85,7 @@ let colorIndex = 0;
     soundControl.addEventListener('click', function () {
         soundControl.classList.toggle('active');
     });
-    // Example: Toggle sound on/off
-    let isSoundOn = false;
+   
     soundControlButton.addEventListener('click', function () {
         isSoundOn = !isSoundOn;
         const icon = isSoundOn ? 'fa-volume-up' : 'fa-volume-mute';
@@ -112,22 +125,22 @@ let colorIndex = 0;
 
     function playChaseMusic() {
         if (isMusicOn && !isMusicPlaying) {
-            chaseGameMusic.play();
+            turboBonusMusic.play();
             isMusicPlaying = true;
         }
     }
 
     function playTenseMusic() {
         if (isMusicOn && !isMusicPlaying) {
-            tenseGameMusic.play();
+            challengeGameMusic.play();
             isMusicPlaying = true;
         }
     }
 
     function stopChaseMusic() {
         if (isMusicOn) {
-            chaseGameMusic.pause();
-            chaseGameMusic.currentTime = 0;
+            turboBonusMusic.pause();
+            turboBonusMusic.currentTime = 0;
             isMusicPlaying = false;
         }
     }
@@ -205,8 +218,8 @@ let colorIndex = 0;
 
     function stopTenseMusic() {
         if (isMusicOn) {
-            tenseGameMusic.pause();
-            tenseGameMusic.currentTime = 0; // Reset the playback position to the beginning
+            challengeGameMusic.pause();
+            challengeGameMusic.currentTime = 0; // Reset the playback position to the beginning
             isMusicPlaying = false;
         }
     }
@@ -241,7 +254,7 @@ let colorIndex = 0;
 
     /*Button to start game and close welcome screen*/
     startGameBtn.addEventListener('click', function () {
-        welcomeSection.style.display = 'none';
+        welcomeScreen.style.display = 'none';
     });
 
     /*Button to close high/best score on dashboard*/
@@ -266,13 +279,13 @@ let colorIndex = 0;
     saveGameButton.addEventListener('click', function () {
 
         saveGame();
-        scoreForm.style.display = 'none';
+        saveBestScoreScreen.style.display = 'none';
         scoreText.textContent = '0';
     });
 
     //exit save game screen
     exitSaveGameBtn.addEventListener('click', function () {
-        saveGameSection.style.display = 'none';
+        saveGameScreen.style.display = 'none';
     });
 
     //start turbo game
@@ -329,7 +342,7 @@ let colorIndex = 0;
     });
 
     //close Challenge screen
-    closeChallengeScreen.addEventListener('click', function () {
+    closeChallengeScreenButton.addEventListener('click', function () {
         const iconOne = document.getElementById('icon-one');
         iconOne.style.display = 'block';
         const iconTwo = document.getElementById('icon-two');
@@ -395,14 +408,14 @@ let colorIndex = 0;
 
     // exit game button
     exitGameBtn.addEventListener('click', function () {
-        bestScoreText.textContent = parseInt(scoreText.textContent, 10);
-        console.log(bestScoreText);
+        bestScoreTextDisplay.textContent = parseInt(scoreText.textContent, 10);
+        console.log(bestScoreTextDisplay);
         displayHighScores();
         checkAndDisplayBestScore();
     });
 
     let currentGuess = generateRandomNumber();
-    guessingNumberDiv.textContent = currentGuess;
+    guessingNumberMovingContainer.textContent = currentGuess;
     updateStyles();
 
     //compare number
@@ -445,7 +458,7 @@ let colorIndex = 0;
     }
     //minus button
     minusButton.addEventListener('click', function () {
-        mystery.style.display = 'none';
+        mysteryNumberContainer.style.display = 'none';
         messageForMystery.style.display = 'none';
         countMysteryNumber++;
         playButtonClickSound();
@@ -506,13 +519,13 @@ let colorIndex = 0;
 
         isMystery = false;
         currentGuess = newGuess;
-        guessingNumberDiv.textContent = currentGuess;
+        guessingNumberMovingContainer.textContent = currentGuess;
         updateStyles();
     });
     // plus button
     plusButton.addEventListener('click', function () {
         countMysteryNumber++;
-        mystery.style.display = 'none';
+        mysteryNumberContainer.style.display = 'none';
         messageForMystery.style.display = 'none';
         guessedNumber.style.display = "none";
         guessedNumber.textContent = "Mystery number was: " + currentGuess;
@@ -602,7 +615,7 @@ let colorIndex = 0;
 
         isMystery = false;
         currentGuess = newGuess;
-        guessingNumberDiv.textContent = currentGuess;
+        guessingNumberMovingContainer.textContent = currentGuess;
         updateStyles(); // Apply styles after updating the number and score
 
     });
@@ -610,7 +623,7 @@ let colorIndex = 0;
 
     let intervalId;
     //left choice in challenge
-    challengeLeftChoice.addEventListener('click', function () {
+    challengeLeftChoiceButton.addEventListener('click', function () {
         stopSwitching = true;
         clearInterval(intervalId);
         const iconTwo = document.getElementById('icon-two');
@@ -637,7 +650,7 @@ let colorIndex = 0;
     });
 
     // right choice in challenge
-    challengeRightChoice.addEventListener('click', function () {
+    challengeRightChoiceButton.addEventListener('click', function () {
         stopSwitching = true;
         clearInterval(intervalId);
         const iconOne = document.getElementById('icon-one');
@@ -888,8 +901,8 @@ let colorIndex = 0;
     }
 
     function updateStyles() {
-        guessingNumberDiv.style.color = "white";
-        guessingNumberDiv.style.fontWeight = '700';
+        guessingNumberMovingContainer.style.color = "white";
+        guessingNumberMovingContainer.style.fontWeight = '700';
         scoreText.style.fontWeight = '700';
     }
 
@@ -898,7 +911,7 @@ let colorIndex = 0;
     function generateRandomNumber() {
         let currentNumber;
         if (countMysteryNumber === 9) {
-            mystery.style.display = 'block';
+            mysteryNumberContainer.style.display = 'block';
             messageForMystery.style.display = 'block';
             playMysterySound();
         } else {
@@ -910,8 +923,8 @@ let colorIndex = 0;
         }
         do {
             currentNumber = Math.floor(Math.random() * 100) + 1;
-            if (guessingNumberDiv) {
-                guessingNumberDiv.textContent = currentNumber;
+            if (guessingNumberMovingContainer) {
+                guessingNumberMovingContainer.textContent = currentNumber;
             } else {
                 return currentNumber;
             }
@@ -973,8 +986,8 @@ let colorIndex = 0;
         const highScores = JSON.parse(localStorage.getItem('bestScores')) || [];
         const isTheBestScore = isScoreTheBest(currentScore, highScores);
         if (isTheBestScore) {
-            saveGameSection.style.display = 'block';
-            scoreForm.style.display = 'block';
+            saveGameScreen.style.display = 'block';
+            saveBestScoreScreen.style.display = 'block';
         } else {
             popupContainer.style.display = 'block';
         }
