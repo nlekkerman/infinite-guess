@@ -337,20 +337,14 @@ The Infinite Guess game has been tested on various devices to ensure a seamless 
    ![Tablet Welcome screen Screenshot](docs/images/welcome-screen-tablet-screenshot.png)![Rules tablet Screenshot](docs/images/rules-screenshot-tablet.png)![Highscore welcome screen tablet Screenshot](docs/images/highscore-welcome-screen-tablet-screenshot.png)![Playground screen tablet Screenshot](docs/images/playground-tablet-screenshot.png)![Accept Challenge screen tablet Screenshot](docs/images/challenge-acceptance-tablet-screenshot.png)![Challenge screen tablet Screenshot](docs/images/challenge-screen-tablet-screenshot.png)![Challenge correct answer tablet Screenshot](docs/images/challenge-correct-answer-screen-tablet-screenshot.png)![Challenge wrong answer tablet Screenshot](docs/images/challenge-wrong-answer-screen-tablet-screenshot.png)![Turbo rules tablet Screenshot](docs/images/turbo-rules-tablet-screenshot.png)![Turbos score screen tablet Screenshot](docs/images/turbo-score-screen-tablet-screenshot.png)
 
 
-
-
-
-
-
-
 ### 4. Large Desktop Monitor
 
 - **Browser:** Tested and optimized for the latest versions of Google Chrome, Mozilla Firefox.
+
 - **Screen Resolution:** Ensured responsive design for large desktop monitors (e.g., 1920 x 1080 pixels or higher).
 
 ![Large Desktop Screen Screenshot](docs/images/desktop-screen-screenshot.png) 
 
-![Turbos score screen tablet Screenshot](docs/images/turbo-score-screen-huawei-screenshot.png)
 ## Performance Testing
 
 Performance testing has been conducted to ensure a smooth and enjoyable gaming experience across devices. The game's resource usage and loading times have been optimized for efficient performance on various platforms.
@@ -359,8 +353,12 @@ Performance testing has been conducted to ensure a smooth and enjoyable gaming e
 
 The Infinite Guess game has been tested on major web browsers, including:
 
-- Google Chrome
-- Mozilla Firefox
+- **Browser:** Tested and optimized for the latest version of Google Chrome.
+![Chrome browser Screenshot](docs/images/am-i-responsive-sceenshot.png)
+
+- **Browser:** Tested and optimized for the latest version of Mozilla Firefox.
+
+![Mozila browser Screenshot](docs/images/mozila-screenshoot.png)
 
 Feel free to provide feedback if you encounter any issues on the mentioned devices. 
 
@@ -449,3 +447,68 @@ Now you have the Infinite Guess project cloned to your local machine, and you ca
 
 Now you have the Infinite Guess project cloned to your local machine, and you can explore, modify, and run it from the terminal.
 
+# Credits 
+
+### Credits for Theme Background Images:
+
+
+- **Earth Theme Background:**
+  - [Earth Theme Image by freepik](https://www.freepik.com/free-ai-image/earth-seen-from-space_47990964.htm#fromView=search&term=earth&track=ais_ai_generated&regularType=ai&page=1&position=46&uuid=5e18fb99-9b69-4e76-899c-dfe7275bf4ab)
+
+- **Space Theme Background:**
+  - [Space Theme Image by freepik](https://www.freepik.com/free-ai-image/photorealistic-galaxy-background_94939196.htm#fromView=search&term=space&track=ais_ai_generated&regularType=ai&page=1&position=34&uuid=6b49735f-a54f-4d1b-9a31-4aba7c43dd21)
+
+- **Fairy Theme Background:**
+  - [Fairy Theme Image by freepik](https://www.freepik.com/free-ai-image/beautiful-medieval-fantasy-landscape_77379795.htm#fromView=search&term=fairy+mushrooms&track=ais_ai_generated&regularType=ai&page=3&position=30&uuid=10c82b9b-5a13-4bde-a127-adccc2fdb916)
+
+  ### Credits for Body Background Image:
+
+- **Body Background:**
+  - [Body background Image by freepik](https://www.freepik.com/free-ai-image/3d-rendering-abstract-black-white-background_75957971.htm#fromView=search&term=infinite&track=ais_ai_generated&regularType=ai&page=5&position=22&uuid=00297804-a0fe-4b40-b53b-c56fec93f20d)
+
+
+### Credits for Favicon Icon:
+
+- **Favicon Icon:**
+  - [Icon by Sagarkumar Gopani](https://www.freepik.com/icon/internet-computer_7505387#fromView=search&term=favicon+for+infinite&track=ais&page=1&position=95&uuid=d4902875-4138-447a-aed5-7c3a02d8a4ab)
+
+# Audio Credits:
+
+#### Main Music:
+
+- Original music track Nice Touch by Lekkerman.
+
+#### Background Music:
+
+- **Turbo Bonus Music:**
+  - [Turbo Bonus Music](https://freesound.org/people/Victor_Natas/sounds/634513/) by Victor_Natas from freesound.org
+- **Challenge Music:**
+
+- [Challenge Music](https://freesound.org/people/Ezcah/sounds/245421/) by Ezcah from freesound.org
+
+#### Sounds:
+
+- **Mystery Number Sound:**
+  - [Mystery Number sound](https://freesound.org/people/ertfelda/sounds/243701/) by ertfelda from freesound.org
+
+- **Correct Answer Sound :**
+  - [Correct Answer sound](https://freesound.org/people/ertfelda/sounds/243701/) by ertfelda from freesound.org
+
+- **Wrong Answer Sound:**
+  - [Wrong Answer sound](https://freesound.org/people/Beetlemuse/sounds/587253/) by Beetlemuse from freesound.org
+
+  
+- **Correct Answer Challenge Sound:**
+  - [Correct Answer Challenge sound](https://freesound.org/people/tim.kahn/sounds/337000/) by tim.kahn from freesound.org
+
+  
+- **Wrong Answer Challenge Sound:**
+  - [Wrong Answer Challenge sound](https://freesound.org/people/dr_skitz/sounds/353925/) by dr_skitz from freesound.org
+
+  
+- **Timer Alarm Sound:**
+  - [Timer Alarm Sound](https://freesound.org/people/MATRIXXX_/sounds/523212/) by MATRIXXX_ from freesound.org
+
+
+- **Button Click Sound:**
+  - [Button Click Sound](https://freesound.org/people/MATRIXXX_/sounds/523762/) by MATRIXXX_ from freesound.org
