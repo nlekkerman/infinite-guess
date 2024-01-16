@@ -326,6 +326,8 @@ The Infinite Guess game has been tested on various devices to ensure a seamless 
 - **Screen Resolution:** Ensured responsive design for the display resolution of Huawei Nova 8i.
 - **Touch Controls:** Verified smooth and accurate touch controls for intuitive gameplay.
 
+ ![Huawei nova 8i Welcome screen Screenshot](docs/images/welcome-screen-huawei-screenshot.png.png)![Rules Huawei nova 8i Screenshot](docs/images/rules-huawei-screenshot.png)![Highscore welcome screen Huawei nova 8i Screenshot](docs/images/highscore-welcome-screen-huawei-screenshot.png)![Playground screen Huawei nova 8i Screenshot](docs/images/playground-huawei-screenshot.png)![Accept Challenge screen Huawei nova 8i Screenshot](docs/images/challenge-acceptance-huawei-screenshot.png)![Challenge screen Huawei nova 8i  Screenshot](docs/images/challenge-screen-huawei-screenshot.png)![Challenge correct answer Huawei nova 8i Screenshot](docs/images/challenge-correct-answer-screen-huawei-screenshot.png)![Challenge wrong answer Huawei nova 8i  Screenshot](docs/images/challenge-wrong-answer-screen-huawei-screenshot.png)![Turbo rules tablet Screenshot](docs/images/turbo-rules-huawei-screenshot.png)![Turbos score screen tablet Screenshot](docs/images/turbo-score-screen-huawei-screenshot.png)
+ 
 ### 3. Samsung Tablet SM-500
 
 - **Browser:** Tested and optimized for the latest versions of Google Chrome and Samsung Internet Browser.
