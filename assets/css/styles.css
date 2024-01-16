@@ -1115,6 +1115,7 @@ h1 {
 
 .icons {
     font-size: 24px;
+    margin: 5px;
 }
 
 #welcome-rules-screen {
@@ -1643,7 +1644,10 @@ footer {
         margin: 20px;
 
     }
-
+    .icons {
+        font-size: 24px;
+        margin: 0px;
+    }
     .dashboard-icons-class {
         height: 2em;
         width: 2em;
@@ -1915,7 +1919,7 @@ footer {
         text-align: center;
         background-color: rgba(0, 0, 0, 1);
         width: 91%;
-        translate: 0px -20%;
+        transform: translate(0px, -20%) ;
     }
 
     #accept-challenge-section {
@@ -2695,7 +2699,8 @@ footer {
     }
 
     #welcome-rules-screen {
-        translate: 0% 0%;
+        transform: translate(0%, 0%) ;
+
     }
 
     #rules-container {
@@ -2721,7 +2726,10 @@ footer {
         height: 20em;
         width: 20em;
     }
-
+    .icons {
+        font-size: 24px;
+        margin: 1em;
+    }
     #welcome-container h4 {
         font-size: 4rem;
         width: 90%;
