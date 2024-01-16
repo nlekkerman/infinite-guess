@@ -359,3 +359,31 @@ The Infinite Guess game has been tested on major web browsers, including:
 - Mozilla Firefox
 
 Feel free to provide feedback if you encounter any issues on the mentioned devices or if you have additional devices you'd like us to test.
+
+## Validation Status
+
+Ensuring the correctness and compliance of code is crucial for a seamless user experience. Below are the validation results for the Infinite Guess project:
+
+### CSS Validation
+
+The CSS code has been validated using the W3C CSS Validator. Click on the link below to view the detailed validation report.
+
+[CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fnlekkerman.github.io%2Finfinite-guess%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+![CSS Validation Screenshot](docs/images/css-validation-screenshot.png)
+
+### HTML Validation
+
+The HTML code has been validated using the W3C HTML Validator. Explore the link to see the detailed validation report.
+
+[HTML Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fnlekkerman.github.io%2Finfinite-guess%2F)
+
+![HTML Validation Screenshot](docs/images/html-validation-screenshot.png)
+
+### JavaScript Validation
+
+The JavaScript code has been checked for potential issues using JSHint. Click on the link to review the validation results.
+
+[JavaScript Validator](https://jshint.com/)
+
+![JavaScript Validation Screenshot](docs/images/javascript-validation-screenshot.png)
