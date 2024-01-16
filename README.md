@@ -305,3 +305,55 @@ To start playing Infinite Guess, simply click on the "Start Game" button and let
   - HTML
   - CSS
   - JavaScript
+
+# Testing
+
+## Device Testing
+
+The Infinite Guess game has been tested on various devices to ensure a seamless gaming experience. Here are the test results for specific devices:
+
+### 1. Samsung Galaxy S21
+
+- **Browser:** Tested and optimized for the latest versions of Google Chrome and Samsung Internet Browser.
+- **Screen Resolution:** Ensured responsive design for the display resolution of Samsung Galaxy S21 (e.g., 1080 x 2400 pixels).
+- **Touch Controls:** Verified smooth and accurate touch controls for intuitive gameplay.
+
+### 2. Huawei Nova 8i
+
+- **Browser:** Tested and optimized for the latest versions of Google Chrome and Huawei Browser.
+- **Screen Resolution:** Ensured responsive design for the display resolution of Huawei Nova 8i.
+- **Touch Controls:** Verified smooth and accurate touch controls for intuitive gameplay.
+
+### 3. Samsung Tablet SM-500
+
+- **Browser:** Tested and optimized for the latest versions of Google Chrome and Samsung Internet Browser.
+- **Screen Resolution:** Ensured responsive design for tablet-sized displays (e.g., 1200 x 1920 pixels).
+- **Touch Controls:** Verified smooth and accurate touch controls for intuitive gameplay.
+
+   ![Tablet Welcome screen Screenshot](docs/images/welcome-screen-tablet-screenshot.png)![Rules tablet Screenshot](docs/images/rules-screenshot-tablet.png)![Highscore welcome screen tablet Screenshot](docs/images/footer-screenshot.png)![Playground screen tablet Screenshot](docs/images/playground-tablet-screenshot.png)![Accept Challenge screen tablet Screenshot](docs/images/challenge-acceptance-tablet-screenshot.png)![Challenge screen Screenshot](docs/images/challenge-screen-tablet-screenshot.png)![Challenge correct answer tablet Screenshot](docs/images/challenge-correct-answer-screen-tablet-screenshot.png)![Challenge correct answer tablet Screenshot](docs/images/challenge-wrong-answer-screen-tablet-screenshot.png)![Turbo rules tablet Screenshot](docs/images/turbo-rules-tablet-screenshot.png)![Turbos score screen tablet Screenshot](docs/images/turbo-score-screen-tablet-screenshot.png)
+
+
+
+
+
+
+
+
+### 4. Large Desktop Monitor
+
+- **Browser:** Tested and optimized for the latest versions of Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari.
+- **Screen Resolution:** Ensured responsive design for large desktop monitors (e.g., 1920 x 1080 pixels or higher).
+
+
+## Performance Testing
+
+Performance testing has been conducted to ensure a smooth and enjoyable gaming experience across devices. The game's resource usage and loading times have been optimized for efficient performance on various platforms.
+
+## Browser Testing
+
+The Infinite Guess game has been tested on major web browsers, including:
+
+- Google Chrome
+- Mozilla Firefox
+
+Feel free to provide feedback if you encounter any issues on the mentioned devices or if you have additional devices you'd like us to test.
