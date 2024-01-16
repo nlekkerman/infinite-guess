@@ -410,7 +410,6 @@ let colorIndex = 0;
         element.style.color = "white";
         element.style.padding = '5px';
         element.style.fontWeight = "700";
-        element.style.top = "0";
         element.style.fontFamily = "Acme";
     }
 
@@ -891,7 +890,6 @@ let colorIndex = 0;
     function updateStyles() {
         guessingNumberDiv.style.color = "white";
         guessingNumberDiv.style.fontWeight = '700';
-
         scoreText.style.fontWeight = '700';
     }
 
