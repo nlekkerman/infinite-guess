@@ -1,7 +1,7 @@
 /*google fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lilita+One&family=Oswald:wght@200;300;400;500;600;700&family=Pirata+One&family=Roboto&family=Rowdies:wght@300;400;700&family=Squada+One&family=Vina+Sans&display=swap');
-/* General styles */
 
+/* General styles */
 html {
     margin: 0;
     padding: 0;
@@ -26,9 +26,6 @@ body {
     box-sizing: border-box;
 }
 
-
-/* Main */
-
 main {
     margin: 0;
     padding: 0;
@@ -40,6 +37,14 @@ main {
 
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: rgba(243, 244, 247, 1);
+}
+
+/*fit to screen responsive div*/
 .fit-to-screen-container {
     display: flex;
     flex-direction: column;
@@ -47,17 +52,6 @@ main {
     width: 100%;
     max-width: 64.5em;
     margin: 0;
-}
-
-/*HEADER*/
-
-header {
-    display: flex;
-    justify-content: center;
-
-    color: white;
-    background-color: rgba(243, 244, 247, 1);
-
 }
 
 .title {
@@ -92,6 +86,33 @@ button {
     background: url('../images/default-main-background.jpg') no-repeat center center/cover;
 }
 
+/*Controls container with exit buton, music/sound and Theme controls*/
+#control-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+/* Sound controle dropdown content div*/
+#dropdown-sound-control-and-theme .dropdown-content {
+    display: none;
+    margin-top: 35px;
+    margin-right: 40px;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    background-color: rgba(15, 57, 162, 0.3);
+    padding: 2px;
+    color: white;
+}
+/*Invisible title for validation*/
+#control-container h6 {
+    display: none;
+}
+
+/*turbo bonus timer*/
 #timer {
     font-size: 24px;
     margin-bottom: 5px;
@@ -101,6 +122,19 @@ button {
     display: flex;
     align-self: center;
 }
+
+/*exit game button button*/
+.exit-game-button {
+    display: flex;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px;
+}
+
 
 .message-text {
     font-weight: 800;
@@ -245,7 +279,10 @@ button {
     cursor: pointer;
 }
 
-#right-wrong-text-with-video {
+/* VIDEO HEADER WITH CORRECT/WRONG TEXT MESSAGE STYLES*/
+
+/*Video header container styles*/
+#right-wrong-text-with-video-container {
     display: flex;
     align-items: center;
     padding: 30px 0px;
@@ -255,6 +292,7 @@ button {
     overflow: hidden;
 }
 
+/*Video header style*/
 #video-header {
     position: absolute;
     top: 0;
@@ -263,30 +301,33 @@ button {
     height: 100%;
 }
 
+/*Video header video styles*/
 #video-header video {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-#score-board-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-
+/*Right/Wrong message in header container styles*/
 #right-wrong-text {
     position: absolute;
     top: 50%;
     left: 50%;
-
     transform: translate(-50%, -50%);
 }
 
+/*Answer text message styles*/
+#answer-text {
+    padding: 5px;
+    background-color: rgb(2, 158, 2);
+    color: white;
+    font-family: 'Acme', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+
+/*Score display container styles*/
 #score-screen-number-div {
     display: flex;
     width: 50%;
@@ -298,45 +339,11 @@ button {
     background-color: red;
 }
 
+/*Score Board title styles*/
 #score-screen-number-div h3 {
     color: white;
     font-size: 1.7rem;
 }
-
-#answer-text {
-    padding: 5px;
-    background-color: rgb(2, 158, 2);
-    color: white;
-    font-family: 'Acme', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-}
-
-#score-text {
-    color: rgb(0, 0, 0);
-    font-family: 'Acme', sans-serif;
-    font-weight: 500;
-    font-size: 1.7rem;
-    border: 3px solid rgb(0, 0, 0);
-    background-color: white;
-    width: 3rem;
-    text-align: center;
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-bottom: 5px;
-}
-
-/* SOUND CONTROL AND QUIT&SAVE*/
-#dropdown-sound-control-and-theme .dropdown-content {
-    display: none;
-    margin-top: 35px;
-    margin-right: 40px;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    background-color: rgba(15, 57, 162, 0.3);
-    padding: 2px;
-    color: white;
-}
-
 
 #dropdown-sound-control-and-theme.active .dropdown-content {
     display: block;
@@ -361,7 +368,7 @@ button {
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     border: 0.2rem solid rgb(83, 91, 246);
     background-color: rgba(251, 252, 253, 0.3);
-    
+
 }
 
 .dropdown-theme-title {
@@ -390,7 +397,7 @@ button {
 #music-on-off-button i {
     font-size: 1rem;
     color: red;
-    margin: 0; /* To remove any default margin */
+    margin: 0;
 }
 
 #sound-on-off-button {
@@ -413,12 +420,12 @@ button {
 
 }
 
+/*dropdown styles*/
 .dropdown {
     position: relative;
     display: inline-block;
     margin-top: 10px;
 }
-
 .dropdown button {
     color: #3498db;
     background-color: white;
@@ -454,17 +461,12 @@ button {
     color: white;
 }
 
-/*dropdown styles*/
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-top: 10px;
-}
+
 
 .theme-div {
     box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
     border: 0.2rem solid rgb(155, 154, 154);
-    background-color: rgba(253, 251, 251,0.4);
+    background-color: rgba(253, 251, 251, 0.4);
 }
 
 .dropdown button {
@@ -475,8 +477,6 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
-
-
 
 .dropdown-content a {
     color: white;
@@ -493,6 +493,22 @@ button {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+/*score number style*/
+#score-text {
+    color: rgb(0, 0, 0);
+    font-family: 'Acme', sans-serif;
+    font-weight: 500;
+    font-size: 1.7rem;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: white;
+    width: 3rem;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+
 
 /* Challenge screen*/
 
@@ -890,17 +906,6 @@ button {
 
 }
 
-/*exit button*/
-.exit-game-button {
-    display: flex;
-    color: white;
-    background-color: red;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 5px;
-}
 
 #save-game-button {
     margin: 0 auto;
@@ -999,22 +1004,6 @@ h1 {
     color: black;
     border: 0.3rem solid rgb(155, 154, 154);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-
-#control-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-
-#control-container h6 {
-    display: none;
 }
 
 /*welcome section*/
@@ -1401,8 +1390,6 @@ footer {
     color: #333;
     text-align: center;
     padding: 10px;
-
-
 }
 
 /*animations*/
@@ -1463,6 +1450,8 @@ footer {
 
 /* Tablet layout */
 @media screen and (min-width: 768px) {
+
+    /*score number style*/
     #score-text {
         color: rgb(0, 0, 0);
         font-family: 'Acme', sans-serif;
@@ -1540,7 +1529,7 @@ footer {
         bottom: 15%;
     }
 
-    #right-wrong-text-with-video {
+    #right-wrong-text-with-video-container {
         display: flex;
         align-items: center;
         padding: 3.5em 0px;
@@ -1630,6 +1619,7 @@ footer {
 }
 
 @media screen and (max-width: 1000px)and (max-height: 500px) and (orientation: landscape) {
+    /*general styles*/
 
     header {
         justify-content: space-between;
@@ -1642,13 +1632,6 @@ footer {
         z-index: 1000;
     }
 
-    .title {
-        font-size: 2rem;
-        margin: 0 auto;
-        margin-top: 0;
-    }
-
-    /* Main */
     main {
         flex: 1;
         display: flex;
@@ -1656,9 +1639,14 @@ footer {
         overflow: hidden;
     }
 
+    .title {
+        font-size: 2rem;
+        margin: 0 auto;
+        margin-top: 0;
+    }
+
     #highscore-button-container {
         width: 20%;
-
     }
 
     #rules-button-container {
@@ -1778,7 +1766,7 @@ footer {
         flex-direction: column;
     }
 
-    #right-wrong-text-with-video {
+    #right-wrong-text-with-video-container {
         height: 1em;
         width: 100%;
         align-items: center;
@@ -1824,6 +1812,7 @@ footer {
         font-size: 1rem;
     }
 
+    /*score number style*/
     #score-text {
         font-size: 1rem;
     }
@@ -2155,6 +2144,7 @@ footer {
         background-color: rgba(0, 0, 0, 0.5);
     }
 
+    /*score number style*/
     #score-text {
         padding: 5px;
         font-family: 'Acme', sans-serif;
@@ -2164,6 +2154,8 @@ footer {
         transform: translateZ(-100px);
         transition: transform 0.5s ease-in-out;
     }
+
+    /*PLAYGROUND SECTION STYLES*/
 
     .number-container-class {
         width: 180px;
@@ -2225,8 +2217,8 @@ footer {
         border: 0.3rem solid rgb(155, 154, 154);
     }
 
-
-    #right-wrong-text-with-video #right-wrong-text #answer-text {
+    /*Answer text message styles*/
+    #right-wrong-text-with-video-container #right-wrong-text #answer-text {
         padding: 0.5rem;
     }
 
@@ -2253,7 +2245,7 @@ footer {
         width: 60%;
     }
 
-   
+
 }
 
 @media screen and (min-width: 1801px) {
@@ -2407,10 +2399,9 @@ footer {
         cursor: pointer;
     }
 
+    /*Exit game button*/
     .exit-game-button {
-
         font-size: 2em;
-
     }
 
     #playground-section #buttons-container-div #plus-button {
@@ -2425,7 +2416,8 @@ footer {
         font-size: 3rem;
     }
 
-    #right-wrong-text-with-video #right-wrong-text #answer-text {
+    /*Answer text message styles*/
+    #right-wrong-text-with-video-container #right-wrong-text #answer-text {
         padding: 20px;
     }
 
@@ -2434,6 +2426,7 @@ footer {
         height: 70px;
     }
 
+    /*score number style*/
     #score-text {
         font-size: 2rem;
 
@@ -2469,6 +2462,8 @@ footer {
 }
 
 @media screen and (min-width: 2225px) {
+
+    /*score number style*/
     #score-text {
         font-size: 2rem;
         margin-top: 15px;
@@ -2482,6 +2477,7 @@ footer {
     #icon-two {
         font-size: 8rem;
     }
+
     #score-screen-number-div h3 {
         color: white;
         font-size: 2.7rem;
@@ -2643,10 +2639,11 @@ footer {
         border: 0.3rem solid rgb(155, 154, 154);
         background-color: rgba(253, 251, 251, 0.7);
     }
+
     #option-one-number {
         font-size: 7rem;
     }
-    
+
     #option-two-number {
         font-size: 7rem;
     }
