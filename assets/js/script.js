@@ -1669,7 +1669,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const messageText = document.getElementById('message-id');
         const scoreText = document.getElementById('score-screen-number-div');
         const guessingNumber = document.getElementById('guessing-number-div');
-        const scoreBoardBackground = document.getElementById('right-wrong-text-with-video');
+        const scoreBoardBackground = document.getElementById('score-screen-number-div');
         const score = document.getElementById('score-text');
 
         // Remove 'active' class from all theme links
@@ -1842,6 +1842,8 @@ document.addEventListener("DOMContentLoaded", function () {
             guessingNumber.style.color = "white";
             guessingNumber.style.border = '3px solid white';
 
+        }else{
+            console.log("THEME")
         }
     }
 
@@ -1851,6 +1853,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Apply the saved theme and resize images
         applyTheme(savedThemeId);
         resizeAllImages(37.5, 25);
+      
     }
 
    // Add event listeners for theme selection
@@ -1876,7 +1879,6 @@ themeLinks.forEach(function (themeLink) {
         resizeAllImages(37.5, 25);
     });
 });
-
 
 });
 
