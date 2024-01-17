@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let isMusicPlaying = false;
     let consecutiveCorrectAnswers = 0;
     let isBonus = false;
+    let isMystery = false;
+
 
     /**
      * SOUND AND THEME CONTROL ELEMENTS: displaying dropdown controls and switchng on/off sound and music;
@@ -47,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * BUTTONS ELEMENT: buttons taht apear during game over all screens
      */
     const exitGameBtn = document.getElementById('exit-game-button');
-    const  saveGameScoreButton = document.getElementById('save-game-button');
+    const saveGameScoreButton = document.getElementById('save-game-button');
     const exitSaveGameScreenButton = document.getElementById('exit-save-game-button');
     const startGameButton = document.getElementById('start-game-button');
     const declineChallengeButton = document.getElementById('decline-button');
@@ -68,8 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const saveGameScreen = document.getElementById('save-best-score-screen');
     const acceptChallengeScreen = document.getElementById("accept-challenge-section");
     const saveBestScoreScreen = document.getElementById('score-form');
-    const bestScoreTextDisplay = document.getElementById('best-score-paragraph');
-    const popupContainer = document.getElementById('popup-container');
     const popupButton = document.getElementById('popup-button');
 
 
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     resizeAllImages(37.5, 25);
     initializeBestScore();
-    setInterval(changeBackgroundColor, 200);
+    setInterval(makeBlinkChallengeTitleBackgroundColor, 200);
 
     /**DROPDOWN CONTROL EVENT LISTENER:Toggle dropdown for theme and music when is active, hidde when is inactive
      */
@@ -152,23 +152,23 @@ document.addEventListener('DOMContentLoaded', function () {
             isMusicPlaying = true;
         }
     }
- /**
- * Function to stop playing the challenge game music.
- * 
- * This function checks if the music is turned on, pauses the challenge game music, 
- * and resets the playback position to the beginning. It also updates the music playing state.
- */
-function stopChallengeMusic() {
-    // Check if the music is turned on
-    if (isMusicOn) {
-        // Pause the challenge game music
-        challengeGameMusic.pause();
-        // Reset the playback position to the beginning
-        challengeGameMusic.currentTime = 0;
-        // Update the music playing state
-        isMusicPlaying = false;
+    /**
+    * Function to stop playing the challenge game music.
+    * 
+    * This function checks if the music is turned on, pauses the challenge game music, 
+    * and resets the playback position to the beginning. It also updates the music playing state.
+    */
+    function stopChallengeMusic() {
+        // Check if the music is turned on
+        if (isMusicOn) {
+            // Pause the challenge game music
+            challengeGameMusic.pause();
+            // Reset the playback position to the beginning
+            challengeGameMusic.currentTime = 0;
+            // Update the music playing state
+            isMusicPlaying = false;
+        }
     }
-}
 
     /**
      *  Function to stop the chase music .
@@ -320,62 +320,62 @@ function stopChallengeMusic() {
         }
     }
 
-   /**
- * Function to play the sound when a challenge is triggered.
- * 
- * This function plays the sound effect when a challenge is activated.
- */
-function playChallengeTriggeredSound() {
-    // Check if the sound is turned on
-    if (isSoundOn) {
-        // Play the challenge triggered sound effect
-        challengeTriggeredSound.play();
+    /**
+  * Function to play the sound when a challenge is triggered.
+  * 
+  * This function plays the sound effect when a challenge is activated.
+  */
+    function playChallengeTriggeredSound() {
+        // Check if the sound is turned on
+        if (isSoundOn) {
+            // Play the challenge triggered sound effect
+            challengeTriggeredSound.play();
+        }
     }
-}
-     
-/**
- * Reset styles for the challenge.
- * 
- * This function resets the styles for the challenge by setting background colors to white
- * and hiding the display of option numbers.
- */
-function resetStylesForChallenge() {
-    // Get elements for option one
-    let number1 = document.getElementById('option-one-number');
-    let backgroundOne = document.getElementById("option-one-background");
 
-    // Get elements for option two
-    let number2 = document.getElementById('option-two-number');
-    let backgroundTwo = document.getElementById("option-two-background");
+    /**
+     * Reset styles for the challenge.
+     * 
+     * This function resets the styles for the challenge by setting background colors to white
+     * and hiding the display of option numbers.
+     */
+    function resetStylesForChallenge() {
+        // Get elements for option one
+        let number1 = document.getElementById('option-one-number');
+        let backgroundOne = document.getElementById("option-one-background");
 
-    // Reset background colors to white
-    backgroundOne.style.backgroundColor = 'white';
-    backgroundTwo.style.backgroundColor = 'white';
+        // Get elements for option two
+        let number2 = document.getElementById('option-two-number');
+        let backgroundTwo = document.getElementById("option-two-background");
 
-    // Hide the display of option numbers
-    number1.style.display = 'none';
-    number2.style.display = 'none';
-}
+        // Reset background colors to white
+        backgroundOne.style.backgroundColor = 'white';
+        backgroundTwo.style.backgroundColor = 'white';
 
-  /**
- * Event listener for the click on the "seeHighscoreDashboardButton" button.
- * 
- * This function is triggered when the "seeHighscoreDashboardButton" button is clicked.
- * It displays the highscore screen, hides the icons on the welcome screen, 
- * and calls a function to display high scores on the dashboard.
- */
-seeHighscoreDashboardButton.addEventListener('click', function () {
-    // Get the elements for the highscore screen and icons on the welcome screen
-    const welcomeScreenHighscores = document.getElementById('welcome-highscore-screen');
-    const welcomeScreenIcons = document.getElementById('icons-for-welcome-screen-container');
-    // Display the highscore screen
-    welcomeScreenHighscores.style.display = 'block';
-    // Hide the icons on the welcome screen
-    welcomeScreenIcons.style.display = 'none';
-    // Call the function to display high scores on the dashboard
-    displayHighScoresForDashboard();
-});
-   
+        // Hide the display of option numbers
+        number1.style.display = 'none';
+        number2.style.display = 'none';
+    }
+
+    /**
+   * Event listener for the click on the "seeHighscoreDashboardButton" button.
+   * 
+   * This function is triggered when the "seeHighscoreDashboardButton" button is clicked.
+   * It displays the highscore screen, hides the icons on the welcome screen, 
+   * and calls a function to display high scores on the dashboard.
+   */
+    seeHighscoreDashboardButton.addEventListener('click', function () {
+        // Get the elements for the highscore screen and icons on the welcome screen
+        const welcomeScreenHighscores = document.getElementById('welcome-highscore-screen');
+        const welcomeScreenIcons = document.getElementById('icons-for-welcome-screen-container');
+        // Display the highscore screen
+        welcomeScreenHighscores.style.display = 'block';
+        // Hide the icons on the welcome screen
+        welcomeScreenIcons.style.display = 'none';
+        // Call the function to display high scores on the dashboard
+        displayHighScoresForDashboard();
+    });
+
     /**
  * Event listener for the click on the "See Rules" button.
  * 
@@ -383,50 +383,50 @@ seeHighscoreDashboardButton.addEventListener('click', function () {
  * It displays the rules screen, the close button, and the rules container,
  * while hiding the icons on the welcome screen.
  */
-seeRulesDashboardButton.addEventListener('click', function () {
-    // Get the elements for rules screen, close button, icons, and rules container
-    const displaysRules = document.getElementById('welcome-rules-screen');
-    const displayCloseRulesButton = document.getElementById('exit-welcome-rules');
-    const hideIcons = document.getElementById('icons-for-welcome-screen-container');
-    const rules = document.getElementById('rules-container');
-    // Display the rules screen, close button, and rules container
-    rules.style.display = 'block';
-    displaysRules.style.display = 'block';
-    displayCloseRulesButton.style.display = 'block';
-    // Hide the icons on the welcome screen
-    hideIcons.style.display = 'none';
-});
+    seeRulesDashboardButton.addEventListener('click', function () {
+        // Get the elements for rules screen, close button, icons, and rules container
+        const displaysRules = document.getElementById('welcome-rules-screen');
+        const displayCloseRulesButton = document.getElementById('exit-welcome-rules');
+        const hideIcons = document.getElementById('icons-for-welcome-screen-container');
+        const rules = document.getElementById('rules-container');
+        // Display the rules screen, close button, and rules container
+        rules.style.display = 'block';
+        displaysRules.style.display = 'block';
+        displayCloseRulesButton.style.display = 'block';
+        // Hide the icons on the welcome screen
+        hideIcons.style.display = 'none';
+    });
 
-   /**
- * Event listener for the click on the "startGameButton" button.
- * 
- * This function is triggered when the "startGameButton" button is clicked.
- * It hides the welcome screen.
- */
-startGameButton.addEventListener('click', function () {
-    // Get the element for the welcome screen
-    const welcomeScreen = document.getElementById('welcome-screen-section');
-    // Hide the welcome screen
-    welcomeScreen.style.display = 'none';
-});
-  
-   /**
- * Event listener for the click on the "exitHighscoreDashboardButton" button.
- * 
- * This function is triggered when the "exitHighscoreDashboardButton" button is clicked.
- * It displays the icons on the welcome screen and hides the highscore screen.
- */
-exitHighscoreDashboardButton.addEventListener('click', function () {
-    // Get the element for the icons on the welcome screen
-    const hideIcons = document.getElementById('icons-for-welcome-screen-container');
-    // Display the icons
-    hideIcons.style.display = 'block';
-    // Get the element for the highscore screen
-    const exitHigh = document.getElementById('welcome-highscore-screen');
-    // Hide the highscore screen
-    exitHigh.style.display = 'none';
-});
-    
+    /**
+  * Event listener for the click on the "startGameButton" button.
+  * 
+  * This function is triggered when the "startGameButton" button is clicked.
+  * It hides the welcome screen.
+  */
+    startGameButton.addEventListener('click', function () {
+        // Get the element for the welcome screen
+        const welcomeScreen = document.getElementById('welcome-screen-section');
+        // Hide the welcome screen
+        welcomeScreen.style.display = 'none';
+    });
+
+    /**
+  * Event listener for the click on the "exitHighscoreDashboardButton" button.
+  * 
+  * This function is triggered when the "exitHighscoreDashboardButton" button is clicked.
+  * It displays the icons on the welcome screen and hides the highscore screen.
+  */
+    exitHighscoreDashboardButton.addEventListener('click', function () {
+        // Get the element for the icons on the welcome screen
+        const hideIcons = document.getElementById('icons-for-welcome-screen-container');
+        // Display the icons
+        hideIcons.style.display = 'block';
+        // Get the element for the highscore screen
+        const exitHigh = document.getElementById('welcome-highscore-screen');
+        // Hide the highscore screen
+        exitHigh.style.display = 'none';
+    });
+
     /**
  * Event listener for the click on the "exitRulesDashboardButton" button.
  * 
@@ -434,35 +434,35 @@ exitHighscoreDashboardButton.addEventListener('click', function () {
  * It displays the icons on the welcome screen, hides the rules screen, 
  * and displays the rules container.
  */
-exitRulesDashboardButton.addEventListener('click', function () {
-    // Get the element for the rules container
-    const rules = document.getElementById('rules-container');
-    // Get the element for the rules screen
-    const rulesScreen = document.getElementById('welcome-rules-screen');
-    // Get the element for the icons on the welcome screen
-    const hideIcons = document.getElementById('icons-for-welcome-screen-container');
-    // Display the icons and rules container, hide the rules screen
-    hideIcons.style.display = 'block';
-    rules.style.display = 'block';
-    rulesScreen.style.display = 'none';
-});
- 
-   /**
- * Event listener for the click on the "saveGameScoreButton" button.
- * 
- * This function is triggered when the "saveGameScoreButton" button is clicked.
- * It saves the current game, hides the save best score screen, and 
- * updates the "scoreText" to '0'.
- */
-saveGameScoreButton.addEventListener('click', function () {
-    // Save the current game
-    saveGame();
-    // Get the element for the save best score screen
-    const saveBestScoreScreen = document.getElementById('score-form');
-    // Update the score text to '0' and hide the save best score screen
-    scoreText.textContent = '0';
-    saveBestScoreScreen.style.display = 'none';
-});
+    exitRulesDashboardButton.addEventListener('click', function () {
+        // Get the element for the rules container
+        const rules = document.getElementById('rules-container');
+        // Get the element for the rules screen
+        const rulesScreen = document.getElementById('welcome-rules-screen');
+        // Get the element for the icons on the welcome screen
+        const hideIcons = document.getElementById('icons-for-welcome-screen-container');
+        // Display the icons and rules container, hide the rules screen
+        hideIcons.style.display = 'block';
+        rules.style.display = 'block';
+        rulesScreen.style.display = 'none';
+    });
+
+    /**
+  * Event listener for the click on the "saveGameScoreButton" button.
+  * 
+  * This function is triggered when the "saveGameScoreButton" button is clicked.
+  * It saves the current game, hides the save best score screen, and 
+  * updates the "scoreText" to '0'.
+  */
+    saveGameScoreButton.addEventListener('click', function () {
+        // Save the current game
+        saveGame();
+        // Get the element for the save best score screen
+        const saveBestScoreScreen = document.getElementById('score-form');
+        // Update the score text to '0' and hide the save best score screen
+        scoreText.textContent = '0';
+        saveBestScoreScreen.style.display = 'none';
+    });
 
     /**
  * Event listener for the click on the "exitSaveGameScreenButton" button.
@@ -470,234 +470,251 @@ saveGameScoreButton.addEventListener('click', function () {
  * This function is triggered when the "exitSaveGameScreenButton" button is clicked.
  * It hides the save game screen.
  */
-exitSaveGameScreenButton.addEventListener('click', function () {
-    // Get the element for the save game screen
-    const saveGameScreen = document.getElementById('save-game-screen-section');
-    // Hide the save game screen
-    saveGameScreen.style.display = 'none';
-});
+    exitSaveGameScreenButton.addEventListener('click', function () {
+        // Get the element for the save game screen
+        const saveGameScreen = document.getElementById('save-best-score-screen');
+        // Hide the save game screen
+        saveGameScreen.style.display = 'none';
+    });
 
-  
+
     /**
  * Event listener for the click on the "Start Turbo Bonus Game" button.
  * 
  * This function is triggered when the "Start Turbo Bonus Game" button is clicked.
  * It initializes the Turbo Bonus Game, updates the score, and starts the countdown timer.
  */
-startTurboGameButton.addEventListener('click', function () {
-    // Set the bonus flag to true
-    isBonus = true;
-    console.log(isBonus);
+    startTurboGameButton.addEventListener('click', function () {
+        // Set the bonus flag to true
+        isBonus = true;
+        console.log(isBonus);
 
-    // Hide the Turbo Bonus screen
-    document.getElementById('turbo-bonus-screen-section').style.display = 'none';
+        // Hide the Turbo Bonus screen
+        document.getElementById('turbo-bonus-screen-section').style.display = 'none';
 
-    // Get the initial score
-    let initialScore = parseInt(scoreText.textContent, 10);
+        // Get the initial score
+        let initialScore = parseInt(scoreText.textContent, 10);
 
-    // Play button click sound and Turbo Bonus music
-    playButtonClickSound();
-    playTurboBonusMusic();
+        // Play button click sound and Turbo Bonus music
+        playButtonClickSound();
+        playTurboBonusMusic();
+
+        /**
+         * Function to start the countdown timer for Turbo Bonus Game.
+         * @param {number} seconds - The duration of the timer in seconds.
+         */
+        function countdownTimer(seconds) {
+            // Get the timer element
+            const timerElement = document.getElementById('timer');
+            // Set the initial background color of the timer
+            timerElement.style.backgroundColor = 'white';
+
+            /**
+             * Function to update the display of the countdown timer.
+             */
+            function updateDisplay() {
+                // Make the timer visible
+                timerElement.style.display = 'block';
+                // Display the remaining time
+                timerElement.innerHTML = `Time: ${seconds} sec`;
+            }
+
+            /**
+             * Function to execute the countdown logic.
+             */
+            function count() {
+                // Update the display
+                updateDisplay();
+
+                if (seconds > 0) {
+                    // Check if it's the last 5 seconds
+                    if (seconds <= 9) {
+                        playAlarmAlertSoundTimer();
+                        blinkRedBackground(); // Call the blink function
+                    }
+
+                    // Decrement the seconds
+                    seconds--;
+
+                    // Call count() again after 1000 milliseconds (1 second)
+                    setTimeout(count, 1000);
+                } else {
+                    // Display time's up when the countdown is finished
+                    timerElement.innerHTML = "Time's up!";
+                    // Set the title back to "Higher or Lower"
+                    higherLowerTitle.innerHTML = "Higher or Lower";
+                    // Display the exit Turbo Bonus section
+                    document.getElementById('exit-turbo-bonus-section').style.display = 'block';
+                    // Set the timer color to black
+                    timerElement.style.color = "black";
+
+                    // Get the final score
+                    let finalScore = parseInt(scoreText.textContent, 10);
+
+                    // Pause the alarm sound and stop Turbo Bonus music
+                    pauseAlarmAlertSoundTimer();
+                    stopTurboBonusMusic();
+
+                    // Play the Challenge Triggered sound
+                    playChallengeTriggeredSound();
+
+                    // Calculate the score difference
+                    let scoreDifference = finalScore - initialScore;
+
+                    // Get the Turbo score element
+                    let turboScoreElement = document.getElementById('turbo-score');
+
+                    // Update the Turbo score element with the score difference
+                    if (turboScoreElement) {
+                        turboScoreElement.innerHTML = scoreDifference;
+                    }
+
+                    // Set the bonus flag back to false
+                    isBonus = false;
+                }
+            }
+            // Start the countdown
+            count();
+        }
+
+        // Start the countdown timer with a duration of 20 seconds
+        countdownTimer(20);
+    });
+
 
     /**
-     * Function to start the countdown timer for Turbo Bonus Game.
-     * @param {number} seconds - The duration of the timer in seconds.
+  * Event listener for the click on the "closeChallengeScreenButton" button.
+  * 
+  * This function is triggered when the "closeChallengeScreenButton" button is clicked.
+  * It displays the challenge icons, plays background music, and hides the challenge screens.
+  */
+    closeChallengeScreenButton.addEventListener('click', function () {
+        // Display icon one
+        const iconOne = document.getElementById('icon-one');
+        iconOne.style.display = 'block';
+
+        // Display icon two
+        const iconTwo = document.getElementById('icon-two');
+        iconTwo.style.display = 'block';
+
+        // Play background music
+        playBackgroundMusic();
+
+        // Hide the challenge score display
+        const challengeCloseScreen = document.getElementById('challenge-score-display');
+        challengeCloseScreen.style.display = 'none';
+
+        // Hide the challenge accept screen
+        const challengeAcceptScreen = document.getElementById('challenge');
+        challengeAcceptScreen.style.display = 'none';
+
+        // Reset styles for the challenge
+        resetStylesForChallenge();
+    });
+
+    /**
+     * Handle the click event for the exit turbo button.
+     * 
+     * This function is triggered when the exit turbo button is clicked. It hides the turbo bonus
+     * section, resets the timer element styles, plays background music, and triggers the button click sound.
      */
-    function countdownTimer(seconds) {
-        // Get the timer element
+    exitTurboButton.addEventListener('click', function () {
+        // Hide the turbo bonus section
+        const instruction = document.getElementById('exit-turbo-bonus-section');
+        instruction.style.display = 'none';
+
+        // Reset the timer element styles
         const timerElement = document.getElementById('timer');
-        // Set the initial background color of the timer
         timerElement.style.backgroundColor = 'white';
+        timerElement.style.display = 'none';
 
-        /**
-         * Function to update the display of the countdown timer.
-         */
-        function updateDisplay() {
-            // Make the timer visible
-            timerElement.style.display = 'block';
-            // Display the remaining time
-            timerElement.innerHTML = `Time: ${seconds} sec`;
-        }
-
-        /**
-         * Function to execute the countdown logic.
-         */
-        function count() {
-            // Update the display
-            updateDisplay();
-
-            if (seconds > 0) {
-                // Check if it's the last 5 seconds
-                if (seconds <= 9) {
-                    playAlarmAlertSoundTimer();
-                    blinkRedBackground(); // Call the blink function
-                }
-
-                // Decrement the seconds
-                seconds--;
-
-                // Call count() again after 1000 milliseconds (1 second)
-                setTimeout(count, 1000);
-            } else {
-                // Display time's up when the countdown is finished
-                timerElement.innerHTML = "Time's up!";
-                // Set the title back to "Higher or Lower"
-                higherLowerTitle.innerHTML = "Higher or Lower";
-                // Display the exit Turbo Bonus section
-                document.getElementById('exit-turbo-bonus-section').style.display = 'block';
-                // Set the timer color to black
-                timerElement.style.color = "black";
-
-                // Get the final score
-                let finalScore = parseInt(scoreText.textContent, 10);
-
-                // Pause the alarm sound and stop Turbo Bonus music
-                pauseAlarmAlertSoundTimer();
-                stopTurboBonusMusic();
-
-                // Play the Challenge Triggered sound
-                playChallengeTriggeredSound();
-                
-                // Calculate the score difference
-                let scoreDifference = finalScore - initialScore;
-
-                // Get the Turbo score element
-                let turboScoreElement = document.getElementById('turbo-score');
-
-                // Update the Turbo score element with the score difference
-                if (turboScoreElement) {
-                    turboScoreElement.innerHTML = scoreDifference;
-                }
-
-                // Set the bonus flag back to false
-                isBonus = false;
-            }
-        }
-        // Start the countdown
-        count();
-    }
-
-    // Start the countdown timer with a duration of 20 seconds
-    countdownTimer(20);
-});
-
-   
-   /**
- * Event listener for the click on the "closeChallengeScreenButton" button.
- * 
- * This function is triggered when the "closeChallengeScreenButton" button is clicked.
- * It displays the challenge icons, plays background music, and hides the challenge screens.
- */
-closeChallengeScreenButton.addEventListener('click', function () {
-    // Display icon one
-    const iconOne = document.getElementById('icon-one');
-    iconOne.style.display = 'block';
-
-    // Display icon two
-    const iconTwo = document.getElementById('icon-two');
-    iconTwo.style.display = 'block';
-
-    // Play background music
-    playBackgroundMusic();
-
-    // Hide the challenge score display
-    const challengeCloseScreen = document.getElementById('challenge-score-display');
-    challengeCloseScreen.style.display = 'none';
-
-    // Hide the challenge accept screen
-    const challengeAcceptScreen = document.getElementById('challenge');
-    challengeAcceptScreen.style.display = 'none';
-
-    // Reset styles for the challenge
-    resetStylesForChallenge();
-});
-
-/**
- * Handle the click event for the exit turbo button.
- * 
- * This function is triggered when the exit turbo button is clicked. It hides the turbo bonus
- * section, resets the timer element styles, plays background music, and triggers the button click sound.
- */
-exitTurboButton.addEventListener('click', function () {
-    // Hide the turbo bonus section
-    const instruction = document.getElementById('exit-turbo-bonus-section');
-    instruction.style.display = 'none';
-
-    // Reset the timer element styles
-    const timerElement = document.getElementById('timer');
-    timerElement.style.backgroundColor = 'white';
-    timerElement.style.display = 'none';
-
-    // Play background music and trigger button click sound
-    playBackgroundMusic();
-    playButtonClickSound();
-});
+        // Play background music and trigger button click sound
+        playBackgroundMusic();
+        playButtonClickSound();
+    });
 
 
-   /**
- * Event listener for the click on the "declineChallengeButton" button.
- * 
- * This function is triggered when the "declineChallengeButton" button is clicked.
- * It plays main background music, a button click sound, and hides the accept challenge screen.
- */
-declineChallengeButton.addEventListener('click', function () {
-    // Get the accept challenge screen element
-    const acceptChallengeScreen = document.getElementById('accept-challenge-section');
+    /**
+  * Event listener for the click on the "declineChallengeButton" button.
+  * 
+  * This function is triggered when the "declineChallengeButton" button is clicked.
+  * It plays main background music, a button click sound, and hides the accept challenge screen.
+  */
+    declineChallengeButton.addEventListener('click', function () {
+        // Get the accept challenge screen element
+        const acceptChallengeScreen = document.getElementById('accept-challenge-section');
 
-    // Play background music
-    playBackgroundMusic();
+        // Play background music
+        playBackgroundMusic();
 
-    // Play button click sound
-    playButtonClickSound();
+        // Play button click sound
+        playButtonClickSound();
 
-    // Hide the accept challenge screen
-    acceptChallengeScreen.style.display = 'none';
-});
-  
-/**
- * Event listener for the click on the "acceptChallengeButton" button.
- * 
- * This function is triggered when the "acceptChallengeButton" button is clicked.
- * It initiates color switching, displays the challenge screen, plays a button click sound,
- * and starts playing challenge music.
- */
-acceptChallengeButton.addEventListener('click', function () {
-    // Allow color switching
-    stopSwitching = false;
+        // Hide the accept challenge screen
+        acceptChallengeScreen.style.display = 'none';
+    });
 
-    // Start interval for color switching
-    intervalId = setInterval(switchColors, 500);
+    /**
+     * Event listener for the click on the "acceptChallengeButton" button.
+     * 
+     * This function is triggered when the "acceptChallengeButton" button is clicked.
+     * It initiates color switching, displays the challenge screen, plays a button click sound,
+     * and starts playing challenge music.
+     */
+    acceptChallengeButton.addEventListener('click', function () {
+        // Allow color switching
+        stopSwitching = false;
 
-    // Get the challenge screen element
-    const challengeScreen = document.getElementById('challenge');
-    challengeScreen.style.display = 'block';
+        // Start interval for color switching
+        intervalId = setInterval(switchColorsForChallengeOptions, 500);
 
-    // Get the accept challenge screen element
-    const acceptChallengeScreen = document.getElementById('accept-challenge-section');
-    acceptChallengeScreen.style.display = 'none';
+        // Get the challenge screen element
+        const challengeScreen = document.getElementById('challenge');
+        challengeScreen.style.display = 'block';
 
-    // Play button click sound
-    playButtonClickSound();
+        // Get the accept challenge screen element
+        const acceptChallengeScreen = document.getElementById('accept-challenge-section');
+        acceptChallengeScreen.style.display = 'none';
 
-    // Start playing challenge music
-    playChallengeMusic();
-});
+        // Play button click sound
+        playButtonClickSound();
 
+        // Start playing challenge music
+        playChallengeMusic();
+    });
 
-
-    // exit game button
+    /**
+  * Event listener for the click on the "exitGameBtn" button.
+  * 
+  * This function is triggered when the "exitGameBtn" button is clicked.
+  * It updates the best score display, shows the high scores, and checks/display the best score.
+  */
     exitGameBtn.addEventListener('click', function () {
+        // Get the best score text display element
+        const bestScoreTextDisplay = document.getElementById('best-score-paragraph');
+
+        // Update the best score text display with the current score
         bestScoreTextDisplay.textContent = parseInt(scoreText.textContent, 10);
-        console.log(bestScoreTextDisplay);
+
+        // Display the high scores
         displayHighScores();
+
+        // Check and display the best score
         checkAndDisplayBestScore();
     });
 
+    /**
+  * Generates a random number and initializes the guessing number display and styles.
+  */
     let currentGuess = generateRandomNumber();
     guessingNumberMovingContainer.textContent = currentGuess;
     updateStyles();
 
-    //compare number
+    /**
+     * Applies common styles to the given HTML element.
+     * 
+     * @param {HTMLElement} element - The HTML element to which styles will be applied.
+     */
     function applyCommonStyles(element) {
         element.style.color = "white";
         element.style.padding = '5px';
@@ -705,13 +722,26 @@ acceptChallengeButton.addEventListener('click', function () {
         element.style.fontFamily = "Acme";
     }
 
+    /**
+ * Compares the current guessing number with a new number based on the user's guess.
+ * Updates the answer text, background color, and displays a random message.
+ * Adjusts font size based on screen width.
+ * 
+ * @param {number} current - The current guessing number.
+ * @param {number} newNumber - The new number to compare with the current guessing number.
+ * @param {string} guess - The user's guess, either 'plus' or 'minus'.
+ * @returns {boolean} - True if the guess is correct, false otherwise.
+ */
     function compareNumbers(current, newNumber, guess) {
+        // Variable to store whether the user's guess is correct or not
         let isCorrect;
 
+        // Check if mystery mode is activated
         if (countMysteryNumber === 10) {
             isMystery = true;
         }
 
+        // Compare numbers and update answer text and styles
         if ((guess === 'plus' && newNumber > current) || (guess === 'minus' && newNumber < current)) {
             answerText.textContent = 'Correct!';
             answerText.style.backgroundColor = "green";
@@ -735,265 +765,385 @@ acceptChallengeButton.addEventListener('click', function () {
 
         return isCorrect;
     }
-    //minus button
+
+    /**
+    * Event listener for the click on the "minusButton" button.
+    * This function is triggered when the "minusButton" button is clicked.
+    * It handles the user's guess of the mystery number being lower, updates the score,
+    * and triggers bonus or challenge events based on the guess result.
+    */
     minusButton.addEventListener('click', function () {
+        // Hide the mystery number container and message
         mysteryNumberContainer.style.display = 'none';
         messageForMystery.style.display = 'none';
+
+        // Increment the count of mystery numbers guessed
         countMysteryNumber++;
+
+        // Play button click sound
         playButtonClickSound();
+
+        // Generate a new mystery number
         const newGuess = generateRandomNumber();
+
+        // Compare the new guess with the current mystery number and determine if it's correct
         const isCorrect = compareNumbers(currentGuess, newGuess, 'minus');
+
+        // Get the current score
         let currentScore = parseInt(scoreText.textContent, 10);
+
+        // Display the guessed mystery number
         guessedNumber.textContent = "Mystery number was: " + currentGuess;
 
+        // Start fade-out animation for the guessed number
         startFadeOutAnimation('guessed-number');
+
+        // Handle the result of the guess
         if (isCorrect) {
+            // If the guess is correct
             if (consecutiveCorrectAnswers === 5) {
+                // If there are 5 consecutive correct answers, trigger the turbo bonus
                 isBonus = true;
                 pauseBackgroundMusic();
                 document.getElementById('turbo-bonus-screen-section').style.display = 'block';
                 resetConsecutiveCorrectAnswers();
             } else {
+                // Otherwise, increment the consecutive correct answers
                 consecutiveCorrectAnswers++;
             }
+
+            // Handle scoring based on bonus and mystery
             if (isBonus && !isMystery) {
+                // If it's a bonus round without a mystery, score +2
                 resetConsecutiveCorrectAnswers();
                 playButtonClickSound();
                 scoreText.textContent = Math.max(0, currentScore + 2);
             } else if (isBonus && isMystery) {
+                // If it's a bonus round with a mystery, score +10 and display the guessed number
                 scoreText.textContent = Math.max(0, currentScore + 10);
                 guessedNumber.style.display = 'block';
             } else if (!isBonus && isMystery) {
+                // If it's a regular round with a mystery, score +5 and display the guessed number
                 guessedNumber.style.display = 'block';
-
                 scoreText.textContent = Math.max(0, currentScore + 5);
-            }
-            else {
+            } else {
+                // If it's neither a bonus nor a mystery, check for challenges or regular scoring
                 if (currentScore > 0 && !isBonus) {
                     openChallenge();
-                } else {
-
                 }
-
                 scoreText.textContent = Math.max(0, currentScore + 1);
             }
+
+            // Play the main right answer sound
             playMainRightAnswerSound();
         } else {
-
+            // If the guess is wrong
             if (isMystery) {
+                // If it's a mystery round, display the guessed number
                 console.log(isMystery);
                 guessedNumber.style.display = 'block';
             }
+
+            // Reset consecutive correct answers
             resetConsecutiveCorrectAnswers();
-            let currentScore = parseInt(scoreText.textContent, 10);
+
+            // Handle scoring based on bonus
             if (isBonus) {
+                // If it's a bonus round, score -2
                 resetConsecutiveCorrectAnswers();
                 scoreText.textContent = Math.max(0, currentScore - 2);
             } else {
+                // If it's a regular round, score -1
                 scoreText.textContent = Math.max(0, currentScore - 1);
             }
+
+            // Play the wrong answer sound
             playWrongAnswerSound();
         }
+
+        // Start fade-out animation for the guessed number
         startFadeOutAnimation('guessed-number');
 
+        // Reset the mystery flag
         isMystery = false;
+
+        // Update the current guess and display it
         currentGuess = newGuess;
         guessingNumberMovingContainer.textContent = currentGuess;
         updateStyles();
     });
-    // plus button
+
+    /**
+  * Event listener for the click on the "plusButton" button.
+  * This function is triggered when the "plusButton" button is clicked.
+  * It handles the user's guess of the mystery number being higher, updates the score,
+  * and triggers bonus or challenge events based on the guess result.
+  */
     plusButton.addEventListener('click', function () {
+        // Increment the mystery number counter
         countMysteryNumber++;
+
+        // Hide mystery number container and message for mystery
         mysteryNumberContainer.style.display = 'none';
         messageForMystery.style.display = 'none';
+
+        // Hide guessed number and update its content
         guessedNumber.style.display = "none";
         guessedNumber.textContent = "Mystery number was: " + currentGuess;
+
+        // Apply fade-out animation to guessed number
         startFadeOutAnimation('guessed-number');
+
+        // Play button click sound
         playButtonClickSound();
+
+        // Generate a new mystery number
         const newGuess = generateRandomNumber();
+
+        // Compare the new guess with the current mystery number
         const isCorrect = compareNumbers(currentGuess, newGuess, 'plus');
 
         if (isCorrect) {
             let currentScore = parseInt(scoreText.textContent, 10);
 
+            // Check if the consecutive correct answers reach 5
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
                 pauseBackgroundMusic();
                 document.getElementById('turbo-bonus-screen-section').style.display = 'block';
                 resetConsecutiveCorrectAnswers();
-            } else {
-
             }
+
+            // Increment consecutive correct answers counter
             consecutiveCorrectAnswers++;
+
             if (isBonus && !isMystery) {
+                // Reset consecutive correct answers and play button click sound
                 resetConsecutiveCorrectAnswers();
                 playButtonClickSound();
                 scoreText.textContent = Math.max(0, currentScore + 2);
             } else if (isBonus && isMystery) {
+                // Update score and display guessed number
                 scoreText.textContent = Math.max(0, currentScore + 10);
                 guessedNumber.style.display = 'block';
             } else if (!isBonus && isMystery) {
+                // Update score and display guessed number
                 scoreText.textContent = Math.max(0, currentScore + 5);
                 guessedNumber.style.display = 'block';
-            }
-            else {
+            } else {
+                // Check for challenges or display regular score increment
                 if (currentScore > 0 && !isBonus) {
                     openChallenge();
-                } else {
-
                 }
 
+                // Display regular score increment
                 scoreText.textContent = Math.max(0, currentScore + 1);
             }
+
+            // Play right answer sound
             playMainRightAnswerSound();
+
+            // Check if consecutive correct answers reach 5 for bonus
             if (consecutiveCorrectAnswers === 5) {
                 isBonus = true;
                 pauseBackgroundMusic();
                 playChallengeTriggeredSound();
                 document.getElementById('turbo-bonus-screen-section').style.display = 'block';
                 resetConsecutiveCorrectAnswers();
-
-            } else {
-
             }
 
-
-
-
         } else {
+            // Display guessed number if it's a mystery round
             if (isMystery) {
                 console.log(isMystery);
                 guessedNumber.style.display = 'block';
             }
+
+            // Reset consecutive correct answers and decrement the score if the guess is wrong
             resetConsecutiveCorrectAnswers();
-            // Decrement the score if the guess is wrong
             let currentScore = parseInt(scoreText.textContent, 10);
 
+            // Ensure that the score is not negative; if it is, set it to zero.
             if (currentScore < 0) {
                 currentScore = 0;
             }
 
+            // Adjust the score based on whether it's a bonus round or a regular round.
             if (isBonus) {
+                // Decrement score for bonus round
                 if (currentScore <= 0) {
                     currentScore = 0;
                 }
                 resetConsecutiveCorrectAnswers();
                 scoreText.textContent = Math.max(0, currentScore - 2);
             } else {
+                // Decrement score for regular round
+                // Ensure the score doesn't go below zero
                 if (currentScore <= 0) {
-
                     currentScore = 0;
                 }
                 scoreText.textContent = Math.max(0, currentScore - 1);
                 resetConsecutiveCorrectAnswers();
             }
 
+            // Play wrong answer sound
             playWrongAnswerSound();
         }
+
+        // Apply fade-out animation to guessed number
         startFadeOutAnimation('guessed-number');
 
+        // Reset mystery flag, update current guess, and update styles
         isMystery = false;
         currentGuess = newGuess;
         guessingNumberMovingContainer.textContent = currentGuess;
         updateStyles(); // Apply styles after updating the number and score
-
     });
 
-
+    /**
+     * Event listener for the left choice button in the challenge screen.
+     * 
+     * This function is triggered when the user clicks on the left choice button during a challenge.
+     * It stops the color switching animation, hides icons, displays and animates the challenge score display,
+     * stops the challenge music  and compares numbers for the challenge.
+     * The challenge score display is then smoothly revealed with a transition effect.
+     */
     let intervalId;
-    //left choice in challenge
     challengeLeftChoiceButton.addEventListener('click', function () {
+        // Stop the color switching animation
         stopSwitching = true;
         clearInterval(intervalId);
+
+        // Hide icons
         const iconTwo = document.getElementById('icon-two');
         iconTwo.style.display = 'none';
         const iconOne = document.getElementById('icon-one');
         iconOne.style.display = 'none';
 
+        // Display and animate the challenge score display
         const challengeAcceptScreen = document.getElementById('challenge-score-display');
         challengeAcceptScreen.style.opacity = 0;
-        challengeAcceptScreen.style.display = 'block'; // Make the timer visible
+        challengeAcceptScreen.style.display = 'block';
 
+        // Stop the challenge music
         stopChallengeMusic();
 
-        generateAndCompareNumbers();
+        // Generate and compare numbers for the challenge
+        generateAndCompareNumbersForLeftOptionChallenge();
+
+        // Set a delay before animating the challenge score display
         setTimeout(function () {
             challengeAcceptScreen.style.transition = 'opacity 1s';
             challengeAcceptScreen.style.opacity = 1;
-
-
-
         }, 700);
-
-
     });
 
-    // right choice in challenge
+    /**
+  * Event listener for the right choice button in the challenge screen.
+  * 
+  * This function is triggered when the user clicks on the right choice button during a challenge.
+  * It stops the color switching animation, hides icons, displays and animates the challenge score display,
+  * stops the challenge music, and generates and compares numbers for the challenge (two-choice version).
+  * The challenge score display is then smoothly revealed with a transition effect.
+  */
     challengeRightChoiceButton.addEventListener('click', function () {
+        // Stop the color switching animation
         stopSwitching = true;
         clearInterval(intervalId);
+
+        // Hide icons
         const iconOne = document.getElementById('icon-one');
         iconOne.style.display = 'none';
         const iconTwo = document.getElementById('icon-two');
         iconTwo.style.display = 'none';
 
+        // Set up the challenge score display
         const challengeAcceptScreen = document.getElementById('challenge-score-display');
         challengeAcceptScreen.style.opacity = 0;
-
-
         challengeAcceptScreen.style.display = 'block';
-        stopChallengeMusic();
-        generateAndCompareNumbersForTwo();
-        setTimeout(function () {
 
+        // Stop the challenge music
+        stopChallengeMusic();
+
+        // Generate and compare numbers for the two-choice challenge
+        generateAndCompareNumbersForRightOptionChallenge();
+
+        // Smoothly reveal the challenge score display with a transition effect
+        setTimeout(function () {
             challengeAcceptScreen.style.transition = 'opacity 1s';
             challengeAcceptScreen.style.opacity = 1;
         }, 700); // Delay for 2 seconds
-
-
     });
 
-
-
-    //popup button
+    /**
+  * Event listener for the click on the "popupButton" button.
+  * 
+  * This function is triggered when the button is clicked and hides the popup container.
+  */
     popupButton.addEventListener('click', function () {
+        // Retrieve the reference to the element with the ID 'popup-container'
+        const popupContainer = document.getElementById('popup-container');
+
+        // Hide the popup container
         popupContainer.style.display = 'none';
     });
 
 
+    /**
+     * Initiates a fade-out animation for the specified element based on its ID.
+     * 
+     * @param {string} elementId - The ID of the HTML element to which the animation is applied.
+     */
     function startFadeOutAnimation(elementId) {
+        // Retrieve the reference to the DOM element with the provided ID
         const guessedNumberBackground = document.getElementById(elementId);
 
+        // Check if the element with the specified ID exists
         if (!guessedNumberBackground) {
             console.error('Element with ID ' + elementId + ' not found.');
             return;
         }
+
+        // Add the 'fadeOut' class to trigger the fade-out animation
         guessedNumberBackground.classList.add('fadeOut');
 
+        // Set a timeout to hide the element after the animation duration (3000 milliseconds)
         setTimeout(function () {
             guessedNumberBackground.style.display = 'none';
         }, 3000);
     }
-    // generate and compare numbers for challenge(bonus)
-    function generateAndCompareNumbersForTwo() {
+
+    /**
+ * Generates random numbers for right positioned choice, displays them on the challenge screen,
+ * and compares them to determine the challenge result.
+ * 
+ * @returns {Object} An object containing the generated random numbers (randomNumber1 and randomNumber2).
+ */
+    function generateAndCompareNumbersForRightOptionChallenge() {
+        // Generate two random numbers between 1 and 100
         let randomNumber1 = Math.floor(Math.random() * 100) + 1;
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
+
+        // Retrieve references to DOM elements
         let number1 = document.getElementById('option-one-number');
         let number2 = document.getElementById('option-two-number');
         let screenMessage = document.getElementById('challenge-guess-result-message');
+        let backgroundOne = document.getElementById("option-one-background");
+        let backgroundTwo = document.getElementById("option-two-background");
+
+        // Display the generated random numbers on the challenge screen
         number2.innerText = randomNumber2;
         number1.innerText = randomNumber1;
         number1.style.display = 'block';
         number2.style.display = 'block';
 
-        let backgroundOne = document.getElementById("option-one-background");
-        let backgroundTwo = document.getElementById("option-two-background");
+        // Get the initial score from the game
         let initialScore = parseInt(scoreText.textContent, 10);
 
-
+        // Compare the random numbers to determine the challenge result
         if (randomNumber1 < randomNumber2) {
+            // Display encouraging message and update the score
             playCorrectAnswerChallengeSound();
-
             displayRandomMessage('encouraging');
             scoreText.innerText = initialScore * 2;
             screenMessage.style.color = 'white';
@@ -1001,9 +1151,8 @@ acceptChallengeButton.addEventListener('click', function () {
             backgroundOne.style.backgroundColor = 'red';
             backgroundTwo.style.backgroundColor = 'green';
             screenMessage.textContent = 'CORRRREEECT!!!';
-
-
         } else if (randomNumber2 < randomNumber1) {
+            // Display discouraging message and update the score
             displayRandomMessage('discouraging');
             playWrongAnswerChallengeSound();
             scoreText.innerText = initialScore * 0;
@@ -1013,33 +1162,45 @@ acceptChallengeButton.addEventListener('click', function () {
             backgroundOne.style.backgroundColor = 'green';
             backgroundTwo.style.backgroundColor = 'red';
         } else {
+            // If the random numbers are equal, regenerate new numbers
             generateRandomNumber();
         }
 
-
-
-
+        // Return the generated random numbers
         return { randomNumber1, randomNumber2 };
     }
 
-    //generate numbers for challenge (bonus) game
-    function generateAndCompareNumbers() {
+
+    /**
+  * Generates two random numbers for left positioned choice, displays them on the challenge screen,
+  * and compares them to determine the challenge result.
+  * 
+  * @returns {Object} An object containing the generated random numbers (randomNumber1 and randomNumber2).
+  */
+    function generateAndCompareNumbersForLeftOptionChallenge() {
+        // Generate two random numbers between 1 and 100
         let randomNumber1 = Math.floor(Math.random() * 100) + 1;
         let randomNumber2 = Math.floor(Math.random() * 100) + 1;
+
+        // Retrieve references to DOM elements
         let number1 = document.getElementById('option-one-number');
         let number2 = document.getElementById('option-two-number');
         let screenMessage = document.getElementById('challenge-guess-result-message');
+        let backgroundOne = document.getElementById("option-one-background");
+        let backgroundTwo = document.getElementById("option-two-background");
 
+        // Display the generated random numbers on the challenge screen
         number2.innerText = randomNumber2;
         number1.innerText = randomNumber1;
         number1.style.display = 'block';
         number2.style.display = 'block';
+
+        // Get the initial score from the game
         let initialScore = parseInt(scoreText.textContent, 10);
 
-        let backgroundOne = document.getElementById("option-one-background");
-        let backgroundTwo = document.getElementById("option-two-background");
-
+        // Compare the random numbers to determine the challenge result
         if (randomNumber1 > randomNumber2) {
+            // Display encouraging message, update the score, and adjust styles
             playCorrectAnswerChallengeSound();
             displayRandomMessage('encouraging');
             scoreText.innerText = initialScore * 2;
@@ -1048,32 +1209,32 @@ acceptChallengeButton.addEventListener('click', function () {
             screenMessage.style.backgroundColor = 'green';
             screenMessage.style.color = 'white';
             backgroundOne.style.backgroundColor = 'green';
-
-
             backgroundTwo.style.backgroundColor = 'red';
-
         } else if (randomNumber1 < randomNumber2) {
+            // Display discouraging message, update the score, and adjust styles
             scoreText.innerText = initialScore * 0;
             playWrongAnswerChallengeSound();
-
             screenMessage.style.backgroundColor = 'red';
             screenMessage.style.color = 'white';
             backgroundOne.style.backgroundColor = 'red';
             backgroundTwo.style.backgroundColor = 'green';
             screenMessage.textContent = 'WROOOONG!!!';
-            higherLowerTitle.textContent = "It was other one";
-
-
-
+            higherLowerTitle.textContent = "It was the other one";
         } else {
-
+            // If the random numbers are equal, no action is taken
         }
-        // Return an object containing the generated numbers
+
+        // Return an object containing the generated random numbers
         return { randomNumber1, randomNumber2 };
     }
 
-    // display messages 
+
+    /**
+  * Function to display a random encouraging or discouraging message.
+  * @param {string} messageType - The type of message to display ('encouraging' or 'discouraging').
+  */
     function displayRandomMessage(messageType) {
+        // Array of encouraging messages
         const encouragingMessages = [
             "Brilliant! ",
             "You're unstoppable.",
@@ -1100,7 +1261,7 @@ acceptChallengeButton.addEventListener('click', function () {
             "You got this!"
         ];
 
-
+        // Array of discouraging messages
         const discouragingMessages = [
             "Oops, that didn't go as planned. ",
             "It happens to the best of us.",
@@ -1111,108 +1272,144 @@ acceptChallengeButton.addEventListener('click', function () {
             "Don't be discouraged!",
             "Facing hurdles? ",
             "Tough break.",
-
         ];
 
+        // Select the appropriate array based on the message type
         const messagesArray = (messageType === 'encouraging') ? encouragingMessages : discouragingMessages;
+
+        // Generate a random index to select a random message
         const randomIndex = Math.floor(Math.random() * messagesArray.length);
+
+        // Get the random message and display it
         const randomMessage = messagesArray[randomIndex];
         document.getElementById('message-id').innerText = randomMessage;
     }
-    // open challenge for bonus game
+
+    /**
+ * Function to open a challenge when conditions are met.
+ */
     function openChallenge() {
+        // Hide the message for the mystery number
         messageForMystery.style.display = 'none';
 
+        // Generate two random numbers
         let randomOne = Math.floor(Math.random() * 10) + 1;
         let randomTwo = Math.floor(Math.random() * 10) + 1;
+
+        // Check if the challenge should be opened
         if (randomOne === randomTwo) {
+            // Display the challenge accept screen
             acceptChallengeScreen.style.display = 'block';
 
+            // Get elements for offer display
             const offerDisplay = document.getElementById('current-score-offer');
             const doubleOfferDisplay = document.getElementById('double-score-offer');
+
+            // Get the current score
             let offerNumber = parseInt(scoreText.textContent, 10);
+
+            // Play challenge triggered sound and pause background music
             playChallengeTriggeredSound();
             pauseBackgroundMusic();
             playChallengeTriggeredSound();
+
+            // Update offer displays
             if (offerDisplay) {
                 offerNumber = offerNumber + 1;
                 offerDisplay.innerHTML = offerNumber;
-            } else {
             }
             if (doubleOfferDisplay) {
                 doubleOfferDisplay.innerHTML = offerNumber * 2;
-
-
-            } else {
-
             }
         }
-
     }
 
-    // red blinking colors for bonus game guessing cards
-    let switchDirection = true;
-    let stopSwitching = false;
-    function switchColors() {
+    /**
+  * Initial values for the switch direction and stopping the switching.
+  */
+    let switchDirection = true; // Initial direction is set to true
+    let stopSwitching = false; // Initial stopping is set to false
+    /**
+  * Function to switch colors between two options.
+  */
+    function switchColorsForChallengeOptions() {
+        // Check if switching should stop
         if (stopSwitching) {
             return;
         }
+
+        // Get elements for option backgrounds and icons
         const optionOneBackground = document.getElementById("option-one-background");
         const optionTwoBackground = document.getElementById("option-two-background");
         const iconOne = document.getElementById('icon-one');
         const iconTwo = document.getElementById('icon-two');
+
+        // Switch colors based on the switch direction
         if (switchDirection) {
             optionOneBackground.style.backgroundColor = "red";
             optionTwoBackground.style.backgroundColor = "white";
             iconOne.style.color = "white";
             iconTwo.style.color = "black";
-
         } else {
             optionOneBackground.style.backgroundColor = "white";
             optionTwoBackground.style.backgroundColor = "red";
             iconOne.style.color = "black";
             iconTwo.style.color = "white";
-
         }
 
         // Toggle the switch direction
         switchDirection = !switchDirection;
     }
 
+    /**
+ * Update styles for the guessing number and score text.
+ */
     function updateStyles() {
         guessingNumberMovingContainer.style.color = "white";
         guessingNumberMovingContainer.style.fontWeight = '700';
         scoreText.style.fontWeight = '700';
     }
 
-    let isMystery = false;
-    //random number generator
+    /**
+  * Generate a random number for the guessing game.
+  * @returns {number} The generated random number.
+  */
     function generateRandomNumber() {
         let currentNumber;
+
+        // Check if it's time to display the mystery number
         if (countMysteryNumber === 9) {
             mysteryNumberContainer.style.display = 'block';
             messageForMystery.style.display = 'block';
             playMysteryNumberSound();
-        } else {
-
         }
+
+        // Check if it's the last round
         if (countMysteryNumber === 10) {
             isMystery = true;
             countMysteryNumber = 0;
         }
+
+        // Generate a random number and ensure it's different from the previous one
         do {
             currentNumber = Math.floor(Math.random() * 100) + 1;
+
+            // Display the current number in the guessing container
             if (guessingNumberMovingContainer) {
                 guessingNumberMovingContainer.textContent = currentNumber;
             } else {
                 return currentNumber;
             }
         } while (currentNumber === previousNumber);
+
+        // Update the previous number and return the current one
         previousNumber = currentNumber;
         return currentNumber;
     }
 
-    //reset answer to 0
+    /**
+  * Reset the count of consecutive correct answers to zero.
+  */
     function resetConsecutiveCorrectAnswers() {
         consecutiveCorrectAnswers = 0;
     }
@@ -1227,41 +1424,66 @@ acceptChallengeButton.addEventListener('click', function () {
         return highScores.length === 0 || score > highScores[0].score;
     }
 
-
-    //save game function
+    /**
+     * Save the current game score to the local storage and update the high scores if it's the best score.
+     * Display a form for entering the player's name if the score is the best.
+     */
     function saveGame() {
+        // Get the current game score from the displayed text content
         const currentScore = parseInt(scoreText.textContent, 10);
+
+        // Get the best scores from local storage or initialize an empty array
         const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+
+        // Check if the current score is the best among existing scores
         const isTheBestScore = isScoreTheBest(currentScore, bestScores);
+
+        // Get the score form container element by its ID
         const scoreFormContainer = document.getElementById('score-form');
+
+        // Check if the current score is the best
         if (isTheBestScore) {
+            // Display the form for entering the player's name
             scoreFormContainer.style.display = 'block';
+
             if (currentScore <= 0) {
+                // Show an alert if the current score is 0
                 alert("Score can't be 0");
                 return;
             }
+
+            // Update the best scores with the current score
             bestScores.length = 0;
             bestScores.push({ score: currentScore });
             localStorage.setItem('bestScores', JSON.stringify(bestScores));
-            displayHighScores();
 
+            // Display the updated high scores
+            displayHighScores();
         } else {
+            // Alert the user that their score is not the best
             alert("Sorry, your score is not the best.");
         }
-
-
     }
-    function initializeBestScore() {
-        const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
 
-        // If no best scores are stored, initialize with a score of 0
-        if (bestScores.length === 0) {
-            const initialBestScore = [{ score: 0 }];
-            localStorage.setItem('bestScores', JSON.stringify(initialBestScore));
-        }
+   /*
+ * Function to initialize the best scores in local storage.
+ * If there are no best scores, it sets an initial best score of 0.
+ */
+function initializeBestScore() {
+    // Retrieve best scores from local storage or initialize an empty array
+    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+
+    // Check if there are no best scores
+    if (bestScores.length === 0) {
+        // Set an initial best score of 0
+        const initialBestScore = [{ score: 0 }];
+        localStorage.setItem('bestScores', JSON.stringify(initialBestScore));
     }
+}
+
 
     function checkAndDisplayBestScore() {
+        const popupContainer = document.getElementById('popup-container');
         const currentScore = parseInt(scoreText.textContent, 10);
         const highScores = JSON.parse(localStorage.getItem('bestScores')) || [];
         const isTheBestScore = isScoreTheBest(currentScore, highScores);
@@ -1272,36 +1494,50 @@ acceptChallengeButton.addEventListener('click', function () {
             popupContainer.style.display = 'block';
         }
     }
-    /*Function to chnage color of challenge title*/
-    function changeBackgroundColor() {
-        let challengeBackgroundColorBlink = document.getElementById("challenge-h2");
 
-        challengeBackgroundColorBlink.style.backgroundColor = colors[colorIndex];
+   /*
+ * Function to make the background color of the challenge title blink through an array of colors.
+ */
+function makeBlinkChallengeTitleBackgroundColor() {
+    // Get the challenge title element
+    let challengeBackgroundColorBlink = document.getElementById("challenge-h2");
 
-        colorIndex = (colorIndex + 1) % colors.length;
-    }
+    // Set the background color to the next color in the array
+    challengeBackgroundColorBlink.style.backgroundColor = colors[colorIndex];
+
+    // Increment the color index and loop back to the beginning if needed
+    colorIndex = (colorIndex + 1) % colors.length;
+}
 
 });
 
 
 /**
-        * Function to dynamically resize all images on small screens (e.g., phones).
-        * @param {number} newWidth - The new width for the images in ems.
-        * @param {number} newHeight - The new height for the images in ems.
-        */
+ * Function to dynamically resize all images on small screens (e.g., phones).
+ * @param {number} newWidth - The new width for the images in ems.
+ * @param {number} newHeight - The new height for the images in ems.
+ */
 function resizeAllImages(newWidth, newHeight) {
+    // Get the viewport width
     let viewportWidth = window.innerWidth;
+
+    // Check if the viewport width is less than or equal to 600 pixels
     if (viewportWidth <= 600) {
+        // Get all image elements on the page
         let imgElements = document.getElementsByTagName('img');
+
+        // Loop through each image element
         for (let i = 0; i < imgElements.length; i++) {
             // Check if the current image should be excluded
             if (!imgElements[i].classList.contains('dashboard-icons-class')) {
+                // Set the new width and height for the image
                 imgElements[i].style.width = newWidth + 'em';
                 imgElements[i].style.height = newHeight + 'em';
             }
         }
     }
 }
+
 
 function displayHighScores() {
     const highScore = document.getElementById('high-score-paragraph');
