@@ -551,6 +551,11 @@ Now you have the Infinite Guess project cloned to your local machine, and you ca
 
 ### Credits for Theme Background Images:
 
+- **Welcome Screen Background:**
+  - [Welcome Screen Background:](https://www.freepik.com/free-ai-image/3d-rendering-abstract-black-white_72619051.htm#fromView=search&term=black+and+qhiute+hiorzontal+line+sphere&track=ais_ai_generated&regularType=ai&page=1&position=24&uuid=3849b9a6-090f-49f0-a904-62c3ec5ea5a1)
+
+- **Default Theme Background:**
+  - [Welcome Screen Background:](https://www.freepik.com/free-photo/3d-rendering-optical-illusion_71555831.htm#query=black%20and%20whiute%20ilusion%20horizontal%20lines&position=15&from_view=search&track=ais&uuid=5e247c8b-a254-4ae0-b655-45a6e514962c")
 
 - **Earth Theme Background:**
   - [Earth Theme Image by freepik](https://www.freepik.com/free-ai-image/earth-seen-from-space_47990964.htm#fromView=search&term=earth&track=ais_ai_generated&regularType=ai&page=1&position=46&uuid=5e18fb99-9b69-4e76-899c-dfe7275bf4ab)

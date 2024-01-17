@@ -2475,6 +2475,13 @@ footer {
         margin-bottom: 15px;
     }
 
+    #icon-one {
+        font-size: 8rem;
+    }
+
+    #icon-two {
+        font-size: 8rem;
+    }
     #score-screen-number-div h3 {
         color: white;
         font-size: 2.7rem;
@@ -2635,6 +2642,13 @@ footer {
         box-shadow: 0 8px 1rem rgba(52, 51, 0, 0.5);
         border: 0.3rem solid rgb(155, 154, 154);
         background-color: rgba(253, 251, 251, 0.7);
+    }
+    #option-one-number {
+        font-size: 7rem;
+    }
+    
+    #option-two-number {
+        font-size: 7rem;
     }
 
     #best-score-paragraph {

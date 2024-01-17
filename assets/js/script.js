@@ -612,39 +612,77 @@ closeChallengeScreenButton.addEventListener('click', function () {
     resetStylesForChallenge();
 });
 
+/**
+ * Handle the click event for the exit turbo button.
+ * 
+ * This function is triggered when the exit turbo button is clicked. It hides the turbo bonus
+ * section, resets the timer element styles, plays background music, and triggers the button click sound.
+ */
+exitTurboButton.addEventListener('click', function () {
+    // Hide the turbo bonus section
+    const instruction = document.getElementById('exit-turbo-bonus-section');
+    instruction.style.display = 'none';
 
-    // exit turbo game button
-    exitTurboButton.addEventListener('click', function () {
-        const instruction = document.getElementById('exit-turbo-bonus-section');
-        instruction.style.display = 'none';
-        const timerElement = document.getElementById('timer');
-        timerElement.style.backgroundColor = 'white';
-        timerElement.style.display = 'none';
+    // Reset the timer element styles
+    const timerElement = document.getElementById('timer');
+    timerElement.style.backgroundColor = 'white';
+    timerElement.style.display = 'none';
 
-        playBackgroundMusic();
-        playButtonClickSound();
+    // Play background music and trigger button click sound
+    playBackgroundMusic();
+    playButtonClickSound();
+});
 
-    });
 
-    // decline challenge game button
-    declineChallengeButton.addEventListener('click', function () {
-        const acceptChallengeScreen = document.getElementById('accept-challenge-section');
-        playBackgroundMusic();
-        playButtonClickSound();
-        acceptChallengeScreen.style.display = 'none';
-    });
-    // accept challenge game button
-    acceptChallengeButton.addEventListener('click', function () {
-        stopSwitching = false;
-        intervalId = setInterval(switchColors, 500);
-        const challengeScreen = document.getElementById('challenge');
-        challengeScreen.style.display = 'block';
-        const acceptChallengeScreen = document.getElementById('accept-challenge-section');
-        acceptChallengeScreen.style.display = 'none';
-        playButtonClickSound();
-        playChallengeMusic();
+   /**
+ * Event listener for the click on the "declineChallengeButton" button.
+ * 
+ * This function is triggered when the "declineChallengeButton" button is clicked.
+ * It plays main background music, a button click sound, and hides the accept challenge screen.
+ */
+declineChallengeButton.addEventListener('click', function () {
+    // Get the accept challenge screen element
+    const acceptChallengeScreen = document.getElementById('accept-challenge-section');
 
-    });
+    // Play background music
+    playBackgroundMusic();
+
+    // Play button click sound
+    playButtonClickSound();
+
+    // Hide the accept challenge screen
+    acceptChallengeScreen.style.display = 'none';
+});
+  
+/**
+ * Event listener for the click on the "acceptChallengeButton" button.
+ * 
+ * This function is triggered when the "acceptChallengeButton" button is clicked.
+ * It initiates color switching, displays the challenge screen, plays a button click sound,
+ * and starts playing challenge music.
+ */
+acceptChallengeButton.addEventListener('click', function () {
+    // Allow color switching
+    stopSwitching = false;
+
+    // Start interval for color switching
+    intervalId = setInterval(switchColors, 500);
+
+    // Get the challenge screen element
+    const challengeScreen = document.getElementById('challenge');
+    challengeScreen.style.display = 'block';
+
+    // Get the accept challenge screen element
+    const acceptChallengeScreen = document.getElementById('accept-challenge-section');
+    acceptChallengeScreen.style.display = 'none';
+
+    // Play button click sound
+    playButtonClickSound();
+
+    // Start playing challenge music
+    playChallengeMusic();
+});
+
 
 
     // exit game button
