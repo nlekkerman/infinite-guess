@@ -1700,6 +1700,8 @@ document.addEventListener("DOMContentLoaded", function () {
             plusButton.style.opacity = 0.8;
             plusButton.style.border = '3px solid white';
             plusButton.style.color = "white";
+            plusButton.style.justifyContent = 'center'
+
 
             // Styles for the minus button
             minusBtn.style.backgroundColor = "red";
