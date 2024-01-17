@@ -480,6 +480,11 @@ The HTML code has been validated using the W3C HTML Validator. Explore the link 
 
 [HTML Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fnlekkerman.github.io%2Finfinite-guess%2F)
 
+#### 404 HTML Validation
+
+![HTML 404 Validation Screenshot](docs/images/404-html-validation-screenshot.png)
+
+
 ![HTML Validation Screenshot](docs/images/html-validation-screenshot.png)
 
 ### JavaScript Validation
