@@ -1881,16 +1881,4 @@ themeLinks.forEach(function (themeLink) {
 });
 
 
-/**
- * Custom 404 Page Handling
- * This script checks if the page title is '404 Not Found' and redirects to the custom 404 page after 3 seconds.
- */
-window.addEventListener('DOMContentLoaded', function () {
-    // Check if the page is not found (404 status)
-    if (document.title === '404 Not Found') {
-        // Redirect to the custom 404 page after 3 seconds
-        setTimeout(function () {
-            window.location.href = '404.html';
-        }, 3000);
-    }
-});
+
