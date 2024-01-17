@@ -572,10 +572,16 @@ Now you have the Infinite Guess project cloned to your local machine, and you ca
   - [Body background Image by freepik](https://www.freepik.com/free-ai-image/3d-rendering-abstract-black-white-background_75957971.htm#fromView=search&term=infinite&track=ais_ai_generated&regularType=ai&page=5&position=22&uuid=00297804-a0fe-4b40-b53b-c56fec93f20d)
 
 
+- **404 image:**
+  - [Image by freepik](https://www.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_13315300.htm#query=404%20error%20page%20not%20found%20check%20you%20connection&position=1&from_view=search&track=ais&uuid=13aa07e9-54b4-4f59-9202-678dbc1f37b1)
+
 ### Credits for Favicon Icon:
 
 - **Favicon Icon:**
-  - [Icon by Sagarkumar Gopani](https://www.freepik.com/icon/internet-computer_7505387#fromView=search&term=favicon+for+infinite&track=ais&page=1&position=95&uuid=d4902875-4138-447a-aed5-7c3a02d8a4ab)
+  - [Icon by freepik](https://www.freepik.com/icon/internet-computer_7505387#fromView=search&term=favicon+for+infinite&track=ais&page=1&position=95&uuid=d4902875-4138-447a-aed5-7c3a02d8a4ab)
+
+  ### Credits for 404 page:
+
 
 # Audio Credits:
 
