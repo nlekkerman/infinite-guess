@@ -1465,21 +1465,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-   /*
- * Function to initialize the best scores in local storage.
- * If there are no best scores, it sets an initial best score of 0.
- */
-function initializeBestScore() {
-    // Retrieve best scores from local storage or initialize an empty array
-    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+    /*
+  * Function to initialize the best scores in local storage.
+  * If there are no best scores, it sets an initial best score of 0.
+  */
+    function initializeBestScore() {
+        // Retrieve best scores from local storage or initialize an empty array
+        const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
 
-    // Check if there are no best scores
-    if (bestScores.length === 0) {
-        // Set an initial best score of 0
-        const initialBestScore = [{ score: 0 }];
-        localStorage.setItem('bestScores', JSON.stringify(initialBestScore));
+        // Check if there are no best scores
+        if (bestScores.length === 0) {
+            // Set an initial best score of 0
+            const initialBestScore = [{ score: 0 }];
+            localStorage.setItem('bestScores', JSON.stringify(initialBestScore));
+        }
     }
-}
 
 
     function checkAndDisplayBestScore() {
@@ -1495,19 +1495,19 @@ function initializeBestScore() {
         }
     }
 
-   /*
- * Function to make the background color of the challenge title blink through an array of colors.
- */
-function makeBlinkChallengeTitleBackgroundColor() {
-    // Get the challenge title element
-    let challengeBackgroundColorBlink = document.getElementById("challenge-h2");
+    /*
+  * Function to make the background color of the challenge title blink through an array of colors.
+  */
+    function makeBlinkChallengeTitleBackgroundColor() {
+        // Get the challenge title element
+        let challengeBackgroundColorBlink = document.getElementById("challenge-h2");
 
-    // Set the background color to the next color in the array
-    challengeBackgroundColorBlink.style.backgroundColor = colors[colorIndex];
+        // Set the background color to the next color in the array
+        challengeBackgroundColorBlink.style.backgroundColor = colors[colorIndex];
 
-    // Increment the color index and loop back to the beginning if needed
-    colorIndex = (colorIndex + 1) % colors.length;
-}
+        // Increment the color index and loop back to the beginning if needed
+        colorIndex = (colorIndex + 1) % colors.length;
+    }
 
 });
 
@@ -1648,155 +1648,199 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+/**
+ * Function to apply different themes based on the selected theme ID.
+ * @param {string} selectedThemeId - The ID of the selected theme.
+ */
 
-/*DOM element to select various Theme*/
+// Select all theme links in the theme-div
 let themeLinks = document.querySelectorAll('.theme-div a');
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* function to apply different Theme*/
+    /**
+     * Function to apply different Theme.
+     * @param {string} selectedThemeId - The ID of the selected theme.
+     */
     function applyTheme(selectedThemeId) {
+        // Get references to various elements by their IDs for theming
         const playground = document.getElementById("playground-section");
         const plusButton = document.getElementById('plus-button');
         const minusBtn = document.getElementById('minus-button');
         const messageText = document.getElementById('message-id');
-
         const scoreText = document.getElementById('score-screen-number-div');
         const guessingNumber = document.getElementById('guessing-number-div');
         const scoreBoardBackground = document.getElementById('right-wrong-text-with-video');
         const score = document.getElementById('score-text');
 
+        // Remove 'active' class from all theme links
         themeLinks.forEach(link => link.classList.remove('active'));
         const selectedThemeLink = document.getElementById(selectedThemeId);
         if (selectedThemeLink) {
             selectedThemeLink.classList.add('active');
         }
+        // Theme: Default
         if (selectedThemeId === 'theme-default') {
+            // Background image for the playground
             playground.style.backgroundImage = 'url("./assets/images/default-main-background.jpg")';
 
-
+            // Background color for the score board
             scoreBoardBackground.style.backgroundColor = "#f4f5f0";
+
+            // Text color for the score
             score.style.color = 'black';
+
+            // Styles for the score text
             scoreText.style.backgroundColor = "red";
             scoreText.style.opacity = 0.8;
             scoreText.style.color = "white";
             scoreText.style.border = '2px solid white';
 
-
+            // Styles for the plus button
             plusButton.style.backgroundColor = "green";
             plusButton.style.opacity = 0.8;
             plusButton.style.border = '3px solid white';
             plusButton.style.color = "white";
 
+            // Styles for the minus button
             minusBtn.style.backgroundColor = "red";
             minusBtn.style.opacity = 0.8;
             minusBtn.style.border = '3px solid white';
             minusBtn.style.color = "white";
 
+            // Styles for the message text
             messageText.style.backgroundColor = "red";
             messageText.style.opacity = 0.8;
             messageText.style.color = "white";
             messageText.style.border = '3px solid gold';
 
+            // Styles for the guessing number
             guessingNumber.style.backgroundColor = "black";
             guessingNumber.style.opacity = 0.8;
             guessingNumber.style.color = "white";
             guessingNumber.style.border = '3px solid yellow';
 
-
+            // Theme: Space
         } else if (selectedThemeId === 'theme-space') {
+            // Background image for the playground
             playground.style.backgroundImage = 'url("./assets/images/space-main-background.jpg")';
 
+            // Text color for the score
             score.style.color = 'black';
+
+            // Background color for the score board
             scoreBoardBackground.style.backgroundColor = "#501682";
+
+            // Styles for the plus button
             plusButton.style.backgroundColor = "black";
             plusButton.style.opacity = 0.8;
             plusButton.style.border = '3px solid cyan';
             plusButton.style.color = "white";
 
+            // Styles for the minus button
             minusBtn.style.backgroundColor = "white";
             minusBtn.style.opacity = 0.8;
             minusBtn.style.border = '3px solid cyan';
             minusBtn.style.color = "black";
 
+            // Styles for the message text
             messageText.style.backgroundColor = "lightblue";
             messageText.style.opacity = 0.8;
             messageText.style.color = "black";
             messageText.style.border = '3px solid cyan';
 
+            // Styles for the score text
             scoreText.style.backgroundColor = "red";
             scoreText.style.opacity = 0.8;
             scoreText.style.color = "white";
             scoreText.style.border = '2px solid white';
 
+            // Styles for the guessing number
             guessingNumber.style.backgroundColor = "HotMagenta";
             guessingNumber.style.opacity = 0.8;
             guessingNumber.style.color = "white";
             guessingNumber.style.border = '3px solid cyan';
 
-
-
+            // Theme: Earth
         } else if (selectedThemeId === 'theme-earth') {
+            // Background image for the playground
             playground.style.backgroundImage = 'url("./assets/images/earth-main-background.jpg")';
 
+            // Background color for the score board
             scoreBoardBackground.style.backgroundColor = "lightblue";
+
+            // Text color for the score
             score.style.color = 'black';
 
+            // Styles for the plus button
             plusButton.style.backgroundColor = "#40E0D0";
             plusButton.style.opacity = 1;
             plusButton.style.color = "black";
             plusButton.style.border = '3px solid white';
 
+            // Styles for the minus button
             minusBtn.style.backgroundColor = "#FF10F0";
             minusBtn.style.opacity = 0.8;
             minusBtn.style.border = '3px solid white';
             minusBtn.style.color = "black";
 
+            // Styles for the message text
             messageText.style.backgroundColor = "black";
             messageText.style.opacity = 0.8;
             messageText.style.color = "white";
             messageText.style.border = '3px solid white';
 
+            // Styles for the score text
             scoreText.style.backgroundColor = "red";
             scoreText.style.opacity = 0.8;
             scoreText.style.color = "white";
             scoreText.style.border = '2px solid white';
 
+            // Styles for the guessing number
             guessingNumber.style.backgroundColor = "green";
             guessingNumber.style.opacity = 0.8;
             guessingNumber.style.color = "white";
             guessingNumber.style.border = '3px solid white';
+
+            // Theme: Fairy
         } else if (selectedThemeId === 'theme-fairy') {
+            // Background image for the playground
             playground.style.backgroundImage = 'url("./assets/images/fairy-main-background.jpg")';
 
+            // Text color for the score
             score.style.color = 'black';
+
+            // Background color for the score board
             scoreBoardBackground.style.backgroundColor = "lightblue";
+
+            // Styles for the plus button
             plusButton.style.backgroundColor = "#fc03f4";
             plusButton.style.color = "black";
             plusButton.style.opacity = 0.6;
             plusButton.style.border = '3px solid white';
 
+            // Styles for the minus button
             minusBtn.style.backgroundColor = "#30fc03";
             minusBtn.style.opacity = 0.8;
             minusBtn.style.border = '3px solid white';
             minusBtn.style.color = "black";
 
+            // Styles for the message text
             messageText.style.backgroundColor = "#f4fc03";
             messageText.style.opacity = 0.8;
             messageText.style.color = "black";
             messageText.style.border = '3px solid darkRed';
 
+            // Styles for the score text
             scoreText.style.backgroundColor = "red";
             scoreText.style.opacity = 0.8;
             scoreText.style.color = "white";
             scoreText.style.border = '2px solid white';
 
+            // Styles for the guessing number
             guessingNumber.style.backgroundColor = "#9403fc";
             guessingNumber.style.opacity = 0.6;
             guessingNumber.style.color = "white";
             guessingNumber.style.border = '3px solid white';
-
-
-        } else {
 
         }
     }
@@ -1804,24 +1848,35 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if a theme is already selected
     const savedThemeId = localStorage.getItem('selectedTheme');
     if (savedThemeId) {
+        // Apply the saved theme and resize images
         applyTheme(savedThemeId);
         resizeAllImages(37.5, 25);
-
     }
 
-    // Add event listeners for theme selection
-    themeLinks.forEach(function (themeLink) {
-        themeLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            themeLinks.forEach(link => link.classList.remove('active'));
-            themeLink.classList.add('active');
-            const selectedThemeId = event.target.id;
-            localStorage.setItem('selectedTheme', selectedThemeId);
-            applyTheme(selectedThemeId);
-            resizeAllImages(37.5, 25);
+   // Add event listeners for theme selection
+themeLinks.forEach(function (themeLink) {
+    themeLink.addEventListener('click', function (event) {
+        // Prevent default link behavior
+        event.preventDefault();
 
-        });
+        // Remove 'active' class from all theme links
+        themeLinks.forEach(link => link.classList.remove('active'));
+
+        // Add 'active' class to the clicked link
+        themeLink.classList.add('active');
+
+        // Get the selected theme ID
+        const selectedThemeId = event.target.id;
+
+        // Save the selected theme ID to localStorage
+        localStorage.setItem('selectedTheme', selectedThemeId);
+
+        // Apply the selected theme and resize images
+        applyTheme(selectedThemeId);
+        resizeAllImages(37.5, 25);
     });
+});
+
 
 });
 
