@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const plusButton = document.getElementById('plus-button');
     const minusButton = document.getElementById('minus-button');
     const answerText = document.getElementById('right-wrong-text');
-    const scoreText = document.getElementById('score-text');
+    const scoreText = document.getElementById('score-number-text');
 
     /**
      * BUTTONS ELEMENT: buttons taht apear during game over all screens
@@ -1670,7 +1670,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const scoreText = document.getElementById('score-screen-number-div');
         const guessingNumber = document.getElementById('guessing-number-div');
         const scoreBoardBackground = document.getElementById('score-screen-number-div');
-        const score = document.getElementById('score-text');
+        const score = document.getElementById('score-number-text');
 
         // Remove 'active' class from all theme links
         themeLinks.forEach(link => link.classList.remove('active'));
