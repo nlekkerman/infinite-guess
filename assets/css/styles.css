@@ -1345,7 +1345,7 @@ h1 {
 .ripple {
     position: absolute;
     border-radius: 50%;
-    background: rgba(237, 21, 21, 0.7);
+    background: rgba(249, 245, 1, 0.7);
     transform: scale(0);
     animation: ripple-animation 0.3s linear;
 }

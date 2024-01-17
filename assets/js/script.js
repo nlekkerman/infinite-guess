@@ -1539,55 +1539,88 @@ function resizeAllImages(newWidth, newHeight) {
 }
 
 
+/**
+ * Function to display the high scores on the page.
+ */
 function displayHighScores() {
+    // Get the high score element from the DOM
     const highScore = document.getElementById('high-score-paragraph');
-    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
-    const score = bestScores[0].score;
-    highScore.innerHTML = '';
-    bestScores.sort((a, b) => b.score - a.score);
 
+    // Get the best scores from local storage, or an empty array if not available
+    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+
+    // Get the score from the first item in the best scores array
+    const score = bestScores[0].score;
+
+    // Clear the content of the high score element
+    highScore.innerHTML = '';
+
+    // Check if there are any best scores
     if (bestScores.length > 0) {
+        // Display the highest score on the page
         highScore.textContent = score;
     }
 }
 
+
+/**
+ * Function to display the high score on the dashboard.
+ */
 function displayHighScoresForDashboard() {
+    // Get the high score element from the dashboard
     const highScore = document.getElementById('the-best-score-dashboard');
-    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
-    const score = bestScores[0].score;
-    highScore.innerHTML = '';
-    bestScores.sort((a, b) => b.score - a.score);
 
+    // Get the best scores from local storage, or an empty array if not available
+    const bestScores = JSON.parse(localStorage.getItem('bestScores')) || [];
+
+    // Get the score from the first item in the best scores array
+    const score = bestScores[0].score;
+
+    // Clear the content of the high score element
+    highScore.innerHTML = '';
+
+    // Check if there are any best scores
     if (bestScores.length > 0) {
+        // Display the highest score on the dashboard
         highScore.textContent = score;
     }
-
 }
-/*function to create blinkig effect on card in Challenge*/
+
+/**
+ * Function to create a blinking effect on the Timer and guessing numbe in the Turbo Bonus Game .
+ */
 function blinkRedBackground() {
+    // Get elements for timer and guessing number
     let timerElement = document.getElementById('timer');
     let numberElement = document.getElementById('guessing-number-div');
 
+    // Toggle background color and text color of the timer
     timerElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? 'white' : 'red';
     timerElement.style.color = (timerElement.style.backgroundColor === 'white') ? 'black' : 'white';
 
+    // Toggle background color of the guessing number
     numberElement.style.backgroundColor = (timerElement.style.backgroundColor === 'red') ? '' : 'red';
-
-    // Play the warning sound
-    //warningSound.play();
 }
 
-
-/*DOM element to create button ripple effect*/
+/**
+ * Function to create a ripple effect on buttons with the 'ripple-button' class.
+ * @param {Object} event - The click event object.
+ * @param {HTMLElement} button - The button element that triggered the event.
+ */
 document.addEventListener('DOMContentLoaded', function () {
+    // Get all elements with the 'ripple-button' class
     const buttons = document.querySelectorAll('.ripple-button');
+
+    // Add a click event listener to each button
     buttons.forEach(button => {
         button.addEventListener('click', function (event) {
             createRipple(event, button);
         });
     });
-    function createRipple(event, button) {
 
+    // Function to create a ripple effect
+    function createRipple(event, button) {
+        // Create a new 'div' element for the ripple
         const ripple = document.createElement('div');
         ripple.classList.add('ripple');
 
@@ -1607,15 +1640,14 @@ document.addEventListener('DOMContentLoaded', function () {
         // Apply click/press effects
         button.style.transform = 'scale(0.95)';
 
-
         // Remove the ripple element and reset styles after animation completes
         ripple.addEventListener('animationend', () => {
             ripple.remove();
             button.style.transform = '';
-
         });
     }
 });
+
 
 /*DOM element to select various Theme*/
 let themeLinks = document.querySelectorAll('.theme-div a');
